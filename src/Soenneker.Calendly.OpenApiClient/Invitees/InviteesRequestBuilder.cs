@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitees
         {
         }
         /// <summary>
-        /// Create a new Event Invitee.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above).  Users on the Free plan will receive a 403 Forbidden response.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
+        /// Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Invitees.InviteesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitees
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Invitees.InviteesPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Invitees.InviteesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new Event Invitee.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above).  Users on the Free plan will receive a 403 Forbidden response.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
+        /// Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Invitees.InviteesResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -97,7 +97,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitees
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Invitees.InviteesResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Invitees.InviteesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new Event Invitee.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above).  Users on the Free plan will receive a 403 Forbidden response.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
+        /// Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
