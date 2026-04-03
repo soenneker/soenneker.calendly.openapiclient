@@ -44,11 +44,11 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithUu404Error">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuGetResponse?> GetAsWithUuGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuGetResponse> GetAsWithUuGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -59,34 +59,6 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.WithUu404Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// This will return the availability schedule of the given UUID.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithUu400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithUu401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithUu404Error">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsWithUuGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.WithUu400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.WithUu401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.WithUu404Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// This will return the availability schedule of the given UUID.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
@@ -115,14 +87,6 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item
         public global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item.WithUuItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithUuItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

@@ -52,11 +52,11 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Org_uu500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuGetResponse?> GetAsOrg_uuGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuGetResponse> GetAsOrg_uuGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -69,38 +69,6 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Org_uu500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns the details of a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Org_uu400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Org_uu401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Org_uu404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Org_uu500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsOrg_uuGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Org_uu400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Org_uu401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Org_uu404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Org_uu500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the details of a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
@@ -129,14 +97,6 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item
         public global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Org_uuItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

@@ -58,11 +58,11 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsGetResponse?> GetAsScheduled_eventsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsGetResponse> GetAsScheduled_eventsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -74,36 +74,6 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsScheduled_eventsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Scheduled_events500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
@@ -213,19 +183,8 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
             public string Sort { get; set; }
 #endif
             /// <summary>Whether the scheduled event is `active` or `canceled`</summary>
-            [Obsolete("This property is deprecated, use StatusAsGetStatusQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("status")]
-            public string? Status { get; set; }
-#nullable restore
-#else
-            [QueryParameter("status")]
-            public string Status { get; set; }
-#endif
-            /// <summary>Whether the scheduled event is `active` or `canceled`</summary>
-            [QueryParameter("status")]
-            public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.GetStatusQueryParameterType? StatusAsGetStatusQueryParameterType { get; set; }
+            public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.GetStatusQueryParameterType? Status { get; set; }
             /// <summary>Return events that are scheduled with the user associated with this URI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -236,14 +195,6 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
             [QueryParameter("user")]
             public string User { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Scheduled_eventsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

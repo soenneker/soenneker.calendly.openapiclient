@@ -46,11 +46,11 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesGetResponse?> GetAsEvent_type_available_timesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder.Event_type_available_timesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder.Event_type_available_timesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesGetResponse> GetAsEvent_type_available_timesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder.Event_type_available_timesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder.Event_type_available_timesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -63,38 +63,6 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of available times for an event type within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsEvent_type_available_timesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder.Event_type_available_timesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder.Event_type_available_timesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_available_times500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of available times for an event type within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
@@ -160,14 +128,6 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
             [QueryParameter("start_time")]
             public string StartTime { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Event_type_available_timesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder.Event_type_available_timesRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

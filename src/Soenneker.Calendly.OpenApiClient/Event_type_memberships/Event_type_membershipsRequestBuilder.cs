@@ -46,11 +46,11 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_memberships
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsGetResponse?> GetAsEvent_type_membershipsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder.Event_type_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder.Event_type_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsGetResponse> GetAsEvent_type_membershipsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder.Event_type_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder.Event_type_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -63,38 +63,6 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_memberships
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsEvent_type_membershipsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder.Event_type_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder.Event_type_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_memberships500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
@@ -153,14 +121,6 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_memberships
             [QueryParameter("page_token")]
             public string PageToken { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Event_type_membershipsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder.Event_type_membershipsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

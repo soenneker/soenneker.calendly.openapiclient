@@ -58,11 +58,11 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsGetResponse?> GetAsOrganization_membershipsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder.Organization_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder.Organization_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsGetResponse> GetAsOrganization_membershipsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder.Organization_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder.Organization_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -74,36 +74,6 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsOrganization_membershipsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder.Organization_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder.Organization_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Organization_memberships500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
@@ -173,19 +143,8 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships
             public string PageToken { get; set; }
 #endif
             /// <summary>Indicates if the results should be filtered by role</summary>
-            [Obsolete("This property is deprecated, use RoleAsGetRoleQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("role")]
-            public string? Role { get; set; }
-#nullable restore
-#else
-            [QueryParameter("role")]
-            public string Role { get; set; }
-#endif
-            /// <summary>Indicates if the results should be filtered by role</summary>
-            [QueryParameter("role")]
-            public global::Soenneker.Calendly.OpenApiClient.Organization_memberships.GetRoleQueryParameterType? RoleAsGetRoleQueryParameterType { get; set; }
+            public global::Soenneker.Calendly.OpenApiClient.Organization_memberships.GetRoleQueryParameterType? Role { get; set; }
             /// <summary>Indicates if the results should be filtered by user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -196,14 +155,6 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships
             [QueryParameter("user")]
             public string User { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Organization_membershipsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder.Organization_membershipsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

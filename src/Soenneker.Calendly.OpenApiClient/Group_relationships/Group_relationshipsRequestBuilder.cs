@@ -58,11 +58,11 @@ namespace Soenneker.Calendly.OpenApiClient.Group_relationships
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsGetResponse?> GetAsGroup_relationshipsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsGetResponse> GetAsGroup_relationshipsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -74,36 +74,6 @@ namespace Soenneker.Calendly.OpenApiClient.Group_relationships
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of group relationships - a given owner can have one membership record, but multiple admin records&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships500Error">When receiving a 500 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsGroup_relationshipsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Group_relationships500Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of group relationships - a given owner can have one membership record, but multiple admin records&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`
@@ -182,14 +152,6 @@ namespace Soenneker.Calendly.OpenApiClient.Group_relationships
             [QueryParameter("page_token")]
             public string PageToken { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Group_relationshipsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }
