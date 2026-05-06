@@ -111,7 +111,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
         {
             /// <summary>The number of rows to return</summary>
             [QueryParameter("count")]
-            public double? Count { get; set; }
+            public int? Count { get; set; }
             /// <summary>Indicates if the results should be filtered by email address</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

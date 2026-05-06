@@ -162,7 +162,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
         {
             /// <summary>The number of rows to return</summary>
             [QueryParameter("count")]
-            public double? Count { get; set; }
+            public int? Count { get; set; }
             /// <summary>Indicates if the results should be filtered by group. This parameter is only required if the `scope` parameter is set to `group`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

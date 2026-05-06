@@ -100,7 +100,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_memberships
         {
             /// <summary>The number of rows to return</summary>
             [QueryParameter("count")]
-            public double? Count { get; set; }
+            public int? Count { get; set; }
             /// <summary>The uri associated with the event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -111,7 +111,7 @@ namespace Soenneker.Calendly.OpenApiClient.Group_relationships
         {
             /// <summary>The number of rows to return</summary>
             [QueryParameter("count")]
-            public double? Count { get; set; }
+            public int? Count { get; set; }
             /// <summary>Indicates the results should be filtered by group</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

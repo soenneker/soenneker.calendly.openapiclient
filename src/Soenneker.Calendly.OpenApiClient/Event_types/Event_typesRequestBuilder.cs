@@ -172,7 +172,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             public bool? AdminManaged { get; set; }
             /// <summary>The number of rows to return</summary>
             [QueryParameter("count")]
-            public double? Count { get; set; }
+            public int? Count { get; set; }
             /// <summary>View available personal, team, and organization event types associated with the organization&apos;s URI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

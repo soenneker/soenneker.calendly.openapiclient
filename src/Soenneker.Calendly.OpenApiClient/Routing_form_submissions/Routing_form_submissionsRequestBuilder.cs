@@ -113,7 +113,7 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_form_submissions
         {
             /// <summary>The number of rows to return</summary>
             [QueryParameter("count")]
-            public double? Count { get; set; }
+            public int? Count { get; set; }
             /// <summary>View routing form submissions associated with the routing form&apos;s URI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
