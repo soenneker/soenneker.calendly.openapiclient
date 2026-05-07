@@ -1,6 +1,6 @@
 {
   "descriptionHash": "95F2180FC3A6906CA02049BD8D25A9CB3EB654F59ED43B3EFBF027C7CE7C3E0552283723D5FC749DCC693D1D60CDFCD4E65CD5FBE854DA45430A12BD37154A02",
-  "descriptionLocation": "../../../Soenneker.Calendly.OpenApiClient/stoplight/122fea9dd5554837a847084d7b91e7aa.bundled.yaml",
+  "descriptionLocation": "../../../Soenneker.Calendly.OpenApiClient/stoplight/f9a5d5bafe544aed8f603a061cacf339.bundled.yaml",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.31.1",
   "clientClassName": "CalendlyOpenApiClient",
