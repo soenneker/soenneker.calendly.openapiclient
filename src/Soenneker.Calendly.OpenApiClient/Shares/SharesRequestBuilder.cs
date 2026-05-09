@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
         {
         }
         /// <summary>
-        /// Endpoint for our [Customize Once and Share](https://help.calendly.com/hc/en-us/articles/10594902199191) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
+        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Endpoint for our [Customize Once and Share](https://help.calendly.com/hc/en-us/articles/10594902199191) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
+        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
