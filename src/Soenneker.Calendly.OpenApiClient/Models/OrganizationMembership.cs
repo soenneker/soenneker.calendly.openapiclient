@@ -39,10 +39,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Information about the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership_user? User { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser? User { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership_user User { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser User { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership"/> and sets the default values.
@@ -74,7 +74,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership_role>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership_user>(global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership_user.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser>(global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership_role>("role", Role);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership_user>("user", User);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

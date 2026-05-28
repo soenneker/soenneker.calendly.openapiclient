@@ -33,7 +33,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>true if an answer to the question is required for respondents to submit the routing form; false if not required.</summary>
         public bool? Required { get; set; }
-        /// <summary>Question type: name, text input, email, phone, textarea input, dropdown list or radio button list.</summary>
+        /// <summary>&quot;Question type: name, text input, email, phone, textarea input, dropdown list or radio button list.&quot;</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_questions_type? Type { get; set; }
         /// <summary>Unique identifier for the routing form question.</summary>
         public Guid? Uuid { get; set; }

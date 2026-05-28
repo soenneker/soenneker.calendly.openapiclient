@@ -34,41 +34,42 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item
         {
         }
         /// <summary>
-        /// Delete a Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:write`
+        /// &quot;Delete a Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:write`&quot;
         /// </summary>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu403Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu403Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu404Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu500Error.CreateFromDiscriminatorValue },
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a specified Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`
+        /// &quot;Get a specified Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhook_uuGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu403Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu404Error">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,13 +84,13 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu403Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.WithWebhook_uu404Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhook_uuGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhook_uuGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:write`
+        /// &quot;Delete a Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -108,7 +109,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a specified Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`
+        /// &quot;Get a specified Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -9,17 +9,66 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class OrganizationInvitationOwner : global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitation, IParsable
+    public partial class OrganizationInvitationOwner : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The moment the invitation was created (e.g. “2020-01-02T03:04:05.678123Z&quot;)</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The email address of the person who was invited to join the organization</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
+        public string Email { get; set; }
+#endif
+        /// <summary>The moment the invitation was last sent (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
+        public DateTimeOffset? LastSentAt { get; set; }
+        /// <summary>Canonical reference (unique identifier) for the organization</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Organization { get; set; }
+#nullable restore
+#else
+        public string Organization { get; set; }
+#endif
+        /// <summary>The status of the invitation (&quot;pending&quot;, &quot;accepted&quot;, or &quot;declined&quot;)</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_status? Status { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_type? Type { get; set; }
+        /// <summary>The moment the invitation was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>Canonical reference (unique identifier) for the organization invitation</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Uri { get; set; }
+#nullable restore
+#else
+        public string Uri { get; set; }
+#endif
+        /// <summary>When the invitation is accepted, a reference to the user who accepted the invitation</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? User { get; set; }
+#nullable restore
+#else
+        public string User { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner"/> and sets the default values.
+        /// </summary>
+        public OrganizationInvitationOwner()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner();
@@ -28,22 +77,38 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
+                { "last_sent_at", n => { LastSentAt = n.GetDateTimeOffsetValue(); } },
+                { "organization", n => { Organization = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_status>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_type>(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "uri", n => { Uri = n.GetStringValue(); } },
+                { "user", n => { User = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("email", Email);
+            writer.WriteDateTimeOffsetValue("last_sent_at", LastSentAt);
+            writer.WriteStringValue("organization", Organization);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_status>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_type>("type", Type);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteStringValue("uri", Uri);
+            writer.WriteStringValue("user", User);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

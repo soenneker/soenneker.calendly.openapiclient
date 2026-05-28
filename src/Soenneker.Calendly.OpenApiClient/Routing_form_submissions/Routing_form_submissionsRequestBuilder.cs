@@ -47,38 +47,38 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_form_submissions
         {
         }
         /// <summary>
-        /// Get a list of Routing Form Submissions for a specified Routing Form.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`
+        /// &quot;Get a list of Routing Form Submissions for a specified Routing Form.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsRequestBuilder.Routing_form_submissionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsRequestBuilder.Routing_form_submissionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsRequestBuilder.Routing_form_submissionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsRequestBuilder.Routing_form_submissionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Routing_form_submissions500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200404Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200500Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingFormSubmissions200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a list of Routing Form Submissions for a specified Routing Form.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`
+        /// &quot;Get a list of Routing Form Submissions for a specified Routing Form.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +106,7 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_form_submissions
             return new global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Get a list of Routing Form Submissions for a specified Routing Form.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`
+        /// &quot;Get a list of Routing Form Submissions for a specified Routing Form.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Routing_form_submissionsRequestBuilderGetQueryParameters 
@@ -134,7 +134,7 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_form_submissions
             [QueryParameter("page_token")]
             public string PageToken { get; set; }
 #endif
-            /// <summary>Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.</summary>
+            /// <summary>&quot;Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

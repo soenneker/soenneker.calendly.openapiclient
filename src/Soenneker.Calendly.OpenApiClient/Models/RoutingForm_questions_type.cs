@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>Question type: name, text input, email, phone, textarea input, dropdown list or radio button list.</summary>
+    /// <summary>&quot;Question type: name, text input, email, phone, textarea input, dropdown list or radio button list.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum RoutingForm_questions_type
     {

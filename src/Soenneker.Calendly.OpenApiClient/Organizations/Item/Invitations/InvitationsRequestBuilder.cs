@@ -47,61 +47,61 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
         {
         }
         /// <summary>
-        /// Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// &quot;Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitations400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitations401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitations404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitations500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder.InvitationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder.InvitationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder.InvitationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder.InvitationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Invitations400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Invitations401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Invitations404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Invitations500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200404Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200500Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
+        /// &quot;Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.Invitations400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitations401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitations404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitations500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateOrganizationInvitation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateOrganizationInvitation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.Invitations400Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.Invitations401Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.Invitations404Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Invitations500Error.CreateFromDiscriminatorValue },
@@ -109,7 +109,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// &quot;Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,18 +128,18 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             return requestInfo;
         }
         /// <summary>
-        /// Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
+        /// &quot;Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateOrganizationInvitation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateOrganizationInvitation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -159,7 +159,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             return new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// &quot;Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InvitationsRequestBuilderGetQueryParameters 

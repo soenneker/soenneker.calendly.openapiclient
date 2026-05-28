@@ -24,10 +24,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The event property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_event? Event { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent? Event { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_event Event { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent Event { get; set; }
 #endif
         /// <summary>The start time of the scheduled event in UTC time</summary>
         public DateTimeOffset? StartTime { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "buffered_end_time", n => { BufferedEndTime = n.GetDateTimeOffsetValue(); } },
                 { "buffered_start_time", n => { BufferedStartTime = n.GetDateTimeOffsetValue(); } },
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
-                { "event", n => { Event = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_event>(global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_event.CreateFromDiscriminatorValue); } },
+                { "event", n => { Event = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent>(global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent.CreateFromDiscriminatorValue); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_type>(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("buffered_end_time", BufferedEndTime);
             writer.WriteDateTimeOffsetValue("buffered_start_time", BufferedStartTime);
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_event>("event", Event);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent>("event", Event);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

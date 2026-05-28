@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
         {
         }
         /// <summary>
-        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
+        /// &quot;Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -42,15 +42,15 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Shares400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Shares401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Shares403Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Shares404Error">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateShare body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateShare body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -59,24 +59,24 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
             {
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.Shares400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.Shares401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.Shares403Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.Shares404Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
+        /// &quot;Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateShare body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Shares.SharesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateShare body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

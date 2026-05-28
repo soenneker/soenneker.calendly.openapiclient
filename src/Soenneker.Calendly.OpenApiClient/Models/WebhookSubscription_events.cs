@@ -28,5 +28,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         #pragma warning disable CS1591
         Routing_form_submissionCreated,
         #pragma warning restore CS1591
+        [EnumMember(Value = "contact.created")]
+        #pragma warning disable CS1591
+        ContactCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "contact.updated")]
+        #pragma warning disable CS1591
+        ContactUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "contact.deleted")]
+        #pragma warning disable CS1591
+        ContactDeleted,
+        #pragma warning restore CS1591
     }
 }

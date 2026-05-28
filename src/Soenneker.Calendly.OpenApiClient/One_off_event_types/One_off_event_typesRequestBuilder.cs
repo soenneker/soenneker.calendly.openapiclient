@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.One_off_event_types
         {
         }
         /// <summary>
-        /// Creates One-Off Event Type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
+        /// &quot;Creates One-Off Event Type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Calendly.OpenApiClient.One_off_event_types
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.One_off_event_types500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventType body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventType body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -65,18 +65,18 @@ namespace Soenneker.Calendly.OpenApiClient.One_off_event_types
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates One-Off Event Type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
+        /// &quot;Creates One-Off Event Type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventType body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventType body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

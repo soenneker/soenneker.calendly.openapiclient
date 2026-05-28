@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees
         {
         }
         /// <summary>
-        /// To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`
+        /// &quot;To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Invitees500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.DeleteInviteeData body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.DeleteInviteeData body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -65,18 +65,18 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`
+        /// &quot;To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.DeleteInviteeData body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees.InviteesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.DeleteInviteeData body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

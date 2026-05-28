@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Locations
         {
         }
         /// <summary>
-        /// Returns configured location information for a given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `locations:read`
+        /// &quot;Returns configured location information for a given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `locations:read`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Locations.LocationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Locations
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Locations.LocationsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Locations.LocationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns configured location information for a given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `locations:read`
+        /// &quot;Returns configured location information for a given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `locations:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Calendly.OpenApiClient.Locations
             return new global::Soenneker.Calendly.OpenApiClient.Locations.LocationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns configured location information for a given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `locations:read`
+        /// &quot;Returns configured location information for a given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `locations:read`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LocationsRequestBuilderGetQueryParameters 

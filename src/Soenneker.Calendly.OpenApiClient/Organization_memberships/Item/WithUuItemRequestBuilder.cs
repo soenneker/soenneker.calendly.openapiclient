@@ -34,8 +34,9 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships.Item
         {
         }
         /// <summary>
-        /// Removes a user from an organization.Notes:* To remove users, the caller must have admin rights for the organization* An organization owner can&apos;t be removed&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
+        /// &quot;Removes a user from an organization.Notes:* To remove users, the caller must have admin rights for the organization* An organization owner can&apos;t be removed&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`&quot;
         /// </summary>
+        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithUu400Error">When receiving a 400 status code</exception>
@@ -44,11 +45,11 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.WithUu500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -59,10 +60,10 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships.Item
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.WithUu404Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.WithUu500Error.CreateFromDiscriminatorValue },
             };
-            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns information about a user&apos;s Organization Membership&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// &quot;Returns information about a user&apos;s Organization Membership&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Item.WithUuGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +92,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Item.WithUuGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Item.WithUuGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Removes a user from an organization.Notes:* To remove users, the caller must have admin rights for the organization* An organization owner can&apos;t be removed&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
+        /// &quot;Removes a user from an organization.Notes:* To remove users, the caller must have admin rights for the organization* An organization owner can&apos;t be removed&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +111,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns information about a user&apos;s Organization Membership&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// &quot;Returns information about a user&apos;s Organization Membership&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -34,38 +34,38 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
         {
         }
         /// <summary>
-        /// Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200404Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200500Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`
+        /// &quot;Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -73,16 +73,16 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules403Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchResponse?> PatchAsync(global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchResponse?> PatchAsync(global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchResponse> PatchAsync(global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchResponse> PatchAsync(global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -91,14 +91,14 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             {
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules403Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules404Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_type_availability_schedules500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,18 +117,18 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return requestInfo;
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`
+        /// &quot;Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesPatchRequestBody body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability body, Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder.Event_type_availability_schedulesRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -148,7 +148,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return new global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_type_availability_schedulesRequestBuilderGetQueryParameters 
@@ -165,7 +165,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
 #endif
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`
+        /// &quot;Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_type_availability_schedulesRequestBuilderPatchQueryParameters 

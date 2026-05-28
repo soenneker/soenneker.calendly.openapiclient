@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
         {
         }
         /// <summary>
-        /// Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have &quot;Check for conflicts&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -42,7 +42,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_times424Error">When receiving a 424 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseResponseApplicationJson">When receiving a 424 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,13 +59,13 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times401Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times404Error.CreateFromDiscriminatorValue },
-                { "424", global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_times424Error.CreateFromDiscriminatorValue },
+                { "424", global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseResponseApplicationJson.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have &quot;Check for conflicts&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
             return new global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have &quot;Check for conflicts&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_busy_timesRequestBuilderGetQueryParameters 

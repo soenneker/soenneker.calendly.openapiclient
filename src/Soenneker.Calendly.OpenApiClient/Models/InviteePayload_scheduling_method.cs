@@ -11,5 +11,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         #pragma warning disable CS1591
         Instant_book,
         #pragma warning restore CS1591
+        [EnumMember(Value = "api")]
+        #pragma warning disable CS1591
+        Api,
+        #pragma warning restore CS1591
     }
 }

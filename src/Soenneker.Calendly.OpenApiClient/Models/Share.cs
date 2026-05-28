@@ -25,10 +25,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The share_override property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Share_share_override? ShareOverride { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride? ShareOverride { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Share_share_override ShareOverride { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride ShareOverride { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Share"/> and sets the default values.
@@ -56,7 +56,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "scheduling_links", n => { SchedulingLinks = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links>(global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "share_override", n => { ShareOverride = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Share_share_override>(global::Soenneker.Calendly.OpenApiClient.Models.Share_share_override.CreateFromDiscriminatorValue); } },
+                { "share_override", n => { ShareOverride = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride>(global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links>("scheduling_links", SchedulingLinks);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Share_share_override>("share_override", ShareOverride);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride>("share_override", ShareOverride);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -40,5 +40,17 @@ namespace Soenneker.Calendly.OpenApiClient.Sample_webhook_data
         #pragma warning disable CS1591
         Event_typeUpdated,
         #pragma warning restore CS1591
+        [EnumMember(Value = "contact.created")]
+        #pragma warning disable CS1591
+        ContactCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "contact.updated")]
+        #pragma warning disable CS1591
+        ContactUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "contact.deleted")]
+        #pragma warning disable CS1591
+        ContactDeleted,
+        #pragma warning restore CS1591
     }
 }

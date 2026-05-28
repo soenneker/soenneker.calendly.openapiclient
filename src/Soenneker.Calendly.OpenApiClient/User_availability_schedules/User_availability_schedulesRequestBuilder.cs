@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
         {
         }
         /// <summary>
-        /// Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
             return new global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// &quot;Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_availability_schedulesRequestBuilderGetQueryParameters 

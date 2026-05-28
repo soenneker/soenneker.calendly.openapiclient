@@ -14,7 +14,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Format: `&quot;hh:mm&quot;`</summary>
+        /// <summary>&quot;Format: `\&quot;hh:mm\&quot;`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? From { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string From { get; set; }
 #endif
-        /// <summary>Format: `&quot;hh:mm&quot;`</summary>
+        /// <summary>&quot;Format: `\&quot;hh:mm\&quot;`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? To { get; set; }

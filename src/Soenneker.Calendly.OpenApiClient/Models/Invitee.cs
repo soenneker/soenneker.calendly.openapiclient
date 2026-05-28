@@ -170,10 +170,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The UTM and Salesforce tracking parameters associated with an Invitee</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_tracking? Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking? Tracking { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_tracking Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking Tracking { get; set; }
 #endif
         /// <summary>The moment when the event was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -232,7 +232,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_status>(); } },
                 { "text_reminder_number", n => { TextReminderNumber = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
-                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_tracking>(global::Soenneker.Calendly.OpenApiClient.Models.Invitee_tracking.CreateFromDiscriminatorValue); } },
+                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking>(global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -266,7 +266,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_status>("status", Status);
             writer.WriteStringValue("text_reminder_number", TextReminderNumber);
             writer.WriteStringValue("timezone", Timezone);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_tracking>("tracking", Tracking);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking>("tracking", Tracking);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

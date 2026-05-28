@@ -47,36 +47,36 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
         {
         }
         /// <summary>
-        /// Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
+        /// &quot;Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesRequestBuilder.Event_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesRequestBuilder.Event_typesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesRequestBuilder.Event_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesRequestBuilder.Event_typesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Event_types400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Event_types401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Event_types404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_types500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200401Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200404Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200500Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: &quot;solo&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
+        /// &quot;Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: \&quot;solo\&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -84,16 +84,16 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types400Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types403Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types404Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_types500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateEventType body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateEventType body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -102,14 +102,14 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             {
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.Event_types400Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.Event_types401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.Event_types403Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.Event_types404Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.Event_types500Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
+        /// &quot;Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,18 +128,18 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             return requestInfo;
         }
         /// <summary>
-        /// Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: &quot;solo&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
+        /// &quot;Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: \&quot;solo\&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateEventType body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateEventType body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -159,7 +159,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             return new global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
+        /// &quot;Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_typesRequestBuilderGetQueryParameters 
@@ -193,7 +193,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             [QueryParameter("page_token")]
             public string PageToken { get; set; }
 #endif
-            /// <summary>Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: name, position, created_at, updated_at. Sort direction is specified as: asc, desc.</summary>
+            /// <summary>&quot;Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: name, position, created_at, updated_at. Sort direction is specified as: asc, desc.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

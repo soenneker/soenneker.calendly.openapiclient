@@ -9,17 +9,56 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class OrganizationMembershipOwner : global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembership, IParsable
+    public partial class OrganizationMembershipOwner : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The moment when the membership record was created (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>A unique reference to the organization</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Organization { get; set; }
+#nullable restore
+#else
+        public string Organization { get; set; }
+#endif
+        /// <summary>The user&apos;s role in the organization</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_role? Role { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_type? Type { get; set; }
+        /// <summary>The moment when the membership record was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>Canonical reference (unique identifier) for the membership</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Uri { get; set; }
+#nullable restore
+#else
+        public string Uri { get; set; }
+#endif
+        /// <summary>Information about the user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser? User { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser User { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner"/> and sets the default values.
+        /// </summary>
+        public OrganizationMembershipOwner()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner();
@@ -28,22 +67,34 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "organization", n => { Organization = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_role>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_type>(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "uri", n => { Uri = n.GetStringValue(); } },
+                { "user", n => { User = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser>(global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("organization", Organization);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_role>("role", Role);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_type>("type", Type);
+            writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            writer.WriteStringValue("uri", Uri);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser>("user", User);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

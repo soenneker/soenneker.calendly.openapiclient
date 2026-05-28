@@ -15,14 +15,13 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Information about the calendar event from the calendar provider.</summary>
-        [Obsolete("")]
+        /// <summary>The calendar_event property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.LegacyCalendarEvent? CalendarEvent { get; set; }
+        public string? CalendarEvent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.LegacyCalendarEvent CalendarEvent { get; set; }
+        public string CalendarEvent { get; set; }
 #endif
         /// <summary>Provides data pertaining to the cancellation of the Event or the Invitee</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,18 +62,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The invitees_counter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Event_invitees_counter? InviteesCounter { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventInviteesCounter? InviteesCounter { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Event_invitees_counter InviteesCounter { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventInviteesCounter InviteesCounter { get; set; }
 #endif
         /// <summary>The polymorphic base type for an event location that Calendly supports</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location? Location { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventLocation? Location { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location Location { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventLocation Location { get; set; }
 #endif
         /// <summary>The internal meeting notes (formatted with HTML)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -139,15 +138,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "calendar_event", n => { CalendarEvent = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.LegacyCalendarEvent>(global::Soenneker.Calendly.OpenApiClient.Models.LegacyCalendarEvent.CreateFromDiscriminatorValue); } },
+                { "calendar_event", n => { CalendarEvent = n.GetStringValue(); } },
                 { "cancellation", n => { Cancellation = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Cancellation>(global::Soenneker.Calendly.OpenApiClient.Models.Cancellation.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
                 { "event_guests", n => { EventGuests = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Guest>(global::Soenneker.Calendly.OpenApiClient.Models.Guest.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "event_memberships", n => { EventMemberships = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Event_event_memberships>(global::Soenneker.Calendly.OpenApiClient.Models.Event_event_memberships.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "event_type", n => { EventType = n.GetStringValue(); } },
-                { "invitees_counter", n => { InviteesCounter = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_invitees_counter>(global::Soenneker.Calendly.OpenApiClient.Models.Event_invitees_counter.CreateFromDiscriminatorValue); } },
-                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location>(global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location.CreateFromDiscriminatorValue); } },
+                { "invitees_counter", n => { InviteesCounter = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventInviteesCounter>(global::Soenneker.Calendly.OpenApiClient.Models.EventInviteesCounter.CreateFromDiscriminatorValue); } },
+                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventLocation>(global::Soenneker.Calendly.OpenApiClient.Models.EventLocation.CreateFromDiscriminatorValue); } },
                 { "meeting_notes_html", n => { MeetingNotesHtml = n.GetStringValue(); } },
                 { "meeting_notes_plain", n => { MeetingNotesPlain = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -164,15 +163,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.LegacyCalendarEvent>("calendar_event", CalendarEvent);
+            writer.WriteStringValue("calendar_event", CalendarEvent);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Cancellation>("cancellation", Cancellation);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Guest>("event_guests", EventGuests);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Event_event_memberships>("event_memberships", EventMemberships);
             writer.WriteStringValue("event_type", EventType);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_invitees_counter>("invitees_counter", InviteesCounter);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location>("location", Location);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventInviteesCounter>("invitees_counter", InviteesCounter);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventLocation>("location", Location);
             writer.WriteStringValue("meeting_notes_html", MeetingNotesHtml);
             writer.WriteStringValue("meeting_notes_plain", MeetingNotesPlain);
             writer.WriteStringValue("name", Name);
@@ -181,241 +180,6 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember1"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember10"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember2"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember3"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember4"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember5"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember6"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember7"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember8"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember9"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Event_location : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember1? EventLocationMember1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember1 EventLocationMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember10"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember10? EventLocationMember10 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember10 EventLocationMember10 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember2? EventLocationMember2 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember2 EventLocationMember2 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember3"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember3? EventLocationMember3 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember3 EventLocationMember3 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember4"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember4? EventLocationMember4 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember4 EventLocationMember4 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember5"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember5? EventLocationMember5 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember5 EventLocationMember5 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember6"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember6? EventLocationMember6 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember6 EventLocationMember6 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember7"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember7? EventLocationMember7 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember7 EventLocationMember7 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember8"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember8? EventLocationMember8 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember8 EventLocationMember8 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember9"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember9? EventLocationMember9 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember9 EventLocationMember9 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Calendly.OpenApiClient.Models.Event.Event_location();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember1 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember1();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember10 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember10();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember2 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember2();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember3 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember3();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember4 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember4();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember5 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember5();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember6 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember6();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember7 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember7();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember8 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember8();
-                }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EventLocationMember9 = new global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember9();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EventLocationMember1 != null)
-                {
-                    return EventLocationMember1.GetFieldDeserializers();
-                }
-                else if(EventLocationMember10 != null)
-                {
-                    return EventLocationMember10.GetFieldDeserializers();
-                }
-                else if(EventLocationMember2 != null)
-                {
-                    return EventLocationMember2.GetFieldDeserializers();
-                }
-                else if(EventLocationMember3 != null)
-                {
-                    return EventLocationMember3.GetFieldDeserializers();
-                }
-                else if(EventLocationMember4 != null)
-                {
-                    return EventLocationMember4.GetFieldDeserializers();
-                }
-                else if(EventLocationMember5 != null)
-                {
-                    return EventLocationMember5.GetFieldDeserializers();
-                }
-                else if(EventLocationMember6 != null)
-                {
-                    return EventLocationMember6.GetFieldDeserializers();
-                }
-                else if(EventLocationMember7 != null)
-                {
-                    return EventLocationMember7.GetFieldDeserializers();
-                }
-                else if(EventLocationMember8 != null)
-                {
-                    return EventLocationMember8.GetFieldDeserializers();
-                }
-                else if(EventLocationMember9 != null)
-                {
-                    return EventLocationMember9.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EventLocationMember1 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember1>(null, EventLocationMember1);
-                }
-                else if(EventLocationMember10 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember10>(null, EventLocationMember10);
-                }
-                else if(EventLocationMember2 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember2>(null, EventLocationMember2);
-                }
-                else if(EventLocationMember3 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember3>(null, EventLocationMember3);
-                }
-                else if(EventLocationMember4 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember4>(null, EventLocationMember4);
-                }
-                else if(EventLocationMember5 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember5>(null, EventLocationMember5);
-                }
-                else if(EventLocationMember6 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember6>(null, EventLocationMember6);
-                }
-                else if(EventLocationMember7 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember7>(null, EventLocationMember7);
-                }
-                else if(EventLocationMember8 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember8>(null, EventLocationMember8);
-                }
-                else if(EventLocationMember9 != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Event_locationMember9>(null, EventLocationMember9);
-                }
-            }
         }
     }
 }

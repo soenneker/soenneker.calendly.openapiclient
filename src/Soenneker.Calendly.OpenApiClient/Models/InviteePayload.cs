@@ -150,10 +150,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Information about the invitee&apos;s scheduled meeting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduled_event? ScheduledEvent { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent? ScheduledEvent { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduled_event ScheduledEvent { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent ScheduledEvent { get; set; }
 #endif
         /// <summary>The method used to schedule the event</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduling_method? SchedulingMethod { get; set; }
@@ -178,10 +178,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The UTM and Salesforce tracking parameters associated with an Invitee</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_tracking? Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadTracking? Tracking { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_tracking Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadTracking Tracking { get; set; }
 #endif
         /// <summary>The moment when the event was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -236,12 +236,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "reschedule_url", n => { RescheduleUrl = n.GetStringValue(); } },
                 { "rescheduled", n => { Rescheduled = n.GetBoolValue(); } },
                 { "routing_form_submission", n => { RoutingFormSubmission = n.GetStringValue(); } },
-                { "scheduled_event", n => { ScheduledEvent = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduled_event>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduled_event.CreateFromDiscriminatorValue); } },
+                { "scheduled_event", n => { ScheduledEvent = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent.CreateFromDiscriminatorValue); } },
                 { "scheduling_method", n => { SchedulingMethod = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduling_method>(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_status>(); } },
                 { "text_reminder_number", n => { TextReminderNumber = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
-                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_tracking>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_tracking.CreateFromDiscriminatorValue); } },
+                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadTracking>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadTracking.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -271,12 +271,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteBoolValue("rescheduled", Rescheduled);
             writer.WriteStringValue("reschedule_url", RescheduleUrl);
             writer.WriteStringValue("routing_form_submission", RoutingFormSubmission);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduled_event>("scheduled_event", ScheduledEvent);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent>("scheduled_event", ScheduledEvent);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_scheduling_method>("scheduling_method", SchedulingMethod);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_status>("status", Status);
             writer.WriteStringValue("text_reminder_number", TextReminderNumber);
             writer.WriteStringValue("timezone", Timezone);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload_tracking>("tracking", Tracking);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadTracking>("tracking", Tracking);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

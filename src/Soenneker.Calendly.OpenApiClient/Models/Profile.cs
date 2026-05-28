@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
     /// <summary>
-    /// The publicly visible profile of a User or a Team that&apos;s associated with the Event Type (note: some Event Types don&apos;t have profiles)
+    /// &quot;The publicly visible profile of a User or a Team that&apos;s associated with the Event Type (note: some Event Types don&apos;t have profiles)&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Profile : IAdditionalDataHolder, IParsable

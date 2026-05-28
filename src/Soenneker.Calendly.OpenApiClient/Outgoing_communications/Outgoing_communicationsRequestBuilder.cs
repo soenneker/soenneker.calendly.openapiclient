@@ -34,34 +34,34 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
         {
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
+        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Outgoing_communications400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Outgoing_communications404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Outgoing_communications500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200500Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Outgoing_communications400Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Outgoing_communications404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Outgoing_communications500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200400Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200404Error.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200500Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
+        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
             return new global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
+        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Outgoing_communicationsRequestBuilderGetQueryParameters 
@@ -97,10 +97,10 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
             /// <summary>The number of records to return</summary>
             [QueryParameter("count")]
             public int? Count { get; set; }
-            /// <summary>Include outgoing communications that were created prior to this time (sample time format: &quot;2020-01-02T03:04:05.678Z&quot;). This time should use the UTC timezone</summary>
+            /// <summary>&quot;Include outgoing communications that were created prior to this time (sample time format: \&quot;2020-01-02T03:04:05.678Z\&quot;). This time should use the UTC timezone&quot;</summary>
             [QueryParameter("max_created_at")]
             public DateTimeOffset? MaxCreatedAt { get; set; }
-            /// <summary>Include outgoing communications that were created after this time (sample time format: &quot;2020-01-02T03:04:05.678Z&quot;). This time should use the UTC timezone</summary>
+            /// <summary>&quot;Include outgoing communications that were created after this time (sample time format: \&quot;2020-01-02T03:04:05.678Z\&quot;). This time should use the UTC timezone&quot;</summary>
             [QueryParameter("min_created_at")]
             public DateTimeOffset? MinCreatedAt { get; set; }
             /// <summary>Return outgoing communications from the organization associated with this URI</summary>

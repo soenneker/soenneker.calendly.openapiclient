@@ -7,6 +7,7 @@ using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.Calendly.OpenApiClient.Activity_log_entries;
+using Soenneker.Calendly.OpenApiClient.Contacts;
 using Soenneker.Calendly.OpenApiClient.Data_compliance;
 using Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules;
 using Soenneker.Calendly.OpenApiClient.Event_type_available_times;
@@ -47,6 +48,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder Activity_log_entries
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The contacts property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder Contacts
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The data_compliance property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Data_compliance.Data_complianceRequestBuilder Data_compliance
