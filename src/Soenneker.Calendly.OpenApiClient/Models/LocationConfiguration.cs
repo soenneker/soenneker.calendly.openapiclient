@@ -24,7 +24,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string AdditionalInfo { get; set; }
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration_kind? Kind { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.LocationConfigurationKind? Kind { get; set; }
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "additional_info", n => { AdditionalInfo = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration_kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfigurationKind>(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
             };
@@ -80,7 +80,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("additional_info", AdditionalInfo);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration_kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfigurationKind>("kind", Kind);
             writer.WriteStringValue("location", Location);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteAdditionalData(AdditionalData);

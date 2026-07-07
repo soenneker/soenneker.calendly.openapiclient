@@ -36,29 +36,29 @@ namespace Soenneker.Calendly.OpenApiClient.Activity_log_entries
         /// <summary>
         /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `activity_log:read`Returns a list of activity log entries&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder.Activity_log_entriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder.Activity_log_entriesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder.Activity_log_entriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder.Activity_log_entriesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200400Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `activity_log:read`Returns a list of activity log entries&quot;
@@ -167,11 +167,11 @@ namespace Soenneker.Calendly.OpenApiClient.Activity_log_entries
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]
-            public global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.GetSortQueryParameterType[]? Sort { get; set; }
+            public global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntriesSortParameterItem[]? Sort { get; set; }
 #nullable restore
 #else
             [QueryParameter("sort")]
-            public global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.GetSortQueryParameterType[] Sort { get; set; }
+            public global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntriesSortParameterItem[] Sort { get; set; }
 #endif
         }
     }

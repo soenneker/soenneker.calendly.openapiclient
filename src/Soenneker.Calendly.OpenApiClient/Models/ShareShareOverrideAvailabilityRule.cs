@@ -17,10 +17,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The rules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule_rules>? Rules { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItem>? Rules { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule_rules> Rules { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItem> Rules { get; set; }
 #endif
         /// <summary>The timezone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule_rules>(global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule_rules.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItem>(global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule_rules>("rules", Rules);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItem>("rules", Rules);
             writer.WriteStringValue("timezone", Timezone);
             writer.WriteAdditionalData(AdditionalData);
         }

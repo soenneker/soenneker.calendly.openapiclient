@@ -36,10 +36,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner? Owner { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationshipOwner? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner Owner { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationshipOwner Owner { get; set; }
 #endif
         /// <summary>The user&apos;s role in the group - this value can only be &apos;member&apos; or &apos;admin&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,7 +87,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "group", n => { Group = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner>(global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationshipOwner>(global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationshipOwner.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
@@ -103,86 +103,11 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("group", Group);
             writer.WriteStringValue("organization", Organization);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner>("owner", Owner);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationshipOwner>("owner", Owner);
             writer.WriteStringValue("role", Role);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GroupRelationship_owner : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner? OrganizationInvitationOwner { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner OrganizationInvitationOwner { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner? OrganizationMembershipOwner { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner OrganizationMembershipOwner { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationship.GroupRelationship_owner();
-                if("OrganizationInvitationOwner".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.OrganizationInvitationOwner = new global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner();
-                }
-                else if("OrganizationMembershipOwner".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.OrganizationMembershipOwner = new global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(OrganizationInvitationOwner != null)
-                {
-                    return OrganizationInvitationOwner.GetFieldDeserializers();
-                }
-                else if(OrganizationMembershipOwner != null)
-                {
-                    return OrganizationMembershipOwner.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(OrganizationInvitationOwner != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner>(null, OrganizationInvitationOwner);
-                }
-                else if(OrganizationMembershipOwner != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner>(null, OrganizationMembershipOwner);
-                }
-            }
         }
     }
 }

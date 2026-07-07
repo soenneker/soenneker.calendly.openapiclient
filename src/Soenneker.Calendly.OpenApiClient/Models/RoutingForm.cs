@@ -36,13 +36,13 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>An ordered collection of Routing Form non-deleted questions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_questions>? Questions { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Question>? Questions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_questions> Questions { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Question> Questions { get; set; }
 #endif
         /// <summary>Indicates if the form is in &quot;draft&quot; or &quot;published&quot; status.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_status? Status { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormStatus? Status { get; set; }
         /// <summary>The moment when the routing form was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Canonical reference (unique identifier) for the routing form.</summary>
@@ -81,8 +81,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
-                { "questions", n => { Questions = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_questions>(global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_questions.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_status>(); } },
+                { "questions", n => { Questions = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Question>(global::Soenneker.Calendly.OpenApiClient.Models.Question.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -97,8 +97,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("organization", Organization);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_questions>("questions", Questions);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingForm_status>("status", Status);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Question>("questions", Questions);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

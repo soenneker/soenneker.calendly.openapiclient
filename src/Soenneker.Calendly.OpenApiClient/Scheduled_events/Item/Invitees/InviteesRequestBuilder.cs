@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
 {
     /// <summary>
-    /// Builds and executes requests for operations under \scheduled_events\{event_uu-id}\invitees
+    /// Builds and executes requests for operations under \scheduled_events\{eventUu-id}\invitees
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InviteesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Calendly.OpenApiClient.scheduled_events.item.invitees.item collection</summary>
         /// <param name="position">The invitee&apos;s unique identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item.WithInvitee_uuItemRequestBuilder"/></returns>
-        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item.WithInvitee_uuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item.WithInviteeUuItemRequestBuilder"/></returns>
+        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item.WithInviteeUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("invitee_uuid", position);
-                return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item.WithInvitee_uuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("inviteeUuid", position);
+                return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item.WithInviteeUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InviteesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{event_uu%2Did}/invitees{?count*,email*,page_token*,sort*,status*}", pathParameters)
+        public InviteesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/invitees{?count*,email*,page_token*,sort*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,37 +43,37 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InviteesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{event_uu%2Did}/invitees{?count*,email*,page_token*,sort*,status*}", rawUrl)
+        public InviteesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/invitees{?count*,email*,page_token*,sort*,status*}", rawUrl)
         {
         }
         /// <summary>
         /// &quot;Returns a list of Invitees for an event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.InviteesRequestBuilder.InviteesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.InviteesRequestBuilder.InviteesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.InviteesRequestBuilder.InviteesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.InviteesRequestBuilder.InviteesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns a list of Invitees for an event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
@@ -144,7 +144,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
 #endif
             /// <summary>Indicates if the invitee &quot;canceled&quot; or still &quot;active&quot;</summary>
             [QueryParameter("status")]
-            public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.Calendly.OpenApiClient.Models.ListEventInviteesStatusParameter? Status { get; set; }
         }
     }
 }

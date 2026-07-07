@@ -42,7 +42,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Email { get; set; }
 #endif
         /// <summary>The user&apos;s language preference</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.User_locale? Locale { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UserLocale? Locale { get; set; }
         /// <summary>The user&apos;s name (human-readable format)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>Time notation used by the user. Accepts &quot;12h&quot; or &quot;24h&quot; as a value.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.User_time_notation? TimeNotation { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UserTimeNotation? TimeNotation { get; set; }
         /// <summary>The time zone to use when presenting time to the user</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,7 +101,6 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public User()
         {
             AdditionalData = new Dictionary<string, object>();
-            TimeNotation = global::Soenneker.Calendly.OpenApiClient.Models.User_time_notation.OneTwoh;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -125,12 +124,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "current_organization", n => { CurrentOrganization = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "locale", n => { Locale = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.User_locale>(); } },
+                { "locale", n => { Locale = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserLocale>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
                 { "scheduling_url", n => { SchedulingUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "time_notation", n => { TimeNotation = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.User_time_notation>(); } },
+                { "time_notation", n => { TimeNotation = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserTimeNotation>(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
@@ -147,12 +146,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("current_organization", CurrentOrganization);
             writer.WriteStringValue("email", Email);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.User_locale>("locale", Locale);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserLocale>("locale", Locale);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("resource_type", ResourceType);
             writer.WriteStringValue("scheduling_url", SchedulingUrl);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.User_time_notation>("time_notation", TimeNotation);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserTimeNotation>("time_notation", TimeNotation);
             writer.WriteStringValue("timezone", Timezone);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);

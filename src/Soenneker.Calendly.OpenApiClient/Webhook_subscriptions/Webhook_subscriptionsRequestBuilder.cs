@@ -20,14 +20,14 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
     {
         /// <summary>Gets an item from the Soenneker.Calendly.OpenApiClient.webhook_subscriptions.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhook_uuItemRequestBuilder"/></returns>
-        public global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhook_uuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhookUuItemRequestBuilder"/></returns>
+        public global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhookUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("webhook_uuid", position);
-                return new global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhook_uuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("webhookUuid", position);
+                return new global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item.WithWebhookUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Webhook_subscriptionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhook_subscriptions?organization={organization}&scope={scope}{&count*,group*,page_token*,sort*,user*}", pathParameters)
+        public Webhook_subscriptionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhook_subscriptions{?count*,group*,page_token*,sort*,user*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,66 +43,66 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Webhook_subscriptionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhook_subscriptions?organization={organization}&scope={scope}{&count*,group*,page_token*,sort*,user*}", rawUrl)
+        public Webhook_subscriptionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhook_subscriptions{?count*,group*,page_token*,sort*,user*}", rawUrl)
         {
         }
         /// <summary>
         /// &quot;Get a list of Webhook Subscriptions for a specified Organization, User, or Group.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsRequestBuilder.Webhook_subscriptionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsRequestBuilder.Webhook_subscriptionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsRequestBuilder.Webhook_subscriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsRequestBuilder.Webhook_subscriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200404Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Create a Webhook Subscription for an Organization, User, or Group.* The `organization` subscription scope triggers the webhook for all subscribed events within the organization.* The `user` subscription scope only triggers the webhook for subscribed events that belong to the specific user.* The `group` subscription scope only triggers the webhook for subscribed events that belong to the specfic group.| Event | Allowed Subscription Scopes | Required Auth Scope || ----- | ----- | ----- || invitee.created | `organization` `user` `group` | `scheduled_events:read` || invitee.canceled | `organization` `user` `group` | `scheduled_events:read` || invitee_no_show.created | `organization` `user` `group` | `scheduled_events:read` || invitee_no_show.deleted | `organization` `user` `group` | `scheduled_events:read` || event_type.created | `organization` `user` `group` | `event_types:read` || event_type.deleted | `organization` `user` `group` | `event_types:read` || event_type.updated | `organization` `user` `group` | `event_types:read` || routing_form_submission.created | `organization` &lt;br /&gt; &lt;small&gt;Create separate Webhook Subscriptions for events with different subscription scopes.&lt;/small&gt; | `routing_forms:read` || contact.created | `organization` `user` `group` | `contacts:read` || contact.updated | `organization` `user` `group` | `contacts:read` || contact.deleted | `organization` `user` `group` | `contacts:read` |&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:write`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Webhook_subscriptions400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Webhook_subscriptions401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Webhook_subscriptions404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks409">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks409Response">When receiving a 409 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreatewebhooksRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreatewebhooksRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Webhook_subscriptions400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Webhook_subscriptions401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Webhook_subscriptions404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks409.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks409Response.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Get a list of Webhook Subscriptions for a specified Organization, User, or Group.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`&quot;
@@ -118,7 +118,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Webhook_subscriptionsRequestBuilder.Webhook_subscriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/webhook_subscriptions?organization={organization}&scope={scope}{&count*,group*,page_token*,sort*,user*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -131,15 +131,15 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreatewebhooksRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreatewebhooksRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/webhook_subscriptions", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -195,7 +195,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
 #endif
             /// <summary>Filter the list by organization, user, or group</summary>
             [QueryParameter("scope")]
-            public global::Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.GetScopeQueryParameterType? Scope { get; set; }
+            public global::Soenneker.Calendly.OpenApiClient.Models.ListWebhookSubscriptionsScopeParameter? Scope { get; set; }
             /// <summary>&quot;Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: created_at.Sort direction is specified as: asc, desc.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

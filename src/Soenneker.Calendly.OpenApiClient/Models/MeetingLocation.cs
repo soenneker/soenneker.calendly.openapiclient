@@ -18,7 +18,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Indicates if the location configuration is connected (only valid for web conferencing)</summary>
         public bool? Connected { get; set; }
         /// <summary>The type of location configuration</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation_kind? Kind { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind? Kind { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connected", n => { Connected = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation_kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("connected", Connected);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation_kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind>("kind", Kind);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

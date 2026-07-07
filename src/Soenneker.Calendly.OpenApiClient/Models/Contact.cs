@@ -44,10 +44,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The user&apos;s email addresses. Max 10.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Contact_emails>? Emails { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Email2>? Emails { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Contact_emails> Emails { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Email2> Emails { get; set; }
 #endif
         /// <summary>The timestamp of the earliest email exchanged with the contact. Always `null` immediately after a contact is created.</summary>
         public DateTimeOffset? FirstEmailDate { get; set; }
@@ -86,10 +86,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The user&apos;s phone numbers. Max 10.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Contact_phone_numbers>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.PhoneNumber>? PhoneNumbers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Contact_phone_numbers> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.PhoneNumber> PhoneNumbers { get; set; }
 #endif
         /// <summary>The user&apos;s state, province, or region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,7 +146,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Contact_emails>(global::Soenneker.Calendly.OpenApiClient.Models.Contact_emails.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Email2>(global::Soenneker.Calendly.OpenApiClient.Models.Email2.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "first_email_date", n => { FirstEmailDate = n.GetDateTimeOffsetValue(); } },
                 { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "last_email_date", n => { LastEmailDate = n.GetDateTimeOffsetValue(); } },
@@ -155,7 +155,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "linkedin", n => { Linkedin = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "next_meeting_date", n => { NextMeetingDate = n.GetDateTimeOffsetValue(); } },
-                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Contact_phone_numbers>(global::Soenneker.Calendly.OpenApiClient.Models.Contact_phone_numbers.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "phone_numbers", n => { PhoneNumbers = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.PhoneNumber>(global::Soenneker.Calendly.OpenApiClient.Models.PhoneNumber.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -173,7 +173,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("company", Company);
             writer.WriteStringValue("country", Country);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Contact_emails>("emails", Emails);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Email2>("emails", Emails);
             writer.WriteDateTimeOffsetValue("first_email_date", FirstEmailDate);
             writer.WriteStringValue("job_title", JobTitle);
             writer.WriteDateTimeOffsetValue("last_email_date", LastEmailDate);
@@ -182,7 +182,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("linkedin", Linkedin);
             writer.WriteStringValue("name", Name);
             writer.WriteDateTimeOffsetValue("next_meeting_date", NextMeetingDate);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Contact_phone_numbers>("phone_numbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.PhoneNumber>("phone_numbers", PhoneNumbers);
             writer.WriteStringValue("state", State);
             writer.WriteStringValue("timezone", Timezone);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);

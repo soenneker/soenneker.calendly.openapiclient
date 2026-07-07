@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
 {
     /// <summary>
-    /// Builds and executes requests for operations under \scheduled_events\{event_uu-id}\cancellation
+    /// Builds and executes requests for operations under \scheduled_events\{eventUu-id}\cancellation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CancellationRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CancellationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{event_uu%2Did}/cancellation", pathParameters)
+        public CancellationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/cancellation", pathParameters)
         {
         }
         /// <summary>
@@ -30,39 +30,39 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CancellationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{event_uu%2Did}/cancellation", rawUrl)
+        public CancellationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/cancellation", rawUrl)
         {
         }
         /// <summary>
         /// &quot;Cancels specified event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation.CancellationPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Cancellation400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Cancellation401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Cancellation404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Cancellation500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation.CancellationPostResponse?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation.CancellationPostResponse> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.Cancellation400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.Cancellation401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.Cancellation404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.Cancellation500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation.CancellationPostResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation.CancellationPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Cancels specified event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
@@ -72,11 +72,11 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

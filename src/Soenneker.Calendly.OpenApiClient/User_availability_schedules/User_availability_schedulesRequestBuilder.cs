@@ -49,31 +49,31 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
         /// <summary>
         /// &quot;Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesRequestBuilder.User_availability_schedulesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesRequestBuilder.User_availability_schedulesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesRequestBuilder.User_availability_schedulesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesRequestBuilder.User_availability_schedulesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.User_availability_schedules500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns the availability schedules of the given user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;

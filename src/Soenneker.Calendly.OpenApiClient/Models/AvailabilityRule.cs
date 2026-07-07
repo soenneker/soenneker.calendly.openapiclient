@@ -26,15 +26,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The intervals to be applied to this Rule. Each interval represents when booking a meeting is allowed. If the interval array is empty, then there is no booking availability for that day. Time is in 24h format (i.e. &quot;17:30&quot;) and local to the timezone in the Availability Schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_intervals>? Intervals { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem>? Intervals { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_intervals> Intervals { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem> Intervals { get; set; }
 #endif
         /// <summary>The type of this Availability Rule; can be &quot;wday&quot; or a specific &quot;date&quot;.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_type? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType? Type { get; set; }
         /// <summary>The day of the week for which this Rule should be applied to.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_wday? Wday { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday? Wday { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule"/> and sets the default values.
         /// </summary>
@@ -61,9 +61,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "date", n => { Date = n.GetStringValue(); } },
-                { "intervals", n => { Intervals = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_intervals>(global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_intervals.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_type>(); } },
-                { "wday", n => { Wday = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_wday>(); } },
+                { "intervals", n => { Intervals = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem>(global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType>(); } },
+                { "wday", n => { Wday = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday>(); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("date", Date);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_intervals>("intervals", Intervals);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_type>("type", Type);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule_wday>("wday", Wday);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem>("intervals", Intervals);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday>("wday", Wday);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

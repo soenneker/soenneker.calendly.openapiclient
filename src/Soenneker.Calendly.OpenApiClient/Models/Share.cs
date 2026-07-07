@@ -17,10 +17,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The scheduling_links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links>? SchedulingLinks { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareSchedulingLinksItem>? SchedulingLinks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links> SchedulingLinks { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareSchedulingLinksItem> SchedulingLinks { get; set; }
 #endif
         /// <summary>The share_override property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "scheduling_links", n => { SchedulingLinks = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links>(global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "scheduling_links", n => { SchedulingLinks = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareSchedulingLinksItem>(global::Soenneker.Calendly.OpenApiClient.Models.ShareSchedulingLinksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "share_override", n => { ShareOverride = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride>(global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Share_scheduling_links>("scheduling_links", SchedulingLinks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareSchedulingLinksItem>("scheduling_links", SchedulingLinks);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride>("share_override", ShareOverride);
             writer.WriteAdditionalData(AdditionalData);
         }

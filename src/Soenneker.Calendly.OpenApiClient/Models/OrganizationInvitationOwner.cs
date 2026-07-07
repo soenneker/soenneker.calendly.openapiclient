@@ -35,9 +35,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Organization { get; set; }
 #endif
         /// <summary>The status of the invitation (&quot;pending&quot;, &quot;accepted&quot;, or &quot;declined&quot;)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_status? Status { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationStatus? Status { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_type? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwnerType? Type { get; set; }
         /// <summary>The moment the invitation was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Canonical reference (unique identifier) for the organization invitation</summary>
@@ -85,8 +85,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "last_sent_at", n => { LastSentAt = n.GetDateTimeOffsetValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_status>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_type>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationStatus>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwnerType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
@@ -103,8 +103,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("email", Email);
             writer.WriteDateTimeOffsetValue("last_sent_at", LastSentAt);
             writer.WriteStringValue("organization", Organization);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_status>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwner_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationInvitationOwnerType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteStringValue("user", User);

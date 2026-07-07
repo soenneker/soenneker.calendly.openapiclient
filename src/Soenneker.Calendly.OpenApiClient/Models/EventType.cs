@@ -20,7 +20,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Indicates if this event type is managed by an organization admin</summary>
         public bool? AdminManaged { get; set; }
         /// <summary>Indicates if the event type is for a poll or an instant booking</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventType_booking_method? BookingMethod { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod? BookingMethod { get; set; }
         /// <summary>The hexadecimal color value of the event type&apos;s scheduling page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,10 +34,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The custom_questions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventType_custom_questions>? CustomQuestions { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion>? CustomQuestions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventType_custom_questions> CustomQuestions { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion> CustomQuestions { get; set; }
 #endif
         /// <summary>The moment the event type was deleted (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;). Since event types can be deleted but their scheduled events remain it&apos;s useful to fetch a deleted event type when you still require event type data for a scheduled event.</summary>
         public DateTimeOffset? DeletedAt { get; set; }
@@ -78,9 +78,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The is_paid property</summary>
         public bool? IsPaid { get; set; }
         /// <summary>Indicates if the event type is &quot;solo&quot; (belongs to an individual user) or &quot;group&quot;</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventType_kind? Kind { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeKind? Kind { get; set; }
         /// <summary>The locale on the event type, used to determine the language of the event type&apos;s scheduling page</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventType_locale? Locale { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale? Locale { get; set; }
         /// <summary>Configuration information for each possible location for this Event Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,7 +98,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Indicates if the event type is &quot;round robin&quot; (alternates between hosts) or &quot;collective&quot; (invitees pick a time when all participants are available) or “multi-pool” (considers availability delineated by pools of participants) or &quot;null&quot; (the event type doesn’t consider the availability of a group participants)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventType_pooling_type? PoolingType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType? PoolingType { get; set; }
         /// <summary>Position order of Event Type, starting with 0 (for display purposes)</summary>
         public int? Position { get; set; }
         /// <summary>&quot;The publicly visible profile of a User or a Team that&apos;s associated with the Event Type (note: some Event Types don&apos;t have profiles)&quot;</summary>
@@ -128,7 +128,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Slug { get; set; }
 #endif
         /// <summary>Indicates if the event type is &quot;AdhocEventType&quot; (ad hoc event) or &quot;StandardEventType&quot; (standard event type)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventType_type? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType? Type { get; set; }
         /// <summary>The moment the event type was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Canonical reference (unique identifier) for the event type</summary>
@@ -166,10 +166,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "admin_managed", n => { AdminManaged = n.GetBoolValue(); } },
-                { "booking_method", n => { BookingMethod = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_booking_method>(); } },
+                { "booking_method", n => { BookingMethod = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod>(); } },
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "custom_questions", n => { CustomQuestions = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.EventType_custom_questions>(global::Soenneker.Calendly.OpenApiClient.Models.EventType_custom_questions.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "custom_questions", n => { CustomQuestions = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion>(global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "deleted_at", n => { DeletedAt = n.GetDateTimeOffsetValue(); } },
                 { "description_html", n => { DescriptionHtml = n.GetStringValue(); } },
                 { "description_plain", n => { DescriptionPlain = n.GetStringValue(); } },
@@ -177,17 +177,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "duration_options", n => { DurationOptions = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "internal_note", n => { InternalNote = n.GetStringValue(); } },
                 { "is_paid", n => { IsPaid = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_kind>(); } },
-                { "locale", n => { Locale = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_locale>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeKind>(); } },
+                { "locale", n => { Locale = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale>(); } },
                 { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>(global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "pooling_type", n => { PoolingType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_pooling_type>(); } },
+                { "pooling_type", n => { PoolingType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType>(); } },
                 { "position", n => { Position = n.GetIntValue(); } },
                 { "profile", n => { Profile = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Profile>(global::Soenneker.Calendly.OpenApiClient.Models.Profile.CreateFromDiscriminatorValue); } },
                 { "scheduling_url", n => { SchedulingUrl = n.GetStringValue(); } },
                 { "secret", n => { Secret = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -201,10 +201,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteBoolValue("admin_managed", AdminManaged);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_booking_method>("booking_method", BookingMethod);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod>("booking_method", BookingMethod);
             writer.WriteStringValue("color", Color);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.EventType_custom_questions>("custom_questions", CustomQuestions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion>("custom_questions", CustomQuestions);
             writer.WriteDateTimeOffsetValue("deleted_at", DeletedAt);
             writer.WriteStringValue("description_html", DescriptionHtml);
             writer.WriteStringValue("description_plain", DescriptionPlain);
@@ -212,17 +212,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("duration_options", DurationOptions);
             writer.WriteStringValue("internal_note", InternalNote);
             writer.WriteBoolValue("is_paid", IsPaid);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_kind>("kind", Kind);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_locale>("locale", Locale);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeKind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale>("locale", Locale);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>("locations", Locations);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_pooling_type>("pooling_type", PoolingType);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType>("pooling_type", PoolingType);
             writer.WriteIntValue("position", Position);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Profile>("profile", Profile);
             writer.WriteStringValue("scheduling_url", SchedulingUrl);
             writer.WriteBoolValue("secret", Secret);
             writer.WriteStringValue("slug", Slug);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

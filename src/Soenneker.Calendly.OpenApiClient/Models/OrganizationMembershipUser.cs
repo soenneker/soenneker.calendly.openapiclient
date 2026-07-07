@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Email { get; set; }
 #endif
         /// <summary>The user&apos;s language preference</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser_locale? Locale { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUserLocale? Locale { get; set; }
         /// <summary>The user&apos;s name (human-readable format)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,7 +105,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "avatar_url", n => { AvatarUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "locale", n => { Locale = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser_locale>(); } },
+                { "locale", n => { Locale = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUserLocale>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "scheduling_url", n => { SchedulingUrl = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
@@ -124,7 +124,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("avatar_url", AvatarUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("email", Email);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser_locale>("locale", Locale);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUserLocale>("locale", Locale);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("scheduling_url", SchedulingUrl);
             writer.WriteStringValue("slug", Slug);

@@ -92,10 +92,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Provides data pertaining to the associated no show for the Invitee</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_no_show? NoShow { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeNoShowProperty? NoShow { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_no_show NoShow { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeNoShowProperty NoShow { get; set; }
 #endif
         /// <summary>Reference to old Invitee instance that got rescheduled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,26 +108,26 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Invitee payment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_payment? Payment { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayment? Payment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_payment Payment { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayment Payment { get; set; }
 #endif
         /// <summary>A collection of the invitee&apos;s responses to questions on the event booking confirmation form</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_questions_and_answers>? QuestionsAndAnswers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer>? QuestionsAndAnswers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_questions_and_answers> QuestionsAndAnswers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer> QuestionsAndAnswers { get; set; }
 #endif
         /// <summary>Assuming reconfirmation is enabled for the event type, when reconfirmation is requested this object is present with a `created_at` that reflects when the reconfirmation notification was sent. Once the invitee has reconfirmed the `confirmed_at` attribute will change from `null` to a timestamp that reflects when they took action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_reconfirmation? Reconfirmation { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeReconfirmation? Reconfirmation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_reconfirmation Reconfirmation { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeReconfirmation Reconfirmation { get; set; }
 #endif
         /// <summary>Indicates if this invitee has rescheduled. If `true`, a reference to the new Invitee instance is provided in the `new_invitee` field.</summary>
         public bool? Rescheduled { get; set; }
@@ -148,9 +148,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string RoutingFormSubmission { get; set; }
 #endif
         /// <summary>The method used to schedule the event</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_scheduling_method? SchedulingMethod { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod? SchedulingMethod { get; set; }
         /// <summary>Indicates if the invitee is &quot;active&quot; or &quot;canceled&quot;</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.Invitee_status? Status { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeStatus? Status { get; set; }
         /// <summary>The phone number to use when sending text (SMS) reminders</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -220,16 +220,16 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "new_invitee", n => { NewInvitee = n.GetStringValue(); } },
-                { "no_show", n => { NoShow = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_no_show>(global::Soenneker.Calendly.OpenApiClient.Models.Invitee_no_show.CreateFromDiscriminatorValue); } },
+                { "no_show", n => { NoShow = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeNoShowProperty>(global::Soenneker.Calendly.OpenApiClient.Models.InviteeNoShowProperty.CreateFromDiscriminatorValue); } },
                 { "old_invitee", n => { OldInvitee = n.GetStringValue(); } },
-                { "payment", n => { Payment = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_payment>(global::Soenneker.Calendly.OpenApiClient.Models.Invitee_payment.CreateFromDiscriminatorValue); } },
-                { "questions_and_answers", n => { QuestionsAndAnswers = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_questions_and_answers>(global::Soenneker.Calendly.OpenApiClient.Models.Invitee_questions_and_answers.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "reconfirmation", n => { Reconfirmation = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_reconfirmation>(global::Soenneker.Calendly.OpenApiClient.Models.Invitee_reconfirmation.CreateFromDiscriminatorValue); } },
+                { "payment", n => { Payment = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayment>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayment.CreateFromDiscriminatorValue); } },
+                { "questions_and_answers", n => { QuestionsAndAnswers = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer>(global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "reconfirmation", n => { Reconfirmation = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeReconfirmation>(global::Soenneker.Calendly.OpenApiClient.Models.InviteeReconfirmation.CreateFromDiscriminatorValue); } },
                 { "reschedule_url", n => { RescheduleUrl = n.GetStringValue(); } },
                 { "rescheduled", n => { Rescheduled = n.GetBoolValue(); } },
                 { "routing_form_submission", n => { RoutingFormSubmission = n.GetStringValue(); } },
-                { "scheduling_method", n => { SchedulingMethod = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_scheduling_method>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_status>(); } },
+                { "scheduling_method", n => { SchedulingMethod = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeStatus>(); } },
                 { "text_reminder_number", n => { TextReminderNumber = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
                 { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking>(global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking.CreateFromDiscriminatorValue); } },
@@ -254,16 +254,16 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("last_name", LastName);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("new_invitee", NewInvitee);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_no_show>("no_show", NoShow);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeNoShowProperty>("no_show", NoShow);
             writer.WriteStringValue("old_invitee", OldInvitee);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_payment>("payment", Payment);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_questions_and_answers>("questions_and_answers", QuestionsAndAnswers);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_reconfirmation>("reconfirmation", Reconfirmation);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayment>("payment", Payment);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer>("questions_and_answers", QuestionsAndAnswers);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeReconfirmation>("reconfirmation", Reconfirmation);
             writer.WriteBoolValue("rescheduled", Rescheduled);
             writer.WriteStringValue("reschedule_url", RescheduleUrl);
             writer.WriteStringValue("routing_form_submission", RoutingFormSubmission);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_scheduling_method>("scheduling_method", SchedulingMethod);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Invitee_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod>("scheduling_method", SchedulingMethod);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeStatus>("status", Status);
             writer.WriteStringValue("text_reminder_number", TextReminderNumber);
             writer.WriteStringValue("timezone", Timezone);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking>("tracking", Tracking);

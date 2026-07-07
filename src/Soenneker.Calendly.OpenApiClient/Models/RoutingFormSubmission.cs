@@ -20,18 +20,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>All Routing Form Submission questions with answers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_questions_and_answers>? QuestionsAndAnswers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>? QuestionsAndAnswers { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_questions_and_answers> QuestionsAndAnswers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer> QuestionsAndAnswers { get; set; }
 #endif
         /// <summary>The polymorphic base type for a Routing Form Submission result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionResult? Result { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionResult Result { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult Result { get; set; }
 #endif
         /// <summary>The URI of the routing form that&apos;s associated with the submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,14 +50,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Submitter { get; set; }
 #endif
         /// <summary>Type of the respondent resource that submitted the form and scheduled a meeting.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_submitter_type? SubmitterType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionSubmitterType? SubmitterType { get; set; }
         /// <summary>The UTM and Salesforce tracking parameters associated with a Routing Form Submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionTracking? Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking? Tracking { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionTracking Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking Tracking { get; set; }
 #endif
         /// <summary>The moment when the routing form submission was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -95,12 +95,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "questions_and_answers", n => { QuestionsAndAnswers = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_questions_and_answers>(global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_questions_and_answers.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionResult>(global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionResult.CreateFromDiscriminatorValue); } },
+                { "questions_and_answers", n => { QuestionsAndAnswers = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult.CreateFromDiscriminatorValue); } },
                 { "routing_form", n => { RoutingForm = n.GetStringValue(); } },
                 { "submitter", n => { Submitter = n.GetStringValue(); } },
-                { "submitter_type", n => { SubmitterType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_submitter_type>(); } },
-                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionTracking>(global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionTracking.CreateFromDiscriminatorValue); } },
+                { "submitter_type", n => { SubmitterType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionSubmitterType>(); } },
+                { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -113,12 +113,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_questions_and_answers>("questions_and_answers", QuestionsAndAnswers);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionResult>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>("questions_and_answers", QuestionsAndAnswers);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult>("result", Result);
             writer.WriteStringValue("routing_form", RoutingForm);
             writer.WriteStringValue("submitter", Submitter);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission_submitter_type>("submitter_type", SubmitterType);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionTracking>("tracking", Tracking);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionSubmitterType>("submitter_type", SubmitterType);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking>("tracking", Tracking);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

@@ -20,14 +20,14 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
     {
         /// <summary>Gets an item from the Soenneker.Calendly.OpenApiClient.scheduled_events.item collection</summary>
         /// <param name="position">The event&apos;s unique identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Event_uuItemRequestBuilder"/></returns>
-        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Event_uuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder"/></returns>
+        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("event_uu%2Did", position);
-                return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Event_uuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("eventUu%2Did", position);
+                return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,31 +49,31 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
         /// <summary>
         /// &quot;Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder.Scheduled_eventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
@@ -184,7 +184,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
 #endif
             /// <summary>Whether the scheduled event is `active` or `canceled`</summary>
             [QueryParameter("status")]
-            public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.GetStatusQueryParameterType? Status { get; set; }
+            public global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEventsStatusParameter? Status { get; set; }
             /// <summary>Return events that are scheduled with the user associated with this URI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

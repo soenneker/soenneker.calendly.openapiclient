@@ -25,9 +25,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Organization { get; set; }
 #endif
         /// <summary>The user&apos;s role in the organization</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_role? Role { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipRole? Role { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_type? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwnerType? Type { get; set; }
         /// <summary>The moment when the membership record was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Canonical reference (unique identifier) for the membership</summary>
@@ -73,8 +73,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_role>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_type>(); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipRole>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwnerType>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser>(global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser.CreateFromDiscriminatorValue); } },
@@ -89,8 +89,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("organization", Organization);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_role>("role", Role);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwner_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipRole>("role", Role);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipOwnerType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationMembershipUser>("user", User);

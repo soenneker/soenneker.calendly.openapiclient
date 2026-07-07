@@ -38,10 +38,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Event membership list</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_event_memberships>? EventMemberships { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventEventMembershipsItem>? EventMemberships { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_event_memberships> EventMemberships { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventEventMembershipsItem> EventMemberships { get; set; }
 #endif
         /// <summary>The event type associated with this event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,10 +62,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The polymorphic base type for an event location that Calendly supports</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventLocation? Location { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.Location? Location { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventLocation Location { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.Location Location { get; set; }
 #endif
         /// <summary>The event&apos;s meeting notes (formatted with HTML)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,7 +94,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The moment the event was scheduled to start in UTC time (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;).</summary>
         public DateTimeOffset? StartTime { get; set; }
         /// <summary>Indicates if the event is &quot;active&quot; or &quot;canceled&quot;</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_status? Status { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventStatus? Status { get; set; }
         /// <summary>The moment when the event was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Canonical reference (unique identifier) for the resource</summary>
@@ -134,15 +134,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
                 { "event_guests", n => { EventGuests = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Guest>(global::Soenneker.Calendly.OpenApiClient.Models.Guest.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "event_memberships", n => { EventMemberships = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_event_memberships>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_event_memberships.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "event_memberships", n => { EventMemberships = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventEventMembershipsItem>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventEventMembershipsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "invitees_counter", n => { InviteesCounter = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventInviteesCounter>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventInviteesCounter.CreateFromDiscriminatorValue); } },
-                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventLocation>(global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventLocation.CreateFromDiscriminatorValue); } },
+                { "location", n => { Location = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Location>(global::Soenneker.Calendly.OpenApiClient.Models.Location.CreateFromDiscriminatorValue); } },
                 { "meeting_notes_html", n => { MeetingNotesHtml = n.GetStringValue(); } },
                 { "meeting_notes_plain", n => { MeetingNotesPlain = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventStatus>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -158,15 +158,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Guest>("event_guests", EventGuests);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_event_memberships>("event_memberships", EventMemberships);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventEventMembershipsItem>("event_memberships", EventMemberships);
             writer.WriteStringValue("event_type", EventType);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventInviteesCounter>("invitees_counter", InviteesCounter);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventLocation>("location", Location);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Location>("location", Location);
             writer.WriteStringValue("meeting_notes_html", MeetingNotesHtml);
             writer.WriteStringValue("meeting_notes_plain", MeetingNotesPlain);
             writer.WriteStringValue("name", Name);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEvent_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadScheduledEventStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

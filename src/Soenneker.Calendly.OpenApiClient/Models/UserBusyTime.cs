@@ -32,7 +32,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The start time of the scheduled event in UTC time</summary>
         public DateTimeOffset? StartTime { get; set; }
         /// <summary>Indicates whether the scheduled event is internal (&apos;calendly&apos; or &apos;reserved&apos;) or external</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_type? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
                 { "event", n => { Event = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent>(global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent.CreateFromDiscriminatorValue); } },
                 { "start_time", n => { StartTime = n.GetDateTimeOffsetValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeType>(); } },
             };
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("end_time", EndTime);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeEvent>("event", Event);
             writer.WriteDateTimeOffsetValue("start_time", StartTime);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTime_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UserBusyTimeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

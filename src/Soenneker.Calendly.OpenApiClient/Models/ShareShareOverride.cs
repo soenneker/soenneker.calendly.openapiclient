@@ -40,10 +40,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The location_configurations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_location_configurations>? LocationConfigurations { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>? LocationConfigurations { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_location_configurations> LocationConfigurations { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem> LocationConfigurations { get; set; }
 #endif
         /// <summary>The max_booking_time property</summary>
         public int? MaxBookingTime { get; set; }
@@ -56,7 +56,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>The period_type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_period_type? PeriodType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType? PeriodType { get; set; }
         /// <summary>&quot;Format: `YYYY-MM-DD`&quot;</summary>
         public Date? StartDate { get; set; }
         /// <summary>
@@ -89,10 +89,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "duration_options", n => { DurationOptions = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "end_date", n => { EndDate = n.GetDateValue(); } },
                 { "hide_location", n => { HideLocation = n.GetBoolValue(); } },
-                { "location_configurations", n => { LocationConfigurations = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_location_configurations>(global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_location_configurations.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "location_configurations", n => { LocationConfigurations = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>(global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "max_booking_time", n => { MaxBookingTime = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "period_type", n => { PeriodType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_period_type>(); } },
+                { "period_type", n => { PeriodType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType>(); } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
             };
         }
@@ -108,10 +108,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<int?>("duration_options", DurationOptions);
             writer.WriteDateValue("end_date", EndDate);
             writer.WriteBoolValue("hide_location", HideLocation);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_location_configurations>("location_configurations", LocationConfigurations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>("location_configurations", LocationConfigurations);
             writer.WriteIntValue("max_booking_time", MaxBookingTime);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride_period_type>("period_type", PeriodType);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType>("period_type", PeriodType);
             writer.WriteDateValue("start_date", StartDate);
             writer.WriteAdditionalData(AdditionalData);
         }

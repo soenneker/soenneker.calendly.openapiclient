@@ -36,10 +36,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>A list of events to which the webhook is subscribed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_events?>? Events { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionEventsItem?>? Events { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_events?> Events { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionEventsItem?> Events { get; set; }
 #endif
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,9 +60,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The date and time the webhook subscription is retried</summary>
         public DateTimeOffset? RetryStartedAt { get; set; }
         /// <summary>The scope of the webhook subscription</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_scope? Scope { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionScope? Scope { get; set; }
         /// <summary>Indicates if the webhook subscription is &quot;active&quot; or &quot;disabled&quot;</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_state? State { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionState? State { get; set; }
         /// <summary>The moment when the webhook subscription was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Canonical reference (unique identifier) for the webhook</summary>
@@ -109,12 +109,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "callback_url", n => { CallbackUrl = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetStringValue(); } },
-                { "events", n => { Events = n.GetCollectionOfEnumValues<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_events>()?.AsList(); } },
+                { "events", n => { Events = n.GetCollectionOfEnumValues<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionEventsItem>()?.AsList(); } },
                 { "group", n => { Group = n.GetStringValue(); } },
                 { "organization", n => { Organization = n.GetStringValue(); } },
                 { "retry_started_at", n => { RetryStartedAt = n.GetDateTimeOffsetValue(); } },
-                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_scope>(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_state>(); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionScope>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionState>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
@@ -130,12 +130,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("callback_url", CallbackUrl);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("creator", Creator);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_events>("events", Events);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionEventsItem>("events", Events);
             writer.WriteStringValue("group", Group);
             writer.WriteStringValue("organization", Organization);
             writer.WriteDateTimeOffsetValue("retry_started_at", RetryStartedAt);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_scope>("scope", Scope);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscription_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionScope>("scope", Scope);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebhookSubscriptionState>("state", State);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteStringValue("user", User);

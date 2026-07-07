@@ -36,29 +36,29 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
         /// <summary>
         /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder.Outgoing_communicationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200400Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;

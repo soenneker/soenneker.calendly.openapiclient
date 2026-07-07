@@ -36,33 +36,33 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
         /// <summary>
         /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseResponseApplicationJson">When receiving a 424 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse">When receiving a 424 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder.User_busy_timesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder.User_busy_timesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder.User_busy_timesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder.User_busy_timesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times401Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times404Error.CreateFromDiscriminatorValue },
-                { "424", global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseResponseApplicationJson.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.User_busy_times500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "424", global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse>(requestInfo, global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;

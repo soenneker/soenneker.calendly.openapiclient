@@ -18,7 +18,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Timestamp of when the organization was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Indicates whether the organization is a single-user or multiple-user organization</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.Organization_kind? Kind { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationKind? Kind { get; set; }
         /// <summary>The Organization name (in human-readable format)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,9 +28,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Name { get; set; }
 #endif
         /// <summary>Active subscription plan or trial plan</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.Organization_plan? Plan { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationPlan? Plan { get; set; }
         /// <summary>Current stage of organization</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.Organization_stage? Stage { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.OrganizationStage? Stage { get; set; }
         /// <summary>Timestamp of when the organization was created or updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>Canonical resource reference</summary>
@@ -67,10 +67,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Organization_kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationKind>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "plan", n => { Plan = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Organization_plan>(); } },
-                { "stage", n => { Stage = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Organization_stage>(); } },
+                { "plan", n => { Plan = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationPlan>(); } },
+                { "stage", n => { Stage = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationStage>(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -83,10 +83,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Organization_kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationKind>("kind", Kind);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Organization_plan>("plan", Plan);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Organization_stage>("stage", Stage);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationPlan>("plan", Plan);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OrganizationStage>("stage", Stage);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

@@ -19,10 +19,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse_details>? Details { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseDetailsItem>? Details { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse_details> Details { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseDetailsItem> Details { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
         public override string Message { get => MessageEscaped ?? string.Empty; }
@@ -67,7 +67,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse_details>(global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse_details.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseDetailsItem>(global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseDetailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "message", n => { MessageEscaped = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse_details>("details", Details);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseDetailsItem>("details", Details);
             writer.WriteStringValue("message", MessageEscaped);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);

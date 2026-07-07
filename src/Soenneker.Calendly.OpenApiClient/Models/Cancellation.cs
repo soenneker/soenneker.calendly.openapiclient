@@ -24,7 +24,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string CanceledBy { get; set; }
 #endif
         /// <summary>The canceler_type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.Cancellation_canceler_type? CancelerType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType? CancelerType { get; set; }
         /// <summary>The moment when the cancellation was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Reason that the cancellation occurred</summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "canceled_by", n => { CanceledBy = n.GetStringValue(); } },
-                { "canceler_type", n => { CancelerType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Cancellation_canceler_type>(); } },
+                { "canceler_type", n => { CancelerType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
             };
@@ -74,7 +74,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("canceled_by", CanceledBy);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Cancellation_canceler_type>("canceler_type", CancelerType);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType>("canceler_type", CancelerType);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("reason", Reason);
             writer.WriteAdditionalData(AdditionalData);

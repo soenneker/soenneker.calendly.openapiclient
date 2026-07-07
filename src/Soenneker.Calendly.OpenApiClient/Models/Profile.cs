@@ -32,7 +32,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Owner { get; set; }
 #endif
         /// <summary>Indicates if the profile belongs to a &quot;user&quot; (individual) or &quot;team&quot;</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.Profile_type? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ProfileType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Profile"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Profile_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ProfileType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("owner", Owner);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.Profile_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ProfileType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

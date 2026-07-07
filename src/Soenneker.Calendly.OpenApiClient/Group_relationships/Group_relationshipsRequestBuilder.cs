@@ -49,31 +49,29 @@ namespace Soenneker.Calendly.OpenApiClient.Group_relationships
         /// <summary>
         /// &quot;Returns a list of group relationships - a given owner can have one membership record, but multiple admin records&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Group_relationships.Group_relationshipsRequestBuilder.Group_relationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200403Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListGroupRelationships200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns a list of group relationships - a given owner can have one membership record, but multiple admin records&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`&quot;

@@ -17,14 +17,14 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations
     {
         /// <summary>Gets an item from the Soenneker.Calendly.OpenApiClient.organizations.item collection</summary>
         /// <param name="position">The organization&apos;s unique identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuItemRequestBuilder"/></returns>
-        public global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.OrgUuItemRequestBuilder"/></returns>
+        public global::Soenneker.Calendly.OpenApiClient.Organizations.Item.OrgUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("org_uu%2Did", position);
-                return new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Org_uuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("orgUu%2Did", position);
+                return new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.OrgUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
