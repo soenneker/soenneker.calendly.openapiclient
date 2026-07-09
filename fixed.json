@@ -3503,7 +3503,7 @@
           "Event Types"
         ],
         "summary": "List Event Type Available Times",
-        "description": "\u0022Returns a list of available times for an event type within a specified date range.\n\nDate range can be no greater than 1 week (7 days).\n\n**NOTE:**\n* This endpoint does not support traditional keyset pagination.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060\u0022",
+        "description": "\u0022Returns a list of available times for an event type within a specified date range.\n\n**NOTE:**\n* Date range can be no greater than 31 days.\n* This endpoint does not support traditional keyset pagination.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060\u0022",
         "operationId": "ListEventTypeAvailableTimes",
         "parameters": [
           {
@@ -3530,7 +3530,7 @@
           {
             "name": "end_time",
             "in": "query",
-            "description": "End time of the requested availability range. Date must be in the future of start_time.",
+            "description": "End time of the requested availability range. Date must be in the future and no greater than 31 days from start_time.",
             "required": true,
             "schema": {
               "type": "string"
