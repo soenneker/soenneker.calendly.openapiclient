@@ -3,7 +3,7 @@
   "info": {
     "title": "Calendly API",
     "description": "Calendly\u2019s API is [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer)-based and has predictable resource-oriented URLs. It uses **JSON** for request and response bodies and standard HTTP methods, authentication, and response codes.\u003Cbr\u003E\n\n##### Authenticate with personal access tokens or OAuth 2.0\n\nTo access Calendly data through the API, you can authenticate with **personal access tokens** or **OAuth 2.0**. To learn more about these authentication methods and when and how to use them, see [Getting Started with the Calendly API](https://developer.calendly.com/getting-started).",
-    "termsOfService": "https://developer.calendly.com/developer-policy",
+    "termsOfService": "https://calendly.com/legal/developer-policy",
     "contact": {
       "name": "Calendly Developer Support",
       "url": "https://developer.calendly.com/get-help",
@@ -9485,6 +9485,14 @@
               "id": "s0x5kkvmhgu8c"
             }
           },
+          "custom_fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactCustomFieldsItemProperty"
+            },
+            "description": "The contact\u0027s custom field values.",
+            "x-fern-ignore": true
+          },
           "created_at": {
             "type": "string",
             "description": "The moment the user\u0027s record was created (e.g. \u00222026-01-15T18:01:09Z\u0022)",
@@ -13083,6 +13091,11 @@
           }
         }
       },
+      "ContactCustomFieldsItem": {
+        "type": "object",
+        "x-sl-internally-excluded": true,
+        "x-sl-error-message": "You do not have permission to view this reference"
+      },
       "ContactCreatedWebhookPayloadContact": {
         "required": [
           "uri",
@@ -15297,6 +15310,9 @@
         "x-stoplight": {
           "id": "w2455rcn8o8yn"
         }
+      },
+      "ContactCustomFieldsItemProperty": {
+        "type": "object"
       },
       "EntryDetailsProperty": {
         "type": "object"
@@ -20401,19 +20417,19 @@
               "Caller does not have a paid plan": {
                 "value": {
                   "title": "Permission Denied",
-                  "message": "Please upgrade to a paid Calendly account."
+                  "message": "Please upgrade to a paid Calendly account"
                 }
               },
               "Caller does not have access to this recap": {
                 "value": {
                   "title": "Permission Denied",
-                  "message": "You do not have permission to access this resource."
+                  "message": "You do not have permission to access this resource"
                 }
               },
               "Required features are not enabled": {
                 "value": {
                   "title": "Permission Denied",
-                  "message": "Meeting recap access is not available. Required features are not enabled for your account."
+                  "message": "Meeting recap access is not available. Required features are not enabled for your account"
                 }
               },
               "Caller has insufficient scope": {

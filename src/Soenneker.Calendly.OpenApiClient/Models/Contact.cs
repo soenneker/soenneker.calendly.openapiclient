@@ -41,6 +41,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>The moment the user&apos;s record was created (e.g. &quot;2026-01-15T18:01:09Z&quot;)</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The contact&apos;s custom field values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ContactCustomFieldsItemProperty>? CustomFields { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ContactCustomFieldsItemProperty> CustomFields { get; set; }
+#endif
         /// <summary>The user&apos;s email addresses. Max 10.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -146,6 +154,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "custom_fields", n => { CustomFields = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ContactCustomFieldsItemProperty>(global::Soenneker.Calendly.OpenApiClient.Models.ContactCustomFieldsItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Email2>(global::Soenneker.Calendly.OpenApiClient.Models.Email2.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "first_email_date", n => { FirstEmailDate = n.GetDateTimeOffsetValue(); } },
                 { "job_title", n => { JobTitle = n.GetStringValue(); } },
@@ -173,6 +182,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("company", Company);
             writer.WriteStringValue("country", Country);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ContactCustomFieldsItemProperty>("custom_fields", CustomFields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Email2>("emails", Emails);
             writer.WriteDateTimeOffsetValue("first_email_date", FirstEmailDate);
             writer.WriteStringValue("job_title", JobTitle);
