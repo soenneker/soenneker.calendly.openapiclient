@@ -10742,108 +10742,6 @@
           "Contacts"
         ]
       },
-      "EventTypeCustomQuestion": {
-        "title": "EventTypeCustomQuestion",
-        "required": [
-          "name",
-          "type",
-          "position",
-          "enabled",
-          "required",
-          "answer_choices",
-          "include_other"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The custom question that the host created for the event type."
-          },
-          "type": {
-            "$ref": "#/components/schemas/EventTypeCustomQuestionType"
-          },
-          "position": {
-            "type": "integer",
-            "description": "The numerical position of the question on the event booking page after the name and email address fields."
-          },
-          "enabled": {
-            "type": "boolean",
-            "description": "true if the question created by the host is turned ON and visible on the event booking page; false if turned OFF and invisible on the event booking page."
-          },
-          "required": {
-            "type": "boolean",
-            "description": "true if a response to the question created by the host is required for invitees to book the event type; false if not required."
-          },
-          "answer_choices": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The invitee\u2019s option(s) for single_select or multi_select type of responses."
-          },
-          "include_other": {
-            "type": "boolean",
-            "description": "true if the custom question lets invitees record a written response in addition to single-select or multiple-select type of responses; false if it doesn\u2019t."
-          }
-        },
-        "x-examples": {
-          "String": {
-            "name": "Company Name",
-            "type": "string",
-            "position": 0,
-            "enabled": true,
-            "required": true,
-            "answer_choices": [],
-            "include_other": false
-          },
-          "Text": {
-            "name": "What would you like to discuss?",
-            "type": "text",
-            "position": 0,
-            "enabled": true,
-            "required": true,
-            "answer_choices": [],
-            "include_other": false
-          },
-          "Single-Select": {
-            "name": "Number of employees",
-            "answer_choices": [
-              1,
-              "2-10",
-              "11-20",
-              "20\u002B"
-            ],
-            "enabled": true,
-            "include_other": true,
-            "position": 2,
-            "required": false,
-            "type": "single_select"
-          },
-          "Multi-Select": {
-            "name": "Multi-Select Question",
-            "answer_choices": [
-              "Answer 1",
-              "Answer 2",
-              "Answer 3",
-              "Answer 4"
-            ],
-            "enabled": true,
-            "include_other": true,
-            "position": 2,
-            "required": false,
-            "type": "multi_select"
-          },
-          "Phone Number": {
-            "name": "Phone Number",
-            "type": "phone_number",
-            "position": 0,
-            "enabled": true,
-            "required": true,
-            "answer_choices": [],
-            "include_other": false
-          }
-        }
-      },
       "Location": {
         "title": "Location",
         "required": [
@@ -11362,6 +11260,108 @@
             "status": null,
             "join_url": null,
             "data": {}
+          }
+        }
+      },
+      "EventTypeCustomQuestion": {
+        "title": "EventTypeCustomQuestion",
+        "required": [
+          "name",
+          "type",
+          "position",
+          "enabled",
+          "required",
+          "answer_choices",
+          "include_other"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The custom question that the host created for the event type."
+          },
+          "type": {
+            "$ref": "#/components/schemas/EventTypeCustomQuestionType"
+          },
+          "position": {
+            "type": "integer",
+            "description": "The numerical position of the question on the event booking page after the name and email address fields."
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "true if the question created by the host is turned ON and visible on the event booking page; false if turned OFF and invisible on the event booking page."
+          },
+          "required": {
+            "type": "boolean",
+            "description": "true if a response to the question created by the host is required for invitees to book the event type; false if not required."
+          },
+          "answer_choices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The invitee\u2019s option(s) for single_select or multi_select type of responses."
+          },
+          "include_other": {
+            "type": "boolean",
+            "description": "true if the custom question lets invitees record a written response in addition to single-select or multiple-select type of responses; false if it doesn\u2019t."
+          }
+        },
+        "x-examples": {
+          "String": {
+            "name": "Company Name",
+            "type": "string",
+            "position": 0,
+            "enabled": true,
+            "required": true,
+            "answer_choices": [],
+            "include_other": false
+          },
+          "Text": {
+            "name": "What would you like to discuss?",
+            "type": "text",
+            "position": 0,
+            "enabled": true,
+            "required": true,
+            "answer_choices": [],
+            "include_other": false
+          },
+          "Single-Select": {
+            "name": "Number of employees",
+            "answer_choices": [
+              1,
+              "2-10",
+              "11-20",
+              "20\u002B"
+            ],
+            "enabled": true,
+            "include_other": true,
+            "position": 2,
+            "required": false,
+            "type": "single_select"
+          },
+          "Multi-Select": {
+            "name": "Multi-Select Question",
+            "answer_choices": [
+              "Answer 1",
+              "Answer 2",
+              "Answer 3",
+              "Answer 4"
+            ],
+            "enabled": true,
+            "include_other": true,
+            "position": 2,
+            "required": false,
+            "type": "multi_select"
+          },
+          "Phone Number": {
+            "name": "Phone Number",
+            "type": "phone_number",
+            "position": 0,
+            "enabled": true,
+            "required": true,
+            "answer_choices": [],
+            "include_other": false
           }
         }
       },
@@ -17844,44 +17844,6 @@
           ]
         }
       },
-      "EventTypeCustomQuestionType": {
-        "enum": [
-          "string",
-          "text",
-          "phone_number",
-          "single_select",
-          "multi_select"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The type of response that the invitee provides to the custom question; can be one or multiple lines of text, a phone number, or single- or multiple-select.",
-        "x-ms-enum": {
-          "name": "EventTypeCustomQuestionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "string",
-              "name": "StringValue"
-            },
-            {
-              "value": "text",
-              "name": "Text"
-            },
-            {
-              "value": "phone_number",
-              "name": "PhoneNumber"
-            },
-            {
-              "value": "single_select",
-              "name": "SingleSelect"
-            },
-            {
-              "value": "multi_select",
-              "name": "MultiSelect"
-            }
-          ]
-        }
-      },
       "InPersonMeetingType": {
         "enum": [
           "physical"
@@ -18229,6 +18191,44 @@
             {
               "value": "failed",
               "name": "Failed"
+            }
+          ]
+        }
+      },
+      "EventTypeCustomQuestionType": {
+        "enum": [
+          "string",
+          "text",
+          "phone_number",
+          "single_select",
+          "multi_select"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of response that the invitee provides to the custom question; can be one or multiple lines of text, a phone number, or single- or multiple-select.",
+        "x-ms-enum": {
+          "name": "EventTypeCustomQuestionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "string",
+              "name": "StringValue"
+            },
+            {
+              "value": "text",
+              "name": "Text"
+            },
+            {
+              "value": "phone_number",
+              "name": "PhoneNumber"
+            },
+            {
+              "value": "single_select",
+              "name": "SingleSelect"
+            },
+            {
+              "value": "multi_select",
+              "name": "MultiSelect"
             }
           ]
         }
