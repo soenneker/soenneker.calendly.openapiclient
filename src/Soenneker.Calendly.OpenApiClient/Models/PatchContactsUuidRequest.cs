@@ -38,6 +38,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Country { get; set; }
 #endif
+        /// <summary>Custom field values to set on the contact. Each item requires an `id` and a `value`; any other keys (such as `label`) are ignored. The entire request is rejected if any `id` is unknown, any `value` is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any `select` `value` is not one of the field definition&apos;s option values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuidRequestCustomFieldsItem>? CustomFields { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuidRequestCustomFieldsItem> CustomFields { get; set; }
+#endif
         /// <summary>&quot;The user&apos;s email addresses. Max 10. &lt;br&gt;  &lt;span style=\&quot;color:red\&quot;&gt;Warning: &lt;/span&gt;Updating emails will overwrite all existing emails for the contact. Use the GET endpoint to first retrieve the existing emails and then pass the modified emails to the emails array.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,6 +130,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "city", n => { City = n.GetStringValue(); } },
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
+                { "custom_fields", n => { CustomFields = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuidRequestCustomFieldsItem>(global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuidRequestCustomFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "emails", n => { Emails = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Email2>(global::Soenneker.Calendly.OpenApiClient.Models.Email2.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "job_title", n => { JobTitle = n.GetStringValue(); } },
                 { "linkedin", n => { Linkedin = n.GetStringValue(); } },
@@ -141,6 +150,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("company", Company);
             writer.WriteStringValue("country", Country);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuidRequestCustomFieldsItem>("custom_fields", CustomFields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Email2>("emails", Emails);
             writer.WriteStringValue("job_title", JobTitle);
             writer.WriteStringValue("linkedin", Linkedin);

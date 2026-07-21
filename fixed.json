@@ -14645,6 +14645,14 @@
             "x-stoplight": {
               "id": "i4wh2csz1tw72"
             }
+          },
+          "custom_fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateContactRequestCustomFieldsItem"
+            },
+            "description": "Custom field values to set on the contact. Each item requires an \u0060id\u0060 and a \u0060value\u0060; any other keys (such as \u0060label\u0060) are ignored. The entire request is rejected if any \u0060id\u0060 is unknown, any \u0060value\u0060 is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any \u0060select\u0060 \u0060value\u0060 is not one of the field definition\u0027s option values.",
+            "x-fern-ignore": true
           }
         }
       },
@@ -14721,6 +14729,14 @@
             "x-stoplight": {
               "id": "wr0nyk9qq4zz1"
             }
+          },
+          "custom_fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatchContactsUuidRequestCustomFieldsItem"
+            },
+            "description": "Custom field values to set on the contact. Each item requires an \u0060id\u0060 and a \u0060value\u0060; any other keys (such as \u0060label\u0060) are ignored. The entire request is rejected if any \u0060id\u0060 is unknown, any \u0060value\u0060 is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any \u0060select\u0060 \u0060value\u0060 is not one of the field definition\u0027s option values.",
+            "x-fern-ignore": true
           }
         }
       },
@@ -15482,6 +15498,16 @@
         "x-stoplight": {
           "id": "1k57u40qbjcoe"
         }
+      },
+      "CreateContactRequestCustomFieldsItem": {
+        "type": "object",
+        "x-sl-internally-excluded": true,
+        "x-sl-error-message": "You do not have permission to view this reference"
+      },
+      "PatchContactsUuidRequestCustomFieldsItem": {
+        "type": "object",
+        "x-sl-internally-excluded": true,
+        "x-sl-error-message": "You do not have permission to view this reference"
       },
       "CreateShareRequestAvailabilityRuleRulesItem": {
         "type": "object",
