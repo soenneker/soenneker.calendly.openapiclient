@@ -18,6 +18,7 @@ using Soenneker.Calendly.OpenApiClient.Groups;
 using Soenneker.Calendly.OpenApiClient.Invitee_no_shows;
 using Soenneker.Calendly.OpenApiClient.Invitees;
 using Soenneker.Calendly.OpenApiClient.Locations;
+using Soenneker.Calendly.OpenApiClient.Meeting_recaps;
 using Soenneker.Calendly.OpenApiClient.One_off_event_types;
 using Soenneker.Calendly.OpenApiClient.Organization_memberships;
 using Soenneker.Calendly.OpenApiClient.Organizations;
@@ -103,6 +104,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.Locations.LocationsRequestBuilder Locations
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Locations.LocationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The meeting_recaps property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Meeting_recaps.Meeting_recapsRequestBuilder Meeting_recaps
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Meeting_recaps.Meeting_recapsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The one_off_event_types property</summary>
         public global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesRequestBuilder One_off_event_types

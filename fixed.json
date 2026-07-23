@@ -1942,7 +1942,7 @@
           "Webhooks"
         ],
         "summary": "Create Webhook Subscription",
-        "description": "\u0022Create a Webhook Subscription for an Organization, User, or Group.\n\n* The \u0060organization\u0060 subscription scope triggers the webhook for all subscribed events within the organization.\n* The \u0060user\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specific user.\n* The \u0060group\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specfic group.\n\n| Event | Allowed Subscription Scopes | Required Auth Scope |\n| ----- | ----- | ----- |\n| invitee.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee.canceled | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| event_type.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| routing_form_submission.created | \u0060organization\u0060 \u003Cbr /\u003E \u003Csmall\u003ECreate separate Webhook Subscriptions for events with different subscription scopes.\u003C/small\u003E | \u0060routing_forms:read\u0060 |\n| contact.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:write\u0060\u0022",
+        "description": "\u0022Create a Webhook Subscription for an Organization, User, or Group.\n\n* The \u0060organization\u0060 subscription scope triggers the webhook for all subscribed events within the organization.\n* The \u0060user\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specific user.\n* The \u0060group\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specfic group.\n\n| Event | Allowed Subscription Scopes | Required Auth Scope |\n| ----- | ----- | ----- |\n| invitee.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee.canceled | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| event_type.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| meeting_recap.created | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.updated | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.deleted | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| routing_form_submission.created | \u0060organization\u0060 \u003Cbr /\u003E \u003Csmall\u003ECreate separate Webhook Subscriptions for events with different subscription scopes.\u003C/small\u003E | \u0060routing_forms:read\u0060 |\n| contact.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:write\u0060\u0022",
         "operationId": "Createwebhooks",
         "requestBody": {
           "description": "",
@@ -1960,6 +1960,9 @@
                       "invitee.canceled",
                       "invitee_no_show.created",
                       "invitee_no_show.deleted",
+                      "meeting_recap.created",
+                      "meeting_recap.updated",
+                      "meeting_recap.deleted",
                       "contact.created",
                       "contact.updated",
                       "contact.deleted"
@@ -5396,6 +5399,437 @@
         ]
       }
     },
+    "/meeting_recaps": {
+      "get": {
+        "tags": [
+          "Notetaker"
+        ],
+        "summary": "List Recaps",
+        "description": "\u0022Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the \u0060status\u0060 query parameter to retrieve \u0060processing\u0060 or \u0060unavailable\u0060 recaps. Supports additional filtering by scheduled event, attendee, or date range.\n\nReturns both Calendly-scheduled and external event recaps in a single collection. The \u0060event\u0060 field is null for external events where no Calendly scheduled event exists.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060\u0022",
+        "operationId": "ListMeetingRecaps",
+        "parameters": [
+          {
+            "name": "event",
+            "in": "query",
+            "description": "Filter results to recaps associated with a specific event scheduled via Calendly. This field corresponds to the \u0060/scheduled_events\u0060 endpoint.",
+            "schema": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
+            }
+          },
+          {
+            "name": "start_time",
+            "in": "query",
+            "description": "Return recaps for meetings that end after (or end at) this time (ISO 8601).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2025-11-01T00:00:00Z"
+          },
+          {
+            "name": "end_time",
+            "in": "query",
+            "description": "Return recaps for meetings that start before (or start at) this time (ISO 8601).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2025-11-10T23:59:59Z"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by recap availability. When omitted, returns **Available** recaps only.\n\n- \u0060available\u0060 \u2014 completed recaps with summary content\n- \u0060processing\u0060 \u2014 recaps still being generated\n- \u0060unavailable\u0060 \u2014 recaps that cannot be retrieved",
+            "schema": {
+              "$ref": "#/components/schemas/ListMeetingRecapsStatusParameter"
+            }
+          },
+          {
+            "name": "attendee",
+            "in": "query",
+            "description": "Filter results to recaps that include a specific attendee email address.",
+            "schema": {
+              "type": "string",
+              "format": "email",
+              "example": "bob@example.com"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/Count"
+          },
+          {
+            "$ref": "#/components/parameters/PageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMeetingRecaps200Response"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                          "event": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
+                          "status": "available",
+                          "name": "Weekly Sync",
+                          "location": {
+                            "type": "custom",
+                            "location": "https://zoom.us/j/123456789"
+                          },
+                          "start_time": "2025-11-08T20:28:00.561000Z",
+                          "end_time": "2025-11-08T21:28:00.561000Z",
+                          "created_at": "2025-11-08T19:00:00.000000Z",
+                          "updated_at": "2025-11-08T22:00:00.000000Z",
+                          "attendees": [
+                            {
+                              "host": true,
+                              "user_name": "John Smith",
+                              "user_email": "john@example.com"
+                            },
+                            {
+                              "host": false,
+                              "user_name": "Steve Johnson",
+                              "user_email": "steve@example2.com"
+                            }
+                          ],
+                          "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript"
+                        },
+                        {
+                          "uri": "https://api.calendly.com/meeting_recaps/CCCCCCCCCCCCCCCC",
+                          "event": null,
+                          "status": "available",
+                          "name": "External standup",
+                          "location": {
+                            "type": "custom",
+                            "location": "https://meet.google.com/abc-defg-hij"
+                          },
+                          "start_time": "2025-11-07T15:00:00.000000Z",
+                          "end_time": "2025-11-07T15:30:00.000000Z",
+                          "created_at": "2025-11-07T14:00:00.000000Z",
+                          "updated_at": "2025-11-07T15:45:00.000000Z",
+                          "attendees": null,
+                          "transcript": "https://api.calendly.com/meeting_recaps/CCCCCCCCCCCCCCCC/transcript"
+                        }
+                      ],
+                      "pagination": {
+                        "count": 2,
+                        "next_page": null,
+                        "previous_page": null,
+                        "next_page_token": null,
+                        "previous_page_token": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      }
+    },
+    "/meeting_recaps/{uuid}/transcript": {
+      "get": {
+        "tags": [
+          "Notetaker"
+        ],
+        "summary": "Get Transcript",
+        "description": "\u0022Returns the transcript associated with a meeting recap if it is available.  \n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060\u0022",
+        "operationId": "GetTranscriptMeetingRecaps",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTranscriptMeetingRecaps200Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "description": "The meeting recap uuid",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/meeting_recaps/{uuid}": {
+      "get": {
+        "tags": [
+          "Notetaker"
+        ],
+        "summary": "Get Recap",
+        "description": "\u0022Returns the recap associated with a meeting if it is available.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060\u0022",
+        "operationId": "GetMeetingRecapsUuidRecap",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMeetingRecapsUuidRecap200Response"
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                        "event": "https://api.calendly.com/scheduled_events/GGGGGGGGGGGGGGGG",
+                        "status": "Available",
+                        "name": "Weekly Sync",
+                        "location": {
+                          "type": "custom",
+                          "location": "https://zoom.us/j/123456789"
+                        },
+                        "start_time": "2025-11-08T20:28:00.561000Z",
+                        "end_time": "2025-11-08T21:28:00.561000Z",
+                        "created_at": "2025-11-08T19:00:00.000000Z",
+                        "updated_at": "2025-11-08T22:00:00.000000Z",
+                        "attendees": [
+                          {
+                            "host": true,
+                            "user_name": "John Smith",
+                            "user_email": "john@example.com"
+                          },
+                          {
+                            "host": false,
+                            "user_name": "Steve Johnson",
+                            "user_email": "steve@example2.com"
+                          }
+                        ],
+                        "summary_md": "This is a test summary of the meeting.",
+                        "action_items_md": "- Create Jira epic\n- Notify stakeholders",
+                        "discussion_md": "The discussion covered various topics.",
+                        "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
+                        "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Notetaker"
+        ],
+        "summary": "Update Recap",
+        "description": "\u0022Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:write\u0060\u0022",
+        "operationId": "UpdateMeetingRecapsUuid",
+        "requestBody": {
+          "description": "Optional markdown fields to update.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMeetingRecapsUuidRequest"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "summary_md": "Updated summary after review.",
+                    "action_items_md": "- Create Jira epic\n- Notify stakeholders",
+                    "discussion_md": "Create Jira epic. Notify stakeholders."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMeetingRecapsUuid200Response"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                        "event": "https://api.calendly.com/scheduled_events/GGGGGGGGGGGGGGGG",
+                        "status": "Available",
+                        "name": "Weekly Sync",
+                        "location": {
+                          "type": "custom",
+                          "location": "https://zoom.us/j/123456789"
+                        },
+                        "start_time": "2025-11-08T20:28:00.561000Z",
+                        "end_time": "2025-11-08T21:28:00.561000Z",
+                        "created_at": "2025-11-08T19:00:00.000000Z",
+                        "updated_at": "2025-11-08T22:00:00.000000Z",
+                        "attendees": [
+                          {
+                            "host": true,
+                            "user_name": "John Smith",
+                            "user_email": "john@example.com"
+                          },
+                          {
+                            "host": false,
+                            "user_name": "Steve Johnson",
+                            "user_email": "steve@example2.com"
+                          }
+                        ],
+                        "summary_md": "Updated summary after review.",
+                        "action_items_md": "- Create Jira epic\n- Notify stakeholders",
+                        "discussion_md": "Create Jira epic. Notify stakeholders.",
+                        "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
+                        "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Notetaker"
+        ],
+        "summary": "Delete Recap",
+        "description": "\u0022Delete an existing Recap\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:write\u0060\u0022",
+        "operationId": "DeleteMeetingRecapsUuid",
+        "responses": {
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
     "/contacts": {
       "get": {
         "tags": [
@@ -6158,6 +6592,259 @@
             "locale": "en"
           }
         }
+      },
+      "Transcript": {
+        "title": "Transcript",
+        "required": [
+          "uri",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the transcript",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/AAAAAAAAAAAAAAAA/transcript"
+          },
+          "text": {
+            "type": "string",
+            "description": "\u0022Plain-text transcript. Each line is formatted as \u0060Speaker: words\u0060, with\nsegments separated by newlines.\u0022",
+            "example": "John Doe: Hello, how are you?\nJane Smith: I am doing well, thank you!",
+            "x-stoplight": {
+              "id": "jw5jue9fyc54d"
+            }
+          }
+        },
+        "description": "The meeting transcript as plain text.",
+        "x-stoplight": {
+          "id": "fse6tqehjuzbl"
+        },
+        "x-examples": {
+          "Example": {
+            "uri": "https://api.calendly.com/meeting_recaps/AAAAAAAAAAAAAAAA/transcript",
+            "text": "John Doe: Hello, how are you?\nJane Smith: I am doing well, thank you!"
+          }
+        },
+        "x-tags": [
+          "Notetaker"
+        ],
+        "x-internal": false
+      },
+      "MeetingRecap": {
+        "title": "Meeting Recap",
+        "required": [
+          "uri",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the recap",
+            "format": "uri",
+            "x-stoplight": {
+              "id": "oagz8bave30xo"
+            }
+          },
+          "event": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the event",
+            "format": "uri",
+            "nullable": true,
+            "x-stoplight": {
+              "id": "426nvflfor46f"
+            }
+          },
+          "status": {
+            "type": "string",
+            "description": "Either \u0027Available\u0027, \u0027Processing\u0027, or \u0027Unavailable\u0027",
+            "x-stoplight": {
+              "id": "d67136iff6xet"
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the meeting.",
+            "nullable": true,
+            "example": "Weekly Sync"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "Scheduled start time of the meeting (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T20:28:00.561000Z"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Scheduled end time of the meeting (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T21:28:00.561000Z"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the meeting recap was created (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T19:00:00.000000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "When the meeting recap was last updated (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T22:00:00.000000Z"
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MeetingRecapAttendeesItem"
+            },
+            "description": "Meeting attendees derived from tracked-meeting participants. Same shape as meeting_recap webhook attendees.",
+            "nullable": true
+          },
+          "summary_md": {
+            "type": "string",
+            "description": "Summary Markdown",
+            "nullable": true,
+            "x-stoplight": {
+              "id": "8domo8pvj3420"
+            }
+          },
+          "action_items_md": {
+            "type": "string",
+            "description": "Action Items Markdown",
+            "nullable": true,
+            "x-stoplight": {
+              "id": "hxg1un9ff57sv"
+            }
+          },
+          "discussion_md": {
+            "type": "string",
+            "description": "Discussion Markdown",
+            "nullable": true,
+            "x-stoplight": {
+              "id": "3vms8luytlim9"
+            }
+          },
+          "transcript": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the transcript",
+            "format": "uri",
+            "nullable": true,
+            "x-stoplight": {
+              "id": "0nu0bq3fs477q"
+            }
+          },
+          "share_link": {
+            "type": "string",
+            "description": "Public URL for sharing the meeting recap",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738",
+            "x-stoplight": {
+              "id": "dchdbrwzb54cu"
+            }
+          }
+        },
+        "description": "A meeting recap generated for a Calendly scheduled event or an external event.",
+        "x-tags": [
+          "Notetaker"
+        ],
+        "x-internal": false,
+        "x-stoplight": {
+          "id": "bz7b1eex9h4yz"
+        }
+      },
+      "MeetingRecapListItem": {
+        "title": "Meeting Recap List Item",
+        "required": [
+          "uri",
+          "status",
+          "transcript"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the recap.",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB"
+          },
+          "event": {
+            "type": "string",
+            "description": "URI of the event scheduled via Calendly which this recap belongs to, or null if the recap is for an external event.",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
+          },
+          "status": {
+            "type": "string",
+            "description": "Processing state of the recap.",
+            "example": "available"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the meeting.",
+            "nullable": true,
+            "example": "Weekly Sync"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "Scheduled start time of the meeting (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T20:28:00.561000Z"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Scheduled end time of the meeting (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T21:28:00.561000Z"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the tracked meeting record was created (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T19:00:00.000000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "When the tracked meeting record was last updated (UTC, ISO 8601).",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2025-11-08T22:00:00.000000Z"
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MeetingRecapListItemAttendeesItem"
+            },
+            "description": "Meeting attendees derived from tracked-meeting participants. Same shape as meeting_recap webhook attendees.",
+            "nullable": true
+          },
+          "transcript": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the transcript. Always present on\nlist items; the transcript resource itself may still be unavailable until the\nrecap is Available.",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript"
+          }
+        },
+        "description": "A meeting recap list item generated for a Calendly scheduled event or an external event.",
+        "x-tags": [
+          "Notetaker"
+        ],
+        "x-internal": false
       },
       "EventType": {
         "title": "Event Type",
@@ -8442,6 +9129,99 @@
                 "deleted_at": "2026-05-06T13:35:50.580Z"
               }
             }
+          },
+          "Meeting Recap Created": {
+            "created_at": "2025-01-15T18:01:10Z",
+            "created_by": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+            "event": "meeting_recap.created",
+            "payload": {
+              "created_at": "2025-01-15T18:01:09Z",
+              "event": {
+                "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
+                "name": "15 Minute Meeting",
+                "start_time": "2025-01-15T14:00:00Z",
+                "end_time": "2025-01-15T14:15:00Z",
+                "location": {
+                  "type": "physical",
+                  "location": "Calendly Office"
+                },
+                "attendees": [
+                  {
+                    "host": true,
+                    "user_name": "John Smith",
+                    "user_email": "john@example.com"
+                  },
+                  {
+                    "host": false,
+                    "user_name": "Steve Johnson",
+                    "user_email": "steve@example2.com"
+                  }
+                ]
+              },
+              "recap": {
+                "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                "summary_md": "We aligned on Q4 goals and owners.",
+                "action_items_md": "- Send follow-up notes\n- Create project board",
+                "discussion_md": "Reviewed roadmap tradeoffs and dependencies.",
+                "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
+                "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738",
+                "created_at": "2025-01-15T18:01:09Z",
+                "updated_at": "2025-01-15T18:01:09Z"
+              }
+            }
+          },
+          "Meeting Recap Updated": {
+            "created_at": "2025-01-15T18:05:22Z",
+            "created_by": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+            "event": "meeting_recap.updated",
+            "payload": {
+              "event": {
+                "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
+                "name": "15 Minute Meeting",
+                "start_time": "2025-01-15T14:00:00Z",
+                "end_time": "2025-01-15T14:15:00Z",
+                "location": {
+                  "type": "physical",
+                  "location": "Calendly Office"
+                },
+                "attendees": [
+                  {
+                    "host": true,
+                    "user_name": "John Smith",
+                    "user_email": "john@example.com"
+                  },
+                  {
+                    "host": false,
+                    "user_name": "Steve Johnson",
+                    "user_email": "steve@example2.com"
+                  }
+                ]
+              },
+              "recap": {
+                "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                "summary_md": "Updated summary after review.",
+                "action_items_md": "- Create Jira epic",
+                "discussion_md": "Shortened notes",
+                "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
+                "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738",
+                "created_at": "2025-01-15T18:01:09Z",
+                "updated_at": "2025-01-15T18:05:00Z"
+              }
+            }
+          },
+          "Meeting Recap Deleted": {
+            "created_at": "2025-08-24T20:10:42Z",
+            "created_by": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+            "event": "meeting_recap.deleted",
+            "payload": {
+              "event": {
+                "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
+              },
+              "recap": {
+                "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                "deleted_at": "2025-08-24T20:10:42Z"
+              }
+            }
           }
         }
       },
@@ -9617,6 +10397,69 @@
           }
         },
         "description": "Payload for \u0060contact.deleted\u0060 (\u0060user_uuid\u0060 plus nested \u0060contact\u0060 with \u0060uri\u0060 and \u0060deleted_at\u0060).",
+        "x-internal": false
+      },
+      "MeetingRecapCreatedWebhookPayload": {
+        "title": "Meeting recap created webhook payload",
+        "required": [
+          "created_at",
+          "event",
+          "recap"
+        ],
+        "type": "object",
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "description": "When the meeting recap was processed/completed.",
+            "format": "date-time",
+            "example": "2025-01-15T18:01:09Z"
+          },
+          "event": {
+            "$ref": "#/components/schemas/MeetingRecapCreatedWebhookPayloadEvent"
+          },
+          "recap": {
+            "$ref": "#/components/schemas/MeetingRecapCreatedWebhookPayloadRecap"
+          }
+        },
+        "additionalProperties": false,
+        "description": "V2 webhook payload for \u0060meeting_recap.created\u0060",
+        "x-internal": false
+      },
+      "MeetingRecapUpdatedWebhookPayload": {
+        "title": "Meeting recap updated webhook payload",
+        "required": [
+          "event",
+          "recap"
+        ],
+        "type": "object",
+        "properties": {
+          "event": {
+            "$ref": "#/components/schemas/MeetingRecapUpdatedWebhookPayloadEvent"
+          },
+          "recap": {
+            "$ref": "#/components/schemas/MeetingRecapUpdatedWebhookPayloadRecap"
+          }
+        },
+        "additionalProperties": false,
+        "description": "V2 webhook payload for \u0060meeting_recap.updated\u0060",
+        "x-internal": false
+      },
+      "MeetingRecapDeletedWebhookPayload": {
+        "title": "Meeting recap deleted webhook payload",
+        "required": [
+          "recap"
+        ],
+        "type": "object",
+        "properties": {
+          "event": {
+            "$ref": "#/components/schemas/MeetingRecapDeletedWebhookPayloadEvent"
+          },
+          "recap": {
+            "$ref": "#/components/schemas/MeetingRecapDeletedWebhookPayloadRecap"
+          }
+        },
+        "additionalProperties": false,
+        "description": "V2 webhook payload for \u0060meeting_recap.deleted\u0060",
         "x-internal": false
       },
       "Pagination": {
@@ -12372,6 +13215,15 @@
           },
           {
             "$ref": "#/components/schemas/ContactDeletedWebhookPayload"
+          },
+          {
+            "$ref": "#/components/schemas/MeetingRecapCreatedWebhookPayload"
+          },
+          {
+            "$ref": "#/components/schemas/MeetingRecapUpdatedWebhookPayload"
+          },
+          {
+            "$ref": "#/components/schemas/MeetingRecapDeletedWebhookPayload"
           }
         ],
         "properties": {
@@ -12389,7 +13241,10 @@
             "EventTypePayload": "#/components/schemas/EventTypePayload",
             "ContactCreatedWebhookPayload": "#/components/schemas/ContactCreatedWebhookPayload",
             "ContactUpdatedWebhookPayload": "#/components/schemas/ContactUpdatedWebhookPayload",
-            "ContactDeletedWebhookPayload": "#/components/schemas/ContactDeletedWebhookPayload"
+            "ContactDeletedWebhookPayload": "#/components/schemas/ContactDeletedWebhookPayload",
+            "MeetingRecapCreatedWebhookPayload": "#/components/schemas/MeetingRecapCreatedWebhookPayload",
+            "MeetingRecapUpdatedWebhookPayload": "#/components/schemas/MeetingRecapUpdatedWebhookPayload",
+            "MeetingRecapDeletedWebhookPayload": "#/components/schemas/MeetingRecapDeletedWebhookPayload"
           }
         }
       },
@@ -12540,6 +13395,56 @@
           },
           "message": {
             "type": "string"
+          }
+        }
+      },
+      "MeetingRecapAttendeesItem": {
+        "required": [
+          "host",
+          "user_email",
+          "user_name"
+        ],
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "boolean",
+            "description": "Whether this attendee is the meeting host."
+          },
+          "user_email": {
+            "type": "string",
+            "description": "Attendee email address.",
+            "format": "email",
+            "example": "john@example.com"
+          },
+          "user_name": {
+            "type": "string",
+            "description": "Attendee display name.",
+            "example": "John Smith"
+          }
+        }
+      },
+      "MeetingRecapListItemAttendeesItem": {
+        "required": [
+          "host",
+          "user_email",
+          "user_name"
+        ],
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "boolean",
+            "description": "Whether this attendee is the meeting host."
+          },
+          "user_email": {
+            "type": "string",
+            "description": "Attendee email address.",
+            "format": "email",
+            "example": "john@example.com"
+          },
+          "user_name": {
+            "type": "string",
+            "description": "Attendee display name.",
+            "example": "John Smith"
           }
         }
       },
@@ -13386,6 +14291,217 @@
         },
         "description": "Deleted contact snapshot"
       },
+      "MeetingRecapCreatedWebhookPayloadEvent": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Scheduled event resource URI (present when the event provider is Calendly)",
+            "format": "uri",
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
+          },
+          "name": {
+            "type": "string",
+            "example": "15 Minute Meeting"
+          },
+          "start_time": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-01-15T14:00:00Z"
+          },
+          "end_time": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-01-15T14:15:00Z"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MeetingRecapCreatedWebhookPayloadEventAttendeesItem"
+            }
+          }
+        },
+        "description": "Snapshot of the related scheduled event"
+      },
+      "MeetingRecapCreatedWebhookPayloadRecap": {
+        "required": [
+          "uri",
+          "transcript"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Meeting recap resource URI",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB"
+          },
+          "summary_md": {
+            "type": "string",
+            "description": "Markdown summary of the meeting"
+          },
+          "action_items_md": {
+            "type": "string",
+            "description": "Markdown action items from the meeting"
+          },
+          "discussion_md": {
+            "type": "string",
+            "description": "Markdown discussion points"
+          },
+          "transcript": {
+            "type": "string",
+            "description": "Transcript resource URI",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript"
+          },
+          "share_link": {
+            "type": "string",
+            "description": "Share link for the meeting recap",
+            "format": "uri",
+            "example": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the meeting recap was created",
+            "format": "date-time",
+            "example": "2025-01-15T18:01:09Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "When the meeting recap was last updated",
+            "format": "date-time",
+            "example": "2025-01-15T18:01:09Z"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Meeting recap resource references and content"
+      },
+      "MeetingRecapUpdatedWebhookPayloadEvent": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Scheduled event resource URI (present when the event provider is Calendly)",
+            "format": "uri",
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
+          },
+          "name": {
+            "type": "string",
+            "example": "15 Minute Meeting"
+          },
+          "start_time": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-01-15T14:00:00Z"
+          },
+          "end_time": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-01-15T14:15:00Z"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MeetingRecapUpdatedWebhookPayloadEventAttendeesItem"
+            }
+          }
+        },
+        "description": "Snapshot of the related scheduled event"
+      },
+      "MeetingRecapUpdatedWebhookPayloadRecap": {
+        "required": [
+          "uri"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Meeting recap resource URI",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB"
+          },
+          "summary_md": {
+            "type": "string",
+            "description": "Markdown summary of the meeting"
+          },
+          "action_items_md": {
+            "type": "string",
+            "description": "Markdown action items from the meeting"
+          },
+          "discussion_md": {
+            "type": "string",
+            "description": "Markdown discussion points"
+          },
+          "transcript": {
+            "type": "string",
+            "description": "Transcript resource URI",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript"
+          },
+          "share_link": {
+            "type": "string",
+            "description": "Share link for the meeting recap",
+            "format": "uri",
+            "example": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the meeting recap was created",
+            "format": "date-time",
+            "example": "2025-01-15T18:01:09Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "When the meeting recap was last updated",
+            "format": "date-time",
+            "example": "2025-01-15T18:05:00Z"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Updated meeting recap resource"
+      },
+      "MeetingRecapDeletedWebhookPayloadEvent": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Scheduled event resource URI (present when the event provider is Calendly)",
+            "format": "uri",
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Related scheduled event reference"
+      },
+      "MeetingRecapDeletedWebhookPayloadRecap": {
+        "required": [
+          "uri",
+          "deleted_at"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Meeting recap resource URI",
+            "format": "uri",
+            "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB"
+          },
+          "deleted_at": {
+            "type": "string",
+            "description": "When the meeting recap was deleted",
+            "format": "date-time",
+            "example": "2025-08-24T20:10:42Z"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Deleted meeting recap resource reference"
+      },
       "EntryDetails": {
         "type": "object"
       },
@@ -13639,6 +14755,46 @@
           "timezone": {
             "type": "string",
             "example": "America/New_York"
+          }
+        }
+      },
+      "MeetingRecapCreatedWebhookPayloadEventAttendeesItem": {
+        "required": [
+          "host",
+          "user_email",
+          "user_name"
+        ],
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "boolean"
+          },
+          "user_email": {
+            "type": "string",
+            "format": "email"
+          },
+          "user_name": {
+            "type": "string"
+          }
+        }
+      },
+      "MeetingRecapUpdatedWebhookPayloadEventAttendeesItem": {
+        "required": [
+          "host",
+          "user_email",
+          "user_name"
+        ],
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "boolean"
+          },
+          "user_email": {
+            "type": "string",
+            "format": "email"
+          },
+          "user_name": {
+            "type": "string"
           }
         }
       },
@@ -14547,6 +15703,46 @@
           }
         }
       },
+      "ListMeetingRecaps200Response": {
+        "required": [
+          "collection",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MeetingRecapListItem"
+            },
+            "description": "The set of meeting recaps matching the criteria"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "description": "Service response"
+      },
+      "UpdateMeetingRecapsUuidRequest": {
+        "type": "object",
+        "properties": {
+          "summary_md": {
+            "type": "string",
+            "description": "Summary in Markdown.",
+            "nullable": true
+          },
+          "action_items_md": {
+            "type": "string",
+            "description": "Action items in Markdown.",
+            "nullable": true
+          },
+          "discussion_md": {
+            "type": "string",
+            "description": "Discussion notes in Markdown.",
+            "nullable": true
+          }
+        }
+      },
       "ListContacts200Response": {
         "required": [
           "collection",
@@ -15137,6 +16333,39 @@
         "properties": {
           "resource": {
             "$ref": "#/components/schemas/EventTypeAvailabilitySchedule"
+          }
+        }
+      },
+      "GetTranscriptMeetingRecaps200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/Transcript"
+          }
+        }
+      },
+      "GetMeetingRecapsUuidRecap200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/MeetingRecap"
+          }
+        }
+      },
+      "UpdateMeetingRecapsUuid200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/MeetingRecap"
           }
         }
       },
@@ -16950,6 +18179,9 @@
           "invitee.canceled",
           "invitee_no_show.created",
           "invitee_no_show.deleted",
+          "meeting_recap.created",
+          "meeting_recap.updated",
+          "meeting_recap.deleted",
           "routing_form_submission.created",
           "contact.created",
           "contact.updated",
@@ -16976,6 +18208,18 @@
             {
               "value": "invitee_no_show.deleted",
               "name": "InviteeNoShowDeleted"
+            },
+            {
+              "value": "meeting_recap.created",
+              "name": "MeetingRecapCreated"
+            },
+            {
+              "value": "meeting_recap.updated",
+              "name": "MeetingRecapUpdated"
+            },
+            {
+              "value": "meeting_recap.deleted",
+              "name": "MeetingRecapDeleted"
             },
             {
               "value": "routing_form_submission.created",
@@ -17035,6 +18279,9 @@
           "event_type.created",
           "event_type.deleted",
           "event_type.updated",
+          "meeting_recap.created",
+          "meeting_recap.updated",
+          "meeting_recap.deleted",
           "contact.created",
           "contact.updated",
           "contact.deleted"
@@ -17077,6 +18324,18 @@
             {
               "value": "event_type.updated",
               "name": "EventTypeUpdated"
+            },
+            {
+              "value": "meeting_recap.created",
+              "name": "MeetingRecapCreated"
+            },
+            {
+              "value": "meeting_recap.updated",
+              "name": "MeetingRecapUpdated"
+            },
+            {
+              "value": "meeting_recap.deleted",
+              "name": "MeetingRecapDeleted"
             },
             {
               "value": "contact.created",
@@ -19088,6 +20347,9 @@
           "invitee.created",
           "invitee_no_show.created",
           "invitee_no_show.deleted",
+          "meeting_recap.created",
+          "meeting_recap.updated",
+          "meeting_recap.deleted",
           "routing_form_submission.created",
           "contact.created",
           "contact.updated",
@@ -19114,6 +20376,18 @@
             {
               "value": "invitee_no_show.deleted",
               "name": "InviteeNoShowDeleted"
+            },
+            {
+              "value": "meeting_recap.created",
+              "name": "MeetingRecapCreated"
+            },
+            {
+              "value": "meeting_recap.updated",
+              "name": "MeetingRecapUpdated"
+            },
+            {
+              "value": "meeting_recap.deleted",
+              "name": "MeetingRecapDeleted"
             },
             {
               "value": "routing_form_submission.created",
@@ -19576,6 +20850,9 @@
           "event_type.created",
           "event_type.deleted",
           "event_type.updated",
+          "meeting_recap.created",
+          "meeting_recap.updated",
+          "meeting_recap.deleted",
           "contact.created",
           "contact.updated",
           "contact.deleted"
@@ -19619,6 +20896,18 @@
               "name": "EventTypeUpdated"
             },
             {
+              "value": "meeting_recap.created",
+              "name": "MeetingRecapCreated"
+            },
+            {
+              "value": "meeting_recap.updated",
+              "name": "MeetingRecapUpdated"
+            },
+            {
+              "value": "meeting_recap.deleted",
+              "name": "MeetingRecapDeleted"
+            },
+            {
               "value": "contact.created",
               "name": "ContactCreated"
             },
@@ -19656,6 +20945,33 @@
             {
               "value": "group",
               "name": "Group"
+            }
+          ]
+        }
+      },
+      "ListMeetingRecapsStatusParameter": {
+        "enum": [
+          "available",
+          "processing",
+          "unavailable"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListMeetingRecapsStatusParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "available",
+              "name": "Available"
+            },
+            {
+              "value": "processing",
+              "name": "Processing"
+            },
+            {
+              "value": "unavailable",
+              "name": "Unavailable"
             }
           ]
         }
@@ -20560,7 +21876,7 @@
       "name": "Locations"
     },
     {
-      "name": "Meeting Recaps"
+      "name": "Notetaker"
     },
     {
       "name": "Organizations"

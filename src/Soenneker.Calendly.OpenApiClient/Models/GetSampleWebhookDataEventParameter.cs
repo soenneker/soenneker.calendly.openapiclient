@@ -40,6 +40,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         #pragma warning disable CS1591
         EventTypeUpdated,
         #pragma warning restore CS1591
+        [EnumMember(Value = "meeting_recap.created")]
+        #pragma warning disable CS1591
+        MeetingRecapCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "meeting_recap.updated")]
+        #pragma warning disable CS1591
+        MeetingRecapUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "meeting_recap.deleted")]
+        #pragma warning disable CS1591
+        MeetingRecapDeleted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "contact.created")]
         #pragma warning disable CS1591
         ContactCreated,

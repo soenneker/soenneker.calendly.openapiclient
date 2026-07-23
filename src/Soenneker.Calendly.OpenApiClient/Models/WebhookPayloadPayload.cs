@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactCreatedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactUpdatedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.EventTypePayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactCreatedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactUpdatedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.EventTypePayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapDeletedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookPayloadPayload : IComposedTypeWrapper, IParsable
@@ -53,6 +53,30 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload InviteePayload { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayload? MeetingRecapCreatedWebhookPayload { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayload MeetingRecapCreatedWebhookPayload { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapDeletedWebhookPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapDeletedWebhookPayload? MeetingRecapDeletedWebhookPayload { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapDeletedWebhookPayload MeetingRecapDeletedWebhookPayload { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload? MeetingRecapUpdatedWebhookPayload { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload MeetingRecapUpdatedWebhookPayload { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,6 +115,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 result.InviteePayload = new global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload();
             }
+            else if("MeetingRecapCreatedWebhookPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.MeetingRecapCreatedWebhookPayload = new global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayload();
+            }
+            else if("MeetingRecapDeletedWebhookPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.MeetingRecapDeletedWebhookPayload = new global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapDeletedWebhookPayload();
+            }
+            else if("MeetingRecapUpdatedWebhookPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.MeetingRecapUpdatedWebhookPayload = new global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload();
+            }
             else if("RoutingFormSubmission".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RoutingFormSubmission = new global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission();
@@ -122,6 +158,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             else if(InviteePayload != null)
             {
                 return InviteePayload.GetFieldDeserializers();
+            }
+            else if(MeetingRecapCreatedWebhookPayload != null)
+            {
+                return MeetingRecapCreatedWebhookPayload.GetFieldDeserializers();
+            }
+            else if(MeetingRecapDeletedWebhookPayload != null)
+            {
+                return MeetingRecapDeletedWebhookPayload.GetFieldDeserializers();
+            }
+            else if(MeetingRecapUpdatedWebhookPayload != null)
+            {
+                return MeetingRecapUpdatedWebhookPayload.GetFieldDeserializers();
             }
             else if(RoutingFormSubmission != null)
             {
@@ -155,6 +203,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             else if(InviteePayload != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayload>(null, InviteePayload);
+            }
+            else if(MeetingRecapCreatedWebhookPayload != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayload>(null, MeetingRecapCreatedWebhookPayload);
+            }
+            else if(MeetingRecapDeletedWebhookPayload != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapDeletedWebhookPayload>(null, MeetingRecapDeletedWebhookPayload);
+            }
+            else if(MeetingRecapUpdatedWebhookPayload != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload>(null, MeetingRecapUpdatedWebhookPayload);
             }
             else if(RoutingFormSubmission != null)
             {

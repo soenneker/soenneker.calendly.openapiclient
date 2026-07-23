@@ -24,6 +24,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         #pragma warning disable CS1591
         InviteeNoShowDeleted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "meeting_recap.created")]
+        #pragma warning disable CS1591
+        MeetingRecapCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "meeting_recap.updated")]
+        #pragma warning disable CS1591
+        MeetingRecapUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "meeting_recap.deleted")]
+        #pragma warning disable CS1591
+        MeetingRecapDeleted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "routing_form_submission.created")]
         #pragma warning disable CS1591
         RoutingFormSubmissionCreated,
