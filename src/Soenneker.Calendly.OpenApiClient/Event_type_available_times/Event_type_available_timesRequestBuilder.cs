@@ -97,15 +97,8 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
         public partial class Event_type_available_timesRequestBuilderGetQueryParameters 
         {
             /// <summary>End time of the requested availability range. Date must be in the future and no greater than 31 days from start_time.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("end_time")]
-            public string? EndTime { get; set; }
-#nullable restore
-#else
-            [QueryParameter("end_time")]
-            public string EndTime { get; set; }
-#endif
+            public DateTimeOffset? EndTime { get; set; }
             /// <summary>The uri associated with the event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,15 +110,8 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
             public string EventType { get; set; }
 #endif
             /// <summary>Start time of the requested availability range. Date cannot be in the past.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("start_time")]
-            public string? StartTime { get; set; }
-#nullable restore
-#else
-            [QueryParameter("start_time")]
-            public string StartTime { get; set; }
-#endif
+            public DateTimeOffset? StartTime { get; set; }
         }
     }
 }

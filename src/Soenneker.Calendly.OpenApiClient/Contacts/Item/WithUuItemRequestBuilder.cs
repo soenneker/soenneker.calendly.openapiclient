@@ -22,7 +22,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts/{uuid}", pathParameters)
+        public WithUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts/{uuid}{?exclude*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts/{uuid}", rawUrl)
+        public WithUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts/{uuid}{?exclude*}", rawUrl)
         {
         }
         /// <summary>
@@ -77,11 +77,11 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder.WithUuItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder.WithUuItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -156,11 +156,11 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder.WithUuItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder.WithUuItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -198,6 +198,23 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         public global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// &quot;Returns the details of a specified Contact.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`&quot;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithUuItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Omit the listed fields from the response. Supported value is `custom_fields`. When this parameter is not provided, all fields are returned. Accepts a comma-separated list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("exclude")]
+            public string? Exclude { get; set; }
+#nullable restore
+#else
+            [QueryParameter("exclude")]
+            public string Exclude { get; set; }
+#endif
         }
     }
 }

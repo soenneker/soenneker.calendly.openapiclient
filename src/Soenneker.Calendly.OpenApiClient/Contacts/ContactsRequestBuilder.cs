@@ -35,7 +35,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,job_title*,name*,page_token*,phone_number*,sort*,state*,timezone*}", pathParameters)
+        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,name*,page_token*,phone_number*,sort*,state*,timezone*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,job_title*,name*,page_token*,phone_number*,sort*,state*,timezone*}", rawUrl)
+        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,name*,page_token*,phone_number*,sort*,state*,timezone*}", rawUrl)
         {
         }
         /// <summary>
@@ -210,6 +210,16 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
 #else
             [QueryParameter("email")]
             public string Email { get; set; }
+#endif
+            /// <summary>Omit the listed fields from the response. Supported value is `custom_fields`. When this parameter is not provided, all fields are returned. Accepts a comma-separated list.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("exclude")]
+            public string? Exclude { get; set; }
+#nullable restore
+#else
+            [QueryParameter("exclude")]
+            public string Exclude { get; set; }
 #endif
             /// <summary>Filter results by partial match on job title(s). Accepts a comma-separated list-- each segment is matched independently (commas in the query string separate values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

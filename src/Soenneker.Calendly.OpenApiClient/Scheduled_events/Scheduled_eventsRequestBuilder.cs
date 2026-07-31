@@ -133,25 +133,11 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
             public string InviteeEmail { get; set; }
 #endif
             /// <summary>&quot;Include events with start times prior to this time (sample time format: \&quot;2020-01-02T03:04:05.678123Z\&quot;). This time should use the UTC timezone.&quot;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("max_start_time")]
-            public string? MaxStartTime { get; set; }
-#nullable restore
-#else
-            [QueryParameter("max_start_time")]
-            public string MaxStartTime { get; set; }
-#endif
+            public DateTimeOffset? MaxStartTime { get; set; }
             /// <summary>&quot;Include events with start times after this time (sample time format: \&quot;2020-01-02T03:04:05.678123Z\&quot;). This time should use the UTC timezone.&quot;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("min_start_time")]
-            public string? MinStartTime { get; set; }
-#nullable restore
-#else
-            [QueryParameter("min_start_time")]
-            public string MinStartTime { get; set; }
-#endif
+            public DateTimeOffset? MinStartTime { get; set; }
             /// <summary>Return events that are scheduled with the organization associated with this URI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

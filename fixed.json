@@ -77,7 +77,7 @@
                   "$ref": "#/components/schemas/ListEventInvitees200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Event Invitees": {
                     "value": {
                       "collection": [
                         {
@@ -124,7 +124,7 @@
                           "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
                           "routing_form_submission": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA",
                           "payment": {
-                            "external_id": "ch_AAAAAAAAAAAAAAAAAAAAAAAA",
+                            "external_id": "ch_AAAAAAAAAAAAAAAA",
                             "provider": "stripe",
                             "amount": 1234.56,
                             "currency": "USD",
@@ -195,7 +195,7 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://api.calendly.com/users/EBHAAFHDCAEQTSEZ"
+              "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -205,7 +205,7 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://api.calendly.com/organizations/EBHAAFHDCAEQTSEZ"
+              "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -240,7 +240,8 @@
             "in": "query",
             "description": "\u0022Include events with start times after this time (sample time format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022). This time should use the UTC timezone.\u0022",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "example": "2020-01-02T12:30:00.000000Z"
           },
@@ -249,7 +250,8 @@
             "in": "query",
             "description": "\u0022Include events with start times prior to this time (sample time format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022). This time should use the UTC timezone.\u0022",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "example": "2020-01-02T12:30:00.000000Z"
           },
@@ -277,18 +279,18 @@
                   "$ref": "#/components/schemas/ListScheduledEvents200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Scheduled events": {
                     "value": {
                       "collection": [
                         {
-                          "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+                          "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                           "name": "15 Minute Meeting",
                           "meeting_notes_plain": "Internal meeting notes",
                           "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
                           "status": "active",
                           "start_time": "2019-08-24T14:15:22.123456Z",
                           "end_time": "2019-08-24T14:15:22.123456Z",
-                          "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+                          "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                           "location": {
                             "type": "physical",
                             "location": "Calendly Office",
@@ -303,7 +305,7 @@
                           "updated_at": "2019-01-02T03:04:05.092125Z",
                           "event_memberships": [
                             {
-                              "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                              "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                               "user_email": "user@example.com",
                               "user_name": "John Smith",
                               "buffered_end_time": "2019-08-24T14:15:22.123456Z",
@@ -445,7 +447,7 @@
                   "$ref": "#/components/schemas/ListEventTypes200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Event types": {
                     "value": {
                       "collection": [
                         {
@@ -667,7 +669,7 @@
                   "$ref": "#/components/schemas/GetUser200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "User": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
@@ -730,7 +732,7 @@
                   "$ref": "#/components/schemas/GetCurrentUser200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "User": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
@@ -801,7 +803,7 @@
                         "email": "email@example.com",
                         "rescheduled": false,
                         "reschedule_url": "https://calendly.com/reschedulings/AAAAAAAAAAAAAAAA",
-                        "event": "https://api.calendly.com/scheduled_events/ABCDABCDABCDABCD",
+                        "event": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                         "name": "John Doe",
                         "first_name": null,
                         "last_name": null,
@@ -819,7 +821,7 @@
                           "salesforce_uuid": null
                         },
                         "updated_at": "2020-01-01T20:30:00.000000Z",
-                        "uri": "https://api.calendly.com/api/v2/scheduled_events/ABCDABCDABCDABCD/invitees/ABCDABCDABCDABCD",
+                        "uri": "https://api.calendly.com/api/v2/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
                         "questions_and_answers": [
                           {
                             "answer": "radio button answer",
@@ -839,7 +841,7 @@
                         ],
                         "routing_form_submission": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA",
                         "payment": {
-                          "external_id": "ch_AAAAAAAAAAAAAAAAAAAAAAAA",
+                          "external_id": "ch_AAAAAAAAAAAAAAAA",
                           "provider": "stripe",
                           "amount": 1234.56,
                           "currency": "USD",
@@ -892,7 +894,7 @@
                         },
                         "routing_form_submission": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA",
                         "payment": {
-                          "external_id": "ch_AAAAAAAAAAAAAAAAAAAAAAAA",
+                          "external_id": "ch_AAAAAAAAAAAAAAAA",
                           "provider": "stripe",
                           "amount": 1234.56,
                           "currency": "USD",
@@ -1034,10 +1036,10 @@
                   "$ref": "#/components/schemas/GetScheduledEvent200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Scheduled event": {
                     "value": {
                       "resource": {
-                        "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+                        "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                         "name": "15 Minute Meeting",
                         "meeting_notes_plain": "Internal meeting notes",
                         "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
@@ -1045,7 +1047,7 @@
                         "booking_method": "instant",
                         "start_time": "2019-08-24T14:15:22.000000Z",
                         "end_time": "2019-08-24T14:15:22.000000Z",
-                        "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+                        "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                         "location": {
                           "type": "physical",
                           "location": "Calendly Office",
@@ -1060,7 +1062,7 @@
                         "updated_at": "2019-01-02T03:04:05.678123Z",
                         "event_memberships": [
                           {
-                            "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                            "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                             "user_email": "user@example.com",
                             "user_name": "John Smith",
                             "buffered_end_time": "2019-08-24T14:15:22.000000Z",
@@ -1136,7 +1138,7 @@
                   "$ref": "#/components/schemas/GetEventType200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Event Type": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
@@ -1383,7 +1385,7 @@
                   "$ref": "#/components/schemas/ListOrganizationInvitations200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Organization Invitations": {
                     "value": {
                       "collection": [
                         {
@@ -1449,7 +1451,32 @@
                 "$ref": "#/components/schemas/CreateOrganizationInvitationRequest"
               },
               "examples": {
-                "Example": {
+                "Invite user request": {
+                  "value": {
+                    "email": "alice@example.com"
+                  }
+                },
+                "Email is Invalid": {
+                  "value": {
+                    "email": "invalid_email@example"
+                  }
+                },
+                "Email is Blank": {
+                  "value": {
+                    "email": ""
+                  }
+                },
+                "Email Exists in Organization": {
+                  "value": {
+                    "email": "email@example.com"
+                  }
+                },
+                "Invitation Already Exists": {
+                  "value": {
+                    "email": "email@example.com"
+                  }
+                },
+                "Race Condition": {
                   "value": {
                     "email": "alice@example.com"
                   }
@@ -1467,16 +1494,16 @@
                   "$ref": "#/components/schemas/CreateOrganizationInvitation201Response"
                 },
                 "examples": {
-                  "Invitation": {
+                  "Invite user request": {
                     "value": {
                       "resource": {
                         "created_at": "2020-01-01T20:30:00.000000Z",
-                        "email": "email@example.com",
+                        "email": "alice@example.com",
                         "last_sent_at": "2020-01-01T20:30:00.123456Z",
-                        "organization": "https://api.calendly.com/organizations/ABCDABCDABCDABCD",
+                        "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
                         "status": "pending",
                         "updated_at": "2020-01-01T20:30:00.000000Z",
-                        "uri": "https://api.calendly.com/organizations/ABCDABCDABCDABCD/invitations/DCBADCBADCBADCBA"
+                        "uri": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA/invitations/BBBBBBBBBBBBBBBB"
                       }
                     }
                   }
@@ -1631,7 +1658,7 @@
                   "$ref": "#/components/schemas/GetOrganizationInvitation200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Organization Invitation": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA/invitations/BBBBBBBBBBBBBBBB",
@@ -1712,7 +1739,7 @@
                   "$ref": "#/components/schemas/GetOrganizationMembership200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Organization Membership": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/organization_memberships/AAAAAAAAAAAAAAAA",
@@ -1842,7 +1869,7 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://api.calendly.com/organizations/012345678901234567890"
+              "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -1852,7 +1879,7 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://api.calendly.com/users/012345678901234567890"
+              "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -1873,7 +1900,7 @@
                   "$ref": "#/components/schemas/ListOrganizationMemberships200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Organization Memberships": {
                     "value": {
                       "collection": [
                         {
@@ -2022,7 +2049,7 @@
                   "$ref": "#/components/schemas/Createwebhooks201Response"
                 },
                 "examples": {
-                  "Example": {
+                  "User Scope Webhook": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
@@ -2032,12 +2059,74 @@
                         "retry_started_at": "2019-08-24T14:15:22.123456Z",
                         "state": "active",
                         "events": [
-                          "invitee.created"
+                          "invitee.created",
+                          "invitee.canceled",
+                          "invitee_no_show.created",
+                          "invitee_no_show.deleted",
+                          "meeting_recap.created",
+                          "meeting_recap.updated",
+                          "meeting_recap.deleted",
+                          "contact.created",
+                          "contact.updated",
+                          "contact.deleted"
                         ],
                         "scope": "user",
                         "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
-                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
-                        "group": "https://api.calendly.com/groups/AAAAAAAAAAAAAAAA",
+                        "user": "https://api.calendly.com/users/BBBBBBBBBBBBBBBB",
+                        "group": null,
+                        "creator": "https://api.calendly.com/users/BBBBBBBBBBBBBBBB"
+                      }
+                    }
+                  },
+                  "Organization Scope Webhook": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
+                        "callback_url": "https://blah.foo/bar",
+                        "created_at": "2019-08-24T14:15:22.123456Z",
+                        "updated_at": "2019-08-24T14:15:22.123456Z",
+                        "retry_started_at": "2019-08-24T14:15:22.123456Z",
+                        "state": "active",
+                        "events": [
+                          "invitee.created",
+                          "invitee.canceled",
+                          "invitee_no_show.created",
+                          "invitee_no_show.deleted",
+                          "routing_form_submission.created",
+                          "contact.created",
+                          "contact.updated",
+                          "contact.deleted"
+                        ],
+                        "scope": "organization",
+                        "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
+                        "user": null,
+                        "group": null,
+                        "creator": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                      }
+                    }
+                  },
+                  "Group Scope Webhook": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
+                        "callback_url": "https://blah.foo/bar",
+                        "created_at": "2019-08-24T14:15:22.123456Z",
+                        "updated_at": "2019-08-24T14:15:22.123456Z",
+                        "retry_started_at": "2019-08-24T14:15:22.123456Z",
+                        "state": "active",
+                        "events": [
+                          "invitee.created",
+                          "invitee.canceled",
+                          "invitee_no_show.created",
+                          "invitee_no_show.deleted",
+                          "contact.created",
+                          "contact.updated",
+                          "contact.deleted"
+                        ],
+                        "scope": "group",
+                        "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
+                        "user": null,
+                        "group": "https://api.calendly.com/groups/BBBBBBBBBBBBBBBB",
                         "creator": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
                       }
                     }
@@ -2066,7 +2155,19 @@
                   "$ref": "#/components/schemas/Createwebhooks409Response"
                 },
                 "examples": {
-                  "URL Already Exists": {
+                  "User Scope Webhook": {
+                    "value": {
+                      "title": "Already Exists",
+                      "message": "Hook with this url already exists"
+                    }
+                  },
+                  "Organization Scope Webhook": {
+                    "value": {
+                      "title": "Already Exists",
+                      "message": "Hook with this url already exists"
+                    }
+                  },
+                  "Group Scope Webhook": {
                     "value": {
                       "title": "Already Exists",
                       "message": "Hook with this url already exists"
@@ -2158,7 +2259,7 @@
                   "$ref": "#/components/schemas/ListWebhookSubscriptions200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Webhook Subscriptions": {
                     "value": {
                       "collection": [
                         {
@@ -2231,7 +2332,7 @@
                   "$ref": "#/components/schemas/GetWebhookSubscription200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Webhook Subscription": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
@@ -2334,7 +2435,7 @@
                 "Create Single Use Link": {
                   "value": {
                     "max_event_count": 1,
-                    "owner": "https://api.calendly.com/event_types/012345678901234567890",
+                    "owner": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                     "owner_type": "EventType"
                   }
                 }
@@ -2351,11 +2452,11 @@
                   "$ref": "#/components/schemas/CreateSchedulingLink201Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Create Single Use Link": {
                     "value": {
                       "resource": {
                         "booking_url": "https://calendly.com/d/abcd-brv8/15-minute-meeting",
-                        "owner": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+                        "owner": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                         "owner_type": "EventType"
                       }
                     }
@@ -2406,7 +2507,7 @@
                 "$ref": "#/components/schemas/DeleteInviteeDataRequest"
               },
               "examples": {
-                "Example": {
+                "Delete invitee data request": {
                   "value": {
                     "emails": [
                       "test@example.com"
@@ -2426,7 +2527,7 @@
                   "$ref": "#/components/schemas/DeleteInviteeData202ResponseResponseJson"
                 },
                 "examples": {
-                  "Example": {
+                  "Delete invitee data request": {
                     "value": {}
                   }
                 }
@@ -2476,11 +2577,11 @@
                   "$ref": "#/components/schemas/GetInviteeNoShow200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Invitee No Show": {
                     "value": {
                       "resource": {
-                        "uri": "https://api.calendly.com/invitee_no_shows/639fa667-4c1b-4b20-93b5-1b1969d67dc6",
-                        "invitee": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2/invitees/7c1dbe46-bd84-42e2-9b97-05e2fb379bfe",
+                        "uri": "https://api.calendly.com/invitee_no_shows/AAAAAAAAAAAAAAAA",
+                        "invitee": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
                         "created_at": "2019-01-02T03:04:05.678123Z"
                       }
                     }
@@ -2567,9 +2668,9 @@
                 "$ref": "#/components/schemas/CreateInviteeNoShowRequest"
               },
               "examples": {
-                "Example": {
+                "Create invitee no show request": {
                   "value": {
-                    "invitee": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2/invitees/7c1dbe46-bd84-42e2-9b97-05e2fb379bfe"
+                    "invitee": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
                   }
                 }
               }
@@ -2585,11 +2686,11 @@
                   "$ref": "#/components/schemas/CreateInviteeNoShow201Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Create invitee no show request": {
                     "value": {
                       "resource": {
-                        "uri": "https://api.calendly.com/invitee_no_shows/639fa667-4c1b-4b20-93b5-1b1969d67dc6",
-                        "invitee": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2/invitees/7c1dbe46-bd84-42e2-9b97-05e2fb379bfe",
+                        "uri": "https://api.calendly.com/invitee_no_shows/AAAAAAAAAAAAAAAA",
+                        "invitee": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
                         "created_at": "2019-01-02T03:04:05.678123Z"
                       }
                     }
@@ -2652,7 +2753,7 @@
                   "$ref": "#/components/schemas/GetGroup200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Group": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/groups/AAAAAAAAAAAAAAAA",
@@ -2742,7 +2843,7 @@
                   "$ref": "#/components/schemas/ListGroupRelationships200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Group Relationships": {
                     "value": {
                       "collection": [
                         {
@@ -3040,6 +3141,13 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateScheduledEventCancellationRequest"
+              },
+              "examples": {
+                "Cancel event request": {
+                  "value": {
+                    "reason": "Something came up."
+                  }
+                }
               }
             }
           }
@@ -3051,6 +3159,18 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateScheduledEventCancellation201Response"
+                },
+                "examples": {
+                  "Cancel event request": {
+                    "value": {
+                      "resource": {
+                        "canceled_by": "John Smith",
+                        "reason": "Something came up.",
+                        "canceler_type": "host",
+                        "created_at": "2019-01-02T03:04:05.678123Z"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -3109,7 +3229,7 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://api.calendly.com/organizations/EBHAAFHDCAEQTSEZ"
+              "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -3137,7 +3257,7 @@
                   "$ref": "#/components/schemas/ListRoutingForms200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Routing Forms": {
                     "value": {
                       "collection": [
                         {
@@ -3225,7 +3345,7 @@
                   "$ref": "#/components/schemas/GetRoutingForm200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Routing Form": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/routing_forms/AAAAAAAAAAAAAAAA",
@@ -3342,7 +3462,7 @@
                   "$ref": "#/components/schemas/ListRoutingFormSubmissions200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Routing Form Submissions": {
                     "value": {
                       "collection": [
                         {
@@ -3365,7 +3485,7 @@
                           },
                           "result": {
                             "type": "event_type",
-                            "value": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+                            "value": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
                           },
                           "submitter": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
                           "submitter_type": "Invitee",
@@ -3429,7 +3549,7 @@
                   "$ref": "#/components/schemas/GetRoutingFormSubmission200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Routing Form Submission": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA",
@@ -3451,7 +3571,7 @@
                         },
                         "result": {
                           "type": "event_type",
-                          "value": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+                          "value": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
                         },
                         "submitter": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
                         "submitter_type": "Invitee",
@@ -3526,7 +3646,8 @@
             "description": "Start time of the requested availability range. Date cannot be in the past.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
             "example": "2020-01-02T20:00:00.000000Z"
           },
@@ -3536,9 +3657,10 @@
             "description": "End time of the requested availability range. Date must be in the future and no greater than 31 days from start_time.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time"
             },
-            "example": "2020-01-07T24:00:00.000000Z"
+            "example": "2020-01-08T00:00:00.000000Z"
           }
         ],
         "responses": {
@@ -3550,7 +3672,7 @@
                   "$ref": "#/components/schemas/ListEventTypeAvailableTimes200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Event Type Available Times": {
                     "value": {
                       "collection": [
                         {
@@ -3621,7 +3743,7 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://api.calendly.com/organizations/EBHAAFHDCAEQTSEZ"
+              "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -3653,7 +3775,7 @@
               "items": {
                 "type": "string",
                 "format": "uri",
-                "example": "https://api.calendly.com/users/EBHAAFHDCAEQTSEZ"
+                "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
               }
             }
           },
@@ -3748,23 +3870,23 @@
                   "$ref": "#/components/schemas/ListActivityLogEntries200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Activity log entries": {
                     "value": {
                       "collection": [
                         {
                           "occurred_at": "2020-01-02T03:04:05.678Z",
-                          "uri": "https://api.calendly.com/activity_log_entries/ALFKJELNCLKSJDLKFJGELKJ",
+                          "uri": "https://api.calendly.com/activity_log_entries/AAAAAAAAAAAAAAAA",
                           "namespace": "User",
                           "action": "Add",
                           "actor": {
-                            "uri": "https://api.calendly.com/users/SDLKJENFJKD123",
+                            "uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                             "type": "User",
                             "organization": {
-                              "uri": "https://api.calendly.com/organizations/LKJENFLKE293847",
+                              "uri": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
                               "role": "Owner"
                             },
                             "group": {
-                              "uri": "https://api.calendly.com/groups/123987DJLKJEF",
+                              "uri": "https://api.calendly.com/groups/AAAAAAAAAAAAAAAA",
                               "name": "Development",
                               "role": "Admin"
                             },
@@ -3773,7 +3895,7 @@
                           },
                           "fully_qualified_name": "User.Add",
                           "details": {},
-                          "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAA"
+                          "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
                         }
                       ],
                       "pagination": {
@@ -3804,7 +3926,15 @@
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
       }
     },
     "/shares": {
@@ -3823,7 +3953,7 @@
                 "$ref": "#/components/schemas/CreateShareRequest"
               },
               "examples": {
-                "example-1": {
+                "Create share request": {
                   "value": {
                     "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                     "name": "15 Minute Meeting",
@@ -3852,7 +3982,6 @@
                         {
                           "type": "wday",
                           "wday": "sunday",
-                          "date": "2019-01-02",
                           "intervals": [
                             {
                               "from": "07:00",
@@ -3878,7 +4007,7 @@
                   "$ref": "#/components/schemas/CreateShare201Response"
                 },
                 "examples": {
-                  "example-1": {
+                  "Create share request": {
                     "value": {
                       "resource": {
                         "scheduling_links": [
@@ -3916,7 +4045,6 @@
                               {
                                 "type": "wday",
                                 "wday": "friday",
-                                "date": "2019-01-02",
                                 "intervals": [
                                   {
                                     "from": "07:00",
@@ -4008,7 +4136,7 @@
                   "$ref": "#/components/schemas/ListUserBusyTimes200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "User Busy Times": {
                     "value": {
                       "collection": [
                         {
@@ -4018,7 +4146,7 @@
                           "buffered_start_time": "2020-01-02T19:30:00.000000Z",
                           "buffered_end_time": "2020-01-02T21:00:00.000000Z",
                           "event": {
-                            "uri": "https://api.calendly.com/scheduled_events/abc123"
+                            "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
                           }
                         },
                         {
@@ -4028,7 +4156,7 @@
                           "buffered_start_time": "2020-01-05T19:30:00.000000Z",
                           "buffered_end_time": "2020-01-05T21:00:00.000000Z",
                           "event": {
-                            "uri": "https://api.calendly.com/scheduled_events/abc12345"
+                            "uri": "https://api.calendly.com/scheduled_events/BBBBBBBBBBBBBBBB"
                           }
                         },
                         {
@@ -4119,14 +4247,14 @@
                   "$ref": "#/components/schemas/ListUserAvailabilitySchedules200Response"
                 },
                 "examples": {
-                  "example-1": {
+                  "Availability schedules": {
                     "value": {
                       "collection": [
                         {
-                          "uri": "https://api.calendly.com/user_availability_schedule/abc123",
+                          "uri": "https://api.calendly.com/user_availability_schedule/AAAAAAAAAAAAAAAA",
                           "default": true,
                           "name": "Working Hours",
-                          "user": "https://api.calendly.com/users/abc123",
+                          "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                           "timezone": "America/New_York",
                           "rules": [
                             {
@@ -4143,10 +4271,10 @@
                           ]
                         },
                         {
-                          "uri": "https://api.calendly.com/user_availability_schedule/abc456",
+                          "uri": "https://api.calendly.com/user_availability_schedule/BBBBBBBBBBBBBBBB",
                           "default": false,
                           "name": "Evening Hours",
-                          "user": "https://api.calendly.com/users/abc123",
+                          "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                           "timezone": "America/New_York",
                           "rules": [
                             {
@@ -4261,13 +4389,13 @@
                   "$ref": "#/components/schemas/GetUserAvailabilitySchedule200Response"
                 },
                 "examples": {
-                  "example-1": {
+                  "Availability schedule": {
                     "value": {
                       "resource": {
-                        "uri": "https://api.calendly.com/user_availability_schedule/abc123",
+                        "uri": "https://api.calendly.com/user_availability_schedule/AAAAAAAAAAAAAAAA",
                         "default": true,
                         "name": "Working Hours",
-                        "user": "https://api.calendly.com/users/abc123",
+                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                         "timezone": "America/New_York",
                         "rules": [
                           {
@@ -4339,7 +4467,7 @@
                 "$ref": "#/components/schemas/DeleteScheduledEventDataRequest"
               },
               "examples": {
-                "Example": {
+                "Delete scheduled event data request": {
                   "value": {
                     "start_time": "2019-01-02T03:04:05.678123Z",
                     "end_time": "2021-01-01T02:04:05.678123Z"
@@ -4358,7 +4486,7 @@
                   "$ref": "#/components/schemas/DeleteScheduledEventData202ResponseResponseJson"
                 },
                 "examples": {
-                  "Example": {
+                  "Delete scheduled event data request": {
                     "value": {}
                   }
                 }
@@ -4427,7 +4555,7 @@
                   "$ref": "#/components/schemas/ListEventTypeMemberships200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Event Type Hosts": {
                     "value": {
                       "collection": [
                         {
@@ -4464,14 +4592,12 @@
                             "booking_method": "poll",
                             "custom_questions": [
                               {
-                                "name": "string",
+                                "name": "Company Name",
                                 "type": "string",
                                 "position": 0,
                                 "enabled": true,
                                 "required": true,
-                                "answer_choices": [
-                                  "string"
-                                ],
+                                "answer_choices": [],
                                 "include_other": true
                               }
                             ],
@@ -4561,7 +4687,7 @@
                 "$ref": "#/components/schemas/CreateOneOffEventTypeRequest"
               },
               "examples": {
-                "Example: date_range": {
+                "Date range": {
                   "value": {
                     "name": "My Meeting",
                     "host": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
@@ -4570,7 +4696,7 @@
                       "https://api.calendly.com/users/CCCCCCCCCCCCCCCC"
                     ],
                     "duration": 30,
-                    "timezone": "string",
+                    "timezone": "America/New_York",
                     "date_setting": {
                       "type": "date_range",
                       "start_date": "2020-01-07",
@@ -4579,11 +4705,11 @@
                     "location": {
                       "kind": "physical",
                       "location": "Main Office",
-                      "additonal_info": "string"
+                      "additional_info": "Please check in at the front desk."
                     }
                   }
                 },
-                "Example: days_in_future": {
+                "Days in future": {
                   "value": {
                     "name": "My Meeting",
                     "host": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
@@ -4592,7 +4718,7 @@
                       "https://api.calendly.com/users/CCCCCCCCCCCCCCCC"
                     ],
                     "duration": 30,
-                    "timezone": "string",
+                    "timezone": "America/New_York",
                     "date_setting": {
                       "type": "days_in_future",
                       "days": 60,
@@ -4601,11 +4727,11 @@
                     "location": {
                       "kind": "physical",
                       "location": "Main Office",
-                      "additonal_info": "string"
+                      "additional_info": "Please check in at the front desk."
                     }
                   }
                 },
-                "Example: spots": {
+                "Spots": {
                   "value": {
                     "name": "My Meeting",
                     "host": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
@@ -4625,7 +4751,7 @@
                     },
                     "location": {
                       "kind": "custom",
-                      "location": "string"
+                      "location": "Details will be provided upon booking."
                     }
                   }
                 }
@@ -4642,16 +4768,16 @@
                   "$ref": "#/components/schemas/CreateOneOffEventType201Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Date range": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
-                        "name": "15 Minute Meeting",
+                        "name": "My Meeting",
                         "active": true,
                         "booking_method": "instant",
                         "slug": "acmesales",
                         "scheduling_url": "https://calendly.com/acmesales",
-                        "duration": 15,
+                        "duration": 30,
                         "duration_options": null,
                         "kind": "solo",
                         "pooling_type": "collective",
@@ -4666,16 +4792,99 @@
                         "profile": {
                           "type": "User",
                           "name": "Tamara Jones",
-                          "owner": "https://api.calendly.com/users/ABC123"
+                          "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
                         },
                         "secret": true,
                         "deleted_at": null,
                         "admin_managed": false,
                         "locations": [
                           {
-                            "kind": "inbound_call",
-                            "phone_number": "\u002B 380934567654",
-                            "additional_info": "Additional information about location"
+                            "kind": "physical",
+                            "location": "Main Office",
+                            "additional_info": "Please check in at the front desk."
+                          }
+                        ],
+                        "position": 0,
+                        "custom_questions": [],
+                        "locale": "en"
+                      }
+                    }
+                  },
+                  "Days in future": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "name": "My Meeting",
+                        "active": true,
+                        "booking_method": "instant",
+                        "slug": "acmesales",
+                        "scheduling_url": "https://calendly.com/acmesales",
+                        "duration": 30,
+                        "duration_options": null,
+                        "kind": "solo",
+                        "pooling_type": "collective",
+                        "type": "AdhocEventType",
+                        "color": "#fff200",
+                        "created_at": "2019-01-02T03:04:05.678123Z",
+                        "updated_at": "2019-08-07T06:05:04.321123Z",
+                        "internal_note": "Event type note",
+                        "is_paid": false,
+                        "description_plain": "Event type description",
+                        "description_html": "\u003Cp\u003EEvent type description\u003C/p\u003E",
+                        "profile": {
+                          "type": "User",
+                          "name": "Tamara Jones",
+                          "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                        },
+                        "secret": true,
+                        "deleted_at": null,
+                        "admin_managed": false,
+                        "locations": [
+                          {
+                            "kind": "physical",
+                            "location": "Main Office",
+                            "additional_info": "Please check in at the front desk."
+                          }
+                        ],
+                        "position": 0,
+                        "custom_questions": [],
+                        "locale": "en"
+                      }
+                    }
+                  },
+                  "Spots": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "name": "My Meeting",
+                        "active": true,
+                        "booking_method": "instant",
+                        "slug": "acmesales",
+                        "scheduling_url": "https://calendly.com/acmesales",
+                        "duration": 720,
+                        "duration_options": null,
+                        "kind": "solo",
+                        "pooling_type": "collective",
+                        "type": "AdhocEventType",
+                        "color": "#fff200",
+                        "created_at": "2019-01-02T03:04:05.678123Z",
+                        "updated_at": "2019-08-07T06:05:04.321123Z",
+                        "internal_note": "Event type note",
+                        "is_paid": false,
+                        "description_plain": "Event type description",
+                        "description_html": "\u003Cp\u003EEvent type description\u003C/p\u003E",
+                        "profile": {
+                          "type": "User",
+                          "name": "Tamara Jones",
+                          "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                        },
+                        "secret": true,
+                        "deleted_at": null,
+                        "admin_managed": false,
+                        "locations": [
+                          {
+                            "kind": "custom",
+                            "location": "Details will be provided upon booking."
                           }
                         ],
                         "position": 0,
@@ -4822,7 +5031,7 @@
             "schema": {
               "type": "string",
               "format": "uri",
-              "example": "https://api.calendly.com/organizations/EBHAAFHDCAEQTSEZ"
+              "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -4989,7 +5198,7 @@
                   "$ref": "#/components/schemas/ListUserLocations200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Meeting locations": {
                     "value": {
                       "collection": [
                         {
@@ -5090,7 +5299,7 @@
                   "$ref": "#/components/schemas/GetEventTypeAvailability200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Event Type Availability Schedules": {
                     "value": {
                       "collection": [
                         {
@@ -5099,8 +5308,8 @@
                           "availability_rule": {
                             "timezone": "America/New_York",
                             "name": "Working Hours",
-                            "uri": "https://api.calendly.com/user_availability_schedules/ea00f052-41ee-44ee-a6fa-cbac655b8d74",
-                            "user": "https://api.calendly.com/users/abc123",
+                            "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+                            "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                             "rules": [
                               {
                                 "type": "wday",
@@ -5210,7 +5419,7 @@
                   "value": {
                     "availability_setting": "host",
                     "availability_rule": {
-                      "timezone": "string",
+                      "timezone": "America/Los_Angeles",
                       "rules": [
                         {
                           "type": "wday",
@@ -5289,7 +5498,7 @@
                 "An admin or org owner updating a user": {
                   "value": {
                     "availability_rule": {
-                      "timezone": "string",
+                      "timezone": "America/Denver",
                       "rules": [
                         {
                           "type": "wday",
@@ -5303,7 +5512,7 @@
                           "date": "2022-12-31"
                         }
                       ],
-                      "user": "https://api.calendly.com/users/abc123"
+                      "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
                     },
                     "availability_setting": "host"
                   }
@@ -5321,14 +5530,65 @@
                   "$ref": "#/components/schemas/UpdateEventTypeAvailability200Response"
                 },
                 "examples": {
-                  "Example 1": {
+                  "Updating Timezone": {
                     "value": {
                       "resource": {
                         "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "availability_setting": "host",
+                        "availability_rule": {
+                          "timezone": "America/Chicago",
+                          "name": "Working Hours",
+                          "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+                          "rules": [
+                            {
+                              "type": "wday",
+                              "intervals": [
+                                {
+                                  "from": "08:30",
+                                  "to": "09:30"
+                                }
+                              ],
+                              "wday": "sunday"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "Updating Rules to ONLY have availability on Sunday": {
+                    "value": {
+                      "resource": {
+                        "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "availability_setting": "host",
                         "availability_rule": {
                           "timezone": "America/New_York",
                           "name": "Working Hours",
-                          "uri": "https://api.calendly.com/user_availability_schedules/ea00f052-41ee-44ee-a6fa-cbac655b8d74",
+                          "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+                          "rules": [
+                            {
+                              "type": "wday",
+                              "intervals": [
+                                {
+                                  "from": "08:30",
+                                  "to": "09:30"
+                                }
+                              ],
+                              "wday": "sunday"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "Updating Rules to have availability every day": {
+                    "value": {
+                      "resource": {
+                        "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "availability_setting": "host",
+                        "availability_rule": {
+                          "timezone": "America/New_York",
+                          "name": "Working Hours",
+                          "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
                           "rules": [
                             {
                               "type": "wday",
@@ -5346,23 +5606,86 @@
                                 {
                                   "from": "08:30",
                                   "to": "09:30"
-                                },
+                                }
+                              ],
+                              "wday": "monday"
+                            },
+                            {
+                              "type": "wday",
+                              "intervals": [
                                 {
-                                  "from": "11:30",
-                                  "to": "13:30"
+                                  "from": "08:30",
+                                  "to": "09:30"
                                 }
                               ],
                               "wday": "tuesday"
                             },
                             {
-                              "type": "date",
+                              "type": "wday",
                               "intervals": [
                                 {
-                                  "from": "00:00",
-                                  "to": "23:59"
+                                  "from": "08:30",
+                                  "to": "09:30"
                                 }
                               ],
-                              "date": "2026-04-01"
+                              "wday": "wednesday"
+                            },
+                            {
+                              "type": "wday",
+                              "intervals": [
+                                {
+                                  "from": "08:30",
+                                  "to": "09:30"
+                                }
+                              ],
+                              "wday": "thursday"
+                            },
+                            {
+                              "type": "wday",
+                              "intervals": [
+                                {
+                                  "from": "08:30",
+                                  "to": "09:30"
+                                }
+                              ],
+                              "wday": "friday"
+                            },
+                            {
+                              "type": "wday",
+                              "intervals": [
+                                {
+                                  "from": "08:30",
+                                  "to": "09:30"
+                                }
+                              ],
+                              "wday": "saturday"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "An admin or org owner updating a user": {
+                    "value": {
+                      "resource": {
+                        "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "availability_setting": "host",
+                        "availability_rule": {
+                          "timezone": "America/New_York",
+                          "name": "Working Hours",
+                          "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+                          "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                          "rules": [
+                            {
+                              "type": "wday",
+                              "intervals": [
+                                {
+                                  "from": "08:30",
+                                  "to": "09:30"
+                                }
+                              ],
+                              "wday": "sunday",
+                              "date": "2022-12-31"
                             }
                           ]
                         }
@@ -5472,7 +5795,7 @@
                   "$ref": "#/components/schemas/ListMeetingRecaps200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Meeting recaps": {
                     "value": {
                       "collection": [
                         {
@@ -5631,11 +5954,11 @@
                   "$ref": "#/components/schemas/GetMeetingRecapsUuidRecap200Response"
                 },
                 "examples": {
-                  "Example": {
+                  "Meeting recap": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
-                        "event": "https://api.calendly.com/scheduled_events/GGGGGGGGGGGGGGGG",
+                        "event": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                         "status": "Available",
                         "name": "Weekly Sync",
                         "location": {
@@ -5685,7 +6008,15 @@
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
       },
       "patch": {
         "tags": [
@@ -5702,7 +6033,7 @@
                 "$ref": "#/components/schemas/UpdateMeetingRecapsUuidRequest"
               },
               "examples": {
-                "example-1": {
+                "Update recap request": {
                   "value": {
                     "summary_md": "Updated summary after review.",
                     "action_items_md": "- Create Jira epic\n- Notify stakeholders",
@@ -5722,11 +6053,11 @@
                   "$ref": "#/components/schemas/UpdateMeetingRecapsUuid200Response"
                 },
                 "examples": {
-                  "example-1": {
+                  "Update recap request": {
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
-                        "event": "https://api.calendly.com/scheduled_events/GGGGGGGGGGGGGGGG",
+                        "event": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                         "status": "Available",
                         "name": "Weekly Sync",
                         "location": {
@@ -5934,6 +6265,15 @@
           },
           {
             "$ref": "#/components/parameters/PageToken"
+          },
+          {
+            "name": "exclude",
+            "in": "query",
+            "description": "Omit the listed fields from the response. Supported value is \u0060custom_fields\u0060. When this parameter is not provided, all fields are returned. Accepts a comma-separated list.",
+            "schema": {
+              "type": "string",
+              "example": "custom_fields"
+            }
           }
         ],
         "responses": {
@@ -6036,6 +6376,17 @@
         "summary": "Get Contact",
         "description": "\u0022Returns the details of a specified Contact.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:read\u0060\u0022",
         "operationId": "GetContact",
+        "parameters": [
+          {
+            "name": "exclude",
+            "in": "query",
+            "description": "Omit the listed fields from the response. Supported value is \u0060custom_fields\u0060. When this parameter is not provided, all fields are returned. Accepts a comma-separated list.",
+            "schema": {
+              "type": "string",
+              "example": "custom_fields"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -6576,7 +6927,7 @@
           "Users"
         ],
         "x-examples": {
-          "Example": {
+          "User": {
             "uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
             "name": "John Doe",
             "slug": "acmesales",
@@ -6621,7 +6972,7 @@
           "id": "fse6tqehjuzbl"
         },
         "x-examples": {
-          "Example": {
+          "Transcript": {
             "uri": "https://api.calendly.com/meeting_recaps/AAAAAAAAAAAAAAAA/transcript",
             "text": "John Doe: Hello, how are you?\nJane Smith: I am doing well, thank you!"
           }
@@ -7044,7 +7395,7 @@
             "profile": {
               "type": "User",
               "name": "Tamara Jones",
-              "owner": "https://api.calendly.com/users/ABC123"
+              "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
             },
             "secret": true,
             "deleted_at": null,
@@ -7137,7 +7488,7 @@
             "profile": {
               "type": "User",
               "name": "Tamara Jones",
-              "owner": "https://api.calendly.com/users/ABC123"
+              "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
             },
             "secret": true,
             "deleted_at": null,
@@ -7350,7 +7701,7 @@
             "profile": {
               "type": "User",
               "name": "Tamara Jones",
-              "owner": "https://api.calendly.com/users/ABC123"
+              "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
             },
             "secret": true,
             "deleted_at": null,
@@ -7443,7 +7794,7 @@
             "profile": {
               "type": "User",
               "name": "Tamara Jones",
-              "owner": "https://api.calendly.com/users/ABC123"
+              "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
             },
             "secret": true,
             "deleted_at": null,
@@ -7483,14 +7834,14 @@
           "Availability"
         ],
         "x-examples": {
-          "Example": {
+          "EventTypeAvailabilitySchedule": {
             "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
             "availability_setting": "host",
             "availability_rule": {
               "timezone": "America/New_York",
               "name": "Working Hours",
-              "uri": "https://api.calendly.com/user_availability_schedules/ea00f052-41ee-44ee-a6fa-cbac655b8d74",
-              "user": "https://api.calendly.com/users/abc123",
+              "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+              "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
               "rules": [
                 {
                   "type": "wday",
@@ -7548,7 +7899,7 @@
           "Event Types"
         ],
         "x-examples": {
-          "Example": {
+          "Profile": {
             "type": "User",
             "name": "Tamara Jones",
             "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
@@ -7578,7 +7929,7 @@
             "type": "string",
             "description": "Canonical reference (unique identifier) for the resource",
             "format": "uri",
-            "example": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
           },
           "name": {
             "type": "string",
@@ -7614,7 +7965,7 @@
             "type": "string",
             "description": "The event type associated with this event",
             "format": "uri",
-            "example": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "location": {
             "$ref": "#/components/schemas/Location"
@@ -7660,19 +8011,19 @@
           "Scheduled Events"
         ],
         "x-examples": {
-          "Example": {
-            "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+          "Event": {
+            "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
             "name": "15 Minute Meeting",
             "meeting_notes_plain": "Internal meeting notes",
             "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
             "status": "active",
             "start_time": "2019-08-24T14:15:22.123456Z",
             "end_time": "2019-08-24T14:15:22.123456Z",
-            "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+            "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
             "location": {
               "type": "physical",
-              "location": "string",
-              "additional_info": "string"
+              "location": "Calendly Office",
+              "additional_info": "Please check in at the front desk."
             },
             "invitees_counter": {
               "total": 0,
@@ -7683,7 +8034,7 @@
             "updated_at": "2019-01-02T03:04:05.678123Z",
             "event_memberships": [
               {
-                "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                 "user_email": "user@example.com",
                 "user_name": "John Smith"
               }
@@ -7723,7 +8074,7 @@
           "Scheduled Events"
         ],
         "x-examples": {
-          "Example": {
+          "LegacyCalendarEvent": {
             "kind": "google",
             "external_id": "8suu9k3hj00mni03ss12ba0ce0"
           }
@@ -7953,7 +8304,7 @@
             "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
             "routing_form_submission": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA",
             "payment": {
-              "external_id": "ch_AAAAAAAAAAAAAAAAAAAAAAAA",
+              "external_id": "ch_AAAAAAAAAAAAAAAA",
               "provider": "stripe",
               "amount": 1234.56,
               "currency": "USD",
@@ -7961,7 +8312,7 @@
               "successful": true
             },
             "no_show": {
-              "uri": "https://api.calendly.com/invitee_no_shows/6ee96ed4-83a3-4966-a278-cd19b3c02e09",
+              "uri": "https://api.calendly.com/invitee_no_shows/AAAAAAAAAAAAAAAA",
               "created_at": "2020-11-23T17:51:18.341657Z"
             },
             "reconfirmation": {
@@ -8005,7 +8356,7 @@
             },
             "routing_form_submission": null,
             "payment": {
-              "external_id": "ch_AAAAAAAAAAAAAAAAAAAAAAAA",
+              "external_id": "ch_AAAAAAAAAAAAAAAA",
               "provider": "stripe",
               "amount": 1234.56,
               "currency": "USD",
@@ -8045,7 +8396,7 @@
           "Scheduled Events"
         ],
         "x-examples": {
-          "Example": {
+          "Guest": {
             "email": "user@example.com",
             "created_at": "2019-08-24T14:15:22.123456Z",
             "updated_at": "2019-08-24T14:15:22.123456Z"
@@ -8068,7 +8419,7 @@
             "type": "string",
             "description": "Canonical resource reference",
             "format": "uri",
-            "example": "https://api.calendly.com/organizations/012345678901234567890"
+            "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
           },
           "kind": {
             "$ref": "#/components/schemas/OrganizationKind"
@@ -8149,7 +8500,7 @@
           "Organizations"
         ],
         "x-examples": {
-          "Example": {
+          "OrganizationMembership": {
             "uri": "https://api.calendly.com/organization_memberships/AAAAAAAAAAAAAAAA",
             "role": "admin",
             "user": {
@@ -8235,7 +8586,7 @@
           "Organizations"
         ],
         "x-examples": {
-          "Example": {
+          "OrganizationInvitation": {
             "uri": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA/invitations/BBBBBBBBBBBBBBBB",
             "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
             "email": "test@example.com",
@@ -8443,7 +8794,7 @@
             "canceled": false,
             "routing_form_submission": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA",
             "payment": {
-              "external_id": "ch_AAAAAAAAAAAAAAAAAAAAAAAA",
+              "external_id": "ch_AAAAAAAAAAAAAAAA",
               "provider": "stripe",
               "amount": 1234.56,
               "currency": "USD",
@@ -8451,7 +8802,7 @@
               "successful": true
             },
             "no_show": {
-              "uri": "https://api.calendly.com/invitee_no_shows/6ee96ed4-83a3-4966-a278-cd19b3c02e09",
+              "uri": "https://api.calendly.com/invitee_no_shows/AAAAAAAAAAAAAAAA",
               "created_at": "2020-11-23T17:51:18.341657Z"
             },
             "reconfirmation": {
@@ -8461,18 +8812,18 @@
             "scheduling_method": null,
             "invitee_scheduled_by": null,
             "scheduled_event": {
-              "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+              "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
               "name": "15 Minute Meeting",
               "meeting_notes_plain": "Internal meeting notes",
               "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
               "status": "active",
               "start_time": "2019-08-24T14:15:22.123456Z",
               "end_time": "2019-08-24T14:15:22.123456Z",
-              "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+              "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
               "location": {
                 "type": "physical",
-                "location": "string",
-                "additional_info": "string"
+                "location": "Calendly Office",
+                "additional_info": "Please check in at the front desk."
               },
               "invitees_counter": {
                 "total": 0,
@@ -8483,7 +8834,7 @@
               "updated_at": "2019-01-02T03:04:05.678123Z",
               "event_memberships": [
                 {
-                  "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                  "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                   "user_email": "user@example.com",
                   "user_name": "John Smith"
                 }
@@ -8532,7 +8883,7 @@
             },
             "routing_form_submission": null,
             "payment": {
-              "external_id": "ch_AAAAAAAAAAAAAAAAAAAAAAAA",
+              "external_id": "ch_AAAAAAAAAAAAAAAA",
               "provider": "stripe",
               "amount": 1234.56,
               "currency": "USD",
@@ -8543,18 +8894,18 @@
             "scheduling_method": null,
             "invitee_scheduled_by": null,
             "scheduled_event": {
-              "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+              "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
               "name": "15 Minute Meeting",
               "meeting_notes_plain": "Internal meeting notes",
               "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
               "status": "active",
               "start_time": "2019-08-24T14:15:22.123456Z",
               "end_time": "2019-08-24T14:15:22.123456Z",
-              "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+              "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
               "location": {
                 "type": "physical",
-                "location": "string",
-                "additional_info": "string"
+                "location": "Calendly Office",
+                "additional_info": "Please check in at the front desk."
               },
               "invitees_counter": {
                 "total": 0,
@@ -8565,7 +8916,7 @@
               "updated_at": "2019-01-02T03:04:05.678123Z",
               "event_memberships": [
                 {
-                  "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                  "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                   "user_email": "user@example.com",
                   "user_name": "John Smith"
                 }
@@ -8677,7 +9028,7 @@
           "Webhooks"
         ],
         "x-examples": {
-          "Example": {
+          "WebhookSubscription": {
             "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
             "callback_url": "https://blah.foo/bar",
             "created_at": "2019-08-24T14:15:22.123456Z",
@@ -8756,18 +9107,18 @@
               "updated_at": "2020-11-23T17:51:18.341657Z",
               "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
               "scheduled_event": {
-                "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+                "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                 "name": "15 Minute Meeting",
                 "meeting_notes_plain": "Internal meeting notes",
                 "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
                 "status": "active",
                 "start_time": "2019-08-24T14:15:22.123456Z",
                 "end_time": "2019-08-24T14:15:22.123456Z",
-                "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+                "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                 "location": {
                   "type": "physical",
-                  "location": "string",
-                  "additional_info": "string"
+                  "location": "Calendly Office",
+                  "additional_info": "Please check in at the front desk."
                 },
                 "invitees_counter": {
                   "total": 0,
@@ -8778,7 +9129,7 @@
                 "updated_at": "2019-01-02T03:04:05.678123Z",
                 "event_memberships": [
                   {
-                    "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                    "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                     "user_email": "user@example.com",
                     "user_name": "John Smith"
                   }
@@ -8828,18 +9179,18 @@
                 "created_at": "2020-11-23T17:54:22.356897Z"
               },
               "scheduled_event": {
-                "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+                "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                 "name": "15 Minute Meeting",
                 "meeting_notes_plain": "Internal meeting notes",
                 "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
                 "status": "active",
                 "start_time": "2019-08-24T14:15:22.123456Z",
                 "end_time": "2019-08-24T14:15:22.123456Z",
-                "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+                "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                 "location": {
                   "type": "physical",
-                  "location": "string",
-                  "additional_info": "string"
+                  "location": "Calendly Office",
+                  "additional_info": "Please check in at the front desk."
                 },
                 "invitees_counter": {
                   "total": 0,
@@ -8850,7 +9201,7 @@
                 "updated_at": "2019-01-02T03:04:05.678123Z",
                 "event_memberships": [
                   {
-                    "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                    "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                     "user_email": "user@example.com",
                     "user_name": "John Smith"
                   }
@@ -8897,18 +9248,18 @@
               "updated_at": "2020-11-23T17:51:18.341657Z",
               "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
               "scheduled_event": {
-                "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+                "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                 "name": "15 Minute Meeting",
                 "meeting_notes_plain": "Internal meeting notes",
                 "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
                 "status": "active",
                 "start_time": "2019-08-24T14:15:22.123456Z",
                 "end_time": "2019-08-24T14:15:22.123456Z",
-                "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+                "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                 "location": {
                   "type": "physical",
-                  "location": "string",
-                  "additional_info": "string"
+                  "location": "Calendly Office",
+                  "additional_info": "Please check in at the front desk."
                 },
                 "invitees_counter": {
                   "total": 0,
@@ -8919,7 +9270,7 @@
                 "updated_at": "2019-01-02T03:04:05.678123Z",
                 "event_memberships": [
                   {
-                    "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                    "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                     "user_email": "user@example.com",
                     "user_name": "John Smith"
                   }
@@ -8963,18 +9314,18 @@
               "updated_at": "2020-11-23T17:51:18.341657Z",
               "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
               "scheduled_event": {
-                "uri": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2",
+                "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                 "name": "15 Minute Meeting",
                 "meeting_notes_plain": "Internal meeting notes",
                 "meeting_notes_html": "\u003Cp\u003EInternal meeting notes\u003C/p\u003E",
                 "status": "active",
                 "start_time": "2019-08-24T14:15:22.123456Z",
                 "end_time": "2019-08-24T14:15:22.123456Z",
-                "event_type": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2",
+                "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
                 "location": {
                   "type": "physical",
-                  "location": "string",
-                  "additional_info": "string"
+                  "location": "Calendly Office",
+                  "additional_info": "Please check in at the front desk."
                 },
                 "invitees_counter": {
                   "total": 0,
@@ -8985,7 +9336,7 @@
                 "updated_at": "2019-01-02T03:04:05.678123Z",
                 "event_memberships": [
                   {
-                    "user": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2",
+                    "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                     "user_email": "user@example.com",
                     "user_name": "John Smith"
                   }
@@ -9024,7 +9375,7 @@
               },
               "result": {
                 "type": "event_type",
-                "value": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+                "value": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
               },
               "submitter": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
               "submitter_type": "Invitee",
@@ -9069,7 +9420,7 @@
                 "linkedin": "https://www.linkedin.com/in/janedoe",
                 "custom_fields": [
                   {
-                    "id": "2f0b75c3-9489-4426-a239-10c7382faab2",
+                    "id": "CCCCCCCCCCCCCCCC",
                     "label": "Lead source",
                     "value": "event"
                   },
@@ -9132,7 +9483,7 @@
                 "linkedin": "https://www.linkedin.com/in/janedoe",
                 "custom_fields": [
                   {
-                    "id": "2f0b75c3-9489-4426-a239-10c7382faab2",
+                    "id": "CCCCCCCCCCCCCCCC",
                     "label": "Lead source",
                     "value": "event"
                   },
@@ -9165,7 +9516,7 @@
             "payload": {
               "user_uuid": "b0af0294-9ec5-4eca-af5b-86d7d572955a",
               "contact": {
-                "uri": "https://api.calendly.com/contacts/2f0b75c3-9489-4426-a239-10c7382faab2",
+                "uri": "https://api.calendly.com/contacts/CCCCCCCCCCCCCCCC",
                 "deleted_at": "2026-05-06T13:35:50.580Z"
               }
             }
@@ -9278,13 +9629,13 @@
             "type": "string",
             "description": "Canonical reference (unique identifier) for the no show",
             "format": "uri",
-            "example": "https://api.calendly.com/invitee_no_shows/6ee96ed4-83a3-4966-a278-cd19b3c02e09"
+            "example": "https://api.calendly.com/invitee_no_shows/AAAAAAAAAAAAAAAA"
           },
           "invitee": {
             "type": "string",
             "description": "Canonical reference (unique identifier) for the associated Invitee",
             "format": "uri",
-            "example": "https://api.calendly.com/scheduled_events/e7cb69b9-8f2a-4008-99b5-22ddbc02a2bc/invitees/e5fdc32a-e2e3-4bcf-82d3-ecf098280aaa"
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
           },
           "created_at": {
             "type": "string",
@@ -9295,9 +9646,9 @@
         },
         "description": "Information about an invitees no show.",
         "x-examples": {
-          "Example": {
-            "uri": "https://api.calendly.com/no_shows/40a3cb54-e45c-4f34-b100-bd346220a5bb",
-            "invitee": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2/invitees/7c1dbe46-bd84-42e2-9b97-05e2fb379bfe",
+          "InviteeNoShow": {
+            "uri": "https://api.calendly.com/no_shows/AAAAAAAAAAAAAAAA",
+            "invitee": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
             "created_at": "2019-01-02T03:04:05.678123Z"
           }
         },
@@ -9598,7 +9949,7 @@
           "Routing Forms"
         ],
         "x-examples": {
-          "Example": {
+          "RoutingForm": {
             "uri": "https://api.calendly.com/routing_forms/AAAAAAAAAAAAAAAA",
             "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
             "name": "ACME Routing Form",
@@ -9700,7 +10051,7 @@
         ],
         "x-internal": false,
         "x-examples": {
-          "Example": {
+          "RoutingFormSubmission": {
             "uri": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA",
             "routing_form": "https://api.calendly.com/routing_forms/AAAAAAAAAAAAAAAA",
             "questions_and_answers": [
@@ -9720,7 +10071,7 @@
             },
             "result": {
               "type": "event_type",
-              "value": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+              "value": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
             },
             "submitter": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
             "submitter_type": "Invitee",
@@ -9767,7 +10118,7 @@
           "Event Types"
         ],
         "x-examples": {
-          "Example": {
+          "EventTypeAvailableTime": {
             "status": "available",
             "invitees_remaining": 2,
             "start_time": "2020-01-02T20:00:00.000000Z",
@@ -9801,7 +10152,7 @@
           "Event Types"
         ],
         "x-examples": {
-          "example-1": {
+          "LocationConfiguration": {
             "kind": "zoom_conference"
           }
         },
@@ -9833,7 +10184,7 @@
         },
         "x-internal": false,
         "x-examples": {
-          "example-1": {
+          "Share": {
             "scheduling_links": [
               {
                 "booking_url": "https://calendly.com/d/abcd-brv8/15-minute-meeting",
@@ -9930,14 +10281,14 @@
           "Availability"
         ],
         "x-examples": {
-          "Example": {
+          "UserBusyTime": {
             "type": "calendly",
             "start_time": "2020-01-02T20:00:00.000000Z",
             "end_time": "2020-01-02T20:30:00.000000Z",
             "buffered_start_time": "2020-01-02T19:30:00.000000Z",
             "buffered_end_time": "2020-01-02T21:00:00.000000Z",
             "event": {
-              "uri": "https://api.calendly.com/scheduled_events/abc123"
+              "uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
             }
           }
         }
@@ -9958,7 +10309,7 @@
             "type": "string",
             "description": "A URI reference to this Availability Schedule.",
             "format": "uri",
-            "example": "https://api.calendly.com/user_availability_schedule/abc123"
+            "example": "https://api.calendly.com/user_availability_schedule/AAAAAAAAAAAAAAAA"
           },
           "default": {
             "type": "boolean",
@@ -9973,7 +10324,7 @@
             "type": "string",
             "description": "A URI reference to a User.",
             "format": "uri",
-            "example": "https://api.calendly.com/users/abc123"
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
           },
           "timezone": {
             "type": "string",
@@ -9993,11 +10344,11 @@
           "id": "nd8xy6bxygyiq"
         },
         "x-examples": {
-          "Example": {
-            "uri": "https://api.calendly.com/user_availability_schedule/abc123",
+          "AvailabilitySchedule": {
+            "uri": "https://api.calendly.com/user_availability_schedule/AAAAAAAAAAAAAAAA",
             "default": true,
             "name": "Working Hours",
-            "user": "https://api.calendly.com/users/abc123",
+            "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
             "rules": [
               {
                 "type": "wday",
@@ -10184,7 +10535,7 @@
           "Locations"
         ],
         "x-examples": {
-          "Example": {
+          "MeetingLocation": {
             "kind": "zoom_conference",
             "connected": true
           }
@@ -10548,7 +10899,7 @@
           }
         },
         "x-examples": {
-          "Example": {
+          "Pagination": {
             "count": 20,
             "next_page": "https://api.calendly.com/event_types?count=1\u0026page_token=sNjq4TvMDfUHEl7zHRR0k0E1PCEJWvdi",
             "previous_page": "https://api.calendly.com/event_types?count=1\u0026page_token=VJs2rfDYeY8ahZpq0QI1O114LJkNjd7H",
@@ -10663,9 +11014,9 @@
           "id": "qlv5rxzxptlnf"
         },
         "x-examples": {
-          "Example": {
-            "type": "physical",
-            "location": "string"
+          "Invitee Location": {
+            "kind": "physical",
+            "location": "Calendly Office"
           }
         }
       },
@@ -11005,7 +11356,7 @@
           },
           "uri": {
             "type": "string",
-            "example": "https://api.calendly.com/activity_log_entries/034bda29-a544-4dc9-9c55-2afbbb376811"
+            "example": "https://api.calendly.com/activity_log_entries/AAAAAAAAAAAAAAAA"
           },
           "namespace": {
             "minLength": 1,
@@ -11021,24 +11372,24 @@
           },
           "organization": {
             "type": "string",
-            "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAA"
+            "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
           }
         },
         "description": "Object for a created activity log record",
         "example": {
-          "uri": "https://api.calendly.com/activity_log_entries/ALSKJCNELKJSDFLKJ",
+          "uri": "https://api.calendly.com/activity_log_entries/AAAAAAAAAAAAAAAA",
           "occurred_at": "2020-01-02T03:04:05.678Z",
           "namespace": "User",
           "action": "Add",
           "actor": {
-            "uri": "https://api.calendly.com/users/SDLKJENFJKD123",
+            "uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
             "type": "User",
             "organization": {
-              "uri": "https://api.calendly.com/organizations/LKJENFLKE293847",
+              "uri": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
               "role": "Owner"
             },
             "group": {
-              "uri": "https://api.calendly.com/groups/123987DJLKJEF",
+              "uri": "https://api.calendly.com/groups/AAAAAAAAAAAAAAAA",
               "name": "Development",
               "role": "Admin"
             },
@@ -11049,7 +11400,7 @@
             "event_name": "60 minute meeting"
           },
           "fully_qualified_name": "User.Add",
-          "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAA"
+          "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
         }
       },
       "Actor": {
@@ -11454,7 +11805,7 @@
           "event_uri": {
             "type": "string",
             "format": "uri",
-            "example": "https://api.calendly.com/scheduled_events/ABCDABCDABCDABCD"
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
           },
           "sent_at": {
             "type": "string",
@@ -11469,7 +11820,7 @@
           "scheduling_url": {
             "type": "string",
             "format": "uri",
-            "example": "https://api.calendly.com/event/ABCDABCDABCDABCD"
+            "example": "https://api.calendly.com/event/AAAAAAAAAAAAAAAA"
           }
         },
         "additionalProperties": false,
@@ -11483,7 +11834,7 @@
           "sender_uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
           "sender_email": "user@example.com",
           "event_type_uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
-          "event_uri": "https://api.calendly.com/scheduled_events/ABCDABCDABCDABCD",
+          "event_uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
           "sent_at": "2023-09-24T11:12:13.145Z",
           "created_at": "2023-09-24T11:12:13.145Z",
           "scheduling_url": "https://calendly.com/event/name"
@@ -11546,7 +11897,7 @@
           "event_uri": {
             "type": "string",
             "format": "uri",
-            "example": "https://api.calendly.com/scheduled_events/ABCDABCDABCDABCD"
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
           },
           "sent_at": {
             "type": "string",
@@ -11561,7 +11912,7 @@
           "scheduling_url": {
             "type": "string",
             "format": "uri",
-            "example": "https://api.calendly.com/event/ABCDABCDABCDABCD"
+            "example": "https://api.calendly.com/event/AAAAAAAAAAAAAAAA"
           }
         },
         "additionalProperties": false,
@@ -11575,10 +11926,10 @@
           "sender_uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
           "sender_email": "user@example.com",
           "event_type_uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
-          "event_uri": "https://api.calendly.com/scheduled_events/ABCDABCDABCDABCD",
+          "event_uri": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
           "sent_at": "2023-09-24T11:12:13.145Z",
           "created_at": "2023-09-24T11:12:13.145Z",
-          "scheduling_url": "https://api.calendly.com/event/ABCDABCDABCDABCD"
+          "scheduling_url": "https://api.calendly.com/event/AAAAAAAAAAAAAAAA"
         },
         "x-internal": false
       },
@@ -11687,9 +12038,9 @@
           }
         },
         "x-examples": {
-          "Example": {
+          "Location": {
             "type": "physical",
-            "location": "string"
+            "location": "Calendly Office"
           }
         }
       },
@@ -11719,7 +12070,7 @@
         },
         "description": "Information about the physical (in-person) event location",
         "x-examples": {
-          "Example": {
+          "In-Person Meeting": {
             "type": "physical",
             "location": "Calendly Office"
           }
@@ -11743,7 +12094,12 @@
           }
         },
         "description": "Meeting publisher will call the Invitee",
-        "x-examples": {}
+        "x-examples": {
+          "Outbound Call": {
+            "type": "outbound_call",
+            "location": "\u002B1 800-555-0199"
+          }
+        }
       },
       "InboundCall": {
         "title": "Inbound Call",
@@ -11797,7 +12153,7 @@
           "Pushed status": {
             "type": "google_conference",
             "status": "pushed",
-            "join_url": "https://calendly.com/events/ABCDABCDABCDABCD/google_meet"
+            "join_url": "https://calendly.com/events/AAAAAAAAAAAAAAAA/google_meet"
           },
           "Processing status": {
             "type": "google_conference",
@@ -11807,12 +12163,12 @@
           "Failed status": {
             "type": "google_conference",
             "status": "failed",
-            "join_url": "https://calendly.com/events/ABCDABCDABCDABCD/google_meet"
+            "join_url": "https://calendly.com/events/AAAAAAAAAAAAAAAA/google_meet"
           },
           "Initiated status": {
             "type": "google_conference",
             "status": "initiated",
-            "join_url": "https://calendly.com/events/ABCDABCDABCDABCD/google_meet"
+            "join_url": "https://calendly.com/events/AAAAAAAAAAAAAAAA/google_meet"
           },
           "null status": {
             "type": "google_conference",
@@ -12068,9 +12424,9 @@
         },
         "description": "Information about an event location that\u2019s specified by the invitee.",
         "x-examples": {
-          "Example": {
+          "Invitee Specified Location": {
             "type": "ask_invitee",
-            "location": "string"
+            "location": "I\u0027ll call you at the number you provide."
           }
         }
       },
@@ -12348,7 +12704,7 @@
           "Routing Forms"
         ],
         "x-examples": {
-          "Example": {
+          "Question and Answer": {
             "question_uuid": "123e4567-e89b-12d3-a456-426614174000",
             "question": "What is your industry?",
             "answer": "IT \u0026 Software"
@@ -12400,7 +12756,7 @@
         },
         "description": "The UTM and Salesforce tracking parameters associated with a Routing Form Submission.",
         "x-examples": {
-          "Example": {
+          "Tracking": {
             "utm_campaign": "UTM Campaign",
             "utm_source": "UTM Source",
             "utm_medium": "UTM Medium",
@@ -12454,7 +12810,7 @@
         "x-examples": {
           "Event Type Result": {
             "type": "event_type",
-            "value": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+            "value": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "External URL Result": {
             "type": "external_url",
@@ -12484,7 +12840,7 @@
             "type": "string",
             "description": "A reference to the event type resource.",
             "format": "uri",
-            "example": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           }
         },
         "description": "Information about the event type Routing Form Submission result.",
@@ -12495,9 +12851,9 @@
           "Routing Forms"
         ],
         "x-examples": {
-          "Example": {
+          "Event Type Result": {
             "type": "event_type",
-            "value": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+            "value": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           }
         }
       },
@@ -12527,7 +12883,7 @@
           "Routing Forms"
         ],
         "x-examples": {
-          "Example": {
+          "External URL Result": {
             "type": "external_url",
             "value": "https://example.com"
           }
@@ -12556,7 +12912,7 @@
           "Routing Forms"
         ],
         "x-examples": {
-          "Example": {
+          "Custom Message Result": {
             "type": "custom_message",
             "value": {
               "headline": "Thank you for your interest",
@@ -13512,7 +13868,7 @@
             "type": "string",
             "description": "A URI reference to a user to be returned if availability_setting is not \u0027all\u0027",
             "format": "uri",
-            "example": "https://api.calendly.com/users/abc123"
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
           },
           "rules": {
             "type": "array",
@@ -13560,7 +13916,7 @@
             "type": "string",
             "description": "Canonical reference (unique identifier) for the user",
             "format": "uri",
-            "example": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
           },
           "user_email": {
             "type": "string",
@@ -13851,7 +14207,7 @@
             "type": "string",
             "description": "Canonical reference (unique identifier) for the resource",
             "format": "uri",
-            "example": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
           },
           "name": {
             "type": "string",
@@ -13887,7 +14243,7 @@
             "type": "string",
             "description": "The event type associated with this event",
             "format": "uri",
-            "example": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "location": {
             "$ref": "#/components/schemas/Location"
@@ -14336,7 +14692,7 @@
             "type": "string",
             "description": "Contact resource URI",
             "format": "uri",
-            "example": "https://api.calendly.com/contacts/2f0b75c3-9489-4426-a239-10c7382faab2"
+            "example": "https://api.calendly.com/contacts/CCCCCCCCCCCCCCCC"
           },
           "deleted_at": {
             "type": "string",
@@ -14751,7 +15107,7 @@
             "type": "string",
             "description": "Canonical reference (unique identifier) for the user",
             "format": "uri",
-            "example": "https://api.calendly.com/users/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
           },
           "user_email": {
             "type": "string",
@@ -15280,7 +15636,6 @@
           "email": {
             "type": "string",
             "description": "The email of the user being invited",
-            "format": "email",
             "example": "alice@example.com"
           }
         }
@@ -15407,7 +15762,7 @@
             "type": "string",
             "description": "A link to the resource that owns this Scheduling Link (currently, this is always an Event Type)",
             "format": "uri",
-            "example": "https://api.calendly.com/event_types/012345678901234567890"
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "owner_type": {
             "$ref": "#/components/schemas/CreateSchedulingLinkRequestOwnerType"
@@ -15450,7 +15805,7 @@
           "invitee": {
             "type": "string",
             "format": "uri",
-            "example": "https://api.calendly.com/scheduled_events/GBGBDCAADAEDCRZ2/invitees/7c1dbe46-bd84-42e2-9b97-05e2fb379bfe"
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
           }
         }
       },
@@ -16710,7 +17065,7 @@
             "type": "string",
             "description": "A link to the resource that owns this Scheduling Link (currently, this is always an Event Type)",
             "format": "uri",
-            "example": "https://api.calendly.com/event_types/GBGBDCAADAEDCRZ2"
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "owner_type": {
             "$ref": "#/components/schemas/CreateSchedulingLink201ResponseResourceOwnerType"
@@ -16790,7 +17145,7 @@
             "type": "string",
             "description": "Required when an admin or org owner is making the call to update a specific users availability schedule",
             "format": "uri",
-            "example": "https://api.calendly.com/users/abc123",
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
             "x-stoplight": {
               "id": "mpkhqhn87jrdb"
             }
@@ -21628,13 +21983,7 @@
               "Caller does not have access": {
                 "value": {
                   "title": "Permission Denied",
-                  "message": "You do not have permission to access this resource.",
-                  "details": [
-                    {
-                      "parameter": "string",
-                      "message": "string"
-                    }
-                  ]
+                  "message": "You do not have permission to access this resource."
                 }
               },
               "Caller has insufficient scope": {
@@ -21661,14 +22010,7 @@
               "Caller does not have access": {
                 "value": {
                   "title": "Permission Denied",
-                  "message": "You do not have permission to access this resource.",
-                  "details": [
-                    {
-                      "parameter": "string",
-                      "message": "string",
-                      "code": "string"
-                    }
-                  ]
+                  "message": "You do not have permission to access this resource."
                 }
               },
               "Caller has insufficient scope": {
@@ -21705,16 +22047,10 @@
               "$ref": "#/components/schemas/NotFoundResponse"
             },
             "examples": {
-              "example-1": {
+              "Resource not found": {
                 "value": {
                   "title": "Resource Not Found",
-                  "message": "The server could not find the requested resource.",
-                  "details": [
-                    {
-                      "parameter": "string",
-                      "message": "string"
-                    }
-                  ]
+                  "message": "The server could not find the requested resource."
                 }
               }
             }
@@ -21889,7 +22225,7 @@
         "schema": {
           "type": "string",
           "format": "uri",
-          "example": "https://api.calendly.com/users/abc123"
+          "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
         }
       }
     },
