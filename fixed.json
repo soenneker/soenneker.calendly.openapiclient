@@ -2524,7 +2524,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteInviteeData202ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeleteInviteeData202ResponseSchema"
                 },
                 "examples": {
                   "Delete invitee data request": {
@@ -4483,7 +4483,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DeleteScheduledEventData202ResponseResponseJson"
+                  "$ref": "#/components/schemas/DeleteScheduledEventData202ResponseSchema"
                 },
                 "examples": {
                   "Delete scheduled event data request": {
@@ -16506,7 +16506,7 @@
           }
         }
       },
-      "DeleteInviteeData202ResponseResponseJson": {
+      "DeleteInviteeData202ResponseSchema": {
         "type": "object"
       },
       "GetInviteeNoShow200Response": {
@@ -16667,7 +16667,7 @@
           }
         }
       },
-      "DeleteScheduledEventData202ResponseResponseJson": {
+      "DeleteScheduledEventData202ResponseSchema": {
         "type": "object"
       },
       "ListEventTypeMemberships200Response": {

@@ -36,7 +36,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
         /// <summary>
         /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`To submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.Time range can be no greater than 24 months and must occur in the past.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseResponseJson?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseResponseJson> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,7 +62,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseResponseJson>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseResponseJson.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`To submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.Time range can be no greater than 24 months and must occur in the past.&quot;
