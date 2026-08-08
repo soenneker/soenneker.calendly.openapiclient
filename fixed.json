@@ -31,7 +31,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -266,7 +267,9 @@
             "in": "query",
             "description": "Return events that are scheduled with the group associated with this URI",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uri",
+              "example": "https://api.calendly.com/groups/AAAAAAAAAAAAAAAA"
             }
           }
         ],
@@ -417,6 +420,10 @@
               "default": "name:asc"
             },
             "examples": {
+              "default": {
+                "summary": "Sort by name ascending",
+                "value": "name:asc"
+              },
               "withOmittedDirection": {
                 "summary": "Omit direction with fallback to asc by default",
                 "value": "name"
@@ -656,7 +663,8 @@
             "description": "User unique identifier, or the constant \u0022me\u0022 to reference the caller",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "AAAAAAAAAAAAAAAA"
             }
           }
         ],
@@ -944,7 +952,8 @@
           "description": "The event\u0027s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         },
         {
@@ -953,7 +962,8 @@
           "description": "The invitee\u0027s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "BBBBBBBBBBBBBBBB"
           }
         }
       ]
@@ -1116,7 +1126,8 @@
           "description": "The event\u0027s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -1328,7 +1339,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -1588,7 +1600,8 @@
           "description": "The organization\u0027s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -1708,7 +1721,8 @@
           "description": "The organization\u2019s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         },
         {
@@ -1717,7 +1731,8 @@
           "description": "The organization invitation\u0027s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "BBBBBBBBBBBBBBBB"
           }
         }
       ]
@@ -1832,7 +1847,8 @@
           "description": "The organization membership\u0027s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -2411,7 +2427,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -2648,7 +2665,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -2740,7 +2758,8 @@
             "description": "Group unique identifier",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "AAAAAAAAAAAAAAAA"
             }
           }
         ],
@@ -2973,7 +2992,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "AAAAAAAAAAAAAAAA"
             }
           }
         ],
@@ -3122,7 +3142,8 @@
           "description": "The organization\u0027s unique identifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -3207,7 +3228,8 @@
           "description": "The event\u0027s unique indentifier",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -3412,7 +3434,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -3615,7 +3638,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -4446,7 +4470,8 @@
           "description": "The UUID of the availability schedule.",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -5123,7 +5148,9 @@
             "description": "Return groups that are associated with the organization associated with this URI",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uri",
+              "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
             }
           },
           {
@@ -5378,7 +5405,9 @@
             "description": "Event Type uri in which to update the availability schedule",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uri",
+              "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
             }
           }
         ],
@@ -5932,7 +5961,8 @@
           "description": "The meeting recap uuid",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "BBBBBBBBBBBBBBBB"
           }
         }
       ]
@@ -6156,7 +6186,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "BBBBBBBBBBBBBBBB"
           }
         }
       ]
@@ -6517,7 +6548,8 @@
           "in": "path",
           "required": true,
           "schema": {
-            "type": "string"
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
           }
         }
       ]
@@ -16232,6 +16264,7 @@
         "properties": {
           "name": {
             "type": "string",
+            "example": "Jane Doe",
             "x-stoplight": {
               "id": "g9w09hhe14m8k"
             }
@@ -16316,6 +16349,7 @@
         "properties": {
           "name": {
             "type": "string",
+            "example": "Jane Doe",
             "x-stoplight": {
               "id": "imhay658wwumn"
             }
