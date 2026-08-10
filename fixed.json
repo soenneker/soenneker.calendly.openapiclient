@@ -519,7 +519,7 @@
                             {
                               "name": "Number of employees",
                               "answer_choices": [
-                                1,
+                                "1",
                                 "2-10",
                                 "11-20",
                                 "20\u002B"
@@ -1213,7 +1213,7 @@
                           {
                             "name": "Number of employees",
                             "answer_choices": [
-                              1,
+                              "1",
                               "2-10",
                               "11-20",
                               "20\u002B"
@@ -7462,7 +7462,7 @@
               {
                 "name": "Number of employees",
                 "answer_choices": [
-                  1,
+                  "1",
                   "2-10",
                   "11-20",
                   "20\u002B"
@@ -7768,7 +7768,7 @@
               {
                 "name": "Number of employees",
                 "answer_choices": [
-                  1,
+                  "1",
                   "2-10",
                   "11-20",
                   "20\u002B"
@@ -11843,11 +11843,11 @@
           },
           "to": {
             "type": "string",
-            "example": 14047549876
+            "example": "\u002B14047549876"
           },
           "from": {
             "type": "string",
-            "example": 14042916667
+            "example": "\u002B14042916667"
           },
           "subject": {
             "type": "string",
@@ -11899,8 +11899,8 @@
         "description": "Object for a SMS communication",
         "example": {
           "type": "sms",
-          "to": 14047549876,
-          "from": 14042916667,
+          "to": "\u002B14047549876",
+          "from": "\u002B14042916667",
           "subject": "",
           "body": "Your scheduled event is coming up.",
           "sender_uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
@@ -12300,7 +12300,7 @@
               "extra": {
                 "intl_numbers_url": "https://zoom.us/123456"
               },
-              "password": 123456
+              "password": "123456"
             }
           },
           "Failed status": {
@@ -12425,11 +12425,11 @@
             "status": "pushed",
             "join_url": "https://teams.microsoft.com/l/meetup-join/123",
             "data": {
-              "id": 123456,
+              "id": "123456",
               "audioConferencing": {
-                "conferenceId": 123456,
+                "conferenceId": "123456",
                 "dialinUrl": "https://dialin.teams.microsoft.com/22f12fa0-499f-435b-bc69-b8de580ba330?id=2425999",
-                "tollNumber": 12525634478
+                "tollNumber": "\u002B12525634478"
               }
             }
           },
@@ -12540,7 +12540,7 @@
                 "callInNumbers": [
                   {
                     "label": "US Toll",
-                    "callInNumber": 14086380986,
+                    "callInNumber": "14086380986",
                     "tollType": "toll"
                   }
                 ]
@@ -12640,7 +12640,7 @@
           "Single-Select": {
             "name": "Number of employees",
             "answer_choices": [
-              1,
+              "1",
               "2-10",
               "11-20",
               "20\u002B"
@@ -15403,7 +15403,7 @@
           },
           "callInNumber": {
             "type": "string",
-            "example": 14086380986
+            "example": "14086380986"
           },
           "tollType": {
             "type": "string",
@@ -19776,7 +19776,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "Indicates that the invitee will call the event host",
+        "description": "\t\nIndicates that the invitee will call the event host",
         "x-ms-enum": {
           "name": "InboundCallType",
           "modelAsString": false,
