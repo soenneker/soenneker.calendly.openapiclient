@@ -974,7 +974,7 @@
           "Scheduled Events"
         ],
         "summary": "Create Event Invitee (Scheduling API)",
-        "description": "\u0022Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.\n\nStandard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.\n\n**NOTE:**\n* Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060\u0022",
+        "description": "\u0022Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.\n\nStandard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.\n\n**NOTE:**\n* Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.\n* For events with text notifications enabled, text notifications are sent only after the invitee provides consent through a text opt-in flow.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060\u0022",
         "operationId": "PostInvitee",
         "requestBody": {
           "content": {
