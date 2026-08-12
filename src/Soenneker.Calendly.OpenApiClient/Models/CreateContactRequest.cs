@@ -38,7 +38,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Country { get; set; }
 #endif
-        /// <summary>Custom field values to set on the contact. Each item requires an `id` and a `value`; any other keys (such as `label`) are ignored. The entire request is rejected if any `id` is unknown, any `value` is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any `select` `value` is not one of the field definition&apos;s option values.</summary>
+        /// <summary>Custom field values to set on the contact. Each item requires an `id` and a `value`; any other keys (such as `label`) are ignored. The entire request is rejected if any `id` is unknown, any `value` is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any `single_select` `value` is not one of the field definition&apos;s option `id`s.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactRequestCustomFieldsItem>? CustomFields { get; set; }
