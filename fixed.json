@@ -18114,7 +18114,8 @@
         "enum": [
           "round_robin",
           "collective",
-          "multi_pool"
+          "multi_pool",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -18175,7 +18176,8 @@
         "enum": [
           "round_robin",
           "collective",
-          "multi_pool"
+          "multi_pool",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -18426,7 +18428,8 @@
       "InviteeSchedulingMethod": {
         "enum": [
           "instant_book",
-          "api"
+          "api",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -19811,7 +19814,8 @@
           "processing",
           "initiated",
           "pushed",
-          "failed"
+          "failed",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -19863,7 +19867,8 @@
           "processing",
           "initiated",
           "pushed",
-          "failed"
+          "failed",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -19915,7 +19920,8 @@
           "initiated",
           "processing",
           "pushed",
-          "failed"
+          "failed",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -19967,7 +19973,8 @@
           "processing",
           "initiated",
           "pushed",
-          "failed"
+          "failed",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
@@ -20055,7 +20062,8 @@
           "processing",
           "initiated",
           "pushed",
-          "failed"
+          "failed",
+          null
         ],
         "type": "string",
         "additionalProperties": false,
