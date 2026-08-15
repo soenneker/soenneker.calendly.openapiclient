@@ -15,7 +15,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;is required when `type` is &apos;date&apos;Format: `YYYY-MM-DD`&quot;</summary>
+        /// <summary>is required when `type` is &apos;date&apos;Format: `YYYY-MM-DD`</summary>
         public Date? Date { get; set; }
         /// <summary>The intervals property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

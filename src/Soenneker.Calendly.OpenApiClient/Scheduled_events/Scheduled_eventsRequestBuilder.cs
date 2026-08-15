@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
         {
         }
         /// <summary>
-        /// &quot;Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
+        /// Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListScheduledEvents200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
+        /// Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
             return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Scheduled_eventsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
+        /// Returns a list of  Events.* Pass `organization` parameter to return events for that organization (requires admin/owner privilege)* Pass `user` parameter to return events for a specific User* Pass `group` parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)**NOTES:*** If you are the admin/owner of the organization, you can use both `organization` and `user` to get a list of events for a specific user within your organization.* If you are the admin/owner of the organization, you can use both `organization` and `group` to get a list of events for a specific group within your organization.* `user` can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Scheduled_eventsRequestBuilderGetQueryParameters 
@@ -132,10 +132,10 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
             [QueryParameter("invitee_email")]
             public string InviteeEmail { get; set; }
 #endif
-            /// <summary>&quot;Include events with start times prior to this time (sample time format: \&quot;2020-01-02T03:04:05.678123Z\&quot;). This time should use the UTC timezone.&quot;</summary>
+            /// <summary>Include events with start times prior to this time (sample time format: &quot;2020-01-02T03:04:05.678123Z&quot;). This time should use the UTC timezone.</summary>
             [QueryParameter("max_start_time")]
             public DateTimeOffset? MaxStartTime { get; set; }
-            /// <summary>&quot;Include events with start times after this time (sample time format: \&quot;2020-01-02T03:04:05.678123Z\&quot;). This time should use the UTC timezone.&quot;</summary>
+            /// <summary>Include events with start times after this time (sample time format: &quot;2020-01-02T03:04:05.678123Z&quot;). This time should use the UTC timezone.</summary>
             [QueryParameter("min_start_time")]
             public DateTimeOffset? MinStartTime { get; set; }
             /// <summary>Return events that are scheduled with the organization associated with this URI</summary>
@@ -158,7 +158,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
             [QueryParameter("page_token")]
             public string PageToken { get; set; }
 #endif
-            /// <summary>&quot;Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: start_time.Sort direction is specified as: asc, desc.&quot;</summary>
+            /// <summary>Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: start_time.Sort direction is specified as: asc, desc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

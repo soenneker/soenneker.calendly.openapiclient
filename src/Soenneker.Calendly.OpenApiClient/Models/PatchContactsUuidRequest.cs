@@ -46,7 +46,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public List<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuidRequestCustomFieldsItem> CustomFields { get; set; }
 #endif
-        /// <summary>&quot;The user&apos;s email addresses. Max 10. &lt;br&gt;  &lt;span style=\&quot;color:red\&quot;&gt;Warning: &lt;/span&gt;Updating emails will overwrite all existing emails for the contact. Use the GET endpoint to first retrieve the existing emails and then pass the modified emails to the emails array.&quot;</summary>
+        /// <summary>The user&apos;s email addresses. Max 10. &lt;br&gt;  &lt;span style=&quot;color:red&quot;&gt;Warning: &lt;/span&gt;Updating emails will overwrite all existing emails for the contact. Use the GET endpoint to first retrieve the existing emails and then pass the modified emails to the emails array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Calendly.OpenApiClient.Models.Email2>? Emails { get; set; }
@@ -78,7 +78,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>&quot;The user&apos;s phone numbers. Max 10. &lt;br&gt;  &lt;span style=\&quot;color:red\&quot;&gt;Warning: &lt;/span&gt;Updating phone_numbers will overwrite all existing phone numbers for the contact. Use the GET endpoint to first retrieve the existing phone numbers and then pass the modified phone_numbers to the phone_numbers array.&quot;</summary>
+        /// <summary>The user&apos;s phone numbers. Max 10. &lt;br&gt;  &lt;span style=&quot;color:red&quot;&gt;Warning: &lt;/span&gt;Updating phone_numbers will overwrite all existing phone numbers for the contact. Use the GET endpoint to first retrieve the existing phone numbers and then pass the modified phone_numbers to the phone_numbers array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Calendly.OpenApiClient.Models.PhoneNumber>? PhoneNumbers { get; set; }

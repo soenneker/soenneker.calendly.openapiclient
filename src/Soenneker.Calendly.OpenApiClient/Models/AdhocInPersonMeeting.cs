@@ -23,8 +23,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string AdditionalInfo { get; set; }
 #endif
-        /// <summary>The kind property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.AdhocInPersonMeetingKind? Kind { get; set; }
+        /// <summary>Indicates that the event will be an in-person meeting.</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Models.PhysicalKind? Kind { get; set; }
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "additional_info", n => { AdditionalInfo = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AdhocInPersonMeetingKind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.PhysicalKind>(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("additional_info", AdditionalInfo);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AdhocInPersonMeetingKind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.PhysicalKind>("kind", Kind);
             writer.WriteStringValue("location", Location);
             writer.WriteAdditionalData(AdditionalData);
         }

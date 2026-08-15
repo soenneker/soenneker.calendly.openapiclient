@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>Indicates if the routing form submission resulted in a custom &quot;thank you&quot; message.</summary>
+    /// <summary>The event location is a GoToMeeting conference</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum SubmissionCustomMessageResultType
+    public enum GotomeetingType
     {
-        [EnumMember(Value = "custom_message")]
+        [EnumMember(Value = "gotomeeting")]
         #pragma warning disable CS1591
-        CustomMessage,
+        Gotomeeting,
         #pragma warning restore CS1591
     }
 }

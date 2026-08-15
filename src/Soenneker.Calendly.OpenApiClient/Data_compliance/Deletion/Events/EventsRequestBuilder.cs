@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
         {
         }
         /// <summary>
-        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`To submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.Time range can be no greater than 24 months and must occur in the past.&quot;
+        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`To submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.Time range can be no greater than 24 months and must occur in the past.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.DeleteScheduledEventData202ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`To submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.Time range can be no greater than 24 months and must occur in the past.&quot;
+        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`To submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.Time range can be no greater than 24 months and must occur in the past.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

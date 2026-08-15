@@ -40,9 +40,8 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item
         {
         }
         /// <summary>
-        /// &quot;Delete an existing Recap**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`&quot;
+        /// Delete an existing Recap**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
@@ -51,11 +50,11 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -66,10 +65,10 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the recap associated with a meeting if it is available.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`&quot;
+        /// Returns the recap associated with a meeting if it is available.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetMeetingRecapsUuidRecap200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -98,7 +97,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetMeetingRecapsUuidRecap200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetMeetingRecapsUuidRecap200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`&quot;
+        /// Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateMeetingRecapsUuid200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -129,7 +128,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.UpdateMeetingRecapsUuid200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.UpdateMeetingRecapsUuid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Delete an existing Recap**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`&quot;
+        /// Delete an existing Recap**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -148,7 +147,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Returns the recap associated with a meeting if it is available.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`&quot;
+        /// Returns the recap associated with a meeting if it is available.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -167,7 +166,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`&quot;
+        /// Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -15,8 +15,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The kind property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.AdhocOutboundCallKind? Kind { get; set; }
+        /// <summary>Indicates that the event host (publisher) will call the invitee</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Models.OutboundCallKind? Kind { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.AdhocOutboundCall"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AdhocOutboundCallKind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OutboundCallKind>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AdhocOutboundCallKind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.OutboundCallKind>("kind", Kind);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

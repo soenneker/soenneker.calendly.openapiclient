@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>Type of the respondent resource that submitted the form and scheduled a meeting.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum OrganizationInvitationOwnerType
-    #pragma warning restore CS1591
+    public enum InviteeSubmitterType
     {
-        [EnumMember(Value = "OrganizationInvitation")]
+        [EnumMember(Value = "Invitee")]
         #pragma warning disable CS1591
-        OrganizationInvitation,
+        Invitee,
         #pragma warning restore CS1591
     }
 }

@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>Indicates that the invitee will call the event host</summary>
+    /// <summary>The event location is a Zoom conference</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum InviteeInboundCallKind
+    public enum ZoomConferenceKind
     {
-        [EnumMember(Value = "inbound_call")]
+        [EnumMember(Value = "zoom_conference")]
         #pragma warning disable CS1591
-        InboundCall,
+        ZoomConference,
         #pragma warning restore CS1591
     }
 }

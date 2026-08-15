@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>Indicates if the routing form submission resulted in a custom &quot;thank you&quot; message.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum AdhocOutboundCallKind
-    #pragma warning restore CS1591
+    public enum CustomMessageType
     {
-        [EnumMember(Value = "outbound_call")]
+        [EnumMember(Value = "custom_message")]
         #pragma warning disable CS1591
-        OutboundCall,
+        CustomMessage,
         #pragma warning restore CS1591
     }
 }

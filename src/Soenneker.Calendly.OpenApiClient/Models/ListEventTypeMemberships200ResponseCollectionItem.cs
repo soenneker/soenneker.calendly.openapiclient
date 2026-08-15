@@ -27,10 +27,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The event type host</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.User? Member { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200ResponseCollectionItemAllOf1Member? Member { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.User Member { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200ResponseCollectionItemAllOf1Member Member { get; set; }
 #endif
         /// <summary>Date and time of last update</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -69,7 +69,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "event_type", n => { EventType = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType>(global::Soenneker.Calendly.OpenApiClient.Models.EventType.CreateFromDiscriminatorValue); } },
-                { "member", n => { Member = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.User>(global::Soenneker.Calendly.OpenApiClient.Models.User.CreateFromDiscriminatorValue); } },
+                { "member", n => { Member = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200ResponseCollectionItemAllOf1Member>(global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200ResponseCollectionItemAllOf1Member.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
             };
@@ -83,7 +83,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventType>("event_type", EventType);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.User>("member", Member);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200ResponseCollectionItemAllOf1Member>("member", Member);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
             writer.WriteAdditionalData(AdditionalData);

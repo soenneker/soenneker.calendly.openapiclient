@@ -37,7 +37,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationshipOwner CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.GroupRelationshipOwner();
             if("OrganizationInvitationOwner".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {

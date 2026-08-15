@@ -24,7 +24,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Location { get; set; }
 #endif
         /// <summary>The event location doesn&apos;t fall into a standard category defined by the event host (publisher)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.CustomLocationType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.CustomType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CustomLocation"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "location", n => { Location = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CustomLocationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CustomType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("location", Location);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CustomLocationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CustomType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

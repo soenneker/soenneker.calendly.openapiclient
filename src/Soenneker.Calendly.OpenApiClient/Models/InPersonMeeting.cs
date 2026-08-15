@@ -32,7 +32,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Location { get; set; }
 #endif
         /// <summary>Indicates that the event will be an in-person meeting.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.InPersonMeetingType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.PhysicalType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.InPersonMeeting"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "additional_info", n => { AdditionalInfo = n.GetStringValue(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InPersonMeetingType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.PhysicalType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("additional_info", AdditionalInfo);
             writer.WriteStringValue("location", Location);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InPersonMeetingType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.PhysicalType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

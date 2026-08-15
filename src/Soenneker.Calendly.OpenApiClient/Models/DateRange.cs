@@ -16,9 +16,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Availability end - Must be a date in the future and less than 365 days in the future from start_date. Format: YYYY-MM-DD&quot;</summary>
+        /// <summary>Availability end - Must be a date in the future and less than 365 days in the future from start_date. Format: YYYY-MM-DD</summary>
         public Date? EndDate { get; set; }
-        /// <summary>&quot;Availability start - Must be before end_date. Format: YYYY-MM-DD&quot;</summary>
+        /// <summary>Availability start - Must be before end_date. Format: YYYY-MM-DD</summary>
         public Date? StartDate { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.DateRangeType? Type { get; set; }

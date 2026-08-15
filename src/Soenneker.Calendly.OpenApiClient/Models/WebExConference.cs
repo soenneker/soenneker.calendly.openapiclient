@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Indicates the current status of the WebEx conference&lt;br/&gt;&amp;nbsp; * Expect only `pushed` status to have non-`null` values for `join_url` &amp; `data` fields.&lt;br/&gt;&amp;nbsp; - `processing` Location details generation pending&lt;br/&gt;&amp;nbsp; - `initiated` Requesting location details from WebEx&lt;br/&gt;&amp;nbsp; - `pushed` Location details are available&lt;br/&gt;&amp;nbsp; - `failed` Error occurred or event has been canceled&lt;br/&gt;&amp;nbsp; - `null` Location details are no longer available</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceStatus? Status { get; set; }
         /// <summary>The event location is a WebEx conference</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.WebexConferenceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.WebExConference"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceData>(global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceData.CreateFromDiscriminatorValue); } },
                 { "join_url", n => { JoinUrl = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebexConferenceType>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceData>("data", Data);
             writer.WriteStringValue("join_url", JoinUrl);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceStatus>("status", Status);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.WebexConferenceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

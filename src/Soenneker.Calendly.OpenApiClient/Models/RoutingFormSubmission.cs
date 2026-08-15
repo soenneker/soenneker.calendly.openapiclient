@@ -50,7 +50,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Submitter { get; set; }
 #endif
         /// <summary>Type of the respondent resource that submitted the form and scheduled a meeting.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionSubmitterType? SubmitterType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType? SubmitterType { get; set; }
         /// <summary>The UTM and Salesforce tracking parameters associated with a Routing Form Submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,7 +99,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult.CreateFromDiscriminatorValue); } },
                 { "routing_form", n => { RoutingForm = n.GetStringValue(); } },
                 { "submitter", n => { Submitter = n.GetStringValue(); } },
-                { "submitter_type", n => { SubmitterType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionSubmitterType>(); } },
+                { "submitter_type", n => { SubmitterType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType>(); } },
                 { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
@@ -117,7 +117,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult>("result", Result);
             writer.WriteStringValue("routing_form", RoutingForm);
             writer.WriteStringValue("submitter", Submitter);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmissionSubmitterType>("submitter_type", SubmitterType);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType>("submitter_type", SubmitterType);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking>("tracking", Tracking);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);

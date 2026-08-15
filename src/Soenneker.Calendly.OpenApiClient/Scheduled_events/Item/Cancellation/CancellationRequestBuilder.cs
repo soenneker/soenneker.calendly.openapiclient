@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
         {
         }
         /// <summary>
-        /// &quot;Cancels specified event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
+        /// Cancels specified event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Cancels specified event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
+        /// Cancels specified event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

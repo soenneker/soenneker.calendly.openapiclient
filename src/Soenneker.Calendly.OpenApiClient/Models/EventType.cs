@@ -101,7 +101,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType? PoolingType { get; set; }
         /// <summary>Position order of Event Type, starting with 0 (for display purposes)</summary>
         public int? Position { get; set; }
-        /// <summary>&quot;The publicly visible profile of a User or a Team that&apos;s associated with the Event Type (note: some Event Types don&apos;t have profiles)&quot;</summary>
+        /// <summary>The publicly visible profile of a User or a Team that&apos;s associated with the Event Type (note: some Event Types don&apos;t have profiles)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.Profile? Profile { get; set; }

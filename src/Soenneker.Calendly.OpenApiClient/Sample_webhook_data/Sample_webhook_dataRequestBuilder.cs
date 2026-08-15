@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Sample_webhook_data
         {
         }
         /// <summary>
-        /// &quot;Test your webhook subscription&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`&quot;
+        /// Test your webhook subscription&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.WebhookPayload"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Sample_webhook_data
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.WebhookPayload>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.WebhookPayload.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Test your webhook subscription&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`&quot;
+        /// Test your webhook subscription&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Calendly.OpenApiClient.Sample_webhook_data
             return new global::Soenneker.Calendly.OpenApiClient.Sample_webhook_data.Sample_webhook_dataRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Test your webhook subscription&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`&quot;
+        /// Test your webhook subscription&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Sample_webhook_dataRequestBuilderGetQueryParameters 

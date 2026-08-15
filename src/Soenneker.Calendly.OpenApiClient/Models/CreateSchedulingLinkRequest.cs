@@ -25,7 +25,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Owner { get; set; }
 #endif
         /// <summary>Resource type (currently, this is always EventType)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLinkRequestOwnerType? OwnerType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType? OwnerType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLinkRequest"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "max_event_count", n => { MaxEventCount = n.GetDoubleValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
-                { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLinkRequestOwnerType>(); } },
+                { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("max_event_count", MaxEventCount);
             writer.WriteStringValue("owner", Owner);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLinkRequestOwnerType>("owner_type", OwnerType);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType>("owner_type", OwnerType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

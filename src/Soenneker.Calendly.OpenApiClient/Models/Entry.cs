@@ -21,7 +21,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Action { get; set; }
 #endif
-        /// <summary>&quot;The Calendly actor that took the action creating the activity log entrySpecific actors:&lt;details&gt;&lt;summary&gt;Calendly System&lt;/summary&gt;Used when an action is performed by the Calendly system and not triggered directly by a user interaction.Example:```json{    \&quot;display_name\&quot;: \&quot;Calendly System\&quot;,    \&quot;type\&quot;: \&quot;System\&quot;}```&lt;/details&gt;&lt;br /&gt;&lt;details&gt;&lt;summary&gt;Calendly Support&lt;/summary&gt;Used when an action is performed by Calendly support.Example:```json{  \&quot;display_name\&quot;: \&quot;Calendly Support\&quot;,  \&quot;organization\&quot;: {    \&quot;uri\&quot;: \&quot;https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA\&quot;  },  \&quot;type\&quot;: \&quot;User\&quot;,  \&quot;uri\&quot;: \&quot;https://api.calendly.com/users/AAAAAAAAAAAAAAAA\&quot;}```&lt;/details&gt;&quot;</summary>
+        /// <summary>The Calendly actor that took the action creating the activity log entrySpecific actors:&lt;details&gt;&lt;summary&gt;Calendly System&lt;/summary&gt;Used when an action is performed by the Calendly system and not triggered directly by a user interaction.Example:```json{    &quot;display_name&quot;: &quot;Calendly System&quot;,    &quot;type&quot;: &quot;System&quot;}```&lt;/details&gt;&lt;br /&gt;&lt;details&gt;&lt;summary&gt;Calendly Support&lt;/summary&gt;Used when an action is performed by Calendly support.Example:```json{  &quot;display_name&quot;: &quot;Calendly Support&quot;,  &quot;organization&quot;: {    &quot;uri&quot;: &quot;https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA&quot;  },  &quot;type&quot;: &quot;User&quot;,  &quot;uri&quot;: &quot;https://api.calendly.com/users/AAAAAAAAAAAAAAAA&quot;}```&lt;/details&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.Actor? Actor { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Namespace { get; set; }
 #endif
-        /// <summary>&quot;The date and time of the entry (format: \&quot;2020-01-02T03:04:05.678Z\&quot;).&quot;</summary>
+        /// <summary>The date and time of the entry (format: &quot;2020-01-02T03:04:05.678Z&quot;).</summary>
         public DateTimeOffset? OccurredAt { get; set; }
         /// <summary>The organization property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_forms
         {
         }
         /// <summary>
-        /// &quot;Get a list of Routing Forms for a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`&quot;
+        /// Get a list of Routing Forms for a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingForms200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_forms
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingForms200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListRoutingForms200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Get a list of Routing Forms for a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`&quot;
+        /// Get a list of Routing Forms for a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_forms
             return new global::Soenneker.Calendly.OpenApiClient.Routing_forms.Routing_formsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Get a list of Routing Forms for a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`&quot;
+        /// Get a list of Routing Forms for a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `routing_forms:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Routing_formsRequestBuilderGetQueryParameters 
@@ -132,7 +132,7 @@ namespace Soenneker.Calendly.OpenApiClient.Routing_forms
             [QueryParameter("page_token")]
             public string PageToken { get; set; }
 #endif
-            /// <summary>&quot;Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.&quot;</summary>
+            /// <summary>Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

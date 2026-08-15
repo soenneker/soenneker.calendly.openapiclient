@@ -16,7 +16,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if the routing form submission resulted in a custom &quot;thank you&quot; message.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResultType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.CustomMessageType? Type { get; set; }
         /// <summary>Contains an object with custom message headline and body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResultType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CustomMessageType>(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResultValue>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResultValue.CreateFromDiscriminatorValue); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResultType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CustomMessageType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResultValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -23,8 +23,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string AdditionalInfo { get; set; }
 #endif
-        /// <summary>The kind property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.AdhocInboundCallKind? Kind { get; set; }
+        /// <summary>Indicates that the invitee will call the event host</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Models.InboundCallKind? Kind { get; set; }
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +59,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "additional_info", n => { AdditionalInfo = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AdhocInboundCallKind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InboundCallKind>(); } },
                 { "phone_number", n => { PhoneNumber = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("additional_info", AdditionalInfo);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AdhocInboundCallKind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InboundCallKind>("kind", Kind);
             writer.WriteStringValue("phone_number", PhoneNumber);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>The event location is a WebEx conference</summary>
+    /// <summary>Indicates that the invitee will call the event host</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum WebExConferenceType
+    public enum InboundCallKind
     {
-        [EnumMember(Value = "webex_conference")]
+        [EnumMember(Value = "inbound_call")]
         #pragma warning disable CS1591
-        WebexConference,
+        InboundCall,
         #pragma warning restore CS1591
     }
 }

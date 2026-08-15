@@ -46,7 +46,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item
         {
         }
         /// <summary>
-        /// &quot;Returns information about a specified Event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
+        /// Returns information about a specified Event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns information about a specified Event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
+        /// Returns information about a specified Event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

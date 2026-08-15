@@ -24,7 +24,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Location { get; set; }
 #endif
         /// <summary>The event location selected by the invitee</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSpecifiedLocationType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.AskInviteeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.InviteeSpecifiedLocation"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "location", n => { Location = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSpecifiedLocationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AskInviteeType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("location", Location);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSpecifiedLocationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AskInviteeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

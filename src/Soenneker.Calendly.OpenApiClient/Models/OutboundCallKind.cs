@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>The event location is a GoToMeeting conference</summary>
+    /// <summary>Indicates that the event host (publisher) will call the invitee</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum InviteeGotoMeetingConferenceKind
+    public enum OutboundCallKind
     {
-        [EnumMember(Value = "gotomeeting_conference")]
+        [EnumMember(Value = "outbound_call")]
         #pragma warning disable CS1591
-        GotomeetingConference,
+        OutboundCall,
         #pragma warning restore CS1591
     }
 }

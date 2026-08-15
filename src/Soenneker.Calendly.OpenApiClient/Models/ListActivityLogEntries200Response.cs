@@ -23,7 +23,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>If there are more search results than the total_count field indicates, pagination will continue to return results past the total_count field value.</summary>
         public bool? ExceedsMaxTotalCount { get; set; }
-        /// <summary>&quot;The date and time of the newest entry (format: \&quot;2020-01-02T03:04:05.678Z\&quot;) in the collection array.&quot;</summary>
+        /// <summary>The date and time of the newest entry (format: &quot;2020-01-02T03:04:05.678Z&quot;) in the collection array.</summary>
         public DateTimeOffset? LastEventTime { get; set; }
         /// <summary>The pagination property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

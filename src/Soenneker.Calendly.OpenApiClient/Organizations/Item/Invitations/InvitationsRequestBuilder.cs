@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
         {
         }
         /// <summary>
-        /// &quot;Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationInvitations200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`&quot;
+        /// Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateOrganizationInvitation201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateOrganizationInvitation201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateOrganizationInvitation201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`&quot;
+        /// Invites a user to an organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -157,7 +157,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             return new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Returns a list of Organization Invitations that were sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InvitationsRequestBuilderGetQueryParameters 

@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships
         {
         }
         /// <summary>
-        /// &quot;Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationMemberships200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationMemberships200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListOrganizationMemberships200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organization_memberships
             return new global::Soenneker.Calendly.OpenApiClient.Organization_memberships.Organization_membershipsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Use this to list the Organization Memberships for all users belonging to an organization, use:* `user` to look up a user&apos;s membership in an organization* `organization` to look up all users that belong to the organizationThis endpoint can also be used to retrieve your organization URI.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Organization_membershipsRequestBuilderGetQueryParameters 

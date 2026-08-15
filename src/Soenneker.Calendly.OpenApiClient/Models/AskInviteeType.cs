@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>The event location doesn&apos;t fall into a standard category defined by the event host (publisher)</summary>
+    /// <summary>The event location selected by the invitee</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CustomLocationType
+    public enum AskInviteeType
     {
-        [EnumMember(Value = "custom")]
+        [EnumMember(Value = "ask_invitee")]
         #pragma warning disable CS1591
-        Custom,
+        AskInvitee,
         #pragma warning restore CS1591
     }
 }

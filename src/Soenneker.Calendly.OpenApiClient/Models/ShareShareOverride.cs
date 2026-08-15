@@ -33,7 +33,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public List<int?> DurationOptions { get; set; }
 #endif
-        /// <summary>&quot;Format: `YYYY-MM-DD`&quot;</summary>
+        /// <summary>Format: `YYYY-MM-DD`</summary>
         public Date? EndDate { get; set; }
         /// <summary>The hide_location property</summary>
         public bool? HideLocation { get; set; }
@@ -57,7 +57,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>The period_type property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType? PeriodType { get; set; }
-        /// <summary>&quot;Format: `YYYY-MM-DD`&quot;</summary>
+        /// <summary>Format: `YYYY-MM-DD`</summary>
         public Date? StartDate { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride"/> and sets the default values.

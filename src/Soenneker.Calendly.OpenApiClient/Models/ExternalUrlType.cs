@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>The event location selected by the invitee</summary>
+    /// <summary>Indicates that the routing form submission resulted in a redirect to an external URL.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum InviteeSpecifiedLocationType
+    public enum ExternalUrlType
     {
-        [EnumMember(Value = "ask_invitee")]
+        [EnumMember(Value = "external_url")]
         #pragma warning disable CS1591
-        AskInvitee,
+        ExternalUrl,
         #pragma warning restore CS1591
     }
 }

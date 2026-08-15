@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>The event location doesn&apos;t fall into a standard category defined by the event host (publisher)</summary>
+    /// <summary>The setting for event type availability specifies if all hosts follow the same schedule or if each host has their own unique schedule on the event type.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum InviteeCustomLocationKind
+    public enum HostAvailabilitySetting
     {
-        [EnumMember(Value = "custom")]
+        [EnumMember(Value = "host")]
         #pragma warning disable CS1591
-        Custom,
+        Host,
         #pragma warning restore CS1591
     }
 }

@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
         {
         }
         /// <summary>
-        /// &quot;Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
+        /// Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypes200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: \&quot;solo\&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`&quot;
+        /// Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: &quot;solo&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateEventType201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -107,7 +107,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateEventType201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateEventType201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
+        /// Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: \&quot;solo\&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`&quot;
+        /// Create a new Event Type**NOTE:*** Currently, this endpoint only supports one-on-one event types (kind: &quot;solo&quot;).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -157,7 +157,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             return new global::Soenneker.Calendly.OpenApiClient.Event_types.Event_typesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
+        /// Returns all Event Types associated with a specified User. Use:* `organization` to look up all Event Types that belong to the organization* `user` to look up a user&apos;s Event Types in an organizationEither `organization` or `user` are required query params when using this endpoint.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_typesRequestBuilderGetQueryParameters 
@@ -191,7 +191,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_types
             [QueryParameter("page_token")]
             public string PageToken { get; set; }
 #endif
-            /// <summary>&quot;Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: name, position, created_at, updated_at. Sort direction is specified as: asc, desc.&quot;</summary>
+            /// <summary>Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: name, position, created_at, updated_at. Sort direction is specified as: asc, desc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

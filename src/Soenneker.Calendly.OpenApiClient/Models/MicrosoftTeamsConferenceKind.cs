@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>The event location is a Microsoft Teams conference</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum AdhocZoomConferenceKind
-    #pragma warning restore CS1591
+    public enum MicrosoftTeamsConferenceKind
     {
-        [EnumMember(Value = "zoom_conference")]
+        [EnumMember(Value = "microsoft_teams_conference")]
         #pragma warning disable CS1591
-        ZoomConference,
+        MicrosoftTeamsConference,
         #pragma warning restore CS1591
     }
 }

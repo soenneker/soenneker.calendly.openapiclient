@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
         {
         }
         /// <summary>
-        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;
+        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;
+        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
             return new global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.&quot;
+        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Outgoing_communicationsRequestBuilderGetQueryParameters 
@@ -97,10 +97,10 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
             /// <summary>The number of records to return</summary>
             [QueryParameter("count")]
             public int? Count { get; set; }
-            /// <summary>&quot;Include outgoing communications that were created prior to this time (sample time format: \&quot;2020-01-02T03:04:05.678Z\&quot;). This time should use the UTC timezone&quot;</summary>
+            /// <summary>Include outgoing communications that were created prior to this time (sample time format: &quot;2020-01-02T03:04:05.678Z&quot;). This time should use the UTC timezone</summary>
             [QueryParameter("max_created_at")]
             public DateTimeOffset? MaxCreatedAt { get; set; }
-            /// <summary>&quot;Include outgoing communications that were created after this time (sample time format: \&quot;2020-01-02T03:04:05.678Z\&quot;). This time should use the UTC timezone&quot;</summary>
+            /// <summary>Include outgoing communications that were created after this time (sample time format: &quot;2020-01-02T03:04:05.678Z&quot;). This time should use the UTC timezone</summary>
             [QueryParameter("min_created_at")]
             public DateTimeOffset? MinCreatedAt { get; set; }
             /// <summary>Return outgoing communications from the organization associated with this URI</summary>

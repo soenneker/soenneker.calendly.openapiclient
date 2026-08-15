@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>By default every host on the Event Type shares an identical schedule.</summary>
+    /// <summary>The event location doesn&apos;t fall into a standard category defined by the event host (publisher)</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UpdateEventTypeAvailabilityRequestAvailabilitySetting
+    public enum CustomKind
     {
-        [EnumMember(Value = "host")]
+        [EnumMember(Value = "custom")]
         #pragma warning disable CS1591
-        Host,
+        Custom,
         #pragma warning restore CS1591
     }
 }

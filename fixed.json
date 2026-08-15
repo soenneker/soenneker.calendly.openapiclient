@@ -23,7 +23,7 @@
           "Scheduled Events"
         ],
         "summary": "List Event Invitees",
-        "description": "\u0022Returns a list of Invitees for an event.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060\u0022",
+        "description": "Returns a list of Invitees for an event.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060",
         "operationId": "ListEventInvitees",
         "parameters": [
           {
@@ -46,7 +46,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "\u0022Order results by the **created_at** field and direction specified: ascending (\\\u0022asc\\\u0022) or descending (\\\u0022desc\\\u0022)\u0022",
+            "description": "Order results by the **created_at** field and direction specified: ascending (\u0022asc\u0022) or descending (\u0022desc\u0022)",
             "schema": {
               "type": "string",
               "default": "created_at:asc"
@@ -186,7 +186,7 @@
           "Scheduled Events"
         ],
         "summary": "List Events",
-        "description": "\u0022Returns a list of  Events.\n\n* Pass \u0060organization\u0060 parameter to return events for that organization (requires admin/owner privilege)\n* Pass \u0060user\u0060 parameter to return events for a specific User\n* Pass \u0060group\u0060 parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)\n\n**NOTES:**\n* If you are the admin/owner of the organization, you can use both \u0060organization\u0060 and \u0060user\u0060 to get a list of events for a specific user within your organization.\n* If you are the admin/owner of the organization, you can use both \u0060organization\u0060 and \u0060group\u0060 to get a list of events for a specific group within your organization.\n\n* \u0060user\u0060 can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060\u0022",
+        "description": "Returns a list of  Events.\n\n* Pass \u0060organization\u0060 parameter to return events for that organization (requires admin/owner privilege)\n* Pass \u0060user\u0060 parameter to return events for a specific User\n* Pass \u0060group\u0060 parameter to return events for a specific Group (requires organization admin/owner or group admin privilege)\n\n**NOTES:**\n* If you are the admin/owner of the organization, you can use both \u0060organization\u0060 and \u0060user\u0060 to get a list of events for a specific user within your organization.\n* If you are the admin/owner of the organization, you can use both \u0060organization\u0060 and \u0060group\u0060 to get a list of events for a specific group within your organization.\n\n* \u0060user\u0060 can only be used alone when requesting your own personal events. This will return your events within any organization that you are currently in or were a part of in the past.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060",
         "operationId": "ListScheduledEvents",
         "parameters": [
           {
@@ -230,7 +230,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "\u0022Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.\nSupported fields are: start_time.\nSort direction is specified as: asc, desc.\u0022",
+            "description": "Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.\nSupported fields are: start_time.\nSort direction is specified as: asc, desc.",
             "schema": {
               "type": "string"
             },
@@ -239,7 +239,7 @@
           {
             "name": "min_start_time",
             "in": "query",
-            "description": "\u0022Include events with start times after this time (sample time format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022). This time should use the UTC timezone.\u0022",
+            "description": "Include events with start times after this time (sample time format: \u00222020-01-02T03:04:05.678123Z\u0022). This time should use the UTC timezone.",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -249,7 +249,7 @@
           {
             "name": "max_start_time",
             "in": "query",
-            "description": "\u0022Include events with start times prior to this time (sample time format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022). This time should use the UTC timezone.\u0022",
+            "description": "Include events with start times prior to this time (sample time format: \u00222020-01-02T03:04:05.678123Z\u0022). This time should use the UTC timezone.",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -373,7 +373,7 @@
           "Event Types"
         ],
         "summary": "List User\u0027s Event Types",
-        "description": "\u0022Returns all Event Types associated with a specified User. Use:\n\n* \u0060organization\u0060 to look up all Event Types that belong to the organization\n\n* \u0060user\u0060 to look up a user\u0027s Event Types in an organization\n\nEither \u0060organization\u0060 or \u0060user\u0060 are required query params when using this endpoint.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:read\u0060\u0022",
+        "description": "Returns all Event Types associated with a specified User. Use:\n\n* \u0060organization\u0060 to look up all Event Types that belong to the organization\n\n* \u0060user\u0060 to look up a user\u0027s Event Types in an organization\n\nEither \u0060organization\u0060 or \u0060user\u0060 are required query params when using this endpoint.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:read\u0060",
         "operationId": "ListEventTypes",
         "parameters": [
           {
@@ -414,7 +414,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "\u0022Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: name, position, created_at, updated_at. Sort direction is specified as: asc, desc.\u0022",
+            "description": "Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.Supported fields are: name, position, created_at, updated_at. Sort direction is specified as: asc, desc.",
             "schema": {
               "type": "string",
               "default": "name:asc"
@@ -600,7 +600,7 @@
           "Event Types"
         ],
         "summary": "Create Event Type",
-        "description": "\u0022Create a new Event Type\n\n**NOTE:**\n* Currently, this endpoint only supports one-on-one event types (kind: \\\u0022solo\\\u0022).\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:write\u0060\u0022",
+        "description": "Create a new Event Type\n\n**NOTE:**\n* Currently, this endpoint only supports one-on-one event types (kind: \u0022solo\u0022).\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:write\u0060",
         "operationId": "CreateEventType",
         "requestBody": {
           "content": {
@@ -609,7 +609,8 @@
                 "$ref": "#/components/schemas/CreateEventTypeRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -654,7 +655,7 @@
           "Users"
         ],
         "summary": "Get user",
-        "description": "\u0022Returns information about a specified User.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060users:read\u0060\u0022",
+        "description": "Returns information about a specified User.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060users:read\u0060",
         "operationId": "GetUser",
         "parameters": [
           {
@@ -729,7 +730,7 @@
           "Users"
         ],
         "summary": "Get current user",
-        "description": "\u0022Returns basic information about your user account.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060users:read\u0060\u0022",
+        "description": "Returns basic information about your user account.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060users:read\u0060",
         "operationId": "GetCurrentUser",
         "responses": {
           "200": {
@@ -792,7 +793,7 @@
           "Scheduled Events"
         ],
         "summary": "Get Event Invitee",
-        "description": "\u0022Returns information about a specified Invitee (person invited to an event).\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060\u0022",
+        "description": "Returns information about a specified Invitee (person invited to an event).\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060",
         "operationId": "GetScheduledEventInvitees",
         "responses": {
           "200": {
@@ -974,7 +975,7 @@
           "Scheduled Events"
         ],
         "summary": "Create Event Invitee (Scheduling API)",
-        "description": "\u0022Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.\n\nStandard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.\n\n**NOTE:**\n* Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.\n* For events with text notifications enabled, text notifications are sent only after the invitee provides consent through a text opt-in flow.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060\u0022",
+        "description": "Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.\n\nStandard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.\n\n**NOTE:**\n* Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.\n* For events with text notifications enabled, text notifications are sent only after the invitee provides consent through a text opt-in flow.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060",
         "operationId": "PostInvitee",
         "requestBody": {
           "content": {
@@ -983,7 +984,8 @@
                 "$ref": "#/components/schemas/PostInviteeRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1035,7 +1037,7 @@
           "Scheduled Events"
         ],
         "summary": "Get Event",
-        "description": "\u0022Returns information about a specified Event.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060\u0022",
+        "description": "Returns information about a specified Event.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060",
         "operationId": "GetScheduledEvent",
         "responses": {
           "200": {
@@ -1138,7 +1140,7 @@
           "Event Types"
         ],
         "summary": "Get Event Type",
-        "description": "\u0022Returns information about a specified Event Type.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:read\u0060\u0022",
+        "description": "Returns information about a specified Event Type.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:read\u0060",
         "operationId": "GetEventType",
         "responses": {
           "200": {
@@ -1286,7 +1288,7 @@
           "Event Types"
         ],
         "summary": "Update Event Type",
-        "description": "\u0022Update an existing Event Type\n\n**NOTE:**\n* Currently, this endpoint only supports one-on-one event types (kind: \\\u0022solo\\\u0022).\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:write\u0060\u0022",
+        "description": "Update an existing Event Type\n\n**NOTE:**\n* Currently, this endpoint only supports one-on-one event types (kind: \u0022solo\u0022).\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:write\u0060",
         "operationId": "UpdateEventType",
         "requestBody": {
           "content": {
@@ -1295,7 +1297,8 @@
                 "$ref": "#/components/schemas/UpdateEventTypeRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1351,7 +1354,7 @@
           "Organizations"
         ],
         "summary": "List Organization Invitations",
-        "description": "\u0022Returns a list of Organization Invitations that were sent to the organization\u0027s members.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060\u0022",
+        "description": "Returns a list of Organization Invitations that were sent to the organization\u0027s members.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060",
         "operationId": "ListOrganizationInvitations",
         "parameters": [
           {
@@ -1454,7 +1457,7 @@
           "Organizations"
         ],
         "summary": "Invite User to Organization",
-        "description": "\u0022Invites a user to an organization.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:write\u0060\u0022",
+        "description": "Invites a user to an organization.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:write\u0060",
         "operationId": "CreateOrganizationInvitation",
         "requestBody": {
           "content": {
@@ -1495,7 +1498,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1612,9 +1616,12 @@
           "Organizations"
         ],
         "summary": "Revoke User\u0027s Organization Invitation",
-        "description": "\u0022Use this to revoke an Organization Invitation to an organization. Once revoked, the invitation link that was sent to the invitee is no longer valid.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:write\u0060\u0022",
+        "description": "Use this to revoke an Organization Invitation to an organization. Once revoked, the invitation link that was sent to the invitee is no longer valid.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:write\u0060",
         "operationId": "RevokeOrganizationInvitation",
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -1660,7 +1667,7 @@
           "Organizations"
         ],
         "summary": "Get Organization Invitation",
-        "description": "\u0022Returns an Organization Invitation that was sent to the organization\u0027s members.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060\u0022",
+        "description": "Returns an Organization Invitation that was sent to the organization\u0027s members.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060",
         "operationId": "GetOrganizationInvitation",
         "responses": {
           "200": {
@@ -1743,7 +1750,7 @@
           "Organizations"
         ],
         "summary": "Get Organization Membership",
-        "description": "\u0022Returns information about a user\u0027s Organization Membership\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060\u0022",
+        "description": "Returns information about a user\u0027s Organization Membership\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060",
         "operationId": "GetOrganizationMembership",
         "responses": {
           "200": {
@@ -1812,9 +1819,12 @@
           "Organizations"
         ],
         "summary": "Remove User from Organization",
-        "description": "\u0022Removes a user from an organization.\n\nNotes:\n\n* To remove users, the caller must have admin rights for the organization\n\n* An organization owner can\u0027t be removed\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:write\u0060\u0022",
+        "description": "Removes a user from an organization.\n\nNotes:\n\n* To remove users, the caller must have admin rights for the organization\n\n* An organization owner can\u0027t be removed\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:write\u0060",
         "operationId": "DeleteOrganizationMembership",
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "400": {
             "$ref": "#/components/responses/INVALID_ARGUMENT"
           },
@@ -1859,7 +1869,7 @@
           "Organizations"
         ],
         "summary": "List Organization Memberships",
-        "description": "\u0022Use this to list the Organization Memberships for all users belonging to an organization, use:\n\n* \u0060user\u0060 to look up a user\u0027s membership in an organization\n\n* \u0060organization\u0060 to look up all users that belong to the organization\n\nThis endpoint can also be used to retrieve your organization URI.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060\u0022",
+        "description": "Use this to list the Organization Memberships for all users belonging to an organization, use:\n\n* \u0060user\u0060 to look up a user\u0027s membership in an organization\n\n* \u0060organization\u0060 to look up all users that belong to the organization\n\nThis endpoint can also be used to retrieve your organization URI.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060",
         "operationId": "ListOrganizationMemberships",
         "parameters": [
           {
@@ -1985,7 +1995,7 @@
           "Webhooks"
         ],
         "summary": "Create Webhook Subscription",
-        "description": "\u0022Create a Webhook Subscription for an Organization, User, or Group.\n\n* The \u0060organization\u0060 subscription scope triggers the webhook for all subscribed events within the organization.\n* The \u0060user\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specific user.\n* The \u0060group\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specfic group.\n\n| Event | Allowed Subscription Scopes | Required Auth Scope |\n| ----- | ----- | ----- |\n| invitee.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee.canceled | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| event_type.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| meeting_recap.created | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.updated | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.deleted | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| routing_form_submission.created | \u0060organization\u0060 \u003Cbr /\u003E \u003Csmall\u003ECreate separate Webhook Subscriptions for events with different subscription scopes.\u003C/small\u003E | \u0060routing_forms:read\u0060 |\n| contact.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:write\u0060\u0022",
+        "description": "Create a Webhook Subscription for an Organization, User, or Group.\n\n* The \u0060organization\u0060 subscription scope triggers the webhook for all subscribed events within the organization.\n* The \u0060user\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specific user.\n* The \u0060group\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specfic group.\n\n| Event | Allowed Subscription Scopes | Required Auth Scope |\n| ----- | ----- | ----- |\n| invitee.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee.canceled | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| event_type.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| meeting_recap.created | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.updated | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.deleted | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| routing_form_submission.created | \u0060organization\u0060 \u003Cbr /\u003E \u003Csmall\u003ECreate separate Webhook Subscriptions for events with different subscription scopes.\u003C/small\u003E | \u0060routing_forms:read\u0060 |\n| contact.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:write\u0060",
         "operationId": "Createwebhooks",
         "requestBody": {
           "description": "",
@@ -2054,11 +2064,22 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
             "description": "Created",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "description": "Canonical reference (unique identifier) for the webhook",
+                  "format": "uri",
+                  "example": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -2208,7 +2229,7 @@
           "Webhooks"
         ],
         "summary": "List Webhook Subscriptions",
-        "description": "\u0022Get a list of Webhook Subscriptions for a specified Organization, User, or Group.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:read\u0060\u0022",
+        "description": "Get a list of Webhook Subscriptions for a specified Organization, User, or Group.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:read\u0060",
         "operationId": "ListWebhookSubscriptions",
         "parameters": [
           {
@@ -2251,7 +2272,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "\u0022Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.\nSupported fields are: created_at.\nSort direction is specified as: asc, desc.\u0022",
+            "description": "Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values.\nSupported fields are: created_at.\nSort direction is specified as: asc, desc.",
             "schema": {
               "type": "string"
             }
@@ -2337,7 +2358,7 @@
           "Webhooks"
         ],
         "summary": "Get Webhook Subscription",
-        "description": "\u0022Get a specified Webhook Subscription.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:read\u0060\u0022",
+        "description": "Get a specified Webhook Subscription.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:read\u0060",
         "operationId": "GetWebhookSubscription",
         "responses": {
           "200": {
@@ -2396,9 +2417,12 @@
           "Webhooks"
         ],
         "summary": "Delete Webhook Subscription",
-        "description": "\u0022Delete a Webhook Subscription.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:write\u0060\u0022",
+        "description": "Delete a Webhook Subscription.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:write\u0060",
         "operationId": "DeleteWebhookSubscription",
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "401": {
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
@@ -2439,7 +2463,7 @@
           "Scheduling Links"
         ],
         "summary": "Create Single-Use Scheduling Link",
-        "description": "\u0022Creates a single-use scheduling link.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduling_links:write\u0060\u0022",
+        "description": "Creates a single-use scheduling link.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduling_links:write\u0060",
         "operationId": "CreateSchedulingLink",
         "requestBody": {
           "description": "",
@@ -2458,7 +2482,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -2514,7 +2539,7 @@
           "Data Compliance"
         ],
         "summary": "Delete Invitee Data",
-        "description": "\u0022To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.\n\n\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060data_compliance:write\u0060\u0022",
+        "description": "To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.\n\n\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060data_compliance:write\u0060",
         "operationId": "DeleteInviteeData",
         "requestBody": {
           "description": "",
@@ -2533,7 +2558,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "202": {
@@ -2583,7 +2609,7 @@
           "Scheduled Events"
         ],
         "summary": "Get Invitee No Show",
-        "description": "\u0022Returns information about a specified Invitee No Show.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060\u0022",
+        "description": "Returns information about a specified Invitee No Show.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:read\u0060",
         "operationId": "GetInviteeNoShow",
         "responses": {
           "200": {
@@ -2634,9 +2660,12 @@
           "Scheduled Events"
         ],
         "summary": "Delete Invitee No Show",
-        "description": "\u0022Undoes marking an Invitee as a No Show.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060\u0022",
+        "description": "Undoes marking an Invitee as a No Show.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060",
         "operationId": "DeleteInviteeNoShow",
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "401": {
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
@@ -2677,7 +2706,7 @@
           "Scheduled Events"
         ],
         "summary": "Create Invitee No Show",
-        "description": "\u0022Marks an Invitee as a No Show.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060\u0022",
+        "description": "Marks an Invitee as a No Show.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060",
         "operationId": "CreateInviteeNoShow",
         "requestBody": {
           "content": {
@@ -2693,7 +2722,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -2749,7 +2779,7 @@
           "Groups"
         ],
         "summary": "Get Group",
-        "description": "\u0022Returns information about a specified Group.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060\u0022",
+        "description": "Returns information about a specified Group.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060",
         "operationId": "GetGroup",
         "parameters": [
           {
@@ -2816,7 +2846,7 @@
           "Groups"
         ],
         "summary": "List Group Relationships",
-        "description": "\u0022Returns a list of group relationships - a given owner can have one membership record, but multiple admin records\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060\u0022",
+        "description": "Returns a list of group relationships - a given owner can have one membership record, but multiple admin records\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060",
         "operationId": "ListGroupRelationships",
         "parameters": [
           {
@@ -2984,7 +3014,7 @@
           "Groups"
         ],
         "summary": "Get Group Relationship",
-        "description": "\u0022Returns a group relationship by uuid\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060\u0022",
+        "description": "Returns a group relationship by uuid\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060",
         "operationId": "GetGroupRelationship",
         "parameters": [
           {
@@ -3097,7 +3127,7 @@
           "Organizations"
         ],
         "summary": "Get Organization",
-        "description": "\u0022Returns the details of a specified Organization.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060\u0022",
+        "description": "Returns the details of a specified Organization.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060",
         "operationId": "GetOrganization",
         "responses": {
           "200": {
@@ -3154,7 +3184,7 @@
           "Scheduled Events"
         ],
         "summary": "Cancel Event",
-        "description": "\u0022Cancels specified event.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060\u0022",
+        "description": "Cancels specified event.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060scheduled_events:write\u0060",
         "operationId": "CreateScheduledEventCancellation",
         "requestBody": {
           "description": "Optional cancellation reason.",
@@ -3240,7 +3270,7 @@
           "Routing Forms"
         ],
         "summary": "List Routing Forms",
-        "description": "\u0022Get a list of Routing Forms for a specified Organization.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060\u0022",
+        "description": "Get a list of Routing Forms for a specified Organization.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060",
         "operationId": "ListRoutingForms",
         "parameters": [
           {
@@ -3263,7 +3293,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "\u0022Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.\u0022",
+            "description": "Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.",
             "schema": {
               "type": "string",
               "example": "created_at:asc"
@@ -3356,7 +3386,7 @@
           "Routing Forms"
         ],
         "summary": "Get Routing Form",
-        "description": "\u0022Get a specified Routing Form.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060\u0022",
+        "description": "Get a specified Routing Form.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060",
         "operationId": "GetRoutingForm",
         "responses": {
           "200": {
@@ -3446,7 +3476,7 @@
           "Routing Forms"
         ],
         "summary": "List Routing Form Submissions",
-        "description": "\u0022Get a list of Routing Form Submissions for a specified Routing Form.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060\u0022",
+        "description": "Get a list of Routing Form Submissions for a specified Routing Form.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060",
         "operationId": "ListRoutingFormSubmissions",
         "parameters": [
           {
@@ -3469,7 +3499,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "\u0022Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.\u0022",
+            "description": "Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at. Sort direction is specified as: asc, desc.",
             "schema": {
               "type": "string",
               "example": "created_at:asc"
@@ -3561,7 +3591,7 @@
           "Routing Forms"
         ],
         "summary": "Get Routing Form Submission",
-        "description": "\u0022Get a specified Routing Form Submission.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060\u0022",
+        "description": "Get a specified Routing Form Submission.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060routing_forms:read\u0060",
         "operationId": "GetRoutingFormSubmission",
         "responses": {
           "200": {
@@ -3650,7 +3680,7 @@
           "Event Types"
         ],
         "summary": "List Event Type Available Times",
-        "description": "\u0022Returns a list of available times for an event type within a specified date range.\n\n**NOTE:**\n* Date range can be no greater than 31 days.\n* This endpoint does not support traditional keyset pagination.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060\u0022",
+        "description": "Returns a list of available times for an event type within a specified date range.\n\n**NOTE:**\n* Date range can be no greater than 31 days.\n* This endpoint does not support traditional keyset pagination.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060",
         "operationId": "ListEventTypeAvailableTimes",
         "parameters": [
           {
@@ -3756,7 +3786,7 @@
           "Activity Log"
         ],
         "summary": "List activity log entries",
-        "description": "\u0022\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060activity_log:read\u0060\n\nReturns a list of activity log entries\u0022",
+        "description": "\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060activity_log:read\u0060\n\nReturns a list of activity log entries",
         "operationId": "ListActivityLogEntries",
         "parameters": [
           {
@@ -3773,7 +3803,7 @@
           {
             "name": "search_term",
             "in": "query",
-            "description": "\u0022Filters entries based on the search term.\n\nSupported operators:\n  - \u0060|\u0060 - to allow filtering by one term or another. Example: \u0060this | that\u0060\n  - \u0060\u002B\u0060 - to allow filtering by one term and another. Example: \u0060this \u002B that\u0060\n  - \u0060\\\u0022\u0060 - to allow filtering by an exact search term. Example: \u0060\\\u0022email@website.com\\\u0022\u0060\n  - \u0060-\u0060 - to omit specific terms from results. Example: \u0060Added -User\u0060\n  - \u0060()\u0060 - to allow specifying precedence during a search. Example: \u0060(this \u002B that) OR (person \u002B place)\u0060\n  - \u0060*\u0060 - to allow prefix searching. Example \u0060*@other-website.com\u0060\n\u0022",
+            "description": "Filters entries based on the search term.\n\nSupported operators:\n  - \u0060|\u0060 - to allow filtering by one term or another. Example: \u0060this | that\u0060\n  - \u0060\u002B\u0060 - to allow filtering by one term and another. Example: \u0060this \u002B that\u0060\n  - \u0060\u0022\u0060 - to allow filtering by an exact search term. Example: \u0060\u0022email@website.com\u0022\u0060\n  - \u0060-\u0060 - to omit specific terms from results. Example: \u0060Added -User\u0060\n  - \u0060()\u0060 - to allow specifying precedence during a search. Example: \u0060(this \u002B that) OR (person \u002B place)\u0060\n  - \u0060*\u0060 - to allow prefix searching. Example \u0060*@other-website.com\u0060\n",
             "schema": {
               "maxLength": 300,
               "type": "string"
@@ -3824,7 +3854,7 @@
           {
             "name": "min_occurred_at",
             "in": "query",
-            "description": "\u0022Include entries that occurred after this time (sample time format: \\\u00222020-01-02T03:04:05.678Z\\\u0022). This time should use the UTC timezone.\u0022",
+            "description": "Include entries that occurred after this time (sample time format: \u00222020-01-02T03:04:05.678Z\u0022). This time should use the UTC timezone.",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -3834,7 +3864,7 @@
           {
             "name": "max_occurred_at",
             "in": "query",
-            "description": "\u0022Include entries that occurred prior to this time (sample time format: \\\u00222020-01-02T03:04:05.678Z\\\u0022). This time should use the UTC timezone.\u0022",
+            "description": "Include entries that occurred prior to this time (sample time format: \u00222020-01-02T03:04:05.678Z\u0022). This time should use the UTC timezone.",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -3967,7 +3997,7 @@
           "Shares"
         ],
         "summary": "Create Share",
-        "description": "\u0022Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.\n***This feature is only available for one-on-one event types.***\n**Note: Any parameter which is not provided in the request body will be copied from the target event type.**\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060shares:write\u0060\u0022",
+        "description": "Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.\n***This feature is only available for one-on-one event types.***\n**Note: Any parameter which is not provided in the request body will be copied from the target event type.**\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060shares:write\u0060",
         "operationId": "CreateShare",
         "requestBody": {
           "description": "",
@@ -4020,7 +4050,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -4098,6 +4129,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -4116,7 +4150,7 @@
           "Availability"
         ],
         "summary": "List User Busy Times",
-        "description": "\u0022Returns an ascending list of user internal and external scheduled events within a specified date range.\n\nDate range can be no greater than 1 week (7 days).\n\n**NOTE:**\n* This endpoint does not support traditional keyset pagination.\n* External events will only be returned for calendars that have \\\u0022Check for conflicts\\\u0022 configured.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060\u0022",
+        "description": "Returns an ascending list of user internal and external scheduled events within a specified date range.\n\nDate range can be no greater than 1 week (7 days).\n\n**NOTE:**\n* This endpoint does not support traditional keyset pagination.\n* External events will only be returned for calendars that have \u0022Check for conflicts\u0022 configured.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060",
         "operationId": "ListUserBusyTimes",
         "parameters": [
           {
@@ -4255,7 +4289,7 @@
           "Availability"
         ],
         "summary": "List User Availability Schedules",
-        "description": "\u0022Returns the availability schedules of the given user.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060\u0022",
+        "description": "Returns the availability schedules of the given user.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060",
         "operationId": "ListUserAvailabilitySchedules",
         "parameters": [
           {
@@ -4402,7 +4436,7 @@
           "Availability"
         ],
         "summary": "Get User Availability Schedule",
-        "description": "\u0022This will return the availability schedule of the given UUID.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060\u0022",
+        "description": "This will return the availability schedule of the given UUID.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060",
         "operationId": "GetUserAvailabilitySchedule",
         "responses": {
           "200": {
@@ -4452,6 +4486,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -4482,7 +4519,7 @@
           "Data Compliance"
         ],
         "summary": "Delete Scheduled Event Data",
-        "description": "\u0022\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060data_compliance:write\u0060\n\nTo submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.\n\nTime range can be no greater than 24 months and must occur in the past.\u0022",
+        "description": "\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060data_compliance:write\u0060\n\nTo submit a request to remove scheduled events data within a time range for your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.\n\nTime range can be no greater than 24 months and must occur in the past.",
         "operationId": "DeleteScheduledEventData",
         "requestBody": {
           "description": "The start and end times that delineate the time range for scheduled events data deletion.",
@@ -4500,7 +4537,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "202": {
@@ -4550,7 +4588,7 @@
           "Event Types"
         ],
         "summary": "List Event Type Hosts",
-        "description": "\u0022Fetch list of event type hosts\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:read\u0060\u0022",
+        "description": "Fetch list of event type hosts\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:read\u0060",
         "operationId": "ListEventTypeMemberships",
         "parameters": [
           {
@@ -4702,7 +4740,7 @@
           "Event Types"
         ],
         "summary": "Create One-Off Event Type",
-        "description": "\u0022Creates One-Off Event Type\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:write\u0060\u0022",
+        "description": "Creates One-Off Event Type\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060event_types:write\u0060",
         "operationId": "CreateOneOffEventType",
         "requestBody": {
           "description": "Parameters for creating One-Off Event Type",
@@ -4782,7 +4820,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -4954,7 +4993,7 @@
           "Webhooks"
         ],
         "summary": "Get sample webhook data",
-        "description": "\u0022Test your webhook subscription\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:read\u0060\u0022",
+        "description": "Test your webhook subscription\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060webhooks:read\u0060",
         "operationId": "GetSampleWebhookData",
         "parameters": [
           {
@@ -5045,7 +5084,7 @@
           "Outgoing Communications"
         ],
         "summary": "List outgoing communications",
-        "description": "\u0022\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060outgoing_communications:read\u0060\n\nReturns a list of outgoing SMS and email communications.\u0022",
+        "description": "\u003C!-- theme: info --\u003E\n  \u003E This endpoint requires an \u003Cstrong\u003EEnterprise\u003C/strong\u003E subscription.\n  \u003E\n  \u003E #### Required scopes: \u0060outgoing_communications:read\u0060\n\nReturns a list of outgoing SMS and email communications.",
         "operationId": "GetOutgoingCommunications",
         "parameters": [
           {
@@ -5073,7 +5112,7 @@
           {
             "name": "min_created_at",
             "in": "query",
-            "description": "\u0022Include outgoing communications that were created after this time (sample time format: \\\u00222020-01-02T03:04:05.678Z\\\u0022). This time should use the UTC timezone\u0022",
+            "description": "Include outgoing communications that were created after this time (sample time format: \u00222020-01-02T03:04:05.678Z\u0022). This time should use the UTC timezone",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -5083,7 +5122,7 @@
           {
             "name": "max_created_at",
             "in": "query",
-            "description": "\u0022Include outgoing communications that were created prior to this time (sample time format: \\\u00222020-01-02T03:04:05.678Z\\\u0022). This time should use the UTC timezone\u0022",
+            "description": "Include outgoing communications that were created prior to this time (sample time format: \u00222020-01-02T03:04:05.678Z\u0022). This time should use the UTC timezone",
             "schema": {
               "type": "string",
               "format": "date-time"
@@ -5139,7 +5178,7 @@
           "Groups"
         ],
         "summary": "List Groups",
-        "description": "\u0022Returns a list of groups.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060\u0022",
+        "description": "Returns a list of groups.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060groups:read\u0060",
         "operationId": "GetGroups",
         "parameters": [
           {
@@ -5201,7 +5240,7 @@
           "Locations"
         ],
         "summary": "List User Meeting Locations",
-        "description": "\u0022Returns configured location information for a given user.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060locations:read\u0060\u0022",
+        "description": "Returns configured location information for a given user.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060locations:read\u0060",
         "operationId": "ListUserLocations",
         "parameters": [
           {
@@ -5302,7 +5341,7 @@
           "Availability"
         ],
         "summary": "List Event Type Availability Schedules",
-        "description": "\u0022Return the availability for an event type\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060\u0022",
+        "description": "Return the availability for an event type\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:read\u0060",
         "operationId": "GetEventTypeAvailability",
         "parameters": [
           {
@@ -5396,7 +5435,7 @@
           "Availability"
         ],
         "summary": "Update Event Type Availability Schedules",
-        "description": "\u0022Update an event type availability schedule\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:write\u0060\u0022",
+        "description": "Update an event type availability schedule\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060availability:write\u0060",
         "operationId": "UpdateEventTypeAvailability",
         "parameters": [
           {
@@ -5548,7 +5587,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -5757,7 +5797,7 @@
           "Notetaker"
         ],
         "summary": "List Recaps",
-        "description": "\u0022Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the \u0060status\u0060 query parameter to retrieve \u0060processing\u0060 or \u0060unavailable\u0060 recaps. Supports additional filtering by scheduled event, attendee, or date range.\n\nReturns both Calendly-scheduled and external event recaps in a single collection. The \u0060event\u0060 field is null for external events where no Calendly scheduled event exists.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060\u0022",
+        "description": "Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the \u0060status\u0060 query parameter to retrieve \u0060processing\u0060 or \u0060unavailable\u0060 recaps. Supports additional filtering by scheduled event, attendee, or date range.\n\nReturns both Calendly-scheduled and external event recaps in a single collection. The \u0060event\u0060 field is null for external events where no Calendly scheduled event exists.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060",
         "operationId": "ListMeetingRecaps",
         "parameters": [
           {
@@ -5916,7 +5956,7 @@
           "Notetaker"
         ],
         "summary": "Get Transcript",
-        "description": "\u0022Returns the transcript associated with a meeting recap if it is available.  \n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060\u0022",
+        "description": "Returns the transcript associated with a meeting recap if it is available.  \n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060",
         "operationId": "GetTranscriptMeetingRecaps",
         "responses": {
           "200": {
@@ -5973,7 +6013,7 @@
           "Notetaker"
         ],
         "summary": "Get Recap",
-        "description": "\u0022Returns the recap associated with a meeting if it is available.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060\u0022",
+        "description": "Returns the recap associated with a meeting if it is available.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:read\u0060",
         "operationId": "GetMeetingRecapsUuidRecap",
         "responses": {
           "200": {
@@ -6053,7 +6093,7 @@
           "Notetaker"
         ],
         "summary": "Update Recap",
-        "description": "\u0022Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:write\u0060\u0022",
+        "description": "Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:write\u0060",
         "operationId": "UpdateMeetingRecapsUuid",
         "requestBody": {
           "description": "Optional markdown fields to update.",
@@ -6152,9 +6192,12 @@
           "Notetaker"
         ],
         "summary": "Delete Recap",
-        "description": "\u0022Delete an existing Recap\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:write\u0060\u0022",
+        "description": "Delete an existing Recap\n\n**Note:**\nRequires paid plan\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060meeting_recaps:write\u0060",
         "operationId": "DeleteMeetingRecapsUuid",
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "400": {
             "$ref": "#/components/responses/INVALID_ARGUMENT"
           },
@@ -6198,13 +6241,13 @@
           "Contacts"
         ],
         "summary": "List Contacts",
-        "description": "\u0022Returns a collection of Contacts\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:read\u0060\u0022",
+        "description": "Returns a collection of Contacts\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:read\u0060",
         "operationId": "ListContacts",
         "parameters": [
           {
             "name": "sort",
             "in": "query",
-            "description": "\u0022Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at, updated_at. Sort direction is specified as: asc, desc.\u0022",
+            "description": "Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at, updated_at. Sort direction is specified as: asc, desc.",
             "schema": {
               "type": "string",
               "example": "created_at:asc"
@@ -6348,7 +6391,7 @@
           "Contacts"
         ],
         "summary": "Create Contact",
-        "description": "\u0022Create a new Contact\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:write\u0060\u0022",
+        "description": "Create a new Contact\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:write\u0060",
         "operationId": "CreateContact",
         "requestBody": {
           "content": {
@@ -6357,7 +6400,8 @@
                 "$ref": "#/components/schemas/CreateContactRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -6405,7 +6449,7 @@
           "Contacts"
         ],
         "summary": "Get Contact",
-        "description": "\u0022Returns the details of a specified Contact.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:read\u0060\u0022",
+        "description": "Returns the details of a specified Contact.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:read\u0060",
         "operationId": "GetContact",
         "parameters": [
           {
@@ -6459,7 +6503,7 @@
           "Contacts"
         ],
         "summary": "Update Contact",
-        "description": "\u0022Update an existing Contact. The body must include at least one supported field; unknown top-level properties are rejected.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:write\u0060\u0022",
+        "description": "Update an existing Contact. The body must include at least one supported field; unknown top-level properties are rejected.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:write\u0060",
         "operationId": "PatchContactsUuid",
         "requestBody": {
           "content": {
@@ -6468,7 +6512,8 @@
                 "$ref": "#/components/schemas/PatchContactsUuidRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -6514,9 +6559,12 @@
           "Contacts"
         ],
         "summary": "Delete Contact",
-        "description": "\u0022Delete an existing Contact\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:write\u0060\u0022",
+        "description": "Delete an existing Contact\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:write\u0060",
         "operationId": "DeleteContactsUuid",
         "responses": {
+          "204": {
+            "description": "No Content"
+          },
           "400": {
             "$ref": "#/components/responses/INVALID_ARGUMENT"
           },
@@ -6562,7 +6610,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/EnterpriseOwnerAdminErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/EnterpriseOwnerAdminErrorMessage"
@@ -6580,10 +6628,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/InsufficientScopeErrorTitle"
+            "$ref": "#/components/schemas/InsufficientScopeTitle"
           },
           "message": {
-            "$ref": "#/components/schemas/InsufficientScopeErrorMessage"
+            "$ref": "#/components/schemas/ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage"
           },
           "required_scopes": {
             "type": "array",
@@ -6600,10 +6648,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/UserNotInOrganizationErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
-            "$ref": "#/components/schemas/UserNotInOrganizationErrorMessage"
+            "$ref": "#/components/schemas/ThisUserIsNotInYourOrganizationMessage"
           }
         },
         "description": "Permission Denied or caller not authorized to perform this action"
@@ -6613,10 +6661,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/GetScheduledEventsInviteesErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
-            "$ref": "#/components/schemas/GetScheduledEventsInviteesErrorMessage"
+            "$ref": "#/components/schemas/YouAreNotAllowedToViewThisEventMessage"
           }
         },
         "description": "Permission Denied"
@@ -6629,7 +6677,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/GetScheduledEventInviteeErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "type": "string"
@@ -6648,7 +6696,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/GetScheduledEventsErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/GetScheduledEventsErrorMessage"
@@ -6664,7 +6712,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/InviteesErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/InviteesErrorMessage"
@@ -6683,7 +6731,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/EventTypesErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/EventTypesErrorMessage"
@@ -6696,7 +6744,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/OrganizationInvitationCreateErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/OrganizationInvitationCreateErrorMessage"
@@ -6709,7 +6757,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/OrganizationInvitationDeleteErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/OrganizationInvitationDeleteErrorMessage"
@@ -6725,7 +6773,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/UserNotInOrgGenericErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "type": "string"
@@ -6747,7 +6795,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/OrgMembershipDeleteErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "type": "string"
@@ -6766,7 +6814,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/PostWebhookSubscriptionsErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/PostWebhookSubscriptionsErrorMessage"
@@ -6779,7 +6827,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/GetWebhookSubscriptionsErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/GetWebhookSubscriptionsErrorMessage"
@@ -6795,7 +6843,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/DataComplianceErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "type": "string"
@@ -6814,7 +6862,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/DeleteScheduledEventErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/DeleteScheduledEventErrorMessage"
@@ -6830,7 +6878,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/LocationsErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/LocationsErrorMessage"
@@ -6849,7 +6897,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/OneOffEventsErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/OneOffEventsErrorMessage"
@@ -6992,7 +7040,7 @@
           },
           "text": {
             "type": "string",
-            "description": "\u0022Plain-text transcript. Each line is formatted as \u0060Speaker: words\u0060, with\nsegments separated by newlines.\u0022",
+            "description": "Plain-text transcript. Each line is formatted as \u0060Speaker: words\u0060, with\nsegments separated by newlines.",
             "example": "John Doe: Hello, how are you?\nJane Smith: I am doing well, thank you!",
             "x-stoplight": {
               "id": "jw5jue9fyc54d"
@@ -7855,7 +7903,7 @@
             "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "availability_setting": {
-            "$ref": "#/components/schemas/EventTypeAvailabilityScheduleAvailabilitySetting"
+            "$ref": "#/components/schemas/HostAvailabilitySetting"
           },
           "availability_rule": {
             "$ref": "#/components/schemas/EventTypeAvailabilityScheduleAvailabilityRule"
@@ -7925,7 +7973,7 @@
             "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
           }
         },
-        "description": "\u0022The publicly visible profile of a User or a Team that\u0027s associated with the Event Type (note: some Event Types don\u0027t have profiles)\u0022",
+        "description": "The publicly visible profile of a User or a Team that\u0027s associated with the Event Type (note: some Event Types don\u0027t have profiles)",
         "nullable": true,
         "x-tags": [
           "Event Types"
@@ -9763,7 +9811,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/OrganizationMembershipOwnerType"
+            "$ref": "#/components/schemas/OrganizationMembershipType"
           },
           "uri": {
             "type": "string",
@@ -9870,7 +9918,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/OrganizationInvitationOwnerType"
+            "$ref": "#/components/schemas/OrganizationInvitationType"
           },
           "uri": {
             "type": "string",
@@ -10059,7 +10107,7 @@
             "example": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
           },
           "submitter_type": {
-            "$ref": "#/components/schemas/RoutingFormSubmissionSubmitterType"
+            "$ref": "#/components/schemas/InviteeSubmitterType"
           },
           "created_at": {
             "type": "string",
@@ -10894,7 +10942,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/ContactsErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/ContactsErrorMessage"
@@ -10914,7 +10962,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/MeetingRecapsErrorTitle"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/MeetingRecapsErrorMessage"
@@ -11023,9 +11071,6 @@
       },
       "InviteeLocation": {
         "title": "Invitee Location",
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -11060,28 +11105,16 @@
           }
         ],
         "properties": {
-          "type": {
+          "location": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "The specific physical location",
+            "x-stoplight": {
+              "id": "qhw2elrlc0x2n"
+            }
           }
         },
-        "description": "\u0022The polymorphic base type for an event location that Calendly supports.  \n\nNote: \n- Location.kind must be supplied if location is defined.\n- Location must match location specified on the EventType.\n- Do not pass the location object for an EventType with a round_robin pooling_type.\u0022",
+        "description": "The polymorphic base type for an event location that Calendly supports.  \n\nNote: \n- Location.kind must be supplied if location is defined.\n- Location must match location specified on the EventType.\n- Do not pass the location object for an EventType with a round_robin pooling_type.",
         "nullable": true,
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InviteeInPersonMeeting": "#/components/schemas/InviteeInPersonMeeting",
-            "InviteeInboundCall": "#/components/schemas/InviteeInboundCall",
-            "InviteeOutboundCall": "#/components/schemas/InviteeOutboundCall",
-            "InviteeZoomConference": "#/components/schemas/InviteeZoomConference",
-            "InviteeGoogleConference": "#/components/schemas/InviteeGoogleConference",
-            "InviteeGotoMeetingConference": "#/components/schemas/InviteeGotoMeetingConference",
-            "InviteeMicrosoftTeamsConference": "#/components/schemas/InviteeMicrosoftTeamsConference",
-            "InviteeWebExConference": "#/components/schemas/InviteeWebExConference",
-            "InviteeInviteeSpecifiedLocation": "#/components/schemas/InviteeInviteeSpecifiedLocation",
-            "InviteeCustomLocation": "#/components/schemas/InviteeCustomLocation"
-          }
-        },
         "x-stoplight": {
           "id": "qlv5rxzxptlnf"
         },
@@ -11101,7 +11134,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeInPersonMeetingKind"
+            "$ref": "#/components/schemas/PhysicalKind"
           },
           "location": {
             "type": "string",
@@ -11124,7 +11157,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeInboundCallKind"
+            "$ref": "#/components/schemas/InboundCallKind"
           }
         },
         "description": "Information for an Inbound Call",
@@ -11141,7 +11174,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeOutboundCallKind"
+            "$ref": "#/components/schemas/OutboundCallKind"
           },
           "location": {
             "type": "string",
@@ -11164,7 +11197,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeZoomConferenceKind"
+            "$ref": "#/components/schemas/ZoomConferenceKind"
           }
         },
         "description": "Information about a Zoom Conference",
@@ -11180,7 +11213,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeGoogleConferenceKind"
+            "$ref": "#/components/schemas/GoogleConferenceKind"
           }
         },
         "description": "Information for a Google Conference",
@@ -11196,7 +11229,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeGotoMeetingConferenceKind"
+            "$ref": "#/components/schemas/GotomeetingConferenceKind"
           }
         },
         "description": "Information for a GotoMeeting Conference",
@@ -11212,7 +11245,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeMicrosoftTeamsConferenceKind"
+            "$ref": "#/components/schemas/MicrosoftTeamsConferenceKind"
           }
         },
         "description": "Information for a Microsoft Teams Conference",
@@ -11228,7 +11261,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeWebExConferenceKind"
+            "$ref": "#/components/schemas/WebexConferenceKind"
           }
         },
         "description": "Information about a WebEx Conference",
@@ -11245,7 +11278,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeInviteeSpecifiedLocationKind"
+            "$ref": "#/components/schemas/AskInviteeKind"
           },
           "location": {
             "type": "string",
@@ -11269,7 +11302,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/InviteeCustomLocationKind"
+            "$ref": "#/components/schemas/CustomKind"
           },
           "location": {
             "type": "string",
@@ -11411,7 +11444,7 @@
         "properties": {
           "occurred_at": {
             "type": "string",
-            "description": "\u0022The date and time of the entry (format: \\\u00222020-01-02T03:04:05.678Z\\\u0022).\u0022",
+            "description": "The date and time of the entry (format: \u00222020-01-02T03:04:05.678Z\u0022).",
             "format": "date-time"
           },
           "actor": {
@@ -11509,7 +11542,7 @@
             "example": "test@example.com"
           }
         },
-        "description": "\u0022The Calendly actor that took the action creating the activity log entry\n\nSpecific actors:\n\n\u003Cdetails\u003E\n\u003Csummary\u003ECalendly System\u003C/summary\u003E\n\nUsed when an action is performed by the Calendly system and not triggered directly by a user interaction.\n\nExample:\n\u0060\u0060\u0060json\n{\n    \\\u0022display_name\\\u0022: \\\u0022Calendly System\\\u0022,\n    \\\u0022type\\\u0022: \\\u0022System\\\u0022\n}\n\u0060\u0060\u0060\n\n\u003C/details\u003E\n\n\u003Cbr /\u003E\n\n\u003Cdetails\u003E\n\u003Csummary\u003ECalendly Support\u003C/summary\u003E\nUsed when an action is performed by Calendly support.\n\nExample:\n\u0060\u0060\u0060json\n{\n  \\\u0022display_name\\\u0022: \\\u0022Calendly Support\\\u0022,\n  \\\u0022organization\\\u0022: {\n    \\\u0022uri\\\u0022: \\\u0022https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA\\\u0022\n  },\n  \\\u0022type\\\u0022: \\\u0022User\\\u0022,\n  \\\u0022uri\\\u0022: \\\u0022https://api.calendly.com/users/AAAAAAAAAAAAAAAA\\\u0022\n}\n\u0060\u0060\u0060\n\u003C/details\u003E\n\u0022",
+        "description": "The Calendly actor that took the action creating the activity log entry\n\nSpecific actors:\n\n\u003Cdetails\u003E\n\u003Csummary\u003ECalendly System\u003C/summary\u003E\n\nUsed when an action is performed by the Calendly system and not triggered directly by a user interaction.\n\nExample:\n\u0060\u0060\u0060json\n{\n    \u0022display_name\u0022: \u0022Calendly System\u0022,\n    \u0022type\u0022: \u0022System\u0022\n}\n\u0060\u0060\u0060\n\n\u003C/details\u003E\n\n\u003Cbr /\u003E\n\n\u003Cdetails\u003E\n\u003Csummary\u003ECalendly Support\u003C/summary\u003E\nUsed when an action is performed by Calendly support.\n\nExample:\n\u0060\u0060\u0060json\n{\n  \u0022display_name\u0022: \u0022Calendly Support\u0022,\n  \u0022organization\u0022: {\n    \u0022uri\u0022: \u0022https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA\u0022\n  },\n  \u0022type\u0022: \u0022User\u0022,\n  \u0022uri\u0022: \u0022https://api.calendly.com/users/AAAAAAAAAAAAAAAA\u0022\n}\n\u0060\u0060\u0060\n\u003C/details\u003E\n",
         "example": {
           "uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
           "type": "user",
@@ -11540,7 +11573,7 @@
           },
           "start_date": {
             "type": "string",
-            "description": "\u0022Availability start - Must be before end_date. Format: YYYY-MM-DD\u0022",
+            "description": "Availability start - Must be before end_date. Format: YYYY-MM-DD",
             "format": "date",
             "example": "2020-01-07",
             "x-stoplight": {
@@ -11549,7 +11582,7 @@
           },
           "end_date": {
             "type": "string",
-            "description": "\u0022Availability end - Must be a date in the future and less than 365 days in the future from start_date. Format: YYYY-MM-DD\u0022",
+            "description": "Availability end - Must be a date in the future and less than 365 days in the future from start_date. Format: YYYY-MM-DD",
             "format": "date",
             "example": "2020-01-08",
             "x-stoplight": {
@@ -11630,7 +11663,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocCustomLocationKind"
+            "$ref": "#/components/schemas/CustomKind"
           },
           "location": {
             "type": "string",
@@ -11652,7 +11685,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocGoogleConferenceKind"
+            "$ref": "#/components/schemas/GoogleConferenceKind"
           }
         },
         "description": "Information for a Google Conference",
@@ -11668,7 +11701,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocGotoMeetingConferenceKind"
+            "$ref": "#/components/schemas/GotomeetingConferenceKind"
           }
         },
         "description": "Information for a GotoMeeting Conference",
@@ -11684,7 +11717,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocInPersonMeetingKind"
+            "$ref": "#/components/schemas/PhysicalKind"
           },
           "location": {
             "type": "string",
@@ -11713,7 +11746,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocInboundCallKind"
+            "$ref": "#/components/schemas/InboundCallKind"
           },
           "phone_number": {
             "type": "string",
@@ -11742,7 +11775,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocInviteeSpecifiedLocationKind"
+            "$ref": "#/components/schemas/AskInviteeKind"
           },
           "location": {
             "type": "string",
@@ -11764,7 +11797,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocMicrosoftTeamsConferenceKind"
+            "$ref": "#/components/schemas/MicrosoftTeamsConferenceKind"
           }
         },
         "description": "Information for a Microsoft Teams Conference",
@@ -11780,7 +11813,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocOutboundCallKind"
+            "$ref": "#/components/schemas/OutboundCallKind"
           }
         },
         "description": "Information about an Outbound Call",
@@ -11796,7 +11829,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocWebExConferenceKind"
+            "$ref": "#/components/schemas/WebexConferenceKind"
           }
         },
         "description": "Information about a WebEx Conference",
@@ -11812,7 +11845,7 @@
         "type": "object",
         "properties": {
           "kind": {
-            "$ref": "#/components/schemas/AdhocZoomConferenceKind"
+            "$ref": "#/components/schemas/ZoomConferenceKind"
           }
         },
         "description": "Information about a Zoom Conference",
@@ -11881,12 +11914,12 @@
           },
           "sent_at": {
             "type": "string",
-            "description": "\u0022The UTC date and time when the SMS message was sent (format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022)\u0022",
+            "description": "The UTC date and time when the SMS message was sent (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
             "format": "date-time"
           },
           "created_at": {
             "type": "string",
-            "description": "\u0022The UTC date and time when the SMS message was created (format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022)\u0022",
+            "description": "The UTC date and time when the SMS message was created (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
             "format": "date-time"
           },
           "scheduling_url": {
@@ -11973,12 +12006,12 @@
           },
           "sent_at": {
             "type": "string",
-            "description": "\u0022The UTC date and time when the email message was sent (format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022)\u0022",
+            "description": "The UTC date and time when the email message was sent (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
             "format": "date-time"
           },
           "created_at": {
             "type": "string",
-            "description": "\u0022The UTC date and time when the email message was created (format: \\\u00222020-01-02T03:04:05.678123Z\\\u0022)\u0022",
+            "description": "The UTC date and time when the email message was created (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
             "format": "date-time"
           },
           "scheduling_url": {
@@ -12050,9 +12083,6 @@
       },
       "Location": {
         "title": "Location",
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -12087,28 +12117,22 @@
           }
         ],
         "properties": {
-          "type": {
+          "additional_info": {
             "type": "string",
-            "description": "Union discriminator"
+            "example": "Please check in at the main lobby.",
+            "x-stoplight": {
+              "id": "lq0ytlagcnvci"
+            }
+          },
+          "join_url": {
+            "type": "string",
+            "description": "Google conference meeting url",
+            "format": "uri",
+            "nullable": true
           }
         },
         "description": "The polymorphic base type for an event location that Calendly supports",
         "nullable": true,
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InPersonMeeting": "#/components/schemas/InPersonMeeting",
-            "OutboundCall": "#/components/schemas/OutboundCall",
-            "InboundCall": "#/components/schemas/InboundCall",
-            "GoogleConference": "#/components/schemas/GoogleConference",
-            "ZoomConference": "#/components/schemas/ZoomConference",
-            "GotoMeetingConference": "#/components/schemas/GotoMeetingConference",
-            "MicrosoftTeamsConference": "#/components/schemas/MicrosoftTeamsConference",
-            "CustomLocation": "#/components/schemas/CustomLocation",
-            "InviteeSpecifiedLocation": "#/components/schemas/InviteeSpecifiedLocation",
-            "WebExConference": "#/components/schemas/WebExConference"
-          }
-        },
         "x-examples": {
           "Location": {
             "type": "physical",
@@ -12125,7 +12149,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/InPersonMeetingType"
+            "$ref": "#/components/schemas/PhysicalType"
           },
           "location": {
             "type": "string",
@@ -12260,7 +12284,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/ZoomConferenceType"
+            "$ref": "#/components/schemas/ZoomType"
           },
           "status": {
             "$ref": "#/components/schemas/ZoomConferenceStatus"
@@ -12340,7 +12364,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/GotoMeetingConferenceType"
+            "$ref": "#/components/schemas/GotomeetingType"
           },
           "status": {
             "$ref": "#/components/schemas/GotoMeetingConferenceStatus"
@@ -12468,7 +12492,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/CustomLocationType"
+            "$ref": "#/components/schemas/CustomType"
           },
           "location": {
             "type": "string",
@@ -12487,7 +12511,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/InviteeSpecifiedLocationType"
+            "$ref": "#/components/schemas/AskInviteeType"
           },
           "location": {
             "type": "string",
@@ -12513,7 +12537,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/WebExConferenceType"
+            "$ref": "#/components/schemas/WebexConferenceType"
           },
           "status": {
             "$ref": "#/components/schemas/WebExConferenceStatus"
@@ -12843,9 +12867,6 @@
       },
       "SubmissionResult": {
         "title": "Routing Form Submission Result",
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -12858,21 +12879,7 @@
             "$ref": "#/components/schemas/SubmissionCustomMessageResult"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
         "description": "The polymorphic base type for a Routing Form Submission result.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "SubmissionEventTypeResult": "#/components/schemas/SubmissionEventTypeResult",
-            "SubmissionExternalUrlResult": "#/components/schemas/SubmissionExternalUrlResult",
-            "SubmissionCustomMessageResult": "#/components/schemas/SubmissionCustomMessageResult"
-          }
-        },
         "x-stoplight": {
           "id": "98wjsxzdow4vg"
         },
@@ -12938,7 +12945,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/SubmissionExternalUrlResultType"
+            "$ref": "#/components/schemas/ExternalUrlType"
           },
           "value": {
             "type": "string",
@@ -12970,7 +12977,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/SubmissionCustomMessageResultType"
+            "$ref": "#/components/schemas/CustomMessageType"
           },
           "value": {
             "$ref": "#/components/schemas/SubmissionCustomMessageResultValue"
@@ -13057,9 +13064,6 @@
         }
       },
       "GetInviteesAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13070,23 +13074,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "GetScheduledEventsInviteesError": "#/components/schemas/GetScheduledEventsInviteesError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "GetInviteeAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13097,23 +13094,22 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "GetScheduledEventInviteeError": "#/components/schemas/GetScheduledEventInviteeError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "GetScheduledEventsAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13124,23 +13120,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "GetScheduledEventsError": "#/components/schemas/GetScheduledEventsError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "PostInviteesAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13151,23 +13140,22 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InviteesError": "#/components/schemas/InviteesError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "EventTypesAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13178,23 +13166,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "EventTypesError": "#/components/schemas/EventTypesError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "OrganizationInvitationCreateAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13205,23 +13186,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OrganizationInvitationCreateError": "#/components/schemas/OrganizationInvitationCreateError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "OrganizationInvitationDeleteAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13232,23 +13206,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OrganizationInvitationDeleteError": "#/components/schemas/OrganizationInvitationDeleteError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "UserNotInOrganizationAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13259,23 +13226,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "UserNotInOrganizationError": "#/components/schemas/UserNotInOrganizationError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "UserNotInOrgGenericAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13286,23 +13246,22 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "UserNotInOrgGenericError": "#/components/schemas/UserNotInOrgGenericError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "OrgMembershipDeleteAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13313,23 +13272,22 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OrgMembershipDeleteError": "#/components/schemas/OrgMembershipDeleteError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "PostWebhookSubsAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13340,23 +13298,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "PostWebhookSubscriptionsError": "#/components/schemas/PostWebhookSubscriptionsError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "GetWebhookSubsAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13367,23 +13318,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "GetWebhookSubscriptionsError": "#/components/schemas/GetWebhookSubscriptionsError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "DataComplianceAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13394,23 +13338,22 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "DataComplianceError": "#/components/schemas/DataComplianceError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "DeleteScheduledEventAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13421,23 +13364,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "DeleteScheduledEventError": "#/components/schemas/DeleteScheduledEventError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "LocationsAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13448,23 +13384,22 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "LocationsError": "#/components/schemas/LocationsError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "OneOffEventsAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13475,23 +13410,22 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OneOffEventsError": "#/components/schemas/OneOffEventsError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OneOffEventsErrorDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "PermissionDeniedAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13502,15 +13436,18 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
@@ -13578,9 +13515,6 @@
         }
       },
       "EnterpriseOwnerAdminFeatureAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13591,23 +13525,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "EnterpriseOwnerAdminError": "#/components/schemas/EnterpriseOwnerAdminError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "ContactsAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13618,23 +13545,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "ContactsError": "#/components/schemas/ContactsError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "MeetingRecapsAndScopesForbiddenResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13645,23 +13565,16 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "MeetingRecapsError": "#/components/schemas/MeetingRecapsError",
-            "InsufficientScopeError": "#/components/schemas/InsufficientScopeError"
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
           }
         }
       },
       "WebhookPayloadPayload": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13693,39 +13606,263 @@
           }
         ],
         "properties": {
-          "type": {
+          "uri": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "Canonical reference (unique identifier) for the invitee",
+            "format": "uri",
+            "example": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
+          },
+          "email": {
+            "type": "string",
+            "description": "The invitee\u2019s email address",
+            "format": "email",
+            "example": "test@example.com"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "The first name of the invitee who booked the event when the event type is configured to use separate fields for first name and last name. Null when event type is configured to use a single field for name.",
+            "nullable": true,
+            "example": "John"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "The last name of the invitee who booked the event when the event type is configured to use separate fields for first name and last name. Null when event type is configured to use a single field for name.",
+            "nullable": true,
+            "example": "Doe"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InviteePayloadStatus"
+          },
+          "questions_and_answers": {
+            "minItems": 0,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InviteeQuestionAndAnswer"
+            },
+            "description": "A collection of the invitee\u0027s responses to questions on the event booking confirmation form"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "Time zone to use when displaying time to the invitee",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The moment when the event was created (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time",
+            "example": "2019-01-02T03:04:05.678123Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The moment when the event was last updated (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time",
+            "example": "2019-08-07T06:05:04.321123Z"
+          },
+          "text_reminder_number": {
+            "type": "string",
+            "description": "The phone number to use when sending text (SMS) reminders",
+            "nullable": true,
+            "example": "\u002B1 404-555-1234"
+          },
+          "rescheduled": {
+            "type": "boolean",
+            "description": "Indicates if this invitee has rescheduled. If \u0060true\u0060, a reference to the new Invitee instance is provided in the \u0060new_invitee\u0060 field."
+          },
+          "old_invitee": {
+            "type": "string",
+            "description": "Reference to old Invitee instance that got rescheduled",
+            "format": "uri",
+            "nullable": true
+          },
+          "new_invitee": {
+            "type": "string",
+            "description": "Link to new invitee, after reschedule",
+            "format": "uri",
+            "nullable": true
+          },
+          "cancel_url": {
+            "type": "string",
+            "description": "Link to cancelling the event for the invitee",
+            "format": "uri"
+          },
+          "reschedule_url": {
+            "type": "string",
+            "description": "Link to rescheduling the event for the invitee",
+            "format": "uri"
+          },
+          "routing_form_submission": {
+            "type": "string",
+            "description": "Reference to a routing form submission that redirected the invitee to a booking page.",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA"
+          },
+          "cancellation": {
+            "$ref": "#/components/schemas/Cancellation"
+          },
+          "payment": {
+            "$ref": "#/components/schemas/InviteePayloadPayment"
+          },
+          "no_show": {
+            "$ref": "#/components/schemas/InviteePayloadNoShow"
+          },
+          "reconfirmation": {
+            "$ref": "#/components/schemas/InviteePayloadReconfirmation"
+          },
+          "scheduling_method": {
+            "$ref": "#/components/schemas/InviteePayloadSchedulingMethod"
+          },
+          "invitee_scheduled_by": {
+            "type": "string",
+            "description": "Reference to user URI who scheduled the event",
+            "format": "uri",
+            "nullable": true
+          },
+          "scheduled_event": {
+            "$ref": "#/components/schemas/InviteePayloadScheduledEvent"
+          },
+          "routing_form": {
+            "type": "string",
+            "description": "The URI of the routing form that\u0027s associated with the submission.",
+            "format": "uri",
+            "example": "https://api.calendly.com/routing_forms/AAAAAAAAAAAAAAAA"
+          },
+          "result": {
+            "$ref": "#/components/schemas/SubmissionResult"
+          },
+          "submitter": {
+            "type": "string",
+            "description": "The reference to the Invitee resource when routing form submission results in a scheduled meeting.",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
+          },
+          "submitter_type": {
+            "$ref": "#/components/schemas/InviteeSubmitterType"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Indicates if the event is active or not."
+          },
+          "slug": {
+            "type": "string",
+            "description": "The portion of the event type\u0027s URL that identifies a specific web page (in a human-readable format)",
+            "nullable": true,
+            "example": "acmesales"
+          },
+          "scheduling_url": {
+            "type": "string",
+            "description": "The URL of the user\u2019s scheduling site where invitees book this event type",
+            "format": "uri",
+            "example": "https://calendly.com/acmesales"
+          },
+          "duration": {
+            "type": "number",
+            "description": "The length of sessions booked with this event type",
+            "example": 15
+          },
+          "duration_options": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Array of duration options. Always null for adhoc event types.",
+            "nullable": true
+          },
+          "kind": {
+            "$ref": "#/components/schemas/EventTypePayloadKind"
+          },
+          "pooling_type": {
+            "$ref": "#/components/schemas/EventTypePayloadPoolingType"
+          },
+          "type": {
+            "$ref": "#/components/schemas/EventTypePayloadType"
+          },
+          "color": {
+            "pattern": "^#[a-f\\d]{6}$",
+            "type": "string",
+            "description": "The hexadecimal color value of the event type\u0027s scheduling page",
+            "example": "#fff200"
+          },
+          "internal_note": {
+            "type": "string",
+            "description": "Contents of a note that may be associated with the event type",
+            "nullable": true,
+            "example": "Internal note"
+          },
+          "is_paid": {
+            "type": "boolean",
+            "x-stoplight": {
+              "id": "u6frivqne3enw"
+            }
+          },
+          "description_plain": {
+            "type": "string",
+            "description": "The event type\u0027s description (in non formatted text)",
+            "nullable": true,
+            "example": "15 Minute Meeting"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Profile"
+          },
+          "secret": {
+            "type": "boolean",
+            "description": "Indicates if the event type is hidden on the owner\u0027s main scheduling page"
+          },
+          "booking_method": {
+            "$ref": "#/components/schemas/EventTypePayloadBookingMethod"
+          },
+          "custom_questions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventTypeCustomQuestion"
+            }
+          },
+          "deleted_at": {
+            "type": "string",
+            "description": "The moment the event type was deleted (e.g. \u00222020-01-02T03:04:05.678123Z\u0022). Since event types can be deleted but their scheduled events remain it\u0027s useful to fetch a deleted event type when you still require event type data for a scheduled event.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-02T03:04:05.678123Z"
+          },
+          "admin_managed": {
+            "type": "boolean",
+            "description": "Indicates if this event type is managed by an organization admin"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationConfiguration"
+            },
+            "description": "Configuration information for each possible location for this Event Type",
+            "nullable": true
+          },
+          "position": {
+            "type": "integer",
+            "description": "Position order of Event Type, starting with 0 (for display purposes)"
+          },
+          "locale": {
+            "$ref": "#/components/schemas/EventTypePayloadLocale"
+          },
+          "user_uuid": {
+            "type": "string",
+            "description": "User unique identifier",
+            "format": "uuid",
+            "example": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
           }
         },
-        "description": "The payload for the webhook event. The data in the payload depends on the event.\n\nFor example, an \u0060invitee.*\u0060 event produces an \u0060Invitee\u0060 object in the payload.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "InviteePayload": "#/components/schemas/InviteePayload",
-            "RoutingFormSubmission": "#/components/schemas/RoutingFormSubmission",
-            "EventTypePayload": "#/components/schemas/EventTypePayload",
-            "ContactCreatedWebhookPayload": "#/components/schemas/ContactCreatedWebhookPayload",
-            "ContactUpdatedWebhookPayload": "#/components/schemas/ContactUpdatedWebhookPayload",
-            "ContactDeletedWebhookPayload": "#/components/schemas/ContactDeletedWebhookPayload",
-            "MeetingRecapCreatedWebhookPayload": "#/components/schemas/MeetingRecapCreatedWebhookPayload",
-            "MeetingRecapUpdatedWebhookPayload": "#/components/schemas/MeetingRecapUpdatedWebhookPayload",
-            "MeetingRecapDeletedWebhookPayload": "#/components/schemas/MeetingRecapDeletedWebhookPayload"
-          }
-        }
+        "description": "The payload for the webhook event. The data in the payload depends on the event.\n\nFor example, an \u0060invitee.*\u0060 event produces an \u0060Invitee\u0060 object in the payload."
       },
       "OrganizationMembershipOwnerAllOf1": {
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/OrganizationMembershipOwnerType"
+            "$ref": "#/components/schemas/OrganizationMembershipType"
           }
         }
       },
       "GroupRelationshipOwner": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "oneOf": [
           {
@@ -13736,17 +13873,42 @@
           }
         ],
         "properties": {
-          "type": {
-            "title": "type",
+          "uri": {
             "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "OrganizationMembershipOwner": "#/components/schemas/OrganizationMembershipOwner",
-            "OrganizationInvitationOwner": "#/components/schemas/OrganizationInvitationOwner"
+            "description": "Canonical reference (unique identifier) for the membership",
+            "format": "uri",
+            "example": "https://api.calendly.com/organization_memberships/AAAAAAAAAAAAAAAA"
+          },
+          "role": {
+            "$ref": "#/components/schemas/OrganizationMembershipRole"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The moment when the membership record was last updated (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time",
+            "example": "2019-08-07T06:05:04.321123Z"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The moment when the membership record was created (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time",
+            "example": "2019-01-02T03:04:05.678123Z"
+          },
+          "email": {
+            "type": "string",
+            "description": "The email address of the person who was invited to join the organization",
+            "format": "email",
+            "example": "test@example.com"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OrganizationInvitationStatus"
+          },
+          "last_sent_at": {
+            "type": "string",
+            "description": "The moment the invitation was last sent (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2019-01-02T03:04:05.678123Z"
           }
         }
       },
@@ -13754,7 +13916,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/OrganizationInvitationOwnerType"
+            "$ref": "#/components/schemas/OrganizationInvitationType"
           }
         }
       },
@@ -13780,10 +13942,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/InvalidArgumentResponseAllOf2Title"
+            "$ref": "#/components/schemas/InvalidArgumentTitle"
           },
           "message": {
-            "$ref": "#/components/schemas/InvalidArgumentResponseAllOf2Message"
+            "$ref": "#/components/schemas/TheSuppliedParametersAreInvalidMessage"
           }
         }
       },
@@ -13791,7 +13953,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/UnauthenticatedResponseAllOf2Title"
+            "$ref": "#/components/schemas/UnauthenticatedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/UnauthenticatedResponseAllOf2Message"
@@ -13802,7 +13964,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/PermissionDeniedResponseAllOf2Title"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/PermissionDeniedResponseAllOf2Message"
@@ -13813,7 +13975,7 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseOneOf1AllOf2Title"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
             "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseOneOf1AllOf2Message"
@@ -13824,10 +13986,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/NotFoundResponseAllOf2Title"
+            "$ref": "#/components/schemas/ResourceNotFoundTitle"
           },
           "message": {
-            "$ref": "#/components/schemas/NotFoundResponseAllOf2Message"
+            "$ref": "#/components/schemas/TheServerCouldNotFindTheRequestedResourceMessage"
           }
         }
       },
@@ -13835,10 +13997,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/UnknownResponseAllOf2Title"
+            "$ref": "#/components/schemas/InternalServerErrorTitle"
           },
           "message": {
-            "$ref": "#/components/schemas/UnknownResponseAllOf2Message"
+            "$ref": "#/components/schemas/TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage"
           }
         }
       },
@@ -13846,10 +14008,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "$ref": "#/components/schemas/AlreadyExistsResponseAllOf2Title"
+            "$ref": "#/components/schemas/AlreadyExistsTitle"
           },
           "message": {
-            "$ref": "#/components/schemas/AlreadyExistsResponseAllOf2Message"
+            "$ref": "#/components/schemas/TheResourceAlreadyExistsMessage"
           }
         }
       },
@@ -14372,7 +14534,7 @@
             "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "owner_type": {
-            "$ref": "#/components/schemas/ShareSchedulingLinksItemOwnerType"
+            "$ref": "#/components/schemas/EventTypeOwnerType"
           }
         }
       },
@@ -14400,14 +14562,14 @@
           },
           "start_date": {
             "type": "string",
-            "description": "\u0022Format: \u0060YYYY-MM-DD\u0060\u0022",
+            "description": "Format: \u0060YYYY-MM-DD\u0060",
             "format": "date",
             "nullable": true,
             "example": "2019-01-02"
           },
           "end_date": {
             "type": "string",
-            "description": "\u0022Format: \u0060YYYY-MM-DD\u0060\u0022",
+            "description": "Format: \u0060YYYY-MM-DD\u0060",
             "format": "date",
             "nullable": true,
             "example": "2019-01-03"
@@ -14451,13 +14613,13 @@
           "from": {
             "pattern": "(\\d\\d):(\\d\\d)",
             "type": "string",
-            "description": "\u0022Format: \u0060\\\u0022hh:mm\\\u0022\u0060\u0022",
+            "description": "Format: \u0060\u0022hh:mm\u0022\u0060",
             "example": "08:30"
           },
           "to": {
             "pattern": "(\\d\\d):(\\d\\d)",
             "type": "string",
-            "description": "\u0022Format: \u0060\\\u0022hh:mm\\\u0022\u0060\u0022",
+            "description": "Format: \u0060\u0022hh:mm\u0022\u0060",
             "example": "09:30"
           }
         }
@@ -15355,7 +15517,7 @@
           },
           "date": {
             "type": "string",
-            "description": "\u0022Format: \u0060YYYY-MM-DD\u0060\u0022",
+            "description": "Format: \u0060YYYY-MM-DD\u0060",
             "format": "date",
             "example": "2019-01-02"
           },
@@ -15417,13 +15579,13 @@
           "from": {
             "pattern": "(\\d\\d):(\\d\\d)",
             "type": "string",
-            "description": "\u0022Format: \u0060\\\u0022hh:mm\\\u0022\u0060\u0022",
+            "description": "Format: \u0060\u0022hh:mm\u0022\u0060",
             "example": "07:00"
           },
           "to": {
             "pattern": "(\\d\\d):(\\d\\d)",
             "type": "string",
-            "description": "\u0022Format: \u0060\\\u0022hh:mm\\\u0022\u0060\u0022",
+            "description": "Format: \u0060\u0022hh:mm\u0022\u0060",
             "example": "11:00"
           }
         }
@@ -15835,7 +15997,7 @@
             "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "owner_type": {
-            "$ref": "#/components/schemas/CreateSchedulingLinkRequestOwnerType"
+            "$ref": "#/components/schemas/EventTypeOwnerType"
           }
         }
       },
@@ -15966,7 +16128,7 @@
           },
           "last_event_time": {
             "type": "string",
-            "description": "\u0022The date and time of the newest entry (format: \\\u00222020-01-02T03:04:05.678Z\\\u0022) in the collection array.\u0022",
+            "description": "The date and time of the newest entry (format: \u00222020-01-02T03:04:05.678Z\u0022) in the collection array.",
             "format": "date-time",
             "nullable": true
           },
@@ -16018,13 +16180,13 @@
           },
           "start_date": {
             "type": "string",
-            "description": "\u0022is required when \u0060period_type\u0060 is \u0027fixed\u0027\nFormat: \u0060YYYY-MM-DD\u0060\u0022",
+            "description": "is required when \u0060period_type\u0060 is \u0027fixed\u0027\nFormat: \u0060YYYY-MM-DD\u0060",
             "format": "date",
             "example": "2019-01-02"
           },
           "end_date": {
             "type": "string",
-            "description": "\u0022is required when \u0060period_type\u0060 is \u0027fixed\u0027\nFormat: \u0060YYYY-MM-DD\u0060\u0022",
+            "description": "is required when \u0060period_type\u0060 is \u0027fixed\u0027\nFormat: \u0060YYYY-MM-DD\u0060",
             "format": "date",
             "example": "2019-01-03"
           },
@@ -16190,7 +16352,7 @@
             "$ref": "#/components/schemas/UpdateEventTypeAvailabilityRequestAvailabilityRule"
           },
           "availability_setting": {
-            "$ref": "#/components/schemas/UpdateEventTypeAvailabilityRequestAvailabilitySetting"
+            "$ref": "#/components/schemas/HostAvailabilitySetting"
           }
         }
       },
@@ -16360,7 +16522,7 @@
             "items": {
               "$ref": "#/components/schemas/Email2"
             },
-            "description": "\u0022The user\u0027s email addresses. Max 10. \u003Cbr\u003E  \u003Cspan style=\\\u0022color:red\\\u0022\u003EWarning: \u003C/span\u003EUpdating emails will overwrite all existing emails for the contact. Use the GET endpoint to first retrieve the existing emails and then pass the modified emails to the emails array.\u0022",
+            "description": "The user\u0027s email addresses. Max 10. \u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating emails will overwrite all existing emails for the contact. Use the GET endpoint to first retrieve the existing emails and then pass the modified emails to the emails array.",
             "x-stoplight": {
               "id": "qbxg0ruw1dl6f"
             }
@@ -16371,7 +16533,7 @@
             "items": {
               "$ref": "#/components/schemas/PhoneNumber"
             },
-            "description": "\u0022The user\u0027s phone numbers. Max 10. \u003Cbr\u003E  \u003Cspan style=\\\u0022color:red\\\u0022\u003EWarning: \u003C/span\u003EUpdating phone_numbers will overwrite all existing phone numbers for the contact. Use the GET endpoint to first retrieve the existing phone numbers and then pass the modified phone_numbers to the phone_numbers array.\u0022",
+            "description": "The user\u0027s phone numbers. Max 10. \u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating phone_numbers will overwrite all existing phone numbers for the contact. Use the GET endpoint to first retrieve the existing phone numbers and then pass the modified phone_numbers to the phone_numbers array.",
             "x-stoplight": {
               "id": "tew7q707u4513"
             }
@@ -16931,6 +17093,41 @@
             "x-sl-error-message": "You do not have permission to view this reference"
           }
         ],
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "description": "Availability start - Must be before end_date. Format: YYYY-MM-DD",
+            "format": "date",
+            "example": "2020-01-07",
+            "x-stoplight": {
+              "id": "q6p7wu3bhs61z"
+            }
+          },
+          "end_date": {
+            "type": "string",
+            "description": "Availability end - Must be a date in the future and less than 365 days in the future from start_date. Format: YYYY-MM-DD",
+            "format": "date",
+            "example": "2020-01-08",
+            "x-stoplight": {
+              "id": "mt7oftxfaj67e"
+            }
+          },
+          "days": {
+            "maximum": 365,
+            "minimum": 0,
+            "type": "integer",
+            "x-stoplight": {
+              "id": "2imjtlth36ab0"
+            }
+          },
+          "only_weekdays": {
+            "type": "boolean",
+            "description": "Excludes weekends and only counts Monday - Friday",
+            "x-stoplight": {
+              "id": "wa5b4a1oabecl"
+            }
+          }
+        },
         "x-stoplight": {
           "id": "hskuoq7f14ynp"
         }
@@ -16968,7 +17165,28 @@
           {
             "$ref": "#/components/schemas/AdhocZoomConference"
           }
-        ]
+        ],
+        "properties": {
+          "location": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "pnri7waous8ei"
+            }
+          },
+          "additional_info": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "5yoarz3ewbsfg"
+            }
+          },
+          "phone_number": {
+            "type": "string",
+            "example": "\u002B1 888-888-8888",
+            "x-stoplight": {
+              "id": "3je2cbxailz7r"
+            }
+          }
+        }
       },
       "ListEventTypeMemberships200ResponseCollectionItem": {
         "type": "object",
@@ -16990,7 +17208,57 @@
           {
             "$ref": "#/components/schemas/Email"
           }
-        ]
+        ],
+        "properties": {
+          "to": {
+            "type": "string",
+            "example": "\u002B14047549876"
+          },
+          "from": {
+            "type": "string",
+            "example": "\u002B14042916667"
+          },
+          "body": {
+            "type": "string",
+            "example": "Your scheduled event is coming up."
+          },
+          "sender_uri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+          },
+          "sender_email": {
+            "type": "string",
+            "nullable": true,
+            "example": "user@example.com"
+          },
+          "event_type_uri": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
+          },
+          "event_uri": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
+          },
+          "sent_at": {
+            "type": "string",
+            "description": "The UTC date and time when the SMS message was sent (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The UTC date and time when the SMS message was created (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time"
+          },
+          "scheduling_url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.calendly.com/event/AAAAAAAAAAAAAAAA"
+          }
+        }
       },
       "ListEventTypeMemberships200ResponseCollectionItemAllOf1": {
         "required": [
@@ -17044,6 +17312,80 @@
             "$ref": "#/components/schemas/User"
           }
         ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the user",
+            "format": "uri",
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+          },
+          "name": {
+            "type": "string",
+            "description": "The user\u0027s name (human-readable format)",
+            "example": "John Doe"
+          },
+          "slug": {
+            "type": "string",
+            "description": "The portion of URL for the user\u0027s scheduling page (where invitees book sessions), rendered in a human-readable format",
+            "example": "acmesales"
+          },
+          "email": {
+            "type": "string",
+            "description": "The user\u0027s email address",
+            "format": "email",
+            "example": "test@example.com"
+          },
+          "scheduling_url": {
+            "type": "string",
+            "description": "The URL of the user\u0027s Calendly landing page (that lists all the user\u0027s event types)",
+            "format": "uri",
+            "example": "https://calendly.com/acmesales"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "The time zone to use when presenting time to the user",
+            "example": "America/New York"
+          },
+          "time_notation": {
+            "$ref": "#/components/schemas/UserTimeNotation"
+          },
+          "avatar_url": {
+            "type": "string",
+            "description": "The URL of the user\u0027s avatar (image)",
+            "format": "uri",
+            "nullable": true,
+            "example": "https://01234567890.cloudfront.net/uploads/user/avatar/0123456/a1b2c3d4.png"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The moment when the user\u0027s record was created (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time",
+            "example": "2019-01-02T03:04:05.678123Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The moment when the user\u0027s record was last updated (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
+            "format": "date-time",
+            "example": "2019-08-07T06:05:04.321123Z"
+          },
+          "current_organization": {
+            "type": "string",
+            "description": "A unique reference to the user\u0027s current organization",
+            "format": "uri",
+            "example": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA"
+          },
+          "resource_type": {
+            "type": "string",
+            "description": "Resource type to support polymorphic associations.",
+            "example": "User",
+            "x-stoplight": {
+              "id": "7jglxj20lt1m3"
+            }
+          },
+          "locale": {
+            "$ref": "#/components/schemas/UserLocale"
+          }
+        },
         "description": "The event type host",
         "x-stoplight": {
           "id": "w2455rcn8o8yn"
@@ -17140,7 +17482,7 @@
             "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
           },
           "owner_type": {
-            "$ref": "#/components/schemas/CreateSchedulingLink201ResponseResourceOwnerType"
+            "$ref": "#/components/schemas/EventTypeOwnerType"
           }
         }
       },
@@ -17208,7 +17550,7 @@
             "items": {
               "$ref": "#/components/schemas/AvailabilityRule"
             },
-            "description": "\u0022The rules for an availability schedule.\u003Cbr\u003E  \u003Cspan style=\\\u0022color:red\\\u0022\u003EWarning: \u003C/span\u003EUpdating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object.\u0022",
+            "description": "The rules for an availability schedule.\u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object.",
             "x-stoplight": {
               "id": "08tupds2jfoeg"
             }
@@ -17248,7 +17590,7 @@
           },
           "date": {
             "type": "string",
-            "description": "\u0022is required when \u0060type\u0060 is \u0027date\u0027\nFormat: \u0060YYYY-MM-DD\u0060\u0022",
+            "description": "is required when \u0060type\u0060 is \u0027date\u0027\nFormat: \u0060YYYY-MM-DD\u0060",
             "format": "date",
             "example": "2019-01-02"
           },
@@ -17266,25 +17608,25 @@
           "from": {
             "pattern": "(\\d\\d):(\\d\\d)",
             "type": "string",
-            "description": "\u0022Format: \u0060\\\u0022hh:mm\\\u0022\u0060\u0022",
+            "description": "Format: \u0060\u0022hh:mm\u0022\u0060",
             "example": "07:00"
           },
           "to": {
             "pattern": "(\\d\\d):(\\d\\d)",
             "type": "string",
-            "description": "\u0022Format: \u0060\\\u0022hh:mm\\\u0022\u0060\u0022",
+            "description": "Format: \u0060\u0022hh:mm\u0022\u0060",
             "example": "11:00"
           }
         }
       },
-      "EnterpriseOwnerAdminErrorTitle": {
+      "PermissionDeniedTitle": {
         "enum": [
           "Permission Denied"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EnterpriseOwnerAdminErrorTitle",
+          "name": "PermissionDeniedTitle",
           "modelAsString": false,
           "values": [
             {
@@ -17316,14 +17658,14 @@
           ]
         }
       },
-      "InsufficientScopeErrorTitle": {
+      "InsufficientScopeTitle": {
         "enum": [
           "Insufficient scope"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "InsufficientScopeErrorTitle",
+          "name": "InsufficientScopeTitle",
           "modelAsString": false,
           "values": [
             {
@@ -17333,14 +17675,14 @@
           ]
         }
       },
-      "InsufficientScopeErrorMessage": {
+      "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage": {
         "enum": [
           "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "InsufficientScopeErrorMessage",
+          "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage",
           "modelAsString": false,
           "values": [
             {
@@ -17350,31 +17692,14 @@
           ]
         }
       },
-      "UserNotInOrganizationErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "UserNotInOrganizationErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
-      "UserNotInOrganizationErrorMessage": {
+      "ThisUserIsNotInYourOrganizationMessage": {
         "enum": [
           "This user is not in your organization"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "UserNotInOrganizationErrorMessage",
+          "name": "ThisUserIsNotInYourOrganizationMessage",
           "modelAsString": false,
           "values": [
             {
@@ -17384,70 +17709,19 @@
           ]
         }
       },
-      "GetScheduledEventsInviteesErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetScheduledEventsInviteesErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
-      "GetScheduledEventsInviteesErrorMessage": {
+      "YouAreNotAllowedToViewThisEventMessage": {
         "enum": [
           "You are not allowed to view this event"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "GetScheduledEventsInviteesErrorMessage",
+          "name": "YouAreNotAllowedToViewThisEventMessage",
           "modelAsString": false,
           "values": [
             {
               "value": "You are not allowed to view this event",
               "name": "YouAreNotAllowedToViewThisEvent"
-            }
-          ]
-        }
-      },
-      "GetScheduledEventInviteeErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetScheduledEventInviteeErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
-      "GetScheduledEventsErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetScheduledEventsErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
             }
           ]
         }
@@ -17489,23 +17763,6 @@
           ]
         }
       },
-      "InviteesErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "InviteesErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "InviteesErrorMessage": {
         "enum": [
           "You do not have permission to access this resource.",
@@ -17533,23 +17790,6 @@
           ]
         }
       },
-      "EventTypesErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "EventTypesErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "EventTypesErrorMessage": {
         "enum": [
           "This user is not in your organization",
@@ -17573,23 +17813,6 @@
             {
               "value": "You do not have permission to access this resource.",
               "name": "YouDoNotHavePermissionToAccessThisResource"
-            }
-          ]
-        }
-      },
-      "OrganizationInvitationCreateErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "OrganizationInvitationCreateErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
             }
           ]
         }
@@ -17626,23 +17849,6 @@
           ]
         }
       },
-      "OrganizationInvitationDeleteErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "OrganizationInvitationDeleteErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "OrganizationInvitationDeleteErrorMessage": {
         "enum": [
           "You cannot perform this action for an organization with SCIM enabled.",
@@ -17670,57 +17876,6 @@
           ]
         }
       },
-      "UserNotInOrgGenericErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "UserNotInOrgGenericErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
-      "OrgMembershipDeleteErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "OrgMembershipDeleteErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
-      "PostWebhookSubscriptionsErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PostWebhookSubscriptionsErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "PostWebhookSubscriptionsErrorMessage": {
         "enum": [
           "Please upgrade your Calendly account to Standard",
@@ -17744,23 +17899,6 @@
             {
               "value": "You do not have permission",
               "name": "YouDoNotHavePermission"
-            }
-          ]
-        }
-      },
-      "GetWebhookSubscriptionsErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetWebhookSubscriptionsErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
             }
           ]
         }
@@ -17793,40 +17931,6 @@
           ]
         }
       },
-      "DataComplianceErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "DataComplianceErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
-      "DeleteScheduledEventErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "DeleteScheduledEventErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "DeleteScheduledEventErrorMessage": {
         "enum": [
           "You are not allowed to cancel this event",
@@ -17854,23 +17958,6 @@
           ]
         }
       },
-      "LocationsErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "LocationsErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "LocationsErrorMessage": {
         "enum": [
           "You do not have permission to access this resource.",
@@ -17894,23 +17981,6 @@
             {
               "value": "This user is not in your organization",
               "name": "ThisUserIsNotInYourOrganization"
-            }
-          ]
-        }
-      },
-      "OneOffEventsErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "OneOffEventsErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
             }
           ]
         }
@@ -18289,7 +18359,7 @@
           ]
         }
       },
-      "EventTypeAvailabilityScheduleAvailabilitySetting": {
+      "HostAvailabilitySetting": {
         "enum": [
           "host"
         ],
@@ -18297,7 +18367,7 @@
         "additionalProperties": false,
         "description": "The setting for event type availability specifies if all hosts follow the same schedule or if each host has their own unique schedule on the event type.",
         "x-ms-enum": {
-          "name": "EventTypeAvailabilityScheduleAvailabilitySetting",
+          "name": "HostAvailabilitySetting",
           "modelAsString": false,
           "values": [
             {
@@ -18854,14 +18924,14 @@
           ]
         }
       },
-      "OrganizationMembershipOwnerType": {
+      "OrganizationMembershipType": {
         "enum": [
           "OrganizationMembership"
         ],
         "type": "string",
         "additionalProperties": false
       },
-      "OrganizationInvitationOwnerType": {
+      "OrganizationInvitationType": {
         "enum": [
           "OrganizationInvitation"
         ],
@@ -18891,7 +18961,7 @@
           ]
         }
       },
-      "RoutingFormSubmissionSubmitterType": {
+      "InviteeSubmitterType": {
         "enum": [
           "Invitee"
         ],
@@ -19127,26 +19197,6 @@
           ]
         }
       },
-      "ContactsErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "qdiou6y14yt5n"
-        },
-        "x-ms-enum": {
-          "name": "ContactsErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "ContactsErrorMessage": {
         "enum": [
           "Please upgrade your Calendly account to Enterprise.",
@@ -19182,26 +19232,6 @@
           ]
         }
       },
-      "MeetingRecapsErrorTitle": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "f8h2j5k1m9n0p"
-        },
-        "x-ms-enum": {
-          "name": "MeetingRecapsErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "MeetingRecapsErrorMessage": {
         "enum": [
           "Please upgrade to a paid Calendly account",
@@ -19232,7 +19262,7 @@
           ]
         }
       },
-      "InviteeInPersonMeetingKind": {
+      "PhysicalKind": {
         "enum": [
           "physical"
         ],
@@ -19243,7 +19273,7 @@
           "id": "ljexxtnmzwqbv"
         },
         "x-ms-enum": {
-          "name": "InviteeInPersonMeetingKind",
+          "name": "PhysicalKind",
           "modelAsString": false,
           "values": [
             {
@@ -19253,7 +19283,7 @@
           ]
         }
       },
-      "InviteeInboundCallKind": {
+      "InboundCallKind": {
         "enum": [
           "inbound_call"
         ],
@@ -19264,7 +19294,7 @@
           "id": "0gaylymrk1c2y"
         },
         "x-ms-enum": {
-          "name": "InviteeInboundCallKind",
+          "name": "InboundCallKind",
           "modelAsString": false,
           "values": [
             {
@@ -19274,7 +19304,7 @@
           ]
         }
       },
-      "InviteeOutboundCallKind": {
+      "OutboundCallKind": {
         "enum": [
           "outbound_call"
         ],
@@ -19285,7 +19315,7 @@
           "id": "07zf4gbcd2ohy"
         },
         "x-ms-enum": {
-          "name": "InviteeOutboundCallKind",
+          "name": "OutboundCallKind",
           "modelAsString": false,
           "values": [
             {
@@ -19295,7 +19325,7 @@
           ]
         }
       },
-      "InviteeZoomConferenceKind": {
+      "ZoomConferenceKind": {
         "enum": [
           "zoom_conference"
         ],
@@ -19306,7 +19336,7 @@
           "id": "ldpmy3qcvns2w"
         },
         "x-ms-enum": {
-          "name": "InviteeZoomConferenceKind",
+          "name": "ZoomConferenceKind",
           "modelAsString": false,
           "values": [
             {
@@ -19316,7 +19346,7 @@
           ]
         }
       },
-      "InviteeGoogleConferenceKind": {
+      "GoogleConferenceKind": {
         "enum": [
           "google_conference"
         ],
@@ -19327,7 +19357,7 @@
           "id": "kz5kzmrbpgvsb"
         },
         "x-ms-enum": {
-          "name": "InviteeGoogleConferenceKind",
+          "name": "GoogleConferenceKind",
           "modelAsString": false,
           "values": [
             {
@@ -19337,7 +19367,7 @@
           ]
         }
       },
-      "InviteeGotoMeetingConferenceKind": {
+      "GotomeetingConferenceKind": {
         "enum": [
           "gotomeeting_conference"
         ],
@@ -19348,7 +19378,7 @@
           "id": "f123nka5sqrjz"
         },
         "x-ms-enum": {
-          "name": "InviteeGotoMeetingConferenceKind",
+          "name": "GotomeetingConferenceKind",
           "modelAsString": false,
           "values": [
             {
@@ -19358,7 +19388,7 @@
           ]
         }
       },
-      "InviteeMicrosoftTeamsConferenceKind": {
+      "MicrosoftTeamsConferenceKind": {
         "enum": [
           "microsoft_teams_conference"
         ],
@@ -19369,7 +19399,7 @@
           "id": "1ete5xomqe280"
         },
         "x-ms-enum": {
-          "name": "InviteeMicrosoftTeamsConferenceKind",
+          "name": "MicrosoftTeamsConferenceKind",
           "modelAsString": false,
           "values": [
             {
@@ -19379,7 +19409,7 @@
           ]
         }
       },
-      "InviteeWebExConferenceKind": {
+      "WebexConferenceKind": {
         "enum": [
           "webex_conference"
         ],
@@ -19390,7 +19420,7 @@
           "id": "8ty55m2o99vpq"
         },
         "x-ms-enum": {
-          "name": "InviteeWebExConferenceKind",
+          "name": "WebexConferenceKind",
           "modelAsString": false,
           "values": [
             {
@@ -19400,7 +19430,7 @@
           ]
         }
       },
-      "InviteeInviteeSpecifiedLocationKind": {
+      "AskInviteeKind": {
         "enum": [
           "ask_invitee"
         ],
@@ -19411,7 +19441,7 @@
           "id": "sbm7y380r93v8"
         },
         "x-ms-enum": {
-          "name": "InviteeInviteeSpecifiedLocationKind",
+          "name": "AskInviteeKind",
           "modelAsString": false,
           "values": [
             {
@@ -19421,7 +19451,7 @@
           ]
         }
       },
-      "InviteeCustomLocationKind": {
+      "CustomKind": {
         "enum": [
           "custom"
         ],
@@ -19432,7 +19462,7 @@
           "id": "txohay6699lpz"
         },
         "x-ms-enum": {
-          "name": "InviteeCustomLocationKind",
+          "name": "CustomKind",
           "modelAsString": false,
           "values": [
             {
@@ -19502,206 +19532,6 @@
           ]
         }
       },
-      "AdhocCustomLocationKind": {
-        "enum": [
-          "custom"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "a72tvm37sz7wa"
-        },
-        "x-ms-enum": {
-          "name": "AdhocCustomLocationKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "custom",
-              "name": "Custom"
-            }
-          ]
-        }
-      },
-      "AdhocGoogleConferenceKind": {
-        "enum": [
-          "google_conference"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "9tjotbd3s37e4"
-        },
-        "x-ms-enum": {
-          "name": "AdhocGoogleConferenceKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "google_conference",
-              "name": "GoogleConference"
-            }
-          ]
-        }
-      },
-      "AdhocGotoMeetingConferenceKind": {
-        "enum": [
-          "gotomeeting_conference"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "36wxzc4oxm69t"
-        },
-        "x-ms-enum": {
-          "name": "AdhocGotoMeetingConferenceKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "gotomeeting_conference",
-              "name": "GotomeetingConference"
-            }
-          ]
-        }
-      },
-      "AdhocInPersonMeetingKind": {
-        "enum": [
-          "physical"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "w5qxh9khjg8y5"
-        },
-        "x-ms-enum": {
-          "name": "AdhocInPersonMeetingKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "physical",
-              "name": "Physical"
-            }
-          ]
-        }
-      },
-      "AdhocInboundCallKind": {
-        "enum": [
-          "inbound_call"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "slnhs8pwi7chn"
-        },
-        "x-ms-enum": {
-          "name": "AdhocInboundCallKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "inbound_call",
-              "name": "InboundCall"
-            }
-          ]
-        }
-      },
-      "AdhocInviteeSpecifiedLocationKind": {
-        "enum": [
-          "ask_invitee"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "y9udjxx9o30zm"
-        },
-        "x-ms-enum": {
-          "name": "AdhocInviteeSpecifiedLocationKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ask_invitee",
-              "name": "AskInvitee"
-            }
-          ]
-        }
-      },
-      "AdhocMicrosoftTeamsConferenceKind": {
-        "enum": [
-          "microsoft_teams_conference"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "709696962dvhk"
-        },
-        "x-ms-enum": {
-          "name": "AdhocMicrosoftTeamsConferenceKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "microsoft_teams_conference",
-              "name": "MicrosoftTeamsConference"
-            }
-          ]
-        }
-      },
-      "AdhocOutboundCallKind": {
-        "enum": [
-          "outbound_call"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "v3fqkt9d57yg2"
-        },
-        "x-ms-enum": {
-          "name": "AdhocOutboundCallKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "outbound_call",
-              "name": "OutboundCall"
-            }
-          ]
-        }
-      },
-      "AdhocWebExConferenceKind": {
-        "enum": [
-          "webex_conference"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "4yx2yjnoxv3eb"
-        },
-        "x-ms-enum": {
-          "name": "AdhocWebExConferenceKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "webex_conference",
-              "name": "WebexConference"
-            }
-          ]
-        }
-      },
-      "AdhocZoomConferenceKind": {
-        "enum": [
-          "zoom_conference"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-stoplight": {
-          "id": "ii43nxdpu4idr"
-        },
-        "x-ms-enum": {
-          "name": "AdhocZoomConferenceKind",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "zoom_conference",
-              "name": "ZoomConference"
-            }
-          ]
-        }
-      },
       "SmsType": {
         "enum": [
           "sms"
@@ -19736,7 +19566,7 @@
           ]
         }
       },
-      "InPersonMeetingType": {
+      "PhysicalType": {
         "enum": [
           "physical"
         ],
@@ -19744,7 +19574,7 @@
         "additionalProperties": false,
         "description": "Indicates that the event will be an in-person meeting.",
         "x-ms-enum": {
-          "name": "InPersonMeetingType",
+          "name": "PhysicalType",
           "modelAsString": false,
           "values": [
             {
@@ -19844,7 +19674,7 @@
           ]
         }
       },
-      "ZoomConferenceType": {
+      "ZoomType": {
         "enum": [
           "zoom"
         ],
@@ -19852,7 +19682,7 @@
         "additionalProperties": false,
         "description": "The event location is a Zoom conference",
         "x-ms-enum": {
-          "name": "ZoomConferenceType",
+          "name": "ZoomType",
           "modelAsString": false,
           "values": [
             {
@@ -19897,7 +19727,7 @@
           ]
         }
       },
-      "GotoMeetingConferenceType": {
+      "GotomeetingType": {
         "enum": [
           "gotomeeting"
         ],
@@ -19905,7 +19735,7 @@
         "additionalProperties": false,
         "description": "The event location is a GoToMeeting conference",
         "x-ms-enum": {
-          "name": "GotoMeetingConferenceType",
+          "name": "GotomeetingType",
           "modelAsString": false,
           "values": [
             {
@@ -20003,7 +19833,7 @@
           ]
         }
       },
-      "CustomLocationType": {
+      "CustomType": {
         "enum": [
           "custom"
         ],
@@ -20011,7 +19841,7 @@
         "additionalProperties": false,
         "description": "The event location doesn\u0027t fall into a standard category defined by the event host (publisher)",
         "x-ms-enum": {
-          "name": "CustomLocationType",
+          "name": "CustomType",
           "modelAsString": false,
           "values": [
             {
@@ -20021,7 +19851,7 @@
           ]
         }
       },
-      "InviteeSpecifiedLocationType": {
+      "AskInviteeType": {
         "enum": [
           "ask_invitee"
         ],
@@ -20029,7 +19859,7 @@
         "additionalProperties": false,
         "description": "The event location selected by the invitee",
         "x-ms-enum": {
-          "name": "InviteeSpecifiedLocationType",
+          "name": "AskInviteeType",
           "modelAsString": false,
           "values": [
             {
@@ -20039,7 +19869,7 @@
           ]
         }
       },
-      "WebExConferenceType": {
+      "WebexConferenceType": {
         "enum": [
           "webex_conference"
         ],
@@ -20047,7 +19877,7 @@
         "additionalProperties": false,
         "description": "The event location is a WebEx conference",
         "x-ms-enum": {
-          "name": "WebExConferenceType",
+          "name": "WebexConferenceType",
           "modelAsString": false,
           "values": [
             {
@@ -20142,7 +19972,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Question type: name, text input, email, phone, textarea input, dropdown list or radio button list.\u0022",
+        "description": "Question type: name, text input, email, phone, textarea input, dropdown list or radio button list.",
         "x-ms-enum": {
           "name": "QuestionType",
           "modelAsString": false,
@@ -20196,7 +20026,7 @@
           ]
         }
       },
-      "SubmissionExternalUrlResultType": {
+      "ExternalUrlType": {
         "enum": [
           "external_url"
         ],
@@ -20204,7 +20034,7 @@
         "additionalProperties": false,
         "description": "Indicates that the routing form submission resulted in a redirect to an external URL.",
         "x-ms-enum": {
-          "name": "SubmissionExternalUrlResultType",
+          "name": "ExternalUrlType",
           "modelAsString": false,
           "values": [
             {
@@ -20214,7 +20044,7 @@
           ]
         }
       },
-      "SubmissionCustomMessageResultType": {
+      "CustomMessageType": {
         "enum": [
           "custom_message"
         ],
@@ -20222,7 +20052,7 @@
         "additionalProperties": false,
         "description": "Indicates if the routing form submission resulted in a custom \u0022thank you\u0022 message.",
         "x-ms-enum": {
-          "name": "SubmissionCustomMessageResultType",
+          "name": "CustomMessageType",
           "modelAsString": false,
           "values": [
             {
@@ -20232,14 +20062,14 @@
           ]
         }
       },
-      "InvalidArgumentResponseAllOf2Title": {
+      "InvalidArgumentTitle": {
         "enum": [
           "Invalid Argument"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "InvalidArgumentResponseAllOf2Title",
+          "name": "InvalidArgumentTitle",
           "modelAsString": false,
           "values": [
             {
@@ -20249,14 +20079,14 @@
           ]
         }
       },
-      "InvalidArgumentResponseAllOf2Message": {
+      "TheSuppliedParametersAreInvalidMessage": {
         "enum": [
           "The supplied parameters are invalid."
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "InvalidArgumentResponseAllOf2Message",
+          "name": "TheSuppliedParametersAreInvalidMessage",
           "modelAsString": false,
           "values": [
             {
@@ -20266,7 +20096,7 @@
           ]
         }
       },
-      "UnauthenticatedResponseAllOf2Title": {
+      "UnauthenticatedTitle": {
         "enum": [
           "Unauthenticated"
         ],
@@ -20300,23 +20130,6 @@
           ]
         }
       },
-      "PermissionDeniedResponseAllOf2Title": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PermissionDeniedResponseAllOf2Title",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
-            }
-          ]
-        }
-      },
       "PermissionDeniedResponseAllOf2Message": {
         "enum": [
           "You do not have permission to access this resource.",
@@ -20335,23 +20148,6 @@
             {
               "value": "You do not have permission",
               "name": "YouDoNotHavePermission"
-            }
-          ]
-        }
-      },
-      "PermissionDeniedAndScopesForbiddenResponseOneOf1AllOf2Title": {
-        "enum": [
-          "Permission Denied"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "PermissionDeniedAndScopesForbiddenResponseOneOf1AllOf2Title",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Permission Denied",
-              "name": "PermissionDenied"
             }
           ]
         }
@@ -20378,14 +20174,14 @@
           ]
         }
       },
-      "NotFoundResponseAllOf2Title": {
+      "ResourceNotFoundTitle": {
         "enum": [
           "Resource Not Found"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "NotFoundResponseAllOf2Title",
+          "name": "ResourceNotFoundTitle",
           "modelAsString": false,
           "values": [
             {
@@ -20395,14 +20191,14 @@
           ]
         }
       },
-      "NotFoundResponseAllOf2Message": {
+      "TheServerCouldNotFindTheRequestedResourceMessage": {
         "enum": [
           "The server could not find the requested resource."
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "NotFoundResponseAllOf2Message",
+          "name": "TheServerCouldNotFindTheRequestedResourceMessage",
           "modelAsString": false,
           "values": [
             {
@@ -20412,14 +20208,14 @@
           ]
         }
       },
-      "UnknownResponseAllOf2Title": {
+      "InternalServerErrorTitle": {
         "enum": [
           "Internal Server Error"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "UnknownResponseAllOf2Title",
+          "name": "InternalServerErrorTitle",
           "modelAsString": false,
           "values": [
             {
@@ -20429,14 +20225,14 @@
           ]
         }
       },
-      "UnknownResponseAllOf2Message": {
+      "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage": {
         "enum": [
           "The server encountered an unexpected condition that prevented it from fulfilling the request."
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "UnknownResponseAllOf2Message",
+          "name": "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage",
           "modelAsString": false,
           "values": [
             {
@@ -20446,14 +20242,14 @@
           ]
         }
       },
-      "AlreadyExistsResponseAllOf2Title": {
+      "AlreadyExistsTitle": {
         "enum": [
           "Already Exists"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "AlreadyExistsResponseAllOf2Title",
+          "name": "AlreadyExistsTitle",
           "modelAsString": false,
           "values": [
             {
@@ -20463,14 +20259,14 @@
           ]
         }
       },
-      "AlreadyExistsResponseAllOf2Message": {
+      "TheResourceAlreadyExistsMessage": {
         "enum": [
           "The resource already exists"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "AlreadyExistsResponseAllOf2Message",
+          "name": "TheResourceAlreadyExistsMessage",
           "modelAsString": false,
           "values": [
             {
@@ -20671,7 +20467,7 @@
           ]
         }
       },
-      "ShareSchedulingLinksItemOwnerType": {
+      "EventTypeOwnerType": {
         "enum": [
           "EventType"
         ],
@@ -21057,15 +20853,6 @@
         "description": "The max number of events that can be scheduled using this scheduling link.",
         "example": 1
       },
-      "CreateSchedulingLinkRequestOwnerType": {
-        "enum": [
-          "EventType"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Resource type (currently, this is always EventType)",
-        "example": "EventType"
-      },
       "CreateShareRequestPeriodType": {
         "enum": [
           "available_moving",
@@ -21098,36 +20885,6 @@
             }
           ]
         }
-      },
-      "UpdateEventTypeAvailabilityRequestAvailabilitySetting": {
-        "enum": [
-          "host"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "By default every host on the Event Type shares an identical schedule.",
-        "x-stoplight": {
-          "id": "7v3rsooj36r04"
-        },
-        "x-ms-enum": {
-          "name": "UpdateEventTypeAvailabilityRequestAvailabilitySetting",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "host",
-              "name": "Host"
-            }
-          ]
-        }
-      },
-      "CreateSchedulingLink201ResponseResourceOwnerType": {
-        "enum": [
-          "EventType"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Resource type (currently, this is always EventType)",
-        "example": "EventType"
       },
       "CreateShareRequestLocationConfigurationsItemKind": {
         "enum": [
@@ -22431,12 +22188,6 @@
         "type": "http",
         "description": "Put the access token in the \u0060Authorization: Bearer \u003CTOKEN\u003E\u0060 header",
         "scheme": "bearer"
-      },
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

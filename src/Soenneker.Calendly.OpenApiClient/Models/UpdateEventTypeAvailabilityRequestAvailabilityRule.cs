@@ -14,7 +14,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The rules for an availability schedule.&lt;br&gt;  &lt;span style=\&quot;color:red\&quot;&gt;Warning: &lt;/span&gt;Updating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object.&quot;</summary>
+        /// <summary>The rules for an availability schedule.&lt;br&gt;  &lt;span style=&quot;color:red&quot;&gt;Warning: &lt;/span&gt;Updating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule>? Rules { get; set; }

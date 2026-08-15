@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Group_relationships.Item
         {
         }
         /// <summary>
-        /// &quot;Returns a group relationship by uuid&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`&quot;
+        /// Returns a group relationship by uuid&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetGroupRelationship200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Group_relationships.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetGroupRelationship200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetGroupRelationship200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns a group relationship by uuid&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`&quot;
+        /// Returns a group relationship by uuid&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `groups:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

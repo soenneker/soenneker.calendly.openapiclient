@@ -33,7 +33,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public List<int?> DurationOptions { get; set; }
 #endif
-        /// <summary>&quot;is required when `period_type` is &apos;fixed&apos;Format: `YYYY-MM-DD`&quot;</summary>
+        /// <summary>is required when `period_type` is &apos;fixed&apos;Format: `YYYY-MM-DD`</summary>
         public Date? EndDate { get; set; }
         /// <summary>The event_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>The period_type property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestPeriodType? PeriodType { get; set; }
-        /// <summary>&quot;is required when `period_type` is &apos;fixed&apos;Format: `YYYY-MM-DD`&quot;</summary>
+        /// <summary>is required when `period_type` is &apos;fixed&apos;Format: `YYYY-MM-DD`</summary>
         public Date? StartDate { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequest"/> and sets the default values.

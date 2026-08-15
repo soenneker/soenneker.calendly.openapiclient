@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
         {
         }
         /// <summary>
-        /// &quot;Returns a list of available times for an event type within a specified date range.**NOTE:*** Date range can be no greater than 31 days.* This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// Returns a list of available times for an event type within a specified date range.**NOTE:*** Date range can be no greater than 31 days.* This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeAvailableTimes200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeAvailableTimes200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeAvailableTimes200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns a list of available times for an event type within a specified date range.**NOTE:*** Date range can be no greater than 31 days.* This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// Returns a list of available times for an event type within a specified date range.**NOTE:*** Date range can be no greater than 31 days.* This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_available_times
             return new global::Soenneker.Calendly.OpenApiClient.Event_type_available_times.Event_type_available_timesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns a list of available times for an event type within a specified date range.**NOTE:*** Date range can be no greater than 31 days.* This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// Returns a list of available times for an event type within a specified date range.**NOTE:*** Date range can be no greater than 31 days.* This endpoint does not support traditional keyset pagination.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_type_available_timesRequestBuilderGetQueryParameters 

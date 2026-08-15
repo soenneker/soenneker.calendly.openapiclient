@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps
         {
         }
         /// <summary>
-        /// &quot;Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the `status` query parameter to retrieve `processing` or `unavailable` recaps. Supports additional filtering by scheduled event, attendee, or date range.Returns both Calendly-scheduled and external event recaps in a single collection. The `event` field is null for external events where no Calendly scheduled event exists.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`&quot;
+        /// Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the `status` query parameter to retrieve `processing` or `unavailable` recaps. Supports additional filtering by scheduled event, attendee, or date range.Returns both Calendly-scheduled and external event recaps in a single collection. The `event` field is null for external events where no Calendly scheduled event exists.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListMeetingRecaps200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListMeetingRecaps200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListMeetingRecaps200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the `status` query parameter to retrieve `processing` or `unavailable` recaps. Supports additional filtering by scheduled event, attendee, or date range.Returns both Calendly-scheduled and external event recaps in a single collection. The `event` field is null for external events where no Calendly scheduled event exists.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`&quot;
+        /// Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the `status` query parameter to retrieve `processing` or `unavailable` recaps. Supports additional filtering by scheduled event, attendee, or date range.Returns both Calendly-scheduled and external event recaps in a single collection. The `event` field is null for external events where no Calendly scheduled event exists.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps
             return new global::Soenneker.Calendly.OpenApiClient.Meeting_recaps.Meeting_recapsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the `status` query parameter to retrieve `processing` or `unavailable` recaps. Supports additional filtering by scheduled event, attendee, or date range.Returns both Calendly-scheduled and external event recaps in a single collection. The `event` field is null for external events where no Calendly scheduled event exists.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`&quot;
+        /// Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the `status` query parameter to retrieve `processing` or `unavailable` recaps. Supports additional filtering by scheduled event, attendee, or date range.Returns both Calendly-scheduled and external event recaps in a single collection. The `event` field is null for external events where no Calendly scheduled event exists.**Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Meeting_recapsRequestBuilderGetQueryParameters 

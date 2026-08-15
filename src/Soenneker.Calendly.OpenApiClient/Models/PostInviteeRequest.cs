@@ -38,7 +38,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public global::Soenneker.Calendly.OpenApiClient.Models.PostInviteeRequestInvitee Invitee { get; set; }
 #endif
-        /// <summary>&quot;The polymorphic base type for an event location that Calendly supports.  Note: - Location.kind must be supplied if location is defined.- Location must match location specified on the EventType.- Do not pass the location object for an EventType with a round_robin pooling_type.&quot;</summary>
+        /// <summary>The polymorphic base type for an event location that Calendly supports.  Note: - Location.kind must be supplied if location is defined.- Location must match location specified on the EventType.- Do not pass the location object for an EventType with a round_robin pooling_type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation? Location { get; set; }

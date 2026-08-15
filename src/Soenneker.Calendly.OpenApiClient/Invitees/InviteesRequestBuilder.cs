@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitees
         {
         }
         /// <summary>
-        /// &quot;Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.* For events with text notifications enabled, text notifications are sent only after the invitee provides consent through a text opt-in flow.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
+        /// Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.* For events with text notifications enabled, text notifications are sent only after the invitee provides consent through a text opt-in flow.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.PostInvitee201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitees
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.PostInvitee201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.PostInvitee201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.* For events with text notifications enabled, text notifications are sent only after the invitee provides consent through a text opt-in flow.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
+        /// Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.Standard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.**NOTE:*** Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.* For events with text notifications enabled, text notifications are sent only after the invitee provides consent through a text opt-in flow.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

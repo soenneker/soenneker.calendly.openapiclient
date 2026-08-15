@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>The event location is a Google Meet or Hangouts conference</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum AdhocCustomLocationKind
-    #pragma warning restore CS1591
+    public enum GoogleConferenceKind
     {
-        [EnumMember(Value = "custom")]
+        [EnumMember(Value = "google_conference")]
         #pragma warning disable CS1591
-        Custom,
+        GoogleConference,
         #pragma warning restore CS1591
     }
 }

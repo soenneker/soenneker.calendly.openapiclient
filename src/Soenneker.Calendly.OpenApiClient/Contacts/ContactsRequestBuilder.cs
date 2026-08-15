@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         {
         }
         /// <summary>
-        /// &quot;Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`&quot;
+        /// Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Create a new Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`&quot;
+        /// Create a new Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`&quot;
+        /// Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,7 +128,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Create a new Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`&quot;
+        /// Create a new Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -159,7 +159,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return new global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`&quot;
+        /// Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ContactsRequestBuilderGetQueryParameters 
@@ -257,7 +257,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             [QueryParameter("phone_number")]
             public string PhoneNumber { get; set; }
 #endif
-            /// <summary>&quot;Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at, updated_at. Sort direction is specified as: asc, desc.&quot;</summary>
+            /// <summary>Order results by the specified field and direction. Accepts comma-separated list of {field}:{direction} values. Supported fields are: created_at, updated_at. Sort direction is specified as: asc, desc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("sort")]

@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>Resource type (currently, this is always EventType)</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum AdhocWebExConferenceKind
-    #pragma warning restore CS1591
+    public enum EventTypeOwnerType
     {
-        [EnumMember(Value = "webex_conference")]
+        [EnumMember(Value = "EventType")]
         #pragma warning disable CS1591
-        WebexConference,
+        EventType,
         #pragma warning restore CS1591
     }
 }

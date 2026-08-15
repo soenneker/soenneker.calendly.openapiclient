@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>The event location is a Zoom conference</summary>
+    /// <summary>Indicates that the event will be an in-person meeting.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum ZoomConferenceType
+    public enum PhysicalType
     {
-        [EnumMember(Value = "zoom")]
+        [EnumMember(Value = "physical")]
         #pragma warning disable CS1591
-        Zoom,
+        Physical,
         #pragma warning restore CS1591
     }
 }

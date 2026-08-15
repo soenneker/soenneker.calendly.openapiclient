@@ -22,8 +22,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule AvailabilityRule { get; set; }
 #endif
-        /// <summary>By default every host on the Event Type shares an identical schedule.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilitySetting? AvailabilitySetting { get; set; }
+        /// <summary>The setting for event type availability specifies if all hosts follow the same schedule or if each host has their own unique schedule on the event type.</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting? AvailabilitySetting { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequest"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "availability_rule", n => { AvailabilityRule = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule>(global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule.CreateFromDiscriminatorValue); } },
-                { "availability_setting", n => { AvailabilitySetting = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilitySetting>(); } },
+                { "availability_setting", n => { AvailabilitySetting = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule>("availability_rule", AvailabilityRule);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilitySetting>("availability_setting", AvailabilitySetting);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting>("availability_setting", AvailabilitySetting);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

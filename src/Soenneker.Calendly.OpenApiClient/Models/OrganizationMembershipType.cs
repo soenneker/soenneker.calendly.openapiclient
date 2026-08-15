@@ -3,13 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>Resource type (currently, this is always EventType)</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum CreateSchedulingLinkRequestOwnerType
+    #pragma warning disable CS1591
+    public enum OrganizationMembershipType
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "EventType")]
+        [EnumMember(Value = "OrganizationMembership")]
         #pragma warning disable CS1591
-        EventType,
+        OrganizationMembership,
         #pragma warning restore CS1591
     }
 }

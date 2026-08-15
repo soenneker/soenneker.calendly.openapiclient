@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
         {
         }
         /// <summary>
-        /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have &quot;Check for conflicts&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListUserBusyTimes200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have &quot;Check for conflicts&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
             return new global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have \&quot;Check for conflicts\&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// Returns an ascending list of user internal and external scheduled events within a specified date range.Date range can be no greater than 1 week (7 days).**NOTE:*** This endpoint does not support traditional keyset pagination.* External events will only be returned for calendars that have &quot;Check for conflicts&quot; configured.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class User_busy_timesRequestBuilderGetQueryParameters 

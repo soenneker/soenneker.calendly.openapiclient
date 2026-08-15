@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item
         {
         }
         /// <summary>
-        /// &quot;This will return the availability schedule of the given UUID.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// This will return the availability schedule of the given UUID.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetUserAvailabilitySchedule200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetUserAvailabilitySchedule200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetUserAvailabilitySchedule200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;This will return the availability schedule of the given UUID.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`&quot;
+        /// This will return the availability schedule of the given UUID.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

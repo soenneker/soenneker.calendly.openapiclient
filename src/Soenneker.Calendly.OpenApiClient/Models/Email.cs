@@ -21,7 +21,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Body { get; set; }
 #endif
-        /// <summary>&quot;The UTC date and time when the email message was created (format: \&quot;2020-01-02T03:04:05.678123Z\&quot;)&quot;</summary>
+        /// <summary>The UTC date and time when the email message was created (format: &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The event_type_uri property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +71,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string SenderUri { get; set; }
 #endif
-        /// <summary>&quot;The UTC date and time when the email message was sent (format: \&quot;2020-01-02T03:04:05.678123Z\&quot;)&quot;</summary>
+        /// <summary>The UTC date and time when the email message was sent (format: &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? SentAt { get; set; }
         /// <summary>The subject property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

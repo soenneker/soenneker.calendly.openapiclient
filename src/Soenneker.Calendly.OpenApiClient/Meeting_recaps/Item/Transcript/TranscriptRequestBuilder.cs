@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item.Transcript
         {
         }
         /// <summary>
-        /// &quot;Returns the transcript associated with a meeting recap if it is available.  **Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`&quot;
+        /// Returns the transcript associated with a meeting recap if it is available.  **Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetTranscriptMeetingRecaps200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Meeting_recaps.Item.Transcript
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetTranscriptMeetingRecaps200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetTranscriptMeetingRecaps200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the transcript associated with a meeting recap if it is available.  **Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`&quot;
+        /// Returns the transcript associated with a meeting recap if it is available.  **Note:**Requires paid plan&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `meeting_recaps:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

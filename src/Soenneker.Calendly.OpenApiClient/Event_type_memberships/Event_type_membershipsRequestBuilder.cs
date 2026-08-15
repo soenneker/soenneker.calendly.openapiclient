@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_memberships
         {
         }
         /// <summary>
-        /// &quot;Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
+        /// Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_memberships
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListEventTypeMemberships200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
+        /// Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_memberships
             return new global::Soenneker.Calendly.OpenApiClient.Event_type_memberships.Event_type_membershipsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`&quot;
+        /// Fetch list of event type hosts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:read`
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_type_membershipsRequestBuilderGetQueryParameters 

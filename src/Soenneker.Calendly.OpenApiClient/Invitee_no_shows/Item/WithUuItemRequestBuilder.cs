@@ -34,9 +34,8 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
         {
         }
         /// <summary>
-        /// &quot;Undoes marking an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
+        /// Undoes marking an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
@@ -44,11 +43,11 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -58,10 +57,10 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns information about a specified Invitee No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
+        /// Returns information about a specified Invitee No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetInviteeNoShow200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -88,7 +87,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetInviteeNoShow200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetInviteeNoShow200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Undoes marking an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`&quot;
+        /// Undoes marking an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -107,7 +106,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Returns information about a specified Invitee No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`&quot;
+        /// Returns information about a specified Invitee No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

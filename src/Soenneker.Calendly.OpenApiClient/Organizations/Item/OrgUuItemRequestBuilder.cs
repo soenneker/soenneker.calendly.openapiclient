@@ -40,7 +40,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item
         {
         }
         /// <summary>
-        /// &quot;Returns the details of a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Returns the details of a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the details of a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`&quot;
+        /// Returns the details of a specified Organization.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

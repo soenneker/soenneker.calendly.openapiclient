@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>Indicates that the event will be an in-person meeting.</summary>
+    /// <summary>Indicates that the event location will be selected by the invitee</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum InviteeInPersonMeetingKind
+    public enum AskInviteeKind
     {
-        [EnumMember(Value = "physical")]
+        [EnumMember(Value = "ask_invitee")]
         #pragma warning disable CS1591
-        Physical,
+        AskInvitee,
         #pragma warning restore CS1591
     }
 }

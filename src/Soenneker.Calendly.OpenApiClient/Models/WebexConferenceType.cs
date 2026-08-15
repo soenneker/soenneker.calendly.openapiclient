@@ -5,7 +5,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 {
     /// <summary>The event location is a WebEx conference</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum InviteeWebExConferenceKind
+    public enum WebexConferenceType
     {
         [EnumMember(Value = "webex_conference")]
         #pragma warning disable CS1591
