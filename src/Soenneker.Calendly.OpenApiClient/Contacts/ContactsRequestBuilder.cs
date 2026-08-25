@@ -207,7 +207,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             [QueryParameter("email")]
             public string Email { get; set; }
 #endif
-            /// <summary>Omit the listed fields from the response. Supported value is `custom_fields`. When this parameter is not provided, all fields are returned. Accepts a comma-separated list.</summary>
+            /// <summary>Omit the listed fields from the response. Currently only `custom_fields` is supported. When omitted, all fields are returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("exclude")]

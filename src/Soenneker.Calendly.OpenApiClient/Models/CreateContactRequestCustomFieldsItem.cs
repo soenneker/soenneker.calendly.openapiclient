@@ -14,6 +14,22 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Unique identifier of the custom field definition.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Uuid { get; set; }
+#nullable restore
+#else
+        public string Uuid { get; set; }
+#endif
+        /// <summary>The custom field value; the accepted type is set by the field definition&apos;s `field_type`. `text` and `single_select` take a string (`single_select` must equal one of the definition&apos;s option `uuid`s); `number` takes a number; `boolean` takes a boolean; `currency` takes an integer amount in the currency&apos;s minor units (the ISO currency code lives on the field definition, not on this entry); `date` takes a string in ISO 8601 date format (`YYYY-MM-DD`); `tags` takes an array of strings. Scalar fields reject array values, and `tags` rejects non-array values.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactRequestCustomFieldsItemValue? Value { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactRequestCustomFieldsItemValue Value { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactRequestCustomFieldsItem"/> and sets the default values.
         /// </summary>
@@ -39,6 +55,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "uuid", n => { Uuid = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactRequestCustomFieldsItemValue>(global::Soenneker.Calendly.OpenApiClient.Models.CreateContactRequestCustomFieldsItemValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,6 +66,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("uuid", Uuid);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactRequestCustomFieldsItemValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
