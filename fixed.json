@@ -6443,6 +6443,318 @@
         ]
       }
     },
+    "/contacts/custom_field_definitions": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "List Contact Custom Field Definitions",
+        "description": "Returns all custom field definitions available to the authenticated user or organization.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:read\u0060",
+        "operationId": "ListContactCustomFieldDefinitions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListContactCustomFieldDefinitions200Response"
+                },
+                "examples": {
+                  "Invitee question definition": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                          "label": "Meeting prep notes",
+                          "field_type": "invitee_question",
+                          "source": {
+                            "type": "event_type_invitee_question",
+                            "event_type_uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                            "question": "Please share anything that will help prepare for our meeting."
+                          },
+                          "created_at": "2026-06-03T20:52:43Z",
+                          "updated_at": "2026-06-03T20:52:43Z"
+                        }
+                      ]
+                    }
+                  },
+                  "Currency definition": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                          "label": "Currency Field Money",
+                          "field_type": "currency",
+                          "currency": "USD",
+                          "created_at": "2026-05-19T16:51:05.873Z",
+                          "updated_at": "2026-07-08T11:26:52.757Z"
+                        }
+                      ]
+                    }
+                  },
+                  "Single select definition": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                          "label": "Lead source",
+                          "field_type": "single_select",
+                          "options": [
+                            {
+                              "uuid": "DDDDDDDDDDDDDDDD",
+                              "label": "Website",
+                              "color": "blue-light",
+                              "is_active": true
+                            },
+                            {
+                              "uuid": "EEEEEEEEEEEEEEEE",
+                              "label": "Referral",
+                              "color": "purple-light",
+                              "is_active": true
+                            }
+                          ],
+                          "created_at": "2026-06-03T20:52:43Z",
+                          "updated_at": "2026-06-03T20:52:43Z"
+                        }
+                      ]
+                    }
+                  },
+                  "Text definition": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                          "label": "Notes",
+                          "field_type": "text",
+                          "created_at": "2026-06-03T20:52:43Z",
+                          "updated_at": "2026-06-03T20:52:43Z"
+                        }
+                      ]
+                    }
+                  },
+                  "Number definition": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                          "label": "Deal size",
+                          "field_type": "number",
+                          "created_at": "2026-06-03T20:52:43Z",
+                          "updated_at": "2026-06-03T20:52:43Z"
+                        }
+                      ]
+                    }
+                  },
+                  "Tags definition": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                          "label": "Tags",
+                          "field_type": "tags",
+                          "created_at": "2026-06-03T20:52:43Z",
+                          "updated_at": "2026-06-03T20:52:43Z"
+                        }
+                      ]
+                    }
+                  },
+                  "Date definition": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                          "label": "Renewal date",
+                          "field_type": "date",
+                          "created_at": "2026-06-03T20:52:43Z",
+                          "updated_at": "2026-06-03T20:52:43Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      }
+    },
+    "/contacts/custom_field_definitions/{uuid}": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get Contact Custom Field Definition",
+        "description": "Returns a single custom field definition by uuid.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060contacts:read\u0060",
+        "operationId": "GetContactCustomFieldDefinition",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetContactCustomFieldDefinition200Response"
+                },
+                "examples": {
+                  "Invitee question definition": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Meeting prep notes",
+                        "field_type": "invitee_question",
+                        "source": {
+                          "type": "event_type_invitee_question",
+                          "event_type_uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                          "question": "Please share anything that will help prepare for our meeting."
+                        },
+                        "created_at": "2026-06-03T20:52:43Z",
+                        "updated_at": "2026-06-03T20:52:43Z"
+                      }
+                    }
+                  },
+                  "Currency definition": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Currency Field Money",
+                        "field_type": "currency",
+                        "currency": "USD",
+                        "created_at": "2026-05-19T16:51:05.873Z",
+                        "updated_at": "2026-07-08T11:26:52.757Z"
+                      }
+                    }
+                  },
+                  "Single select definition": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Lead source",
+                        "field_type": "single_select",
+                        "options": [
+                          {
+                            "uuid": "DDDDDDDDDDDDDDDD",
+                            "label": "Website",
+                            "color": "blue-light",
+                            "is_active": true
+                          },
+                          {
+                            "uuid": "EEEEEEEEEEEEEEEE",
+                            "label": "Referral",
+                            "color": "purple-light",
+                            "is_active": true
+                          }
+                        ],
+                        "created_at": "2026-06-03T20:52:43Z",
+                        "updated_at": "2026-06-03T20:52:43Z"
+                      }
+                    }
+                  },
+                  "Text definition": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Notes",
+                        "field_type": "text",
+                        "created_at": "2026-06-03T20:52:43Z",
+                        "updated_at": "2026-06-03T20:52:43Z"
+                      }
+                    }
+                  },
+                  "Number definition": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Deal size",
+                        "field_type": "number",
+                        "created_at": "2026-06-03T20:52:43Z",
+                        "updated_at": "2026-06-03T20:52:43Z"
+                      }
+                    }
+                  },
+                  "Tags definition": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Tags",
+                        "field_type": "tags",
+                        "created_at": "2026-06-03T20:52:43Z",
+                        "updated_at": "2026-06-03T20:52:43Z"
+                      }
+                    }
+                  },
+                  "Date definition": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Renewal date",
+                        "field_type": "date",
+                        "created_at": "2026-06-03T20:52:43Z",
+                        "updated_at": "2026-06-03T20:52:43Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
     "/contacts/{uuid}": {
       "get": {
         "tags": [
@@ -10739,10 +11051,9 @@
           "custom_fields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ContactCustomFieldsItemProperty"
+              "$ref": "#/components/schemas/ContactCustomField"
             },
-            "description": "The contact\u0027s custom field values.",
-            "x-fern-ignore": true
+            "description": "The contact\u0027s custom field values."
           },
           "created_at": {
             "type": "string",
@@ -10932,6 +11243,152 @@
         "additionalProperties": false,
         "description": "V2 webhook payload for \u0060meeting_recap.deleted\u0060",
         "x-internal": false
+      },
+      "ContactCustomFieldOption": {
+        "title": "Contact Custom Field Option",
+        "required": [
+          "uuid",
+          "label",
+          "is_active"
+        ],
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "description": "Unique identifier for the option. Used in Contact \u0060custom_fields\u0060 entries when \u0060field_type\u0060 is \u0060single_select\u0060.",
+            "example": "DDDDDDDDDDDDDDDD"
+          },
+          "label": {
+            "type": "string",
+            "description": "User-facing display label for the option.",
+            "example": "Website"
+          },
+          "color": {
+            "type": "string",
+            "description": "Display color for the option.",
+            "example": "blue-light"
+          },
+          "is_active": {
+            "type": "boolean",
+            "description": "Whether the option is active and selectable.",
+            "example": true
+          }
+        },
+        "x-tags": [
+          "Contacts"
+        ]
+      },
+      "ContactCustomFieldSource": {
+        "title": "Contact Custom Field Source",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventTypeInviteeQuestionType"
+          },
+          "event_type_uri": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
+          },
+          "question": {
+            "type": "string",
+            "example": "Please share anything that will help prepare for our meeting."
+          }
+        },
+        "description": "Source metadata for system-generated fields, such as invitee questions.",
+        "x-tags": [
+          "Contacts"
+        ]
+      },
+      "ContactCustomField": {
+        "title": "Contact Custom Field",
+        "required": [
+          "uri",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical URI of the custom field definition this value belongs to.",
+            "format": "uri",
+            "example": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC"
+          },
+          "label": {
+            "type": "string",
+            "description": "User-facing display name of the custom field (for readability).",
+            "readOnly": true,
+            "example": "Lead source"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ContactCustomFieldValue"
+          }
+        },
+        "description": "A custom field value on a Contact. \u0060uri\u0060 is the custom field definition URI. \u0060label\u0060 is derived from the custom field definition\u0027s name.",
+        "x-tags": [
+          "Contacts"
+        ]
+      },
+      "ContactCustomFieldDefinition": {
+        "title": "Contact Custom Field Definition",
+        "required": [
+          "uri",
+          "label",
+          "field_type",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical URI of the custom field definition.",
+            "format": "uri",
+            "example": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC"
+          },
+          "label": {
+            "type": "string",
+            "description": "User-facing display name.",
+            "example": "Lead source"
+          },
+          "field_type": {
+            "$ref": "#/components/schemas/ContactCustomFieldDefinitionFieldType"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactCustomFieldOption"
+            },
+            "description": "Allowed options for \u0060single_select\u0060 fields. Returned in configured display order."
+          },
+          "currency": {
+            "type": "string",
+            "description": "ISO currency code for currency fields, if applicable.",
+            "example": "USD"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ContactCustomFieldDefinitionSource"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Creation timestamp.",
+            "format": "date-time",
+            "example": "2026-06-03T20:52:43Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Last update timestamp.",
+            "format": "date-time",
+            "example": "2026-06-03T20:52:43Z"
+          }
+        },
+        "description": "A custom field definition describes the schema for a field that can be applied to Contacts.",
+        "x-tags": [
+          "Contacts"
+        ]
       },
       "ContactsError": {
         "title": "ContactsError",
@@ -13920,6 +14377,55 @@
           }
         }
       },
+      "ContactCustomFieldValue": {
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string",
+            "example": "event"
+          },
+          {
+            "type": "number",
+            "example": 8500000
+          },
+          {
+            "type": "boolean",
+            "example": true
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "enterprise",
+              "strategic"
+            ]
+          }
+        ],
+        "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes an integer amount in the currency\u0027s minor units (the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
+      },
+      "ContactCustomFieldDefinitionSource": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventTypeInviteeQuestionType"
+          },
+          "event_type_uri": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
+          },
+          "question": {
+            "type": "string",
+            "example": "Please share anything that will help prepare for our meeting."
+          }
+        },
+        "description": "Source metadata for system-generated fields. Present when \u0060field_type\u0060 is \u0060invitee_question\u0060."
+      },
       "ZoomConferenceDataId": {
         "type": "object",
         "oneOf": [
@@ -14624,11 +15130,6 @@
           }
         }
       },
-      "ContactCustomFieldsItem": {
-        "type": "object",
-        "x-sl-internally-excluded": true,
-        "x-sl-error-message": "You do not have permission to view this reference"
-      },
       "ContactCreatedWebhookPayloadContact": {
         "required": [
           "uri",
@@ -14721,10 +15222,9 @@
           "custom_fields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ContactCreatedWebhookPayloadContactCustomFieldsItemProperty"
+              "$ref": "#/components/schemas/ContactCustomField"
             },
-            "description": "Custom field values",
-            "x-fern-ignore": true
+            "description": "Custom field values"
           },
           "created_at": {
             "type": "string",
@@ -14863,10 +15363,9 @@
           "custom_fields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ContactUpdatedWebhookPayloadContactCustomFieldsItemProperty"
+              "$ref": "#/components/schemas/ContactCustomField"
             },
-            "description": "Custom field values",
-            "x-fern-ignore": true
+            "description": "Custom field values"
           },
           "created_at": {
             "type": "string",
@@ -15401,16 +15900,6 @@
             "example": "America/New_York"
           }
         }
-      },
-      "ContactCreatedWebhookPayloadContactCustomFieldsItem": {
-        "type": "object",
-        "x-sl-internally-excluded": true,
-        "x-sl-error-message": "You do not have permission to view this reference"
-      },
-      "ContactUpdatedWebhookPayloadContactCustomFieldsItem": {
-        "type": "object",
-        "x-sl-internally-excluded": true,
-        "x-sl-error-message": "You do not have permission to view this reference"
       },
       "MeetingRecapCreatedWebhookPayloadEventAttendeesItem": {
         "required": [
@@ -16501,8 +16990,7 @@
             "items": {
               "$ref": "#/components/schemas/CreateContactRequestCustomFieldsItem"
             },
-            "description": "Custom field values to set on the contact.",
-            "x-fern-ignore": true
+            "description": "Custom field values to set on the contact."
           }
         }
       },
@@ -16586,8 +17074,7 @@
             "items": {
               "$ref": "#/components/schemas/PatchContactsUuidRequestCustomFieldsItem"
             },
-            "description": "Custom field values to set on the contact.",
-            "x-fern-ignore": true
+            "description": "Custom field values to set on the contact."
           }
         }
       },
@@ -17035,6 +17522,34 @@
           }
         }
       },
+      "ListContactCustomFieldDefinitions200Response": {
+        "required": [
+          "collection"
+        ],
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactCustomFieldDefinition"
+            },
+            "x-stoplight": {
+              "id": "k8m2p4n6q1r3s"
+            }
+          }
+        }
+      },
+      "GetContactCustomFieldDefinition200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ContactCustomFieldDefinition"
+          }
+        }
+      },
       "GetContact200Response": {
         "required": [
           "resource"
@@ -17447,16 +17962,7 @@
           "id": "w2455rcn8o8yn"
         }
       },
-      "ContactCustomFieldsItemProperty": {
-        "type": "object"
-      },
       "EntryDetailsProperty": {
-        "type": "object"
-      },
-      "ContactCreatedWebhookPayloadContactCustomFieldsItemProperty": {
-        "type": "object"
-      },
-      "ContactUpdatedWebhookPayloadContactCustomFieldsItemProperty": {
         "type": "object"
       },
       "PostInviteeRequestInvitee": {
@@ -19273,6 +19779,72 @@
             {
               "value": "zoom_conference",
               "name": "ZoomConference"
+            }
+          ]
+        }
+      },
+      "EventTypeInviteeQuestionType": {
+        "enum": [
+          "event_type_invitee_question"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "EventTypeInviteeQuestionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "event_type_invitee_question",
+              "name": "EventTypeInviteeQuestion"
+            }
+          ]
+        }
+      },
+      "ContactCustomFieldDefinitionFieldType": {
+        "enum": [
+          "text",
+          "number",
+          "currency",
+          "tags",
+          "date",
+          "single_select",
+          "invitee_question"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Calendly custom field kind, which determines both input behavior and the expected value type.",
+        "example": "single_select",
+        "x-ms-enum": {
+          "name": "ContactCustomFieldDefinitionFieldType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "text",
+              "name": "Text"
+            },
+            {
+              "value": "number",
+              "name": "Number"
+            },
+            {
+              "value": "currency",
+              "name": "Currency"
+            },
+            {
+              "value": "tags",
+              "name": "Tags"
+            },
+            {
+              "value": "date",
+              "name": "Date"
+            },
+            {
+              "value": "single_select",
+              "name": "SingleSelect"
+            },
+            {
+              "value": "invitee_question",
+              "name": "InviteeQuestion"
             }
           ]
         }

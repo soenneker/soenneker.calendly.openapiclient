@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Calendly.OpenApiClient.Contacts.Custom_field_definitions;
 using Soenneker.Calendly.OpenApiClient.Contacts.Item;
 using Soenneker.Calendly.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -18,6 +19,11 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ContactsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The custom_field_definitions property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Contacts.Custom_field_definitions.Custom_field_definitionsRequestBuilder Custom_field_definitions
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Contacts.Custom_field_definitions.Custom_field_definitionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Calendly.OpenApiClient.contacts.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder"/></returns>
