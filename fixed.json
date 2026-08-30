@@ -17771,7 +17771,6 @@
         }
       },
       "GetOutgoingCommunications200ResponseCollectionItem": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/Sms"
@@ -17877,7 +17876,6 @@
         }
       },
       "ListEventTypeMemberships200ResponseCollectionItemAllOf1Member": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/User"
