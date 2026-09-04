@@ -96,36 +96,52 @@ namespace Soenneker.Calendly.OpenApiClient.Sample_webhook_data
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Sample_webhook_dataRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("event")]
             public global::Soenneker.Calendly.OpenApiClient.Models.GetSampleWebhookDataEventParameter? Event { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("group")]
             public string? Group { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("group")]
             public string Group { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("organization")]
             public string? Organization { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("organization")]
             public string Organization { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("scope")]
             public global::Soenneker.Calendly.OpenApiClient.Models.GetSampleWebhookDataScopeParameter? Scope { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("user")]
             public string? User { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("user")]
             public string User { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }
