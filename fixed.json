@@ -13563,6 +13563,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -13609,6 +13613,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -13715,6 +13723,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -13741,6 +13753,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -13807,6 +13823,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -13853,6 +13873,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -13879,6 +13903,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -13905,6 +13933,10 @@
               "pattern": "^[a-z_]\u002B:(read|write)$",
               "type": "string"
             }
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
@@ -18416,7 +18448,7 @@
           "values": [
             {
               "value": "You already sent all the invitations you\u0027re allotted based upon the number of seats purchased with your account. Please purchase more seats to send more invitations.",
-              "name": "YouAlreadySentAllTheInvitationsYouApostropheReAllottedBasedUponTheNumberOfSeatsPurchasedWithYourAccountPleasePurchaseMoreSeatsToSendMoreInvitationsDot"
+              "name": "Value12735BECB5CFE475"
             },
             {
               "value": "You already sent all the invitations allotted to you with a trial account.",
