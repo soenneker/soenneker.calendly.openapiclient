@@ -646,7 +646,11 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false,
+        "x-stoplight": {
+          "id": "nuowpx7qfagsc"
+        }
       }
     },
     "/users/{uuid}": {
@@ -1028,7 +1032,11 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "p3ghrxrwbl8kqe"
+        },
+        "x-internal": false
       }
     },
     "/scheduled_events/{uuid}": {
@@ -1334,7 +1342,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       },
       "parameters": [
         {
@@ -2837,7 +2846,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/group_relationships": {
@@ -3118,7 +3128,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/organizations/{uuid}": {
@@ -3163,7 +3174,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       },
       "parameters": [
         {
@@ -3582,7 +3594,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/routing_form_submissions/{uuid}": {
@@ -4141,7 +4154,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/user_busy_times": {
@@ -4280,7 +4294,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/user_availability_schedules": {
@@ -4427,7 +4442,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/user_availability_schedules/{uuid}": {
@@ -4498,7 +4514,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       },
       "parameters": [
         {
@@ -4579,7 +4596,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/event_type_memberships": {
@@ -4731,7 +4749,8 @@
           {
             "oauth2": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/one_off_event_types": {
@@ -4984,7 +5003,11 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "v1yuxil3cpmxq"
+        },
+        "x-internal": false
       }
     },
     "/sample_webhook_data": {
@@ -5075,7 +5098,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/outgoing_communications": {
@@ -5169,7 +5193,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/groups": {
@@ -5231,7 +5256,10 @@
             "oauth2": [],
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "6rb6dtdln74sy"
+        }
       }
     },
     "/locations": {
@@ -5332,7 +5360,8 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false
       }
     },
     "/event_type_availability_schedules": {
@@ -5428,7 +5457,11 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false,
+        "x-stoplight": {
+          "id": "fc0784i5uemm2"
+        }
       },
       "patch": {
         "tags": [
@@ -5788,7 +5821,11 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-internal": false,
+        "x-stoplight": {
+          "id": "twl2b8iuml1nz"
+        }
       }
     },
     "/meeting_recaps": {
@@ -6384,7 +6421,10 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "z5ggu6171q8qo"
+        }
       },
       "post": {
         "tags": [
@@ -6440,7 +6480,10 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "4owerxsv1r7dj"
+        }
       }
     },
     "/contacts/custom_field_definitions": {
@@ -6598,7 +6641,10 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "t7h5j9k2m4n6p"
+        }
       }
     },
     "/contacts/custom_field_definitions/{uuid}": {
@@ -6742,7 +6788,10 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "g3t9c5f1k7m2p"
+        }
       },
       "parameters": [
         {
@@ -6808,7 +6857,10 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "x1h7ct2jis0pr"
+        }
       },
       "patch": {
         "tags": [
@@ -6864,7 +6916,10 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "p289nfpx66wf3"
+        }
       },
       "delete": {
         "tags": [
@@ -6900,7 +6955,10 @@
           {
             "personal_access_token": []
           }
-        ]
+        ],
+        "x-stoplight": {
+          "id": "zfx3poyaef1d3"
+        }
       },
       "parameters": [
         {
