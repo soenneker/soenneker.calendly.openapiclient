@@ -84,6 +84,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreatewebhooksRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -101,6 +102,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks409Response.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.Createwebhooks201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

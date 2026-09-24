@@ -2222,6 +2222,9 @@
                 }
               }
             }
+          },
+          "503": {
+            "$ref": "#/components/responses/UNKNOWN"
           }
         },
         "security": [
