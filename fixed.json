@@ -6095,7 +6095,7 @@
                         "action_items_md": "- Create Jira epic\n- Notify stakeholders",
                         "discussion_md": "The discussion covered various topics.",
                         "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
-                        "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+                        "share_link": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB"
                       }
                     }
                   }
@@ -6194,7 +6194,7 @@
                         "action_items_md": "- Create Jira epic\n- Notify stakeholders",
                         "discussion_md": "Create Jira epic. Notify stakeholders.",
                         "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
-                        "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+                        "share_link": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB"
                       }
                     }
                   }
@@ -7550,7 +7550,7 @@
             "description": "Public URL for sharing the meeting recap",
             "format": "uri",
             "nullable": true,
-            "example": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738",
+            "example": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB",
             "x-stoplight": {
               "id": "dchdbrwzb54cu"
             }
@@ -10008,7 +10008,7 @@
                 "action_items_md": "- Send follow-up notes\n- Create project board",
                 "discussion_md": "Reviewed roadmap tradeoffs and dependencies.",
                 "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
-                "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738",
+                "share_link": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB",
                 "created_at": "2025-01-15T18:01:09Z",
                 "updated_at": "2025-01-15T18:01:09Z"
               }
@@ -10047,7 +10047,7 @@
                 "action_items_md": "- Create Jira epic",
                 "discussion_md": "Shortened notes",
                 "transcript": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB/transcript",
-                "share_link": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738",
+                "share_link": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB",
                 "created_at": "2025-01-15T18:01:09Z",
                 "updated_at": "2025-01-15T18:05:00Z"
               }
@@ -15597,7 +15597,7 @@
             "type": "string",
             "description": "Share link for the meeting recap",
             "format": "uri",
-            "example": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+            "example": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB"
           },
           "created_at": {
             "type": "string",
@@ -15684,7 +15684,7 @@
             "type": "string",
             "description": "Share link for the meeting recap",
             "format": "uri",
-            "example": "https://calendly.com/s/meetings/320da85f-b2b2-45fc-a092-02a26b5a4738"
+            "example": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB"
           },
           "created_at": {
             "type": "string",
