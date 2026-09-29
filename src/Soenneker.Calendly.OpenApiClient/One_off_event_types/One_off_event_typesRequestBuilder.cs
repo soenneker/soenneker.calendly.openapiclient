@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.One_off_event_types
         {
         }
         /// <summary>
-        /// Creates One-Off Event Type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
+        /// Creates One-Off Event Type&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `event_types:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventType201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.One_off_event_types
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventType201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventType201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates One-Off Event Type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `event_types:write`
+        /// Creates One-Off Event Type&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `event_types:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

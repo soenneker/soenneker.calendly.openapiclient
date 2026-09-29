@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
         {
         }
         /// <summary>
-        /// Returns a list of Invitees for an event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
+        /// Returns a list of Invitees for an event.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListEventInvitees200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of Invitees for an event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
+        /// Returns a list of Invitees for an event.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
             return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.InviteesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of Invitees for an event.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
+        /// Returns a list of Invitees for an event.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InviteesRequestBuilderGetQueryParameters 

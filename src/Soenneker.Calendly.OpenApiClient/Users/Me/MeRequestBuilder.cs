@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Calendly.OpenApiClient.Models;
+using Soenneker.Calendly.OpenApiClient.Users.Me.Deletion;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.Calendly.OpenApiClient.Users.Me
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MeRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The deletion property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Users.Me.Deletion.DeletionRequestBuilder Deletion
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Users.Me.Deletion.DeletionRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Users.Me.MeRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -34,7 +40,7 @@ namespace Soenneker.Calendly.OpenApiClient.Users.Me
         {
         }
         /// <summary>
-        /// Returns basic information about your user account.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `users:read`
+        /// Returns basic information about your user account.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `users:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetCurrentUser200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +67,7 @@ namespace Soenneker.Calendly.OpenApiClient.Users.Me
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetCurrentUser200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetCurrentUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns basic information about your user account.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `users:read`
+        /// Returns basic information about your user account.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `users:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Calendly.OpenApiClient.Models;
+using Soenneker.Calendly.OpenApiClient.Shares.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,18 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SharesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Soenneker.Calendly.OpenApiClient.shares.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Shares.Item.WithUuItemRequestBuilder"/></returns>
+        public global::Soenneker.Calendly.OpenApiClient.Shares.Item.WithUuItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("uuid", position);
+                return new global::Soenneker.Calendly.OpenApiClient.Shares.Item.WithUuItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -34,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
         {
         }
         /// <summary>
-        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
+        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateShare201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -63,7 +76,7 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateShare201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateShare201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `shares:write`
+        /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

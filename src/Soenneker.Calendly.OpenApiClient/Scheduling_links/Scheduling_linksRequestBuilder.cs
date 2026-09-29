@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduling_links
         {
         }
         /// <summary>
-        /// Creates a single-use scheduling link.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduling_links:write`
+        /// Creates a single-use scheduling link.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduling_links:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLink201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduling_links
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLink201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLink201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a single-use scheduling link.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduling_links:write`
+        /// Creates a single-use scheduling link.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduling_links:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

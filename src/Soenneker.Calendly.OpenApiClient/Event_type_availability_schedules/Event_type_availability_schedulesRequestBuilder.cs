@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
         {
         }
         /// <summary>
-        /// Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// Return the availability for an event type&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`
+        /// Update an event type availability schedule&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -94,7 +94,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// Return the availability for an event type&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return requestInfo;
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`
+        /// Update an event type availability schedule&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -144,7 +144,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return new global::Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules.Event_type_availability_schedulesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Return the availability for an event type&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:read`
+        /// Return the availability for an event type&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:read`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_type_availability_schedulesRequestBuilderGetQueryParameters 
@@ -161,7 +161,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
 #endif
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `availability:write`
+        /// Update an event type availability schedule&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_type_availability_schedulesRequestBuilderPatchQueryParameters 

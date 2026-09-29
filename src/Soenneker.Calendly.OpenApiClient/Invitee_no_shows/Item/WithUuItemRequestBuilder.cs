@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
         {
         }
         /// <summary>
-        /// Undoes marking an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
+        /// Undoes marking an Invitee as a No Show.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:write`&lt;/Info&gt;
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,7 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns information about a specified Invitee No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
+        /// Returns information about a specified Invitee No Show.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetInviteeNoShow200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -87,7 +87,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetInviteeNoShow200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetInviteeNoShow200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Undoes marking an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
+        /// Undoes marking an Invitee as a No Show.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +106,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns information about a specified Invitee No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
+        /// Returns information about a specified Invitee No Show.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

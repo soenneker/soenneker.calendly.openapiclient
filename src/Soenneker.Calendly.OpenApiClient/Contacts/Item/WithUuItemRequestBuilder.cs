@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         {
         }
         /// <summary>
-        /// Delete an existing Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
+        /// Delete an existing Contact&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -62,7 +62,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the details of a specified Contact.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns the details of a specified Contact.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an existing Contact. The body must include at least one supported field; unknown top-level properties are rejected.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
+        /// Update an existing Contact. The body must include at least one supported field; unknown top-level properties are rejected.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -124,7 +124,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an existing Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
+        /// Delete an existing Contact&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +143,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns the details of a specified Contact.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns the details of a specified Contact.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -162,7 +162,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
             return requestInfo;
         }
         /// <summary>
-        /// Update an existing Contact. The body must include at least one supported field; unknown top-level properties are rejected.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
+        /// Update an existing Contact. The body must include at least one supported field; unknown top-level properties are rejected.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -193,7 +193,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
             return new global::Soenneker.Calendly.OpenApiClient.Contacts.Item.WithUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the details of a specified Contact.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns the details of a specified Contact.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithUuItemRequestBuilderGetQueryParameters 

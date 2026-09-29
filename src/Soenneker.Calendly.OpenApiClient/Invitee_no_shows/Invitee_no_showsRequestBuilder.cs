@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows
         {
         }
         /// <summary>
-        /// Marks an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
+        /// Marks an Invitee as a No Show.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateInviteeNoShow201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -78,7 +78,7 @@ namespace Soenneker.Calendly.OpenApiClient.Invitee_no_shows
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateInviteeNoShow201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateInviteeNoShow201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Marks an Invitee as a No Show.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:write`
+        /// Marks an Invitee as a No Show.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

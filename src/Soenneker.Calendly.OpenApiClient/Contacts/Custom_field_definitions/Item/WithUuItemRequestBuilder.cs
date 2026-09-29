@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Custom_field_definitions.Ite
         {
         }
         /// <summary>
-        /// Returns a single custom field definition by uuid.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns a single custom field definition by uuid.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetContactCustomFieldDefinition200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Custom_field_definitions.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetContactCustomFieldDefinition200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetContactCustomFieldDefinition200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a single custom field definition by uuid.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns a single custom field definition by uuid.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

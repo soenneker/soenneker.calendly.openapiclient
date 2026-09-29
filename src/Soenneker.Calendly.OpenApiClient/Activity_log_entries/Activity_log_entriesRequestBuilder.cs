@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Activity_log_entries
         {
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `activity_log:read`Returns a list of activity log entries
+        /// &lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `activity_log:read`&lt;/Info&gt;Returns a list of activity log entries
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.Activity_log_entries
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `activity_log:read`Returns a list of activity log entries
+        /// &lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `activity_log:read`&lt;/Info&gt;Returns a list of activity log entries
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.Activity_log_entries
             return new global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `activity_log:read`Returns a list of activity log entries
+        /// &lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `activity_log:read`&lt;/Info&gt;Returns a list of activity log entries
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Activity_log_entriesRequestBuilderGetQueryParameters 

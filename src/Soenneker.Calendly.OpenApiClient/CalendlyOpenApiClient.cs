@@ -7,6 +7,7 @@ using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.Calendly.OpenApiClient.Activity_log_entries;
+using Soenneker.Calendly.OpenApiClient.Calendar_events;
 using Soenneker.Calendly.OpenApiClient.Contacts;
 using Soenneker.Calendly.OpenApiClient.Data_compliance;
 using Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules;
@@ -15,6 +16,7 @@ using Soenneker.Calendly.OpenApiClient.Event_type_memberships;
 using Soenneker.Calendly.OpenApiClient.Event_types;
 using Soenneker.Calendly.OpenApiClient.Group_relationships;
 using Soenneker.Calendly.OpenApiClient.Groups;
+using Soenneker.Calendly.OpenApiClient.Holidays;
 using Soenneker.Calendly.OpenApiClient.Invitee_no_shows;
 using Soenneker.Calendly.OpenApiClient.Invitees;
 using Soenneker.Calendly.OpenApiClient.Locations;
@@ -23,14 +25,22 @@ using Soenneker.Calendly.OpenApiClient.One_off_event_types;
 using Soenneker.Calendly.OpenApiClient.Organization_memberships;
 using Soenneker.Calendly.OpenApiClient.Organizations;
 using Soenneker.Calendly.OpenApiClient.Outgoing_communications;
+using Soenneker.Calendly.OpenApiClient.Poll_invitees;
+using Soenneker.Calendly.OpenApiClient.Polls;
+using Soenneker.Calendly.OpenApiClient.Recent_invitees;
+using Soenneker.Calendly.OpenApiClient.Reserved_events;
 using Soenneker.Calendly.OpenApiClient.Routing_form_submissions;
 using Soenneker.Calendly.OpenApiClient.Routing_forms;
 using Soenneker.Calendly.OpenApiClient.Sample_webhook_data;
 using Soenneker.Calendly.OpenApiClient.Scheduled_events;
 using Soenneker.Calendly.OpenApiClient.Scheduling_links;
 using Soenneker.Calendly.OpenApiClient.Shares;
+using Soenneker.Calendly.OpenApiClient.Subscriptions;
+using Soenneker.Calendly.OpenApiClient.Super_admin_roles;
+using Soenneker.Calendly.OpenApiClient.Trials;
 using Soenneker.Calendly.OpenApiClient.User_availability_schedules;
 using Soenneker.Calendly.OpenApiClient.User_busy_times;
+using Soenneker.Calendly.OpenApiClient.User_holiday_sets;
 using Soenneker.Calendly.OpenApiClient.Users;
 using Soenneker.Calendly.OpenApiClient.Webhook_subscriptions;
 using System.Collections.Generic;
@@ -49,6 +59,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder Activity_log_entries
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Activity_log_entries.Activity_log_entriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The calendar_events property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Calendar_events.Calendar_eventsRequestBuilder Calendar_events
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Calendar_events.Calendar_eventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The contacts property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder Contacts
@@ -90,6 +105,11 @@ namespace Soenneker.Calendly.OpenApiClient
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Groups.GroupsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The holidays property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Holidays.HolidaysRequestBuilder Holidays
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Holidays.HolidaysRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The invitee_no_shows property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Invitee_no_shows.Invitee_no_showsRequestBuilder Invitee_no_shows
         {
@@ -130,6 +150,26 @@ namespace Soenneker.Calendly.OpenApiClient
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The poll_invitees property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Poll_invitees.Poll_inviteesRequestBuilder Poll_invitees
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Poll_invitees.Poll_inviteesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The polls property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Polls.PollsRequestBuilder Polls
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Polls.PollsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The recent_invitees property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Recent_invitees.Recent_inviteesRequestBuilder Recent_invitees
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Recent_invitees.Recent_inviteesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The reserved_events property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Reserved_events.Reserved_eventsRequestBuilder Reserved_events
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Reserved_events.Reserved_eventsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The routing_form_submissions property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Routing_form_submissions.Routing_form_submissionsRequestBuilder Routing_form_submissions
         {
@@ -160,6 +200,21 @@ namespace Soenneker.Calendly.OpenApiClient
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The subscriptions property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Subscriptions.SubscriptionsRequestBuilder Subscriptions
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Subscriptions.SubscriptionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The super_admin_roles property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Super_admin_roles.Super_admin_rolesRequestBuilder Super_admin_roles
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Super_admin_roles.Super_admin_rolesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The trials property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Trials.TrialsRequestBuilder Trials
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Trials.TrialsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The user_availability_schedules property</summary>
         public global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesRequestBuilder User_availability_schedules
         {
@@ -169,6 +224,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder User_busy_times
         {
             get => new global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The user_holiday_sets property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.User_holiday_sets.User_holiday_setsRequestBuilder User_holiday_sets
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.User_holiday_sets.User_holiday_setsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The users property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Users.UsersRequestBuilder Users

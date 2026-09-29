@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item
         {
         }
         /// <summary>
-        /// Delete a Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:write`
+        /// Delete a Webhook Subscription.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `webhooks:write`&lt;/Info&gt;
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -60,7 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get a specified Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`
+        /// Get a specified Webhook Subscription.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `webhooks:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetWebhookSubscription200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetWebhookSubscription200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetWebhookSubscription200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete a Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:write`
+        /// Delete a Webhook Subscription.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `webhooks:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,7 +104,7 @@ namespace Soenneker.Calendly.OpenApiClient.Webhook_subscriptions.Item
             return requestInfo;
         }
         /// <summary>
-        /// Get a specified Webhook Subscription.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `webhooks:read`
+        /// Get a specified Webhook Subscription.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `webhooks:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

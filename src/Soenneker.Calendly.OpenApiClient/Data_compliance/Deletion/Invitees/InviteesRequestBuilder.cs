@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees
         {
         }
         /// <summary>
-        /// To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`
+        /// To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `data_compliance:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DeleteInviteeData202ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Invitees
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.DeleteInviteeData202ResponseSchema>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.DeleteInviteeData202ResponseSchema.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `data_compliance:write`
+        /// To submit a request to remove invitee data from all previously booked events in your organization, use this endpoint. Requests for data deletion can take up to 7 days to complete.&lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `data_compliance:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

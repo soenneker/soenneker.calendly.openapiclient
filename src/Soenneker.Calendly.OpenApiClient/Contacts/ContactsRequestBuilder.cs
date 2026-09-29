@@ -53,7 +53,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         {
         }
         /// <summary>
-        /// Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns a collection of Contacts&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
+        /// Create a new Contact&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response"/></returns>
         /// <param name="body">The request body</param>
@@ -115,7 +115,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns a collection of Contacts&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -134,7 +134,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return requestInfo;
         }
         /// <summary>
-        /// Create a new Contact&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:write`
+        /// Create a new Contact&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -165,7 +165,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return new global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a collection of Contacts&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `contacts:read`
+        /// Returns a collection of Contacts&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ContactsRequestBuilderGetQueryParameters 

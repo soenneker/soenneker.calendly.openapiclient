@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item
         {
         }
         /// <summary>
-        /// Returns information about a specified Invitee (person invited to an event).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
+        /// Returns information about a specified Invitee (person invited to an event).&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEventInvitees200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEventInvitees200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEventInvitees200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns information about a specified Invitee (person invited to an event).&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `scheduled_events:read`
+        /// Returns information about a specified Invitee (person invited to an event).&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -8,19 +8,11 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventTypeRequestDateSettingMember1"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DateRange"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DaysInFuture"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DateRange"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DaysInFuture"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Spots"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateOneOffEventTypeRequestDateSetting : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventTypeRequestDateSettingMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventTypeRequestDateSettingMember1? CreateOneOffEventTypeRequestDateSettingMember1 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventTypeRequestDateSettingMember1 CreateOneOffEventTypeRequestDateSettingMember1 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DateRange"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,6 +28,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Calendly.OpenApiClient.Models.DaysInFuture DaysInFuture { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.Spots"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Calendly.OpenApiClient.Models.Spots? Spots { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.Spots Spots { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,6 +55,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 result.DaysInFuture = new global::Soenneker.Calendly.OpenApiClient.Models.DaysInFuture();
             }
+            else if("Spots".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Spots = new global::Soenneker.Calendly.OpenApiClient.Models.Spots();
+            }
             return result;
         }
         /// <summary>
@@ -63,17 +67,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateOneOffEventTypeRequestDateSettingMember1 != null)
-            {
-                return CreateOneOffEventTypeRequestDateSettingMember1.GetFieldDeserializers();
-            }
-            else if(DateRange != null)
+            if(DateRange != null)
             {
                 return DateRange.GetFieldDeserializers();
             }
             else if(DaysInFuture != null)
             {
                 return DaysInFuture.GetFieldDeserializers();
+            }
+            else if(Spots != null)
+            {
+                return Spots.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -84,17 +88,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateOneOffEventTypeRequestDateSettingMember1 != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventTypeRequestDateSettingMember1>(null, CreateOneOffEventTypeRequestDateSettingMember1);
-            }
-            else if(DateRange != null)
+            if(DateRange != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.DateRange>(null, DateRange);
             }
             else if(DaysInFuture != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.DaysInFuture>(null, DaysInFuture);
+            }
+            else if(Spots != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Spots>(null, Spots);
             }
         }
     }

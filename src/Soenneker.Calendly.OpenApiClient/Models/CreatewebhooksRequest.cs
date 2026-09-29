@@ -40,7 +40,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>Indicates whether the webhook subscription scope is `organization`, `user`, or `group`</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.CreatewebhooksRequestScope? Scope { get; set; }
-        /// <summary>Optional secret key shared between your application and Calendly. See https://developer.calendly.com/api-docs/ZG9jOjM2MzE2MDM4-webhook-signatures for additional information.</summary>
+        /// <summary>Optional secret key shared between your application and Calendly. See https://developer.calendly.com/api-docs/overview/webhooks/webhook-signatures for additional information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SigningKey { get; set; }

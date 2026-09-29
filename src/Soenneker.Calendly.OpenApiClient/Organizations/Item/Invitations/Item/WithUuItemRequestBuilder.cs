@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.Item
         {
         }
         /// <summary>
-        /// Use this to revoke an Organization Invitation to an organization. Once revoked, the invitation link that was sent to the invitee is no longer valid.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
+        /// Use this to revoke an Organization Invitation to an organization. Once revoked, the invitation link that was sent to the invitee is no longer valid.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:write`&lt;/Info&gt;
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -62,7 +62,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.Item
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns an Organization Invitation that was sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// Returns an Organization Invitation that was sent to the organization&apos;s members.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOrganizationInvitation200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -91,7 +91,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOrganizationInvitation200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOrganizationInvitation200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Use this to revoke an Organization Invitation to an organization. Once revoked, the invitation link that was sent to the invitee is no longer valid.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:write`
+        /// Use this to revoke an Organization Invitation to an organization. Once revoked, the invitation link that was sent to the invitee is no longer valid.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.Item
             return requestInfo;
         }
         /// <summary>
-        /// Returns an Organization Invitation that was sent to the organization&apos;s members.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// Returns an Organization Invitation that was sent to the organization&apos;s members.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

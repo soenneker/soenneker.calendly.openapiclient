@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
         {
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
+        /// &lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `outgoing_communications:read`&lt;/Info&gt;Returns a list of outgoing SMS and email communications.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
+        /// &lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `outgoing_communications:read`&lt;/Info&gt;Returns a list of outgoing SMS and email communications.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.Outgoing_communications
             return new global::Soenneker.Calendly.OpenApiClient.Outgoing_communications.Outgoing_communicationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &lt;!-- theme: info --&gt;  &gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.  &gt;  &gt; #### Required scopes: `outgoing_communications:read`Returns a list of outgoing SMS and email communications.
+        /// &lt;Info&gt;&gt; This endpoint requires an &lt;strong&gt;Enterprise&lt;/strong&gt; subscription.&lt;/Info&gt;&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `outgoing_communications:read`&lt;/Info&gt;Returns a list of outgoing SMS and email communications.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Outgoing_communicationsRequestBuilderGetQueryParameters 
