@@ -31,7 +31,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string DiscussionMd { get; set; }
 #endif
-        /// <summary>Share link for the meeting recap</summary>
+        /// <summary>URL for sharing this meeting recap with others. Access is determined by the recap’s sharing settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShareLink { get; set; }

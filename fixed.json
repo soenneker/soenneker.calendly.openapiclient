@@ -6932,6 +6932,7 @@
                       "collection": [
                         {
                           "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                          "app_url": "https://calendly.com/app/tracked_meetings/BBBBBBBBBBBBBBBB",
                           "event": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                           "status": "available",
                           "name": "Weekly Sync",
@@ -6959,6 +6960,7 @@
                         },
                         {
                           "uri": "https://api.calendly.com/meeting_recaps/CCCCCCCCCCCCCCCC",
+                          "app_url": "https://calendly.com/app/tracked_meetings/CCCCCCCCCCCCCCCC",
                           "event": null,
                           "status": "available",
                           "name": "External standup",
@@ -7091,6 +7093,7 @@
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                        "app_url": "https://calendly.com/app/tracked_meetings/BBBBBBBBBBBBBBBB",
                         "event": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                         "status": "Available",
                         "name": "Weekly Sync",
@@ -7190,6 +7193,7 @@
                     "value": {
                       "resource": {
                         "uri": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB",
+                        "app_url": "https://calendly.com/app/tracked_meetings/BBBBBBBBBBBBBBBB",
                         "event": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA",
                         "status": "Available",
                         "name": "Weekly Sync",
@@ -8421,6 +8425,7 @@
         "title": "Meeting Recap",
         "required": [
           "uri",
+          "app_url",
           "status"
         ],
         "type": "object",
@@ -8429,6 +8434,12 @@
             "type": "string",
             "description": "Canonical reference (unique identifier) for the recap",
             "format": "uri"
+          },
+          "app_url": {
+            "type": "string",
+            "description": "URL for an authorized Calendly user to open this meeting recap in the Calendly web app. Requires authentication and access to the recap.",
+            "format": "uri",
+            "example": "https://calendly.com/app/tracked_meetings/BBBBBBBBBBBBBBBB"
           },
           "event": {
             "type": "string",
@@ -8508,7 +8519,7 @@
           },
           "share_link": {
             "type": "string",
-            "description": "Public URL for sharing the meeting recap",
+            "description": "URL for sharing this meeting recap with others. Access is determined by the recap\u2019s sharing settings.",
             "format": "uri",
             "nullable": true,
             "example": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB"
@@ -8520,6 +8531,7 @@
         "title": "Meeting Recap List Item",
         "required": [
           "uri",
+          "app_url",
           "status",
           "transcript"
         ],
@@ -8530,6 +8542,12 @@
             "description": "Canonical reference (unique identifier) for the recap.",
             "format": "uri",
             "example": "https://api.calendly.com/meeting_recaps/BBBBBBBBBBBBBBBB"
+          },
+          "app_url": {
+            "type": "string",
+            "description": "URL for an authorized Calendly user to open this meeting recap in the Calendly web app. Requires authentication and access to the recap.",
+            "format": "uri",
+            "example": "https://calendly.com/app/tracked_meetings/BBBBBBBBBBBBBBBB"
           },
           "event": {
             "type": "string",
@@ -15657,7 +15675,7 @@
           },
           "share_link": {
             "type": "string",
-            "description": "Share link for the meeting recap",
+            "description": "URL for sharing this meeting recap with others. Access is determined by the recap\u2019s sharing settings.",
             "format": "uri",
             "example": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB"
           },
@@ -15744,7 +15762,7 @@
           },
           "share_link": {
             "type": "string",
-            "description": "Share link for the meeting recap",
+            "description": "URL for sharing this meeting recap with others. Access is determined by the recap\u2019s sharing settings.",
             "format": "uri",
             "example": "https://calendly.com/s/meetings/BBBBBBBBBBBBBBBB"
           },

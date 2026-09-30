@@ -15,6 +15,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>URL for an authorized Calendly user to open this meeting recap in the Calendly web app. Requires authentication and access to the recap.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppUrl { get; set; }
+#nullable restore
+#else
+        public string AppUrl { get; set; }
+#endif
         /// <summary>Meeting attendees derived from tracked-meeting participants. Same shape as meeting_recap webhook attendees.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,6 +112,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "app_url", n => { AppUrl = n.GetStringValue(); } },
                 { "attendees", n => { Attendees = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapListItemAttendeesItem>(global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapListItemAttendeesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "end_time", n => { EndTime = n.GetDateTimeOffsetValue(); } },
@@ -124,6 +133,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("app_url", AppUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapListItemAttendeesItem>("attendees", Attendees);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateTimeOffsetValue("end_time", EndTime);

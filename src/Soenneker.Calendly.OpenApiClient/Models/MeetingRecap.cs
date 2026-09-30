@@ -23,6 +23,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>URL for an authorized Calendly user to open this meeting recap in the Calendly web app. Requires authentication and access to the recap.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppUrl { get; set; }
+#nullable restore
+#else
+        public string AppUrl { get; set; }
+#endif
         /// <summary>Meeting attendees derived from tracked-meeting participants. Same shape as meeting_recap webhook attendees.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +75,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Public URL for sharing the meeting recap</summary>
+        /// <summary>URL for sharing this meeting recap with others. Access is determined by the recap’s sharing settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShareLink { get; set; }
@@ -137,6 +145,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "action_items_md", n => { ActionItemsMd = n.GetStringValue(); } },
+                { "app_url", n => { AppUrl = n.GetStringValue(); } },
                 { "attendees", n => { Attendees = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapAttendeesItem>(global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapAttendeesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "discussion_md", n => { DiscussionMd = n.GetStringValue(); } },
@@ -161,6 +170,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("action_items_md", ActionItemsMd);
+            writer.WriteStringValue("app_url", AppUrl);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapAttendeesItem>("attendees", Attendees);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("discussion_md", DiscussionMd);
