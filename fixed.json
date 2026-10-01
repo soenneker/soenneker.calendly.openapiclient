@@ -14080,6 +14080,27 @@
           }
         }
       },
+      "RateLimitExceededResponse": {
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          }
+        }
+      },
       "UnknownResponse": {
         "required": [
           "title",
@@ -14626,6 +14647,17 @@
           },
           "message": {
             "$ref": "#/components/schemas/TheServerCouldNotFindTheRequestedResourceMessage"
+          }
+        }
+      },
+      "RateLimitExceededResponseAllOf2": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/TooManyRequestsTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/RateLimitExceededPleaseRetryAfterSomeTimeMessage"
           }
         }
       },
@@ -21474,6 +21506,40 @@
           ]
         }
       },
+      "TooManyRequestsTitle": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "TooManyRequestsTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
+      "RateLimitExceededPleaseRetryAfterSomeTimeMessage": {
+        "enum": [
+          "Rate limit exceeded. Please retry after some time."
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "RateLimitExceededPleaseRetryAfterSomeTimeMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Rate limit exceeded. Please retry after some time.",
+              "name": "RateLimitExceededPleaseRetryAfterSomeTime"
+            }
+          ]
+        }
+      },
       "InternalServerErrorTitle": {
         "enum": [
           "Internal Server Error"
@@ -23346,6 +23412,24 @@
                 "value": {
                   "title": "Resource Not Found",
                   "message": "The server could not find the requested resource."
+                }
+              }
+            }
+          }
+        }
+      },
+      "RATE_LIMIT_EXCEEDED": {
+        "description": "Too Many Requests",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RateLimitExceededResponse"
+            },
+            "examples": {
+              "Rate limit exceeded": {
+                "value": {
+                  "title": "Too Many Requests",
+                  "message": "Rate limit exceeded. Please retry after some time."
                 }
               }
             }
