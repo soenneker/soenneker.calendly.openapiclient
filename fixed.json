@@ -4767,6 +4767,58 @@
         ],
         "x-fern-ignore": true
       },
+      "delete": {
+        "tags": [
+          "Shares"
+        ],
+        "summary": "Delete Share",
+        "description": "Deletes a single-use scheduling link (share). This operation is only available for shares that have not been booked.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060shares:write\u0060\n\u003C/Info\u003E",
+        "operationId": "DeleteShare",
+        "responses": {
+          "204": {
+            "description": "No Content - Share was successfully deleted"
+          },
+          "404": {
+            "description": "Not Found - Share does not exist or user does not have permission",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteShare404Response"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - Share cannot be deleted because it has been booked",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteShare409Response"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity - Only single-use shares can be deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteShare422Response"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
       "parameters": [
         {
           "name": "uuid",
@@ -9403,7 +9455,8 @@
           },
           "event": {
             "type": "string",
-            "description": "The URI of the Calendly scheduled event this resource relates to (if kind is scheduled_event)",
+            "description": "The URI of the Calendly scheduled event this resource relates to (\u0022null\u0022 when kind is reserved_event)",
+            "nullable": true,
             "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
           },
           "calendar_account_kind": {
@@ -17041,6 +17094,63 @@
             "$ref": "#/components/schemas/CreateShareRequestAvailabilityRule"
           }
         }
+      },
+      "DeleteShare404Response": {
+        "title": "Error Response",
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Resource Not Found"
+          },
+          "message": {
+            "type": "string",
+            "example": "The server could not find the requested resource"
+          }
+        },
+        "description": "Error Object"
+      },
+      "DeleteShare409Response": {
+        "title": "Error Response",
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "State Conflict"
+          },
+          "message": {
+            "type": "string",
+            "example": "This share cannot be deleted because it has been booked"
+          }
+        },
+        "description": "Error Object"
+      },
+      "DeleteShare422Response": {
+        "title": "Error Response",
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Invalid Resource"
+          },
+          "message": {
+            "type": "string",
+            "example": "Only single-use shares can be deleted"
+          }
+        },
+        "description": "Error Object"
       },
       "ListCalendarEvents200Response": {
         "required": [

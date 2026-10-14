@@ -17,7 +17,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates the kind of external calendar this event belongs to</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.CalendarEventCalendarAccountKind? CalendarAccountKind { get; set; }
-        /// <summary>The URI of the Calendly scheduled event this resource relates to (if kind is scheduled_event)</summary>
+        /// <summary>The URI of the Calendly scheduled event this resource relates to (&quot;null&quot; when kind is reserved_event)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Event { get; set; }
