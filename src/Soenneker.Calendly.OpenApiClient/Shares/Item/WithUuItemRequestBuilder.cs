@@ -91,6 +91,43 @@ namespace Soenneker.Calendly.OpenApiClient.Shares.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetShare200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetShare200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Update a specified Share. Only unbooked, active single-use shares can be updated.Omitted fields are unchanged. Setting a field to `null` restores the parent event type&apos;s current value for that field only (for `contact`, `null` removes the contact). The parent event type is never modified.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:write`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200Response"/></returns>
+        /// <param name="body">At least one field is required</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401Response">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeErrorSchema">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare404Response">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare409Response">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare429Response">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare500Response">When receiving a 500 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200Response?> PatchAsync(global::Soenneker.Calendly.OpenApiClient.Models.UpdateShareRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200Response> PatchAsync(global::Soenneker.Calendly.OpenApiClient.Models.UpdateShareRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401Response.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeErrorSchema.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare404Response.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare409Response.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare429Response.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare500Response.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Deletes a single-use scheduling link (share). This operation is only available for shares that have not been booked.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -126,6 +163,28 @@ namespace Soenneker.Calendly.OpenApiClient.Shares.Item
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Update a specified Share. Only unbooked, active single-use shares can be updated.Omitted fields are unchanged. Setting a field to `null` restores the parent event type&apos;s current value for that field only (for `contact`, `null` removes the contact). The parent event type is never modified.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:write`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">At least one field is required</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.UpdateShareRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.UpdateShareRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
