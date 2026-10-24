@@ -24,23 +24,11 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public List<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401ResponseDetailsItem> Details { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
-        public override string Message { get => MessageEscaped ?? string.Empty; }
+        public override string Message { get => base.Message; }
         /// <summary>The message property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MessageEscaped { get; set; }
-#nullable restore
-#else
-        public string MessageEscaped { get; set; }
-#endif
+        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401ResponseMessage? MessageEscaped { get; set; }
         /// <summary>The title property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Title { get; set; }
-#nullable restore
-#else
-        public string Title { get; set; }
-#endif
+        public global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedTitle? Title { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401Response"/> and sets the default values.
         /// </summary>
@@ -67,8 +55,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401ResponseDetailsItem>(global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401ResponseDetailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "message", n => { MessageEscaped = n.GetStringValue(); } },
-                { "title", n => { Title = n.GetStringValue(); } },
+                { "message", n => { MessageEscaped = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401ResponseMessage>(); } },
+                { "title", n => { Title = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedTitle>(); } },
             };
         }
         /// <summary>
@@ -79,8 +67,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401ResponseDetailsItem>("details", Details);
-            writer.WriteStringValue("message", MessageEscaped);
-            writer.WriteStringValue("title", Title);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare401ResponseMessage>("message", MessageEscaped);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedTitle>("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

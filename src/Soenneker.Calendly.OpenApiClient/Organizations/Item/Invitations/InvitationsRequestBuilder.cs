@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
 {
     /// <summary>
-    /// Builds and executes requests for operations under \organizations\{orgUu-id}\invitations
+    /// Builds and executes requests for operations under \organizations\{uuid}\invitations
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InvitationsRequestBuilder : BaseRequestBuilder
@@ -26,7 +26,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("uuid", position);
+                urlTplParams.Add("uuid2", position);
                 return new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.Item.WithUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
@@ -35,7 +35,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvitationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgUu%2Did}/invitations{?count*,email*,page_token*,sort*,status*}", pathParameters)
+        public InvitationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{uuid}/invitations{?count*,email*,page_token*,sort*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvitationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{orgUu%2Did}/invitations{?count*,email*,page_token*,sort*,status*}", rawUrl)
+        public InvitationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{uuid}/invitations{?count*,email*,page_token*,sort*,status*}", rawUrl)
         {
         }
         /// <summary>

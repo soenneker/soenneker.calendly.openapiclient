@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
 {
     /// <summary>
-    /// Builds and executes requests for operations under \scheduled_events\{eventUu-id}\cancellation
+    /// Builds and executes requests for operations under \scheduled_events\{uuid}\cancellation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CancellationRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CancellationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/cancellation", pathParameters)
+        public CancellationRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{uuid}/cancellation", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CancellationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/cancellation", rawUrl)
+        public CancellationRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{uuid}/cancellation", rawUrl)
         {
         }
         /// <summary>

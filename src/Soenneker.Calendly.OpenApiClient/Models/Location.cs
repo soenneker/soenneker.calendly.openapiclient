@@ -101,45 +101,45 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.Location CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.Location();
-            if("CustomLocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("custom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CustomLocation = new global::Soenneker.Calendly.OpenApiClient.Models.CustomLocation();
             }
-            else if("GoogleConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("google_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GoogleConference = new global::Soenneker.Calendly.OpenApiClient.Models.GoogleConference();
             }
-            else if("GotoMeetingConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("gotomeeting".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.GotoMeetingConference = new global::Soenneker.Calendly.OpenApiClient.Models.GotoMeetingConference();
             }
-            else if("InPersonMeeting".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("physical".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InPersonMeeting = new global::Soenneker.Calendly.OpenApiClient.Models.InPersonMeeting();
             }
-            else if("InboundCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("inbound_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InboundCall = new global::Soenneker.Calendly.OpenApiClient.Models.InboundCall();
             }
-            else if("InviteeSpecifiedLocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ask_invitee".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeSpecifiedLocation = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeSpecifiedLocation();
             }
-            else if("MicrosoftTeamsConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("microsoft_teams_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MicrosoftTeamsConference = new global::Soenneker.Calendly.OpenApiClient.Models.MicrosoftTeamsConference();
             }
-            else if("OutboundCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("outbound_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OutboundCall = new global::Soenneker.Calendly.OpenApiClient.Models.OutboundCall();
             }
-            else if("WebExConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("webex_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WebExConference = new global::Soenneker.Calendly.OpenApiClient.Models.WebExConference();
             }
-            else if("ZoomConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("zoom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ZoomConference = new global::Soenneker.Calendly.OpenApiClient.Models.ZoomConference();
             }

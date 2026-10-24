@@ -963,7 +963,7 @@
         "x-fern-ignore": true
       }
     },
-    "/scheduled_events/{eventUuid}/invitees/{inviteeUuid}": {
+    "/scheduled_events/{uuid}/invitees/{inviteeUuid}": {
       "get": {
         "tags": [
           "Scheduled Events"
@@ -1124,7 +1124,7 @@
       },
       "parameters": [
         {
-          "name": "eventUuid",
+          "name": "uuid",
           "in": "path",
           "description": "The event\u0027s unique identifier",
           "required": true,
@@ -1786,7 +1786,7 @@
         }
       ]
     },
-    "/organizations/{orgUuid}/invitations/{uuid}": {
+    "/organizations/{uuid}/invitations/{uuid2}": {
       "delete": {
         "tags": [
           "Organizations"
@@ -1899,7 +1899,7 @@
       },
       "parameters": [
         {
-          "name": "orgUuid",
+          "name": "uuid",
           "in": "path",
           "description": "The organization\u2019s unique identifier",
           "required": true,
@@ -1909,7 +1909,7 @@
           }
         },
         {
-          "name": "uuid",
+          "name": "uuid2",
           "in": "path",
           "description": "The organization invitation\u0027s unique identifier",
           "required": true,
@@ -12200,7 +12200,6 @@
       },
       "InviteeLocation": {
         "title": "Invitee Location",
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/InviteeInPersonMeeting"
@@ -12233,17 +12232,26 @@
             "$ref": "#/components/schemas/InviteeCustomLocation"
           }
         ],
-        "properties": {
-          "location": {
-            "type": "string",
-            "description": "The specific physical location"
-          }
-        },
         "description": "The polymorphic base type for an event location that Calendly supports.  \n\nNote: \n- Location.kind must be supplied if location is defined.\n- Location must match location specified on the EventType.\n- Do not pass the location object for an EventType with a round_robin pooling_type.",
         "nullable": true,
         "example": {
           "kind": "physical",
           "location": "Calendly Office"
+        },
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "physical": "#/components/schemas/InviteeInPersonMeeting",
+            "inbound_call": "#/components/schemas/InviteeInboundCall",
+            "outbound_call": "#/components/schemas/InviteeOutboundCall",
+            "zoom_conference": "#/components/schemas/InviteeZoomConference",
+            "google_conference": "#/components/schemas/InviteeGoogleConference",
+            "gotomeeting_conference": "#/components/schemas/InviteeGotoMeetingConference",
+            "microsoft_teams_conference": "#/components/schemas/InviteeMicrosoftTeamsConference",
+            "webex_conference": "#/components/schemas/InviteeWebExConference",
+            "ask_invitee": "#/components/schemas/InviteeInviteeSpecifiedLocation",
+            "custom": "#/components/schemas/InviteeCustomLocation"
+          }
         }
       },
       "InviteeInPersonMeeting": {
@@ -13052,7 +13060,6 @@
       },
       "Location": {
         "title": "Location",
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/InPersonMeeting"
@@ -13085,23 +13092,26 @@
             "$ref": "#/components/schemas/WebExConference"
           }
         ],
-        "properties": {
-          "additional_info": {
-            "type": "string",
-            "example": "Please check in at the main lobby."
-          },
-          "join_url": {
-            "type": "string",
-            "description": "Google conference meeting url",
-            "format": "uri",
-            "nullable": true
-          }
-        },
         "description": "The polymorphic base type for an event location that Calendly supports",
         "nullable": true,
         "example": {
           "type": "physical",
           "location": "Calendly Office"
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "physical": "#/components/schemas/InPersonMeeting",
+            "outbound_call": "#/components/schemas/OutboundCall",
+            "inbound_call": "#/components/schemas/InboundCall",
+            "google_conference": "#/components/schemas/GoogleConference",
+            "zoom": "#/components/schemas/ZoomConference",
+            "gotomeeting": "#/components/schemas/GotoMeetingConference",
+            "microsoft_teams_conference": "#/components/schemas/MicrosoftTeamsConference",
+            "custom": "#/components/schemas/CustomLocation",
+            "ask_invitee": "#/components/schemas/InviteeSpecifiedLocation",
+            "webex_conference": "#/components/schemas/WebExConference"
+          }
         }
       },
       "InPersonMeeting": {
@@ -13617,7 +13627,6 @@
       },
       "SubmissionResult": {
         "title": "Routing Form Submission Result",
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SubmissionEventTypeResult"
@@ -13633,6 +13642,14 @@
         "example": {
           "type": "event_type",
           "value": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "event_type": "#/components/schemas/SubmissionEventTypeResult",
+            "external_url": "#/components/schemas/SubmissionExternalUrlResult",
+            "custom_message": "#/components/schemas/SubmissionCustomMessageResult"
+          }
         }
       },
       "SubmissionEventTypeResult": {
@@ -13746,10 +13763,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/InvalidArgumentTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/TheSuppliedParametersAreInvalidMessage"
           },
           "details": {
             "type": "array",
@@ -13767,10 +13784,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/UnauthenticatedTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/UnauthenticatedResponseMessage"
           },
           "details": {
             "type": "array",
@@ -13788,10 +13805,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/PermissionDeniedResponseMessage"
           },
           "details": {
             "type": "array",
@@ -13802,7 +13819,6 @@
         }
       },
       "GetInviteesAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/GetScheduledEventsInviteesError"
@@ -13811,18 +13827,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/GetScheduledEventsInviteesError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "GetInviteeAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/GetScheduledEventInviteeError"
@@ -13831,28 +13844,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/GetScheduledEventInviteeError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "GetScheduledEventsAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/GetScheduledEventsError"
@@ -13861,18 +13861,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/GetScheduledEventsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "PostInviteesAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/InviteesError"
@@ -13881,28 +13878,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/InviteesError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "EventTypesAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/EventTypesError"
@@ -13911,18 +13895,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/EventTypesError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "OrganizationInvitationCreateAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/OrganizationInvitationCreateError"
@@ -13931,18 +13912,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/OrganizationInvitationCreateError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "OrganizationInvitationDeleteAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/OrganizationInvitationDeleteError"
@@ -13951,18 +13929,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/OrganizationInvitationDeleteError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "UserNotInOrganizationAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/UserNotInOrganizationError"
@@ -13971,18 +13946,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/UserNotInOrganizationError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "UserNotInOrgGenericAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/UserNotInOrgGenericError"
@@ -13991,28 +13963,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/UserNotInOrgGenericError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "OrgMembershipDeleteAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/OrgMembershipDeleteError"
@@ -14021,28 +13980,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/OrgMembershipDeleteError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "PostWebhookSubsAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/PostWebhookSubscriptionsError"
@@ -14051,18 +13997,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/PostWebhookSubscriptionsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "GetWebhookSubsAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/GetWebhookSubscriptionsError"
@@ -14071,18 +14014,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/GetWebhookSubscriptionsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "DataComplianceAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/DataComplianceError"
@@ -14091,28 +14031,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/DataComplianceError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "DeleteScheduledEventAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/DeleteScheduledEventError"
@@ -14121,18 +14048,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/DeleteScheduledEventError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "LocationsAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/LocationsError"
@@ -14141,28 +14065,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/LocationsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "OneOffEventsAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/OneOffEventsError"
@@ -14171,28 +14082,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OneOffEventsErrorDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/OneOffEventsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "PermissionDeniedAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseOneOf1"
@@ -14201,23 +14099,11 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
-            }
-          },
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseOneOf1",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
@@ -14229,10 +14115,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/ResourceNotFoundTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/TheServerCouldNotFindTheRequestedResourceMessage"
           },
           "details": {
             "type": "array",
@@ -14250,10 +14136,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/TooManyRequestsTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/RateLimitExceededPleaseRetryAfterSomeTimeMessage"
           },
           "details": {
             "type": "array",
@@ -14271,10 +14157,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/InternalServerErrorTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage"
           },
           "details": {
             "type": "array",
@@ -14292,10 +14178,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/AlreadyExistsTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/TheResourceAlreadyExistsMessage"
           },
           "details": {
             "type": "array",
@@ -14306,7 +14192,6 @@
         }
       },
       "EnterpriseOwnerAdminFeatureAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/EnterpriseOwnerAdminError"
@@ -14315,18 +14200,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/EnterpriseOwnerAdminError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "ContactsAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ContactsError"
@@ -14335,18 +14217,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/ContactsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "MeetingRecapsAndScopesForbiddenResponse": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/MeetingRecapsError"
@@ -14355,18 +14234,15 @@
             "$ref": "#/components/schemas/InsufficientScopeError"
           }
         ],
-        "properties": {
-          "required_scopes": {
-            "type": "array",
-            "items": {
-              "pattern": "^[a-z_]\u002B:(read|write)$",
-              "type": "string"
-            }
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/MeetingRecapsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
           }
         }
       },
       "WebhookPayloadPayload": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/InviteePayload"
@@ -14396,250 +14272,6 @@
             "$ref": "#/components/schemas/MeetingRecapDeletedWebhookPayload"
           }
         ],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "description": "Canonical reference (unique identifier) for the invitee",
-            "format": "uri",
-            "example": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
-          },
-          "email": {
-            "type": "string",
-            "description": "The invitee\u2019s email address",
-            "format": "email",
-            "example": "test@example.com"
-          },
-          "first_name": {
-            "type": "string",
-            "description": "The first name of the invitee who booked the event when the event type is configured to use separate fields for first name and last name. Null when event type is configured to use a single field for name.",
-            "nullable": true,
-            "example": "John"
-          },
-          "last_name": {
-            "type": "string",
-            "description": "The last name of the invitee who booked the event when the event type is configured to use separate fields for first name and last name. Null when event type is configured to use a single field for name.",
-            "nullable": true,
-            "example": "Doe"
-          },
-          "status": {
-            "$ref": "#/components/schemas/InviteePayloadStatus"
-          },
-          "questions_and_answers": {
-            "minItems": 0,
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InviteeQuestionAndAnswer"
-            },
-            "description": "A collection of the invitee\u0027s responses to questions on the event booking confirmation form"
-          },
-          "timezone": {
-            "type": "string",
-            "description": "Time zone to use when displaying time to the invitee",
-            "nullable": true
-          },
-          "created_at": {
-            "type": "string",
-            "description": "The moment when the event was created (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
-            "format": "date-time",
-            "example": "2019-01-02T03:04:05.678123Z"
-          },
-          "updated_at": {
-            "type": "string",
-            "description": "The moment when the event was last updated (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
-            "format": "date-time",
-            "example": "2019-08-07T06:05:04.321123Z"
-          },
-          "text_reminder_number": {
-            "type": "string",
-            "description": "The phone number to use when sending text (SMS) reminders",
-            "nullable": true,
-            "example": "\u002B1 404-555-1234"
-          },
-          "rescheduled": {
-            "type": "boolean",
-            "description": "Indicates if this invitee has rescheduled. If \u0060true\u0060, a reference to the new Invitee instance is provided in the \u0060new_invitee\u0060 field."
-          },
-          "old_invitee": {
-            "type": "string",
-            "description": "Reference to old Invitee instance that got rescheduled",
-            "format": "uri",
-            "nullable": true
-          },
-          "new_invitee": {
-            "type": "string",
-            "description": "Link to new invitee, after reschedule",
-            "format": "uri",
-            "nullable": true
-          },
-          "cancel_url": {
-            "type": "string",
-            "description": "Link to cancelling the event for the invitee",
-            "format": "uri"
-          },
-          "reschedule_url": {
-            "type": "string",
-            "description": "Link to rescheduling the event for the invitee",
-            "format": "uri"
-          },
-          "routing_form_submission": {
-            "type": "string",
-            "description": "Reference to a routing form submission that redirected the invitee to a booking page.",
-            "format": "uri",
-            "nullable": true,
-            "example": "https://api.calendly.com/routing_form_submissions/AAAAAAAAAAAAAAAA"
-          },
-          "cancellation": {
-            "$ref": "#/components/schemas/Cancellation"
-          },
-          "payment": {
-            "$ref": "#/components/schemas/InviteePayloadPayment"
-          },
-          "no_show": {
-            "$ref": "#/components/schemas/InviteePayloadNoShow"
-          },
-          "reconfirmation": {
-            "$ref": "#/components/schemas/InviteePayloadReconfirmation"
-          },
-          "scheduling_method": {
-            "$ref": "#/components/schemas/InviteePayloadSchedulingMethod"
-          },
-          "invitee_scheduled_by": {
-            "type": "string",
-            "description": "Reference to user URI who scheduled the event",
-            "format": "uri",
-            "nullable": true
-          },
-          "scheduled_event": {
-            "$ref": "#/components/schemas/InviteePayloadScheduledEvent"
-          },
-          "routing_form": {
-            "type": "string",
-            "description": "The URI of the routing form that\u0027s associated with the submission.",
-            "format": "uri",
-            "example": "https://api.calendly.com/routing_forms/AAAAAAAAAAAAAAAA"
-          },
-          "result": {
-            "$ref": "#/components/schemas/SubmissionResult"
-          },
-          "submitter": {
-            "type": "string",
-            "description": "The reference to the Invitee resource when routing form submission results in a scheduled meeting.",
-            "format": "uri",
-            "nullable": true,
-            "example": "https://calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA"
-          },
-          "submitter_type": {
-            "$ref": "#/components/schemas/InviteeSubmitterType"
-          },
-          "active": {
-            "type": "boolean",
-            "description": "Indicates if the event is active or not."
-          },
-          "slug": {
-            "type": "string",
-            "description": "The portion of the event type\u0027s URL that identifies a specific web page (in a human-readable format)",
-            "nullable": true,
-            "example": "acmesales"
-          },
-          "scheduling_url": {
-            "type": "string",
-            "description": "The URL of the user\u2019s scheduling site where invitees book this event type",
-            "format": "uri",
-            "example": "https://calendly.com/acmesales"
-          },
-          "duration": {
-            "type": "number",
-            "description": "The length of sessions booked with this event type",
-            "example": 15
-          },
-          "duration_options": {
-            "type": "array",
-            "items": {
-              "type": "integer"
-            },
-            "description": "Array of duration options. Always null for adhoc event types.",
-            "nullable": true
-          },
-          "kind": {
-            "$ref": "#/components/schemas/EventTypePayloadKind"
-          },
-          "pooling_type": {
-            "$ref": "#/components/schemas/EventTypePayloadPoolingType"
-          },
-          "type": {
-            "$ref": "#/components/schemas/EventTypePayloadType"
-          },
-          "color": {
-            "pattern": "^#[a-f\\d]{6}$",
-            "type": "string",
-            "description": "The hexadecimal color value of the event type\u0027s scheduling page",
-            "example": "#fff200"
-          },
-          "internal_note": {
-            "type": "string",
-            "description": "Contents of a note that may be associated with the event type",
-            "nullable": true,
-            "example": "Internal note"
-          },
-          "is_paid": {
-            "type": "boolean"
-          },
-          "description_plain": {
-            "type": "string",
-            "description": "The event type\u0027s description (in non formatted text)",
-            "nullable": true,
-            "example": "15 Minute Meeting"
-          },
-          "profile": {
-            "$ref": "#/components/schemas/Profile"
-          },
-          "secret": {
-            "type": "boolean",
-            "description": "Indicates if the event type is hidden on the owner\u0027s main scheduling page"
-          },
-          "booking_method": {
-            "$ref": "#/components/schemas/EventTypePayloadBookingMethod"
-          },
-          "custom_questions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EventTypeCustomQuestion"
-            }
-          },
-          "deleted_at": {
-            "type": "string",
-            "description": "The moment the event type was deleted (e.g. \u00222020-01-02T03:04:05.678123Z\u0022). Since event types can be deleted but their scheduled events remain it\u0027s useful to fetch a deleted event type when you still require event type data for a scheduled event.",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-02T03:04:05.678123Z"
-          },
-          "admin_managed": {
-            "type": "boolean",
-            "description": "Indicates if this event type is managed by an organization admin"
-          },
-          "locations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LocationConfiguration"
-            },
-            "description": "Configuration information for each possible location for this Event Type",
-            "nullable": true
-          },
-          "position": {
-            "type": "integer",
-            "description": "Position order of Event Type, starting with 0 (for display purposes)"
-          },
-          "locale": {
-            "$ref": "#/components/schemas/EventTypePayloadLocale"
-          },
-          "user_uuid": {
-            "type": "string",
-            "description": "User unique identifier",
-            "format": "uuid",
-            "example": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
-          }
-        },
         "description": "The payload for the webhook event. The data in the payload depends on the event.\n\nFor example, an \u0060invitee.*\u0060 event produces an \u0060Invitee\u0060 object in the payload."
       },
       "OrganizationMembershipOwnerAllOf1": {
@@ -14651,7 +14283,6 @@
         }
       },
       "GroupRelationshipOwner": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/OrganizationMembershipOwner"
@@ -14660,43 +14291,11 @@
             "$ref": "#/components/schemas/OrganizationInvitationOwner"
           }
         ],
-        "properties": {
-          "uri": {
-            "type": "string",
-            "description": "Canonical reference (unique identifier) for the membership",
-            "format": "uri",
-            "example": "https://api.calendly.com/organization_memberships/AAAAAAAAAAAAAAAA"
-          },
-          "role": {
-            "$ref": "#/components/schemas/OrganizationMembershipRole"
-          },
-          "updated_at": {
-            "type": "string",
-            "description": "The moment when the membership record was last updated (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
-            "format": "date-time",
-            "example": "2019-08-07T06:05:04.321123Z"
-          },
-          "created_at": {
-            "type": "string",
-            "description": "The moment when the membership record was created (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
-            "format": "date-time",
-            "example": "2019-01-02T03:04:05.678123Z"
-          },
-          "email": {
-            "type": "string",
-            "description": "The email address of the person who was invited to join the organization",
-            "format": "email",
-            "example": "test@example.com"
-          },
-          "status": {
-            "$ref": "#/components/schemas/OrganizationInvitationStatus"
-          },
-          "last_sent_at": {
-            "type": "string",
-            "description": "The moment the invitation was last sent (e.g. \u00222020-01-02T03:04:05.678123Z\u0022)",
-            "format": "date-time",
-            "nullable": true,
-            "example": "2019-01-02T03:04:05.678123Z"
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "OrganizationMembership": "#/components/schemas/OrganizationMembershipOwner",
+            "OrganizationInvitation": "#/components/schemas/OrganizationInvitationOwner"
           }
         }
       },
@@ -14709,7 +14308,6 @@
         }
       },
       "ContactCustomFieldValue": {
-        "type": "object",
         "oneOf": [
           {
             "type": "string",
@@ -16575,7 +16173,13 @@
             "items": {
               "type": "integer"
             },
-            "description": "A maximum of 4 unique options is allowed. Each option must be \u003E= 1 and \u003C= 720."
+            "description": "A maximum of 4 unique options is allowed. Each option must be \u003E= 1 and \u003C= 720.",
+            "example": [
+              1,
+              13,
+              15,
+              720
+            ]
           },
           "locations": {
             "type": "array",
@@ -16650,10 +16254,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/PostInvitee400ResponseTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/PostInvitee400ResponseMessage"
           },
           "details": {
             "type": "array",
@@ -16698,7 +16302,13 @@
             "items": {
               "type": "integer"
             },
-            "description": "A maximum of 4 unique options is allowed. Each option must be \u003E= 1 and \u003C= 720."
+            "description": "A maximum of 4 unique options is allowed. Each option must be \u003E= 1 and \u003C= 720.",
+            "example": [
+              1,
+              13,
+              15,
+              720
+            ]
           },
           "locale": {
             "$ref": "#/components/schemas/UpdateEventTypeRequestLocale"
@@ -16816,10 +16426,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/AlreadyExistsTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/HookWithThisUrlAlreadyExistsMessage"
           },
           "details": {
             "type": "array",
@@ -17167,7 +16777,13 @@
             "items": {
               "type": "integer"
             },
-            "description": "A maximum of 4 unique options is allowed. Each option must be \u003E= 1 and \u003C= 720."
+            "description": "A maximum of 4 unique options is allowed. Each option must be \u003E= 1 and \u003C= 720.",
+            "example": [
+              1,
+              13,
+              15,
+              720
+            ]
           },
           "period_type": {
             "$ref": "#/components/schemas/CreateShareRequestPeriodType"
@@ -17306,10 +16922,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/InvalidArgumentTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/TheSuppliedParametersAreInvalidMessage"
           },
           "details": {
             "type": "array",
@@ -17327,10 +16943,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/UnauthenticatedTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/UpdateShare401ResponseMessage"
           },
           "details": {
             "type": "array",
@@ -17392,10 +17008,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/StateConflictTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/UpdateShare409ResponseMessage"
           },
           "details": {
             "type": "array",
@@ -17436,10 +17052,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/InternalServerErrorTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage"
           },
           "details": {
             "type": "array",
@@ -18432,10 +18048,10 @@
         "type": "object",
         "properties": {
           "title": {
-            "type": "string"
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
           },
           "message": {
-            "type": "string"
+            "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseOneOf1Message"
           },
           "details": {
             "type": "array",
@@ -18446,7 +18062,6 @@
         }
       },
       "CreateOneOffEventTypeRequestDateSetting": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/DateRange"
@@ -18458,39 +18073,16 @@
             "$ref": "#/components/schemas/Spots"
           }
         ],
-        "properties": {
-          "start_date": {
-            "type": "string",
-            "description": "Availability start - Must be before end_date. Format: YYYY-MM-DD",
-            "format": "date",
-            "example": "2020-01-07"
-          },
-          "end_date": {
-            "type": "string",
-            "description": "Availability end - Must be a date in the future and less than 365 days in the future from start_date. Format: YYYY-MM-DD",
-            "format": "date",
-            "example": "2020-01-08"
-          },
-          "days": {
-            "maximum": 365,
-            "minimum": 0,
-            "type": "integer"
-          },
-          "only_weekdays": {
-            "type": "boolean",
-            "description": "Excludes weekends and only counts Monday - Friday"
-          },
-          "spots": {
-            "maxItems": 100,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SpotsSpotsItem"
-            }
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "date_range": "#/components/schemas/DateRange",
+            "days_in_future": "#/components/schemas/DaysInFuture",
+            "spots": "#/components/schemas/Spots"
           }
         }
       },
       "CreateOneOffEventTypeRequestLocation": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/AdhocCustomLocation"
@@ -18523,21 +18115,23 @@
             "$ref": "#/components/schemas/AdhocZoomConference"
           }
         ],
-        "properties": {
-          "location": {
-            "type": "string"
-          },
-          "additional_info": {
-            "type": "string"
-          },
-          "phone_number": {
-            "type": "string",
-            "example": "\u002B1 888-888-8888"
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "custom": "#/components/schemas/AdhocCustomLocation",
+            "google_conference": "#/components/schemas/AdhocGoogleConference",
+            "gotomeeting_conference": "#/components/schemas/AdhocGotoMeetingConference",
+            "physical": "#/components/schemas/AdhocInPersonMeeting",
+            "inbound_call": "#/components/schemas/AdhocInboundCall",
+            "ask_invitee": "#/components/schemas/AdhocInviteeSpecifiedLocation",
+            "microsoft_teams_conference": "#/components/schemas/AdhocMicrosoftTeamsConference",
+            "outbound_call": "#/components/schemas/AdhocOutboundCall",
+            "webex_conference": "#/components/schemas/AdhocWebExConference",
+            "zoom_conference": "#/components/schemas/AdhocZoomConference"
           }
         }
       },
       "CreateContactRequestCustomFieldsItemValue": {
-        "type": "object",
         "oneOf": [
           {
             "type": "string",
@@ -18565,7 +18159,6 @@
         "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes an integer amount in the currency\u0027s minor units (the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
       },
       "PatchContactsUuidRequestCustomFieldsItemValue": {
-        "type": "object",
         "oneOf": [
           {
             "type": "string",
@@ -18593,15 +18186,40 @@
         "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes an integer amount in the currency\u0027s minor units (the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
       },
       "ListEventTypeMemberships200ResponseCollectionItem": {
+        "required": [
+          "uri",
+          "event_type"
+        ],
         "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ListEventTypeMemberships200ResponseCollectionItemAllOf1"
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the event type membership",
+            "format": "uri",
+            "example": "https://api.calendly.com/event_type_memberships/AAAAAAAAAAAAAAAA"
+          },
+          "event_type": {
+            "$ref": "#/components/schemas/EventType"
+          },
+          "member": {
+            "$ref": "#/components/schemas/ListEventTypeMemberships200ResponseCollectionItemAllOf1Member"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Date and time of last update",
+            "format": "date-time",
+            "example": "2019-01-02T03:04:05.678123Z"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Date and time of creation",
+            "format": "date-time",
+            "example": "2019-01-02T03:04:05.678123Z"
           }
-        ]
+        }
       },
       "GetOutgoingCommunications200ResponseCollectionItem": {
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Sms"
           },
@@ -18609,54 +18227,11 @@
             "$ref": "#/components/schemas/Email"
           }
         ],
-        "properties": {
-          "to": {
-            "type": "string",
-            "example": "\u002B14047549876"
-          },
-          "from": {
-            "type": "string",
-            "example": "\u002B14042916667"
-          },
-          "body": {
-            "type": "string",
-            "example": "Your scheduled event is coming up."
-          },
-          "sender_uri": {
-            "type": "string",
-            "format": "uri",
-            "nullable": true,
-            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
-          },
-          "sender_email": {
-            "type": "string",
-            "nullable": true,
-            "example": "user@example.com"
-          },
-          "event_type_uri": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA"
-          },
-          "event_uri": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA"
-          },
-          "sent_at": {
-            "type": "string",
-            "description": "The UTC date and time when the SMS message was sent (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
-            "format": "date-time"
-          },
-          "created_at": {
-            "type": "string",
-            "description": "The UTC date and time when the SMS message was created (format: \u00222020-01-02T03:04:05.678123Z\u0022)",
-            "format": "date-time"
-          },
-          "scheduling_url": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.calendly.com/event/AAAAAAAAAAAAAAAA"
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "sms": "#/components/schemas/Sms",
+            "email": "#/components/schemas/Email"
           }
         }
       },
@@ -18694,11 +18269,22 @@
         }
       },
       "ListEventTypeMemberships200ResponseCollectionItemAllOf1Member": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/User"
-          }
+        "title": "User",
+        "required": [
+          "uri",
+          "name",
+          "slug",
+          "email",
+          "scheduling_url",
+          "timezone",
+          "avatar_url",
+          "created_at",
+          "updated_at",
+          "current_organization",
+          "resource_type",
+          "locale"
         ],
+        "type": "object",
         "properties": {
           "uri": {
             "type": "string",
@@ -18770,7 +18356,22 @@
             "$ref": "#/components/schemas/UserLocale"
           }
         },
-        "description": "The event type host"
+        "description": "The event type host",
+        "example": {
+          "uri": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+          "name": "John Doe",
+          "slug": "acmesales",
+          "email": "test@example.com",
+          "scheduling_url": "https://calendly.com/acmesales",
+          "timezone": "America/New York",
+          "time_notation": "12h",
+          "avatar_url": "https://01234567890.cloudfront.net/uploads/user/avatar/0123456/a1b2c3d4.png",
+          "created_at": "2019-01-02T03:04:05.678123Z",
+          "updated_at": "2019-08-07T06:05:04.321123Z",
+          "current_organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
+          "resource_type": "User",
+          "locale": "en"
+        }
       },
       "EntryDetailsProperty": {
         "type": "object"
@@ -19484,7 +19085,6 @@
           "Permission Denied"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PermissionDeniedTitle",
           "modelAsString": false,
@@ -19502,7 +19102,6 @@
           "You do not have permission to access this resource."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "EnterpriseOwnerAdminErrorMessage",
           "modelAsString": false,
@@ -19523,7 +19122,6 @@
           "Insufficient scope"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "InsufficientScopeTitle",
           "modelAsString": false,
@@ -19540,7 +19138,6 @@
           "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage",
           "modelAsString": false,
@@ -19557,7 +19154,6 @@
           "This user is not in your organization"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ThisUserIsNotInYourOrganizationMessage",
           "modelAsString": false,
@@ -19574,7 +19170,6 @@
           "You are not allowed to view this event"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "YouAreNotAllowedToViewThisEventMessage",
           "modelAsString": false,
@@ -19595,7 +19190,6 @@
           "You do not have permission"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GetScheduledEventsErrorMessage",
           "modelAsString": false,
@@ -19630,7 +19224,6 @@
           "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "InviteesErrorMessage",
           "modelAsString": false,
@@ -19657,7 +19250,6 @@
           "You do not have permission to access this resource."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "EventTypesErrorMessage",
           "modelAsString": false,
@@ -19685,7 +19277,6 @@
           "You cannot perform this action for an organization with SCIM enabled."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "OrganizationInvitationCreateErrorMessage",
           "modelAsString": false,
@@ -19716,7 +19307,6 @@
           "You do not have permission to access this resource."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "OrganizationInvitationDeleteErrorMessage",
           "modelAsString": false,
@@ -19743,7 +19333,6 @@
           "You do not have permission"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PostWebhookSubscriptionsErrorMessage",
           "modelAsString": false,
@@ -19771,7 +19360,6 @@
           "Unauthorized"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GetWebhookSubscriptionsErrorMessage",
           "modelAsString": false,
@@ -19798,7 +19386,6 @@
           "Event is already canceled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "DeleteScheduledEventErrorMessage",
           "modelAsString": false,
@@ -19825,7 +19412,6 @@
           "This user is not in your organization"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "LocationsErrorMessage",
           "modelAsString": false,
@@ -19852,7 +19438,6 @@
           "You do not have permission to access this resource."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "OneOffEventsErrorMessage",
           "modelAsString": false,
@@ -19878,7 +19463,6 @@
           "24h"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Time notation used by the user. Accepts \u002212h\u0022 or \u002224h\u0022 as a value.",
         "x-ms-enum": {
           "name": "UserTimeNotation",
@@ -19905,7 +19489,6 @@
           "ps"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The user\u0027s language preference",
         "example": "de",
         "x-ms-enum": {
@@ -19945,7 +19528,6 @@
           "poll"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is for a poll or an instant booking",
         "example": "poll",
         "x-ms-enum": {
@@ -19969,7 +19551,6 @@
           "group"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is \u0022solo\u0022 (belongs to an individual user) or \u0022group\u0022",
         "x-ms-enum": {
           "name": "EventTypeKind",
@@ -19998,7 +19579,6 @@
           "uk"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The locale on the event type, used to determine the language of the event type\u0027s scheduling page",
         "example": "de",
         "x-ms-enum": {
@@ -20048,7 +19628,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is \u0022round robin\u0022 (alternates between hosts) or \u0022collective\u0022 (invitees pick a time when all participants are available) or \u201Cmulti-pool\u201D (considers availability delineated by pools of participants) or \u0022null\u0022 (the event type doesn\u2019t consider the availability of a group participants)",
         "nullable": true,
         "x-ms-enum": {
@@ -20076,7 +19655,6 @@
           "AdhocEventType"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is \u0022AdhocEventType\u0022 (ad hoc event) or \u0022StandardEventType\u0022 (standard event type)"
       },
       "EventTypePayloadKind": {
@@ -20085,7 +19663,6 @@
           "group"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is \u0022solo\u0022 (belongs to an individual user) or \u0022group\u0022",
         "x-ms-enum": {
           "name": "EventTypePayloadKind",
@@ -20110,7 +19687,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is \u0022round robin\u0022 (alternates between hosts) or \u0022collective\u0022 (invitees pick a time when all participants are available) or \u201Cmulti-pool\u201D (considers availability delineated by pools of participants) or \u0022null\u0022 (the event type doesn\u2019t consider the availability of a group participants)",
         "nullable": true,
         "x-ms-enum": {
@@ -20138,7 +19714,6 @@
           "AdhocEventType"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is \u0022AdhocEventType\u0022 (ad hoc event) or \u0022StandardEventType\u0022 (standard event type)"
       },
       "EventTypePayloadBookingMethod": {
@@ -20147,7 +19722,6 @@
           "poll"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event type is for a poll or an instant booking",
         "example": "poll",
         "x-ms-enum": {
@@ -20177,7 +19751,6 @@
           "uk"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The locale on the event type, used to determine the language of the event type\u0027s scheduling page",
         "example": "de",
         "x-ms-enum": {
@@ -20224,7 +19797,6 @@
           "host"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The setting for event type availability specifies if all hosts follow the same schedule or if each host has their own unique schedule on the event type.",
         "x-ms-enum": {
           "name": "HostAvailabilitySetting",
@@ -20243,7 +19815,6 @@
           "Team"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the profile belongs to a \u0022user\u0022 (individual) or \u0022team\u0022",
         "example": "User"
       },
@@ -20253,7 +19824,6 @@
           "canceled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event is \u0022active\u0022 or \u0022canceled\u0022",
         "x-ms-enum": {
           "name": "EventType2Status",
@@ -20279,7 +19849,6 @@
           "outlook_desktop"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates the calendar provider the event belongs to.",
         "example": "google",
         "deprecated": true,
@@ -20316,7 +19885,6 @@
           "reserved_event"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The type of Calendly event (scheduled or reserved) this external event relates to",
         "example": "scheduled_event",
         "x-ms-enum": {
@@ -20343,7 +19911,6 @@
           "outlook_desktop"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates the kind of external calendar this event belongs to",
         "example": "google",
         "x-ms-enum": {
@@ -20379,7 +19946,6 @@
           "invitee"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "CancellationCancelerType",
           "modelAsString": false,
@@ -20401,7 +19967,6 @@
           "canceled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the invitee is \u0022active\u0022 or \u0022canceled\u0022",
         "x-ms-enum": {
           "name": "InviteeStatus",
@@ -20425,7 +19990,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The method used to schedule the event",
         "nullable": true,
         "x-ms-enum": {
@@ -20449,7 +20013,6 @@
           "24h"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The preferred time notation of the invitee",
         "x-ms-enum": {
           "name": "RecentInviteeTimeNotation",
@@ -20472,7 +20035,6 @@
           "multiple"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates whether the organization is a single-user or multiple-user organization",
         "example": "multiple",
         "x-ms-enum": {
@@ -20500,7 +20062,6 @@
           "enterprise"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Active subscription plan or trial plan",
         "example": "professional",
         "x-ms-enum": {
@@ -20541,7 +20102,6 @@
           "paid"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Current stage of organization",
         "example": "paid",
         "x-ms-enum": {
@@ -20570,7 +20130,6 @@
           "owner"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The user\u0027s role in the organization",
         "example": "admin",
         "x-ms-enum": {
@@ -20599,7 +20158,6 @@
           "declined"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The status of the invitation (\u0022pending\u0022, \u0022accepted\u0022, or \u0022declined\u0022)",
         "example": "accepted",
         "x-ms-enum": {
@@ -20627,7 +20185,6 @@
           "canceled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the invitee is \u0022active\u0022 or \u0022canceled\u0022",
         "x-ms-enum": {
           "name": "InviteePayloadStatus",
@@ -20650,7 +20207,6 @@
           "api"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The method used to schedule the event",
         "nullable": true,
         "x-ms-enum": {
@@ -20674,7 +20230,6 @@
           "disabled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the webhook subscription is \u0022active\u0022 or \u0022disabled\u0022",
         "x-ms-enum": {
           "name": "WebhookSubscriptionState",
@@ -20706,7 +20261,6 @@
           "contact.deleted"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "WebhookSubscriptionEventsItem",
           "modelAsString": false,
@@ -20765,7 +20319,6 @@
           "group"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The scope of the webhook subscription",
         "example": "user",
         "x-ms-enum": {
@@ -20805,7 +20358,6 @@
           "contact.deleted"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event that caused the webhook to fire",
         "x-ms-enum": {
           "name": "WebhookPayloadEvent",
@@ -20874,15 +20426,13 @@
         "enum": [
           "OrganizationMembership"
         ],
-        "type": "string",
-        "additionalProperties": false
+        "type": "string"
       },
       "OrganizationInvitationType": {
         "enum": [
           "OrganizationInvitation"
         ],
-        "type": "string",
-        "additionalProperties": false
+        "type": "string"
       },
       "RoutingFormStatus": {
         "enum": [
@@ -20890,7 +20440,6 @@
           "published"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the form is in \u0022draft\u0022 or \u0022published\u0022 status.",
         "x-ms-enum": {
           "name": "RoutingFormStatus",
@@ -20912,7 +20461,6 @@
           "Invitee"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Type of the respondent resource that submitted the form and scheduled a meeting.",
         "nullable": true
       },
@@ -20923,7 +20471,6 @@
           "expiring"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "active",
         "x-ms-enum": {
           "name": "SubscriptionStatus",
@@ -20957,7 +20504,6 @@
           "teams_plus"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "essentials",
         "x-ms-enum": {
           "name": "SubscriptionPlan",
@@ -21008,7 +20554,6 @@
           "year"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "month",
         "x-ms-enum": {
           "name": "SubscriptionBillingPeriod",
@@ -21043,7 +20588,6 @@
           "template_migration_rollback"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "SuperAdminRolePermissionsItem",
           "modelAsString": false,
@@ -21121,7 +20665,6 @@
           "zoom_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "LocationConfigurationKind",
           "modelAsString": false,
@@ -21176,7 +20719,6 @@
           "external"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates whether the scheduled event is internal (\u0027calendly\u0027 or \u0027reserved\u0027) or external",
         "example": "calendly",
         "x-ms-enum": {
@@ -21204,7 +20746,6 @@
           "date"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The type of this Availability Rule; can be \u0022wday\u0022 or a specific \u0022date\u0022.",
         "example": "wday",
         "x-ms-enum": {
@@ -21233,7 +20774,6 @@
           "saturday"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The day of the week for which this Rule should be applied to.",
         "x-ms-enum": {
           "name": "AvailabilityRuleWday",
@@ -21284,7 +20824,6 @@
           "zoom_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The type of location configuration",
         "example": "zoom_conference",
         "x-ms-enum": {
@@ -21339,7 +20878,6 @@
           "event_type_invitee_question"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "EventTypeInviteeQuestionType",
           "modelAsString": false,
@@ -21362,7 +20900,6 @@
           "invitee_question"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Calendly custom field kind, which determines both input behavior and the expected value type.",
         "example": "single_select",
         "x-ms-enum": {
@@ -21408,7 +20945,6 @@
           "Contact creation is not available. Required features are not enabled for your account."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ContactsErrorMessage",
           "modelAsString": false,
@@ -21439,7 +20975,6 @@
           "Meeting recap access is not available. Required features are not enabled for your account"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MeetingRecapsErrorMessage",
           "modelAsString": false,
@@ -21464,7 +20999,6 @@
           "physical"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the event will be an in-person meeting.",
         "x-ms-enum": {
           "name": "PhysicalKind",
@@ -21482,7 +21016,6 @@
           "inbound_call"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the invitee will call the event host",
         "x-ms-enum": {
           "name": "InboundCallKind",
@@ -21500,7 +21033,6 @@
           "outbound_call"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the event host (publisher) will call the invitee",
         "x-ms-enum": {
           "name": "OutboundCallKind",
@@ -21518,7 +21050,6 @@
           "zoom_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a Zoom conference",
         "x-ms-enum": {
           "name": "ZoomConferenceKind",
@@ -21536,7 +21067,6 @@
           "google_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a Google Meet or Hangouts conference",
         "x-ms-enum": {
           "name": "GoogleConferenceKind",
@@ -21554,7 +21084,6 @@
           "gotomeeting_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a GoToMeeting conference",
         "x-ms-enum": {
           "name": "GotomeetingConferenceKind",
@@ -21572,7 +21101,6 @@
           "microsoft_teams_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a Microsoft Teams conference",
         "x-ms-enum": {
           "name": "MicrosoftTeamsConferenceKind",
@@ -21590,7 +21118,6 @@
           "webex_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a WebEx conference",
         "x-ms-enum": {
           "name": "WebexConferenceKind",
@@ -21608,7 +21135,6 @@
           "ask_invitee"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the event location will be selected by the invitee",
         "x-ms-enum": {
           "name": "AskInviteeKind",
@@ -21626,7 +21152,6 @@
           "custom"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location doesn\u0027t fall into a standard category defined by the event host (publisher)",
         "x-ms-enum": {
           "name": "CustomKind",
@@ -21644,7 +21169,6 @@
           "date_range"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "DateRangeType",
           "modelAsString": false,
@@ -21661,7 +21185,6 @@
           "days_in_future"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "DaysInFutureType",
           "modelAsString": false,
@@ -21678,7 +21201,6 @@
           "spots"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "SpotsType",
           "modelAsString": false,
@@ -21695,7 +21217,6 @@
           "sms"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "SmsType",
           "modelAsString": false,
@@ -21712,7 +21233,6 @@
           "email"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "EmailType",
           "modelAsString": false,
@@ -21729,7 +21249,6 @@
           "physical"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the event will be an in-person meeting.",
         "x-ms-enum": {
           "name": "PhysicalType",
@@ -21747,7 +21266,6 @@
           "outbound_call"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the event host (publisher) will call the invitee",
         "example": "outbound_call",
         "x-ms-enum": {
@@ -21766,7 +21284,6 @@
           "inbound_call"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "\t\nIndicates that the invitee will call the event host",
         "x-ms-enum": {
           "name": "InboundCallType",
@@ -21784,7 +21301,6 @@
           "google_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a Google Meet or Hangouts conference",
         "x-ms-enum": {
           "name": "GoogleConferenceType",
@@ -21806,7 +21322,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates the current status of the Google conference\u003Cbr/\u003E\u0026nbsp; * Expect only \u0060pushed\u0060 status to have a non-\u0060null\u0060 value for the \u0060join_url\u0060 field.\u003Cbr/\u003E\u0026nbsp; - \u0060processing\u0060 Location details generation pending\u003Cbr/\u003E\u0026nbsp; - \u0060initiated\u0060 Requesting location details from Google\u003Cbr/\u003E\u0026nbsp; - \u0060pushed\u0060 Location details are available\u003Cbr/\u003E\u0026nbsp; - \u0060failed\u0060 Error occurred or event has been canceled\u003Cbr/\u003E\u0026nbsp; - \u0060null\u0060 Location details are no longer available",
         "nullable": true,
         "x-ms-enum": {
@@ -21837,7 +21352,6 @@
           "zoom"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a Zoom conference",
         "x-ms-enum": {
           "name": "ZoomType",
@@ -21859,7 +21373,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates the current status of the Zoom conference\u003Cbr/\u003E\u0026nbsp; * Expect only \u0060pushed\u0060 status to have non-\u0060null\u0060 values for \u0060join_url\u0060 \u0026 \u0060data\u0060 fields.\u003Cbr/\u003E\u0026nbsp; - \u0060processing\u0060 Location details generation pending\u003Cbr/\u003E\u0026nbsp; - \u0060initiated\u0060 Requesting location details from Zoom\u003Cbr/\u003E\u0026nbsp; - \u0060pushed\u0060 Location details are available\u003Cbr/\u003E\u0026nbsp; - \u0060failed\u0060 Error occurred or event has been canceled\u003Cbr/\u003E\u0026nbsp; - \u0060null\u0060 Location details are no longer available",
         "nullable": true,
         "x-ms-enum": {
@@ -21890,7 +21403,6 @@
           "gotomeeting"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a GoToMeeting conference",
         "x-ms-enum": {
           "name": "GotomeetingType",
@@ -21912,7 +21424,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates the current status of the GoToMeeting conference\u003Cbr/\u003E\u0026nbsp; * Expect only \u0060pushed\u0060 status to have non-\u0060null\u0060 values for \u0060join_url\u0060 \u0026 \u0060data\u0060 fields.\u003Cbr/\u003E\u0026nbsp; - \u0060processing\u0060 Location details generation pending\u003Cbr/\u003E\u0026nbsp; - \u0060initiated\u0060 Requesting location details from GoToMeeting\u003Cbr/\u003E\u0026nbsp; - \u0060pushed\u0060 Location details are available\u003Cbr/\u003E\u0026nbsp; - \u0060failed\u0060 Error occurred or event has been canceled\u003Cbr/\u003E\u0026nbsp; - \u0060null\u0060 Location details are no longer available",
         "nullable": true,
         "x-ms-enum": {
@@ -21943,7 +21454,6 @@
           "microsoft_teams_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a Microsoft Teams conference",
         "x-ms-enum": {
           "name": "MicrosoftTeamsConferenceType",
@@ -21965,7 +21475,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates the current status of the Microsoft Teams conference\u003Cbr/\u003E\u0026nbsp; * Expect only \u0060pushed\u0060 status to have non-\u0060null\u0060 values for \u0060join_url\u0060 \u0026 \u0060data\u0060 fields.\u003Cbr/\u003E\u0026nbsp; - \u0060processing\u0060 Location details generation pending\u003Cbr/\u003E\u0026nbsp; - \u0060initiated\u0060 Requesting location details from MS Teams\u003Cbr/\u003E\u0026nbsp; - \u0060pushed\u0060 Location details are available\u003Cbr/\u003E\u0026nbsp; - \u0060failed\u0060 Error occurred or event has been canceled\u003Cbr/\u003E\u0026nbsp; - \u0060null\u0060 Location details are no longer available",
         "nullable": true,
         "x-ms-enum": {
@@ -21996,7 +21505,6 @@
           "custom"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location doesn\u0027t fall into a standard category defined by the event host (publisher)",
         "x-ms-enum": {
           "name": "CustomType",
@@ -22014,7 +21522,6 @@
           "ask_invitee"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location selected by the invitee",
         "x-ms-enum": {
           "name": "AskInviteeType",
@@ -22032,7 +21539,6 @@
           "webex_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The event location is a WebEx conference",
         "x-ms-enum": {
           "name": "WebexConferenceType",
@@ -22054,7 +21560,6 @@
           null
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates the current status of the WebEx conference\u003Cbr/\u003E\u0026nbsp; * Expect only \u0060pushed\u0060 status to have non-\u0060null\u0060 values for \u0060join_url\u0060 \u0026 \u0060data\u0060 fields.\u003Cbr/\u003E\u0026nbsp; - \u0060processing\u0060 Location details generation pending\u003Cbr/\u003E\u0026nbsp; - \u0060initiated\u0060 Requesting location details from WebEx\u003Cbr/\u003E\u0026nbsp; - \u0060pushed\u0060 Location details are available\u003Cbr/\u003E\u0026nbsp; - \u0060failed\u0060 Error occurred or event has been canceled\u003Cbr/\u003E\u0026nbsp; - \u0060null\u0060 Location details are no longer available",
         "nullable": true,
         "x-ms-enum": {
@@ -22089,7 +21594,6 @@
           "multi_select"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The type of response that the invitee provides to the custom question; can be one or multiple lines of text, a phone number, or single- or multiple-select.",
         "x-ms-enum": {
           "name": "EventTypeCustomQuestionType",
@@ -22129,7 +21633,6 @@
           "radios"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Question type: name, text input, email, phone, textarea input, dropdown list or radio button list.",
         "x-ms-enum": {
           "name": "QuestionType",
@@ -22171,7 +21674,6 @@
           "event_type"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the routing form submission resulted in a redirect to an event type booking page.",
         "x-ms-enum": {
           "name": "SubmissionEventTypeResultType",
@@ -22189,7 +21691,6 @@
           "external_url"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates that the routing form submission resulted in a redirect to an external URL.",
         "x-ms-enum": {
           "name": "ExternalUrlType",
@@ -22207,7 +21708,6 @@
           "custom_message"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the routing form submission resulted in a custom \u0022thank you\u0022 message.",
         "x-ms-enum": {
           "name": "CustomMessageType",
@@ -22225,7 +21725,6 @@
           "Invalid Argument"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "InvalidArgumentTitle",
           "modelAsString": false,
@@ -22242,7 +21741,6 @@
           "The supplied parameters are invalid."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "TheSuppliedParametersAreInvalidMessage",
           "modelAsString": false,
@@ -22258,8 +21756,182 @@
         "enum": [
           "Unauthenticated"
         ],
+        "type": "string"
+      },
+      "UnauthenticatedResponseMessage": {
+        "enum": [
+          "The access token is invalid",
+          "The access token expired",
+          "The access token was revoked"
+        ],
         "type": "string",
-        "additionalProperties": false
+        "x-ms-enum": {
+          "name": "UnauthenticatedResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The access token is invalid",
+              "name": "TheAccessTokenIsInvalid"
+            },
+            {
+              "value": "The access token expired",
+              "name": "TheAccessTokenExpired"
+            },
+            {
+              "value": "The access token was revoked",
+              "name": "TheAccessTokenWasRevoked"
+            }
+          ]
+        }
+      },
+      "PermissionDeniedResponseMessage": {
+        "enum": [
+          "You do not have permission to access this resource.",
+          "You do not have permission"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PermissionDeniedResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "You do not have permission to access this resource.",
+              "name": "YouDoNotHavePermissionToAccessThisResource"
+            },
+            {
+              "value": "You do not have permission",
+              "name": "YouDoNotHavePermission"
+            }
+          ]
+        }
+      },
+      "ResourceNotFoundTitle": {
+        "enum": [
+          "Resource Not Found"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ResourceNotFoundTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Resource Not Found",
+              "name": "ResourceNotFound"
+            }
+          ]
+        }
+      },
+      "TheServerCouldNotFindTheRequestedResourceMessage": {
+        "enum": [
+          "The server could not find the requested resource."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "TheServerCouldNotFindTheRequestedResourceMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The server could not find the requested resource.",
+              "name": "TheServerCouldNotFindTheRequestedResource"
+            }
+          ]
+        }
+      },
+      "TooManyRequestsTitle": {
+        "enum": [
+          "Too Many Requests"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "TooManyRequestsTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Too Many Requests",
+              "name": "TooManyRequests"
+            }
+          ]
+        }
+      },
+      "RateLimitExceededPleaseRetryAfterSomeTimeMessage": {
+        "enum": [
+          "Rate limit exceeded. Please retry after some time."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "RateLimitExceededPleaseRetryAfterSomeTimeMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Rate limit exceeded. Please retry after some time.",
+              "name": "RateLimitExceededPleaseRetryAfterSomeTime"
+            }
+          ]
+        }
+      },
+      "InternalServerErrorTitle": {
+        "enum": [
+          "Internal Server Error"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "InternalServerErrorTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Internal Server Error",
+              "name": "InternalServerError"
+            }
+          ]
+        }
+      },
+      "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage": {
+        "enum": [
+          "The server encountered an unexpected condition that prevented it from fulfilling the request."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The server encountered an unexpected condition that prevented it from fulfilling the request.",
+              "name": "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequest"
+            }
+          ]
+        }
+      },
+      "AlreadyExistsTitle": {
+        "enum": [
+          "Already Exists"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AlreadyExistsTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Already Exists",
+              "name": "AlreadyExists"
+            }
+          ]
+        }
+      },
+      "TheResourceAlreadyExistsMessage": {
+        "enum": [
+          "The resource already exists"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "TheResourceAlreadyExistsMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The resource already exists",
+              "name": "TheResourceAlreadyExists"
+            }
+          ]
+        }
       },
       "UnauthenticatedResponseAllOf2Message": {
         "enum": [
@@ -22268,7 +21940,6 @@
           "The access token was revoked"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "UnauthenticatedResponseAllOf2Message",
           "modelAsString": false,
@@ -22294,7 +21965,6 @@
           "You do not have permission"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PermissionDeniedResponseAllOf2Message",
           "modelAsString": false,
@@ -22316,7 +21986,6 @@
           "You do not have permission"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PermissionDeniedAndScopesForbiddenResponseOneOf1AllOf2Message",
           "modelAsString": false,
@@ -22332,149 +22001,12 @@
           ]
         }
       },
-      "ResourceNotFoundTitle": {
-        "enum": [
-          "Resource Not Found"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ResourceNotFoundTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Resource Not Found",
-              "name": "ResourceNotFound"
-            }
-          ]
-        }
-      },
-      "TheServerCouldNotFindTheRequestedResourceMessage": {
-        "enum": [
-          "The server could not find the requested resource."
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "TheServerCouldNotFindTheRequestedResourceMessage",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "The server could not find the requested resource.",
-              "name": "TheServerCouldNotFindTheRequestedResource"
-            }
-          ]
-        }
-      },
-      "TooManyRequestsTitle": {
-        "enum": [
-          "Too Many Requests"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "TooManyRequestsTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Too Many Requests",
-              "name": "TooManyRequests"
-            }
-          ]
-        }
-      },
-      "RateLimitExceededPleaseRetryAfterSomeTimeMessage": {
-        "enum": [
-          "Rate limit exceeded. Please retry after some time."
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "RateLimitExceededPleaseRetryAfterSomeTimeMessage",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Rate limit exceeded. Please retry after some time.",
-              "name": "RateLimitExceededPleaseRetryAfterSomeTime"
-            }
-          ]
-        }
-      },
-      "InternalServerErrorTitle": {
-        "enum": [
-          "Internal Server Error"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "InternalServerErrorTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Internal Server Error",
-              "name": "InternalServerError"
-            }
-          ]
-        }
-      },
-      "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage": {
-        "enum": [
-          "The server encountered an unexpected condition that prevented it from fulfilling the request."
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "The server encountered an unexpected condition that prevented it from fulfilling the request.",
-              "name": "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequest"
-            }
-          ]
-        }
-      },
-      "AlreadyExistsTitle": {
-        "enum": [
-          "Already Exists"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "AlreadyExistsTitle",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "Already Exists",
-              "name": "AlreadyExists"
-            }
-          ]
-        }
-      },
-      "TheResourceAlreadyExistsMessage": {
-        "enum": [
-          "The resource already exists"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "TheResourceAlreadyExistsMessage",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "The resource already exists",
-              "name": "TheResourceAlreadyExists"
-            }
-          ]
-        }
-      },
       "InviteePaymentProvider": {
         "enum": [
           "stripe",
           "paypal"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Payment provider",
         "example": "stripe",
         "x-ms-enum": {
@@ -22501,7 +22033,6 @@
           "USD"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The currency format that the payment is in.",
         "x-ms-enum": {
           "name": "InviteePaymentCurrency",
@@ -22540,7 +22071,6 @@
           "ps"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The user\u0027s language preference",
         "example": "de",
         "x-ms-enum": {
@@ -22580,7 +22110,6 @@
           "paypal"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Payment provider",
         "example": "stripe",
         "x-ms-enum": {
@@ -22607,7 +22136,6 @@
           "USD"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The currency format that the payment is in.",
         "x-ms-enum": {
           "name": "InviteePayloadPaymentCurrency",
@@ -22642,7 +22170,6 @@
           "canceled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates if the event is \u0022active\u0022 or \u0022canceled\u0022",
         "x-ms-enum": {
           "name": "InviteePayloadScheduledEventStatus",
@@ -22664,7 +22191,6 @@
           "EventType"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Resource type (currently, this is always EventType)",
         "example": "EventType"
       },
@@ -22676,7 +22202,6 @@
           "unlimited"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "fixed",
         "x-ms-enum": {
           "name": "ShareShareOverridePeriodType",
@@ -22714,7 +22239,6 @@
           "zoom_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "physical",
         "x-ms-enum": {
           "name": "ShareShareOverrideLocationConfigurationsItemKind",
@@ -22765,7 +22289,6 @@
           "date"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "wday",
         "x-ms-enum": {
           "name": "ShareShareOverrideAvailabilityRuleRulesItemType",
@@ -22793,7 +22316,6 @@
           "saturday"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "friday",
         "x-ms-enum": {
           "name": "ShareShareOverrideAvailabilityRuleRulesItemWday",
@@ -22842,7 +22364,6 @@
           "uk"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The locale on the event type, used to determine the language of the event type\u0027s scheduling page",
         "example": "de",
         "x-ms-enum": {
@@ -22884,6 +22405,54 @@
           ]
         }
       },
+      "PostInvitee400ResponseTitle": {
+        "enum": [
+          "Invalid Argument",
+          "Deprecated"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PostInvitee400ResponseTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Invalid Argument",
+              "name": "InvalidArgument"
+            }
+          ]
+        }
+      },
+      "PostInvitee400ResponseMessage": {
+        "enum": [
+          "The supplied parameters are invalid.",
+          "Specified location kind is not configured for this event type.",
+          "Required Questions and Answers cannot be blank.",
+          "Event types that require payment cannot be scheduled via the API."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PostInvitee400ResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The supplied parameters are invalid.",
+              "name": "TheSuppliedParametersAreInvalid"
+            },
+            {
+              "value": "Specified location kind is not configured for this event type.",
+              "name": "SpecifiedLocationKindIsNotConfiguredForThisEventType"
+            },
+            {
+              "value": "Required Questions and Answers cannot be blank.",
+              "name": "RequiredQuestionsAndAnswersCannotBeBlank"
+            },
+            {
+              "value": "Event types that require payment cannot be scheduled via the API.",
+              "name": "EventTypesThatRequirePaymentCannotBeScheduledViaTheApi"
+            }
+          ]
+        }
+      },
       "UpdateEventTypeRequestLocale": {
         "enum": [
           "de",
@@ -22896,7 +22465,6 @@
           "uk"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The locale on the event type, used to determine the language of the event type\u0027s scheduling page",
         "example": "de",
         "x-ms-enum": {
@@ -22953,7 +22521,6 @@
           "contact.deleted"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "CreatewebhooksRequestEventsItem",
           "modelAsString": false,
@@ -23012,7 +22579,6 @@
           "group"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Indicates whether the webhook subscription scope is \u0060organization\u0060, \u0060user\u0060, or \u0060group\u0060",
         "x-ms-enum": {
           "name": "CreatewebhooksRequestScope",
@@ -23033,12 +22599,27 @@
           ]
         }
       },
+      "HookWithThisUrlAlreadyExistsMessage": {
+        "enum": [
+          "Hook with this url already exists"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "HookWithThisUrlAlreadyExistsMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Hook with this url already exists",
+              "name": "HookWithThisUrlAlreadyExists"
+            }
+          ]
+        }
+      },
       "CreateSchedulingLinkRequestMaxEventCount": {
         "enum": [
           1
         ],
         "type": "number",
-        "additionalProperties": false,
         "description": "The max number of events that can be scheduled using this scheduling link.",
         "example": 1
       },
@@ -23054,7 +22635,6 @@
           "webex_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "UpdatePollRequestLocationType",
           "modelAsString": false,
@@ -23102,7 +22682,6 @@
           "unlimited"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "fixed",
         "x-ms-enum": {
           "name": "CreateShareRequestPeriodType",
@@ -23135,7 +22714,6 @@
           "unlimited"
         ],
         "type": "string",
-        "additionalProperties": false,
         "nullable": true,
         "example": "fixed",
         "x-ms-enum": {
@@ -23161,6 +22739,100 @@
           ]
         }
       },
+      "UpdateShare401ResponseMessage": {
+        "enum": [
+          "The access token is invalid",
+          "The access token expired",
+          "The access token was revoked"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "UpdateShare401ResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The access token is invalid",
+              "name": "TheAccessTokenIsInvalid"
+            },
+            {
+              "value": "The access token expired",
+              "name": "TheAccessTokenExpired"
+            },
+            {
+              "value": "The access token was revoked",
+              "name": "TheAccessTokenWasRevoked"
+            }
+          ]
+        }
+      },
+      "StateConflictTitle": {
+        "enum": [
+          "State Conflict"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "StateConflictTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "State Conflict",
+              "name": "StateConflict"
+            }
+          ]
+        }
+      },
+      "UpdateShare409ResponseMessage": {
+        "enum": [
+          "Only single-use shares can be updated",
+          "This share cannot be updated because it has been booked",
+          "This share cannot be updated because it has been disabled",
+          "This share cannot be updated because it has expired"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "UpdateShare409ResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Only single-use shares can be updated",
+              "name": "OnlySingleUseSharesCanBeUpdated"
+            },
+            {
+              "value": "This share cannot be updated because it has been booked",
+              "name": "ThisShareCannotBeUpdatedBecauseItHasBeenBooked"
+            },
+            {
+              "value": "This share cannot be updated because it has been disabled",
+              "name": "ThisShareCannotBeUpdatedBecauseItHasBeenDisabled"
+            },
+            {
+              "value": "This share cannot be updated because it has expired",
+              "name": "ThisShareCannotBeUpdatedBecauseItHasExpired"
+            }
+          ]
+        }
+      },
+      "PermissionDeniedAndScopesForbiddenResponseOneOf1Message": {
+        "enum": [
+          "You do not have permission to access this resource.",
+          "You do not have permission"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PermissionDeniedAndScopesForbiddenResponseOneOf1Message",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "You do not have permission to access this resource.",
+              "name": "YouDoNotHavePermissionToAccessThisResource"
+            },
+            {
+              "value": "You do not have permission",
+              "name": "YouDoNotHavePermission"
+            }
+          ]
+        }
+      },
       "CreateShareRequestLocationConfigurationsItemKind": {
         "enum": [
           "physical",
@@ -23175,7 +22847,6 @@
           "zoom_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "physical",
         "x-ms-enum": {
           "name": "CreateShareRequestLocationConfigurationsItemKind",
@@ -23237,7 +22908,6 @@
           "zoom_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "physical",
         "x-ms-enum": {
           "name": "UpdateShareRequestLocationConfigurationsItemKind",
@@ -23288,7 +22958,6 @@
           "date"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "wday",
         "x-ms-enum": {
           "name": "CreateShareRequestAvailabilityRuleRulesItemType",
@@ -23316,7 +22985,6 @@
           "saturday"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "is required when \u0060type\u0060 is \u0027wday\u0027",
         "example": "friday",
         "x-ms-enum": {
@@ -23360,7 +23028,6 @@
           "date"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "wday",
         "x-ms-enum": {
           "name": "UpdateShareRequestAvailabilityRuleRulesItemType",
@@ -23388,7 +23055,6 @@
           "saturday"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "friday",
         "x-ms-enum": {
           "name": "UpdateShareRequestAvailabilityRuleRulesItemWday",
@@ -23433,7 +23099,6 @@
           "unlimited"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "fixed",
         "x-ms-enum": {
           "name": "UpdateShare200ResponseResourceShareOverridePeriodType",
@@ -23471,7 +23136,6 @@
           "zoom_conference"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "physical",
         "x-ms-enum": {
           "name": "UpdateShare200ResponseResourceShareOverrideLocationConfigurationsItemKind",
@@ -23522,7 +23186,6 @@
           "date"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "wday",
         "x-ms-enum": {
           "name": "UpdateShare200ResponseResourceShareOverrideAvailabilityRuleRulesItemType",
@@ -23550,7 +23213,6 @@
           "saturday"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "friday",
         "x-ms-enum": {
           "name": "UpdateShare200ResponseResourceShareOverrideAvailabilityRuleRulesItemWday",
@@ -23593,7 +23255,6 @@
           "canceled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListEventInviteesStatusParameter",
           "modelAsString": false,
@@ -23615,7 +23276,6 @@
           "canceled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListScheduledEventsStatusParameter",
           "modelAsString": false,
@@ -23638,7 +23298,6 @@
           "declined"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListOrganizationInvitationsStatusParameter",
           "modelAsString": false,
@@ -23665,7 +23324,6 @@
           "user"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "owner",
         "x-ms-enum": {
           "name": "ListOrganizationMembershipsRoleParameter",
@@ -23693,7 +23351,6 @@
           "group"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListWebhookSubscriptionsScopeParameter",
           "modelAsString": false,
@@ -23727,7 +23384,6 @@
           "occurred_at:desc"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListActivityLogEntriesSortParameterItem",
           "modelAsString": false,
@@ -23784,7 +23440,6 @@
           "exchange"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "google",
         "x-ms-enum": {
           "name": "ListCalendarEventsCalendarAccountKindParameter",
@@ -23831,7 +23486,6 @@
           "contact.deleted"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GetSampleWebhookDataEventParameter",
           "modelAsString": false,
@@ -23902,7 +23556,6 @@
           "group"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GetSampleWebhookDataScopeParameter",
           "modelAsString": false,
@@ -23929,7 +23582,6 @@
           "unavailable"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListMeetingRecapsStatusParameter",
           "modelAsString": false,

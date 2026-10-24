@@ -37,9 +37,16 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200ResponseCollectionItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.GetOutgoingCommunications200ResponseCollectionItem();
-            result.Email = new global::Soenneker.Calendly.OpenApiClient.Models.Email();
-            result.Sms = new global::Soenneker.Calendly.OpenApiClient.Models.Sms();
+            if("email".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Email = new global::Soenneker.Calendly.OpenApiClient.Models.Email();
+            }
+            else if("sms".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Sms = new global::Soenneker.Calendly.OpenApiClient.Models.Sms();
+            }
             return result;
         }
         /// <summary>
@@ -48,9 +55,13 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(Email != null || Sms != null)
+            if(Email != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Email, Sms);
+                return Email.GetFieldDeserializers();
+            }
+            else if(Sms != null)
+            {
+                return Sms.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +72,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Email>(null, Email, Sms);
+            if(Email != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Email>(null, Email);
+            }
+            else if(Sms != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Sms>(null, Sms);
+            }
         }
     }
 }

@@ -20,14 +20,14 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events
     {
         /// <summary>Gets an item from the Soenneker.Calendly.OpenApiClient.scheduled_events.item collection</summary>
         /// <param name="position">The event&apos;s unique identifier</param>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder"/></returns>
-        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.WithUuItemRequestBuilder"/></returns>
+        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.WithUuItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("eventUu%2Did", position);
-                return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("uuid", position);
+                return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.WithUuItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

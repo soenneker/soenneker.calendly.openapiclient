@@ -101,45 +101,45 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("kind")?.GetStringValue();
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation();
-            if("InviteeCustomLocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("custom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeCustomLocation = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeCustomLocation();
             }
-            else if("InviteeGoogleConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("google_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeGoogleConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeGoogleConference();
             }
-            else if("InviteeGotoMeetingConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("gotomeeting_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeGotoMeetingConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeGotoMeetingConference();
             }
-            else if("InviteeInPersonMeeting".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("physical".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeInPersonMeeting = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInPersonMeeting();
             }
-            else if("InviteeInboundCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("inbound_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeInboundCall = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInboundCall();
             }
-            else if("InviteeInviteeSpecifiedLocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ask_invitee".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeInviteeSpecifiedLocation = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInviteeSpecifiedLocation();
             }
-            else if("InviteeMicrosoftTeamsConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("microsoft_teams_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeMicrosoftTeamsConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeMicrosoftTeamsConference();
             }
-            else if("InviteeOutboundCall".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("outbound_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeOutboundCall = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeOutboundCall();
             }
-            else if("InviteeWebExConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("webex_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeWebExConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeWebExConference();
             }
-            else if("InviteeZoomConference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("zoom_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InviteeZoomConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeZoomConference();
             }

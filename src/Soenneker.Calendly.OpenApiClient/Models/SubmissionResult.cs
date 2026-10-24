@@ -45,17 +45,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult();
-            if("SubmissionCustomMessageResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("custom_message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SubmissionCustomMessageResult = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResult();
             }
-            else if("SubmissionEventTypeResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("event_type".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SubmissionEventTypeResult = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionEventTypeResult();
             }
-            else if("SubmissionExternalUrlResult".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("external_url".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SubmissionExternalUrlResult = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionExternalUrlResult();
             }

@@ -45,17 +45,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventTypeRequestDateSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.CreateOneOffEventTypeRequestDateSetting();
-            if("DateRange".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("date_range".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.DateRange = new global::Soenneker.Calendly.OpenApiClient.Models.DateRange();
             }
-            else if("DaysInFuture".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("days_in_future".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.DaysInFuture = new global::Soenneker.Calendly.OpenApiClient.Models.DaysInFuture();
             }
-            else if("Spots".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("spots".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Spots = new global::Soenneker.Calendly.OpenApiClient.Models.Spots();
             }

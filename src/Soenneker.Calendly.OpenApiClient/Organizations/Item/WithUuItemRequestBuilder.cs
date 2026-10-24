@@ -4,76 +4,72 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Calendly.OpenApiClient.Models;
-using Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation;
-using Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees;
+using Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item
+namespace Soenneker.Calendly.OpenApiClient.Organizations.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \scheduled_events\{eventUu-id}
+    /// Builds and executes requests for operations under \organizations\{uuid}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EventUuItemRequestBuilder : BaseRequestBuilder
+    public partial class WithUuItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The cancellation property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation.CancellationRequestBuilder Cancellation
+        /// <summary>The invitations property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder Invitations
         {
-            get => new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation.CancellationRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The invitees property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.InviteesRequestBuilder Invitees
-        {
-            get => new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees.InviteesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.Invitations.InvitationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.WithUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}", pathParameters)
+        public WithUuItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{uuid}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.WithUuItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EventUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}", rawUrl)
+        public WithUuItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/organizations/{uuid}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns information about a specified Event.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
+        /// Returns the details of a specified Organization.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetScheduledEvent200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetOrganization200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns information about a specified Event.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `scheduled_events:read`&lt;/Info&gt;
+        /// Returns the details of a specified Organization.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -94,11 +90,11 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Organizations.Item.WithUuItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Calendly.OpenApiClient.Organizations.Item.WithUuItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.EventUuItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Calendly.OpenApiClient.Organizations.Item.WithUuItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

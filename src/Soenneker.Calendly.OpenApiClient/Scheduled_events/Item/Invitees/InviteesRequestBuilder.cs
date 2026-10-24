@@ -13,7 +13,7 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
 {
     /// <summary>
-    /// Builds and executes requests for operations under \scheduled_events\{eventUu-id}\invitees
+    /// Builds and executes requests for operations under \scheduled_events\{uuid}\invitees
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InviteesRequestBuilder : BaseRequestBuilder
@@ -35,7 +35,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InviteesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/invitees{?count*,email*,page_token*,sort*,status*}", pathParameters)
+        public InviteesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{uuid}/invitees{?count*,email*,page_token*,sort*,status*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Invitees
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InviteesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{eventUu%2Did}/invitees{?count*,email*,page_token*,sort*,status*}", rawUrl)
+        public InviteesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/scheduled_events/{uuid}/invitees{?count*,email*,page_token*,sort*,status*}", rawUrl)
         {
         }
         /// <summary>
