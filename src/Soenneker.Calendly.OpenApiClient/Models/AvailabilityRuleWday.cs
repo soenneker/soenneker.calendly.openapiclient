@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>The day of the week for which this Rule should be applied to.</summary>
+    /// <summary>The day of the week for which this Rule should be applied to. Required when type is &quot;wday&quot;.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AvailabilityRuleWday
     {

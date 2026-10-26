@@ -2211,6 +2211,9 @@
                       "invitee_no_show.created",
                       "invitee_no_show.deleted",
                       "routing_form_submission.created",
+                      "event_type.created",
+                      "event_type.deleted",
+                      "event_type.updated",
                       "contact.created",
                       "contact.updated",
                       "contact.deleted"
@@ -2228,6 +2231,9 @@
                       "invitee.canceled",
                       "invitee_no_show.created",
                       "invitee_no_show.deleted",
+                      "event_type.created",
+                      "event_type.deleted",
+                      "event_type.updated",
                       "contact.created",
                       "contact.updated",
                       "contact.deleted"
@@ -5223,6 +5229,129 @@
             "personal_access_token": []
           }
         ]
+      },
+      "post": {
+        "tags": [
+          "Availability"
+        ],
+        "summary": "Create User Availability Schedule",
+        "description": "Creates a new availability schedule for the authenticated user. The schedule is not applied to any event type until configured separately.\n\n**Rules requirements:**\n- Must include exactly one \u0060wday\u0060 rule for each day of the week (sunday through saturday).\n- \u0060date\u0060 rules are optional overrides on top of the weekly rules.\n- Date rules dated before today, in the schedule\u0027s timezone, will return \u0060400 Bad Request\u0060.\n- An empty \u0060intervals\u0060 array means no availability for that weekday or date.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060availability:write\u0060\n\u003C/Info\u003E",
+        "operationId": "CreateUserAvailabilitySchedule",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserAvailabilityScheduleRequest"
+              },
+              "examples": {
+                "Office Hours with Date Override": {
+                  "value": {
+                    "name": "Office Hours",
+                    "timezone": "America/Los_Angeles",
+                    "rules": [
+                      {
+                        "type": "wday",
+                        "wday": "sunday",
+                        "intervals": []
+                      },
+                      {
+                        "type": "wday",
+                        "wday": "monday",
+                        "intervals": []
+                      },
+                      {
+                        "type": "wday",
+                        "wday": "tuesday",
+                        "intervals": [
+                          {
+                            "from": "14:00",
+                            "to": "16:00"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "wday",
+                        "wday": "wednesday",
+                        "intervals": []
+                      },
+                      {
+                        "type": "wday",
+                        "wday": "thursday",
+                        "intervals": [
+                          {
+                            "from": "14:00",
+                            "to": "16:00"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "wday",
+                        "wday": "friday",
+                        "intervals": []
+                      },
+                      {
+                        "type": "wday",
+                        "wday": "saturday",
+                        "intervals": []
+                      },
+                      {
+                        "type": "date",
+                        "date": "2026-12-22",
+                        "intervals": [
+                          {
+                            "from": "09:00",
+                            "to": "12:00"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserAvailabilitySchedule201Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid arguments, including:\n- Missing required fields (name, timezone, or rules)\n- Missing wday rules for one or more days of the week\n- Date rules dated before today in the schedule\u0027s timezone\n- Invalid time formats or timezone values",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserAvailabilitySchedule400Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/USER_NOT_IN_ORGANIZATION_and_SCOPES_FORBIDDEN"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
       }
     },
     "/user_availability_schedules/{uuid}": {
@@ -7601,6 +7730,9 @@
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
           },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           }
@@ -7656,6 +7788,9 @@
           },
           "409": {
             "$ref": "#/components/responses/ALREADY_EXISTS"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
@@ -7815,6 +7950,9 @@
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
           },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           }
@@ -7959,6 +8097,9 @@
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
           },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           }
@@ -8025,6 +8166,9 @@
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
           },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           }
@@ -8081,6 +8225,9 @@
           "409": {
             "$ref": "#/components/responses/ALREADY_EXISTS"
           },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           }
@@ -8116,6 +8263,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
@@ -11565,11 +11715,11 @@
           "date": {
             "pattern": "^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$",
             "type": "string",
-            "description": "A specific date in the future that this should be applied to (i.e. \u00222030-12-31\u0022).",
+            "description": "A specific date that this should be applied to (i.e. \u00222030-12-31\u0022). Required when type is \u0022date\u0022. Format \u0060YYYY-MM-DD\u0060.",
             "example": "2022-12-31"
           }
         },
-        "description": "The rules for an availability schedule.",
+        "description": "The rules for an availability schedule. When creating or updating a schedule, you must include exactly one wday rule for each day of the week (sunday through saturday). date rules are optional overrides on top of the weekly rules.\n\n- When type is \u0022wday\u0022, the wday field is required and date must be omitted.\n- When type is \u0022date\u0022, the date field is required and wday must be omitted.",
         "example": {
           "type": "wday",
           "intervals": [
@@ -11682,6 +11832,7 @@
         "title": "Contact",
         "required": [
           "uri",
+          "app_url",
           "emails",
           "created_at",
           "updated_at"
@@ -11693,6 +11844,12 @@
             "description": "Canonical reference (unique identifier) for the contact.",
             "format": "uri",
             "example": "https://api.calendly.com/contacts/CCCCCCCCCCCCCCCC"
+          },
+          "app_url": {
+            "type": "string",
+            "description": "URL for an authorized Calendly user to open this contact in the Calendly web app. Requires authentication and access to the contact.",
+            "format": "uri",
+            "example": "https://calendly.com/app/contacts/CCCCCCCCCCCCCCCC"
           },
           "emails": {
             "maxItems": 10,
@@ -14315,7 +14472,7 @@
           },
           {
             "type": "number",
-            "example": 8500000
+            "example": 1234.56
           },
           {
             "type": "boolean",
@@ -14332,7 +14489,7 @@
             ]
           }
         ],
-        "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes an integer amount in the currency\u0027s minor units (the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
+        "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s or option \u0060label\u0060s. Label matching is exact and case-sensitive. If more than one option has the same label, a label value is rejected; send the option \u0060uuid\u0060 instead. An invalid value returns an error that lists the valid options); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes a number amount in the field definition\u0027s currency (not minor/cent units; the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
       },
       "ContactCustomFieldDefinitionSource": {
         "required": [
@@ -15041,6 +15198,10 @@
         }
       },
       "AvailabilityRuleIntervalsItem": {
+        "required": [
+          "from",
+          "to"
+        ],
         "type": "object",
         "properties": {
           "from": {
@@ -17122,6 +17283,54 @@
         },
         "description": "Error Object"
       },
+      "CreateUserAvailabilityScheduleRequest": {
+        "required": [
+          "name",
+          "timezone",
+          "rules"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of this Availability Schedule.",
+            "example": "Office Hours"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "The timezone for which this Availability Schedule is originated in.",
+            "example": "America/Los_Angeles"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AvailabilityRule"
+            },
+            "description": "Complete set of availability rules for the schedule. Must include exactly one wday rule for each day of the week. date rules are optional overrides on top of the weekly rules."
+          }
+        }
+      },
+      "CreateUserAvailabilitySchedule400Response": {
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/InvalidArgumentTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/TheSuppliedParametersAreInvalidMessage"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          }
+        }
+      },
       "ListCalendarEvents200Response": {
         "required": [
           "collection",
@@ -17422,7 +17631,7 @@
             "items": {
               "$ref": "#/components/schemas/CreateContactRequestCustomFieldsItem"
             },
-            "description": "Custom field values to set on the contact. Each item requires a \u0060uuid\u0060 (the custom field definition identifier) and a \u0060value\u0060; any other keys (such as \u0060label\u0060) are ignored. The entire request is rejected if any \u0060uuid\u0060 is unknown, any \u0060value\u0060 is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any \u0060single_select\u0060 \u0060value\u0060 is not one of the field definition\u0027s option \u0060uuid\u0060s."
+            "description": "Custom field values to set on the contact. Each item requires a \u0060uuid\u0060 (the custom field definition identifier) and a \u0060value\u0060; any other keys (such as \u0060label\u0060) are ignored. The entire request is rejected if any \u0060uuid\u0060 is unknown, any \u0060value\u0060 is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any \u0060single_select\u0060 \u0060value\u0060 is not one of the field definition\u0027s option \u0060uuid\u0060s or \u0060label\u0060s (an invalid \u0060single_select\u0060 value returns an error that lists the valid options)."
           }
         }
       },
@@ -17439,7 +17648,7 @@
             "items": {
               "$ref": "#/components/schemas/Email2"
             },
-            "description": "The user\u0027s email addresses. Max 10. \u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating emails will overwrite all existing emails for the contact. Use the GET endpoint to first retrieve the existing emails and then pass the modified emails to the emails array."
+            "description": "The user\u0027s email addresses. Max 10. \u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating emails will overwrite all existing emails for the contact. Send the complete list you want to keep."
           },
           "phone_numbers": {
             "maxItems": 10,
@@ -17447,7 +17656,7 @@
             "items": {
               "$ref": "#/components/schemas/PhoneNumber"
             },
-            "description": "The user\u0027s phone numbers. Max 10. \u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating phone_numbers will overwrite all existing phone numbers for the contact. Use the GET endpoint to first retrieve the existing phone numbers and then pass the modified phone_numbers to the phone_numbers array."
+            "description": "The user\u0027s phone numbers. Max 10. \u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating phone_numbers will overwrite all existing phone numbers for the contact. Send the complete list you want to keep."
           },
           "timezone": {
             "type": "string"
@@ -17476,7 +17685,7 @@
             "items": {
               "$ref": "#/components/schemas/PatchContactsUuidRequestCustomFieldsItem"
             },
-            "description": "Custom field values to set on the contact. Each item requires a \u0060uuid\u0060 (the custom field definition identifier) and a \u0060value\u0060; any other keys (such as \u0060label\u0060) are ignored. The entire request is rejected if any \u0060uuid\u0060 is unknown, any \u0060value\u0060 is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any \u0060single_select\u0060 \u0060value\u0060 is not one of the field definition\u0027s option \u0060uuid\u0060s."
+            "description": "Custom field values to set on the contact. Each item requires a \u0060uuid\u0060 (the custom field definition identifier) and a \u0060value\u0060; any other keys (such as \u0060label\u0060) are ignored. The entire request is rejected if any \u0060uuid\u0060 is unknown, any \u0060value\u0060 is the wrong type for its field (including an array for a scalar field or a scalar for an array field), or any \u0060single_select\u0060 \u0060value\u0060 is not one of the field definition\u0027s option \u0060uuid\u0060s or \u0060label\u0060s (an invalid \u0060single_select\u0060 value returns an error that lists the valid options)."
           }
         }
       },
@@ -17798,6 +18007,17 @@
             "items": {
               "$ref": "#/components/schemas/AvailabilitySchedule"
             }
+          }
+        }
+      },
+      "CreateUserAvailabilitySchedule201Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/AvailabilitySchedule"
           }
         }
       },
@@ -18139,7 +18359,7 @@
           },
           {
             "type": "number",
-            "example": 8500000
+            "example": 1234.56
           },
           {
             "type": "boolean",
@@ -18156,7 +18376,7 @@
             ]
           }
         ],
-        "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes an integer amount in the currency\u0027s minor units (the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
+        "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s or option \u0060label\u0060s. Label matching is exact and case-sensitive. If more than one option has the same label, a label value is rejected; send the option \u0060uuid\u0060 instead. An invalid value returns an error that lists the valid options); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes a number amount in the field definition\u0027s currency (not minor/cent units; the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
       },
       "PatchContactsUuidRequestCustomFieldsItemValue": {
         "oneOf": [
@@ -18166,7 +18386,7 @@
           },
           {
             "type": "number",
-            "example": 8500000
+            "example": 1234.56
           },
           {
             "type": "boolean",
@@ -18183,7 +18403,7 @@
             ]
           }
         ],
-        "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes an integer amount in the currency\u0027s minor units (the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
+        "description": "The custom field value; the accepted type is set by the field definition\u0027s \u0060field_type\u0060. \u0060text\u0060 and \u0060single_select\u0060 take a string (\u0060single_select\u0060 must equal one of the definition\u0027s option \u0060uuid\u0060s or option \u0060label\u0060s. Label matching is exact and case-sensitive. If more than one option has the same label, a label value is rejected; send the option \u0060uuid\u0060 instead. An invalid value returns an error that lists the valid options); \u0060number\u0060 takes a number; \u0060boolean\u0060 takes a boolean; \u0060currency\u0060 takes a number amount in the field definition\u0027s currency (not minor/cent units; the ISO currency code lives on the field definition, not on this entry); \u0060date\u0060 takes a string in ISO 8601 date format (\u0060YYYY-MM-DD\u0060); \u0060tags\u0060 takes an array of strings. Scalar fields reject array values, and \u0060tags\u0060 rejects non-array values."
       },
       "ListEventTypeMemberships200ResponseCollectionItem": {
         "required": [
@@ -20252,6 +20472,9 @@
           "invitee.canceled",
           "invitee_no_show.created",
           "invitee_no_show.deleted",
+          "event_type.created",
+          "event_type.deleted",
+          "event_type.updated",
           "meeting_recap.created",
           "meeting_recap.updated",
           "meeting_recap.deleted",
@@ -20280,6 +20503,18 @@
             {
               "value": "invitee_no_show.deleted",
               "name": "InviteeNoShowDeleted"
+            },
+            {
+              "value": "event_type.created",
+              "name": "EventTypeCreated"
+            },
+            {
+              "value": "event_type.deleted",
+              "name": "EventTypeDeleted"
+            },
+            {
+              "value": "event_type.updated",
+              "name": "EventTypeUpdated"
             },
             {
               "value": "meeting_recap.created",
@@ -20774,7 +21009,7 @@
           "saturday"
         ],
         "type": "string",
-        "description": "The day of the week for which this Rule should be applied to.",
+        "description": "The day of the week for which this Rule should be applied to. Required when type is \u0022wday\u0022.",
         "x-ms-enum": {
           "name": "AvailabilityRuleWday",
           "modelAsString": false,
@@ -20939,9 +21174,8 @@
       },
       "ContactsErrorMessage": {
         "enum": [
-          "Please upgrade your Calendly account to Enterprise.",
-          "You do not have permission to access this resource.",
           "Please upgrade to a paid Calendly account.",
+          "You do not have permission to access this resource.",
           "Contact creation is not available. Required features are not enabled for your account."
         ],
         "type": "string",
@@ -20950,16 +21184,12 @@
           "modelAsString": false,
           "values": [
             {
-              "value": "Please upgrade your Calendly account to Enterprise.",
-              "name": "PleaseUpgradeYourCalendlyAccountToEnterprise"
+              "value": "Please upgrade to a paid Calendly account.",
+              "name": "PleaseUpgradeToAPaidCalendlyAccount"
             },
             {
               "value": "You do not have permission to access this resource.",
               "name": "YouDoNotHavePermissionToAccessThisResource"
-            },
-            {
-              "value": "Please upgrade to a paid Calendly account.",
-              "name": "PleaseUpgradeToAPaidCalendlyAccount"
             },
             {
               "value": "Contact creation is not available. Required features are not enabled for your account.",
@@ -22512,6 +22742,9 @@
           "invitee.created",
           "invitee_no_show.created",
           "invitee_no_show.deleted",
+          "event_type.created",
+          "event_type.deleted",
+          "event_type.updated",
           "meeting_recap.created",
           "meeting_recap.updated",
           "meeting_recap.deleted",
@@ -22540,6 +22773,18 @@
             {
               "value": "invitee_no_show.deleted",
               "name": "InviteeNoShowDeleted"
+            },
+            {
+              "value": "event_type.created",
+              "name": "EventTypeCreated"
+            },
+            {
+              "value": "event_type.deleted",
+              "name": "EventTypeDeleted"
+            },
+            {
+              "value": "event_type.updated",
+              "name": "EventTypeUpdated"
             },
             {
               "value": "meeting_recap.created",
@@ -24341,10 +24586,10 @@
               "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponse"
             },
             "examples": {
-              "Caller holds non-enterprise account": {
+              "Caller does not have a paid plan": {
                 "value": {
                   "title": "Permission Denied",
-                  "message": "Please upgrade your Calendly account to Enterprise."
+                  "message": "Please upgrade to a paid Calendly account."
                 }
               },
               "Caller\u0027s Role is not admin/owner": {

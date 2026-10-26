@@ -22,7 +22,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string Uuid { get; set; }
 #endif
-        /// <summary>The custom field value; the accepted type is set by the field definition&apos;s `field_type`. `text` and `single_select` take a string (`single_select` must equal one of the definition&apos;s option `uuid`s); `number` takes a number; `boolean` takes a boolean; `currency` takes an integer amount in the currency&apos;s minor units (the ISO currency code lives on the field definition, not on this entry); `date` takes a string in ISO 8601 date format (`YYYY-MM-DD`); `tags` takes an array of strings. Scalar fields reject array values, and `tags` rejects non-array values.</summary>
+        /// <summary>The custom field value; the accepted type is set by the field definition&apos;s `field_type`. `text` and `single_select` take a string (`single_select` must equal one of the definition&apos;s option `uuid`s or option `label`s. Label matching is exact and case-sensitive. If more than one option has the same label, a label value is rejected; send the option `uuid` instead. An invalid value returns an error that lists the valid options); `number` takes a number; `boolean` takes a boolean; `currency` takes a number amount in the field definition&apos;s currency (not minor/cent units; the ISO currency code lives on the field definition, not on this entry); `date` takes a string in ISO 8601 date format (`YYYY-MM-DD`); `tags` takes an array of strings. Scalar fields reject array values, and `tags` rejects non-array values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuidRequestCustomFieldsItemValue? Value { get; set; }

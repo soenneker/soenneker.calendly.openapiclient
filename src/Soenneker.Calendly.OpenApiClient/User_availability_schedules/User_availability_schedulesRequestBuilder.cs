@@ -35,7 +35,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public User_availability_schedulesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_availability_schedules?user={user}", pathParameters)
+        public User_availability_schedulesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_availability_schedules", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public User_availability_schedulesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_availability_schedules?user={user}", rawUrl)
+        public User_availability_schedulesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/user_availability_schedules", rawUrl)
         {
         }
         /// <summary>
@@ -76,6 +76,35 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Creates a new availability schedule for the authenticated user. The schedule is not applied to any event type until configured separately.**Rules requirements:**- Must include exactly one `wday` rule for each day of the week (sunday through saturday).- `date` rules are optional overrides on top of the weekly rules.- Date rules dated before today, in the schedule&apos;s timezone, will return `400 Bad Request`.- An empty `intervals` array means no availability for that weekday or date.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule201Response"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule400Response">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule201Response?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilityScheduleRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule201Response> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilityScheduleRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule400Response.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Returns the availability schedules of the given user.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -89,9 +118,31 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_availability_schedules.User_availability_schedulesRequestBuilder.User_availability_schedulesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/user_availability_schedules?user={user}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Creates a new availability schedule for the authenticated user. The schedule is not applied to any event type until configured separately.**Rules requirements:**- Must include exactly one `wday` rule for each day of the week (sunday through saturday).- `date` rules are optional overrides on top of the weekly rules.- Date rules dated before today, in the schedule&apos;s timezone, will return `400 Bad Request`.- An empty `intervals` array means no availability for that weekday or date.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilityScheduleRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilityScheduleRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

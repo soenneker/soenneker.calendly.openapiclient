@@ -41,6 +41,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +58,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -70,6 +72,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,6 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -101,6 +105,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.AlreadyExistsResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,6 +124,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Calendly.OpenApiClient.Models.AlreadyExistsResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

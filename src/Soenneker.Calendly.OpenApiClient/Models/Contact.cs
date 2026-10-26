@@ -15,6 +15,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>URL for an authorized Calendly user to open this contact in the Calendly web app. Requires authentication and access to the contact.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AppUrl { get; set; }
+#nullable restore
+#else
+        public string AppUrl { get; set; }
+#endif
         /// <summary>The user&apos;s city.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,6 +158,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "app_url", n => { AppUrl = n.GetStringValue(); } },
                 { "city", n => { City = n.GetStringValue(); } },
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
@@ -178,6 +187,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("app_url", AppUrl);
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("company", Company);
             writer.WriteStringValue("country", Country);

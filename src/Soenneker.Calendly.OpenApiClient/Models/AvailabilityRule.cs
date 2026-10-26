@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
     /// <summary>
-    /// The rules for an availability schedule.
+    /// The rules for an availability schedule. When creating or updating a schedule, you must include exactly one wday rule for each day of the week (sunday through saturday). date rules are optional overrides on top of the weekly rules.- When type is &quot;wday&quot;, the wday field is required and date must be omitted.- When type is &quot;date&quot;, the date field is required and wday must be omitted.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AvailabilityRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A specific date in the future that this should be applied to (i.e. &quot;2030-12-31&quot;).</summary>
+        /// <summary>A specific date that this should be applied to (i.e. &quot;2030-12-31&quot;). Required when type is &quot;date&quot;. Format `YYYY-MM-DD`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Date { get; set; }
@@ -33,7 +33,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #endif
         /// <summary>The type of this Availability Rule; can be &quot;wday&quot; or a specific &quot;date&quot;.</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType? Type { get; set; }
-        /// <summary>The day of the week for which this Rule should be applied to.</summary>
+        /// <summary>The day of the week for which this Rule should be applied to. Required when type is &quot;wday&quot;.</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday? Wday { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule"/> and sets the default values.
