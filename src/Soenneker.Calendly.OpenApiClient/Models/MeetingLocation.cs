@@ -18,17 +18,19 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connected") is { } nullNodeConnected && nullNodeConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connected = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("connected") is null) { _explicitNullValueConnected = default!; _explicitNullProperties?.Remove("connected"); }
+            else if (parseNode.GetChildNode("connected") is { } nullNodeConnected && nullNodeConnected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connected = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if the location configuration is connected (only valid for web conferencing)</summary>
-        public bool? Connected { get => _explicitNullValueConnected; set { _explicitNullValueConnected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected"); else _explicitNullProperties?.Remove("connected"); } }
+        public bool? Connected { get => _explicitNullValueConnected; set { _explicitNullValueConnected = value; AdditionalData?.Remove("connected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected"); else _explicitNullProperties?.Remove("connected"); } }
         private bool? _explicitNullValueConnected = default!;
         /// <summary>The type of location configuration</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind? _explicitNullValueKind = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation"/> and sets the default values.
@@ -58,7 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connected", n => { Connected = n.GetBoolValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocationKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
             };
         }
         /// <summary>

@@ -17,9 +17,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("conferenceId") is { } nullNodeConferenceId && nullNodeConferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceId = null;
-            if (parseNode.GetChildNode("dialinUrl") is { } nullNodeDialinUrl && nullNodeDialinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DialinUrl = null;
-            if (parseNode.GetChildNode("tollNumber") is { } nullNodeTollNumber && nullNodeTollNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TollNumber = null;
+            if (parseNode.GetChildNode("conferenceId") is null) { _explicitNullValueConferenceId = default!; _explicitNullProperties?.Remove("conferenceId"); }
+            else if (parseNode.GetChildNode("conferenceId") is { } nullNodeConferenceId && nullNodeConferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceId = null;
+            if (parseNode.GetChildNode("dialinUrl") is null) { _explicitNullValueDialinUrl = default!; _explicitNullProperties?.Remove("dialinUrl"); }
+            else if (parseNode.GetChildNode("dialinUrl") is { } nullNodeDialinUrl && nullNodeDialinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DialinUrl = null;
+            if (parseNode.GetChildNode("tollNumber") is null) { _explicitNullValueTollNumber = default!; _explicitNullProperties?.Remove("tollNumber"); }
+            else if (parseNode.GetChildNode("tollNumber") is { } nullNodeTollNumber && nullNodeTollNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TollNumber = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The conferenceId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceId { get => _explicitNullValueConferenceId; set { _explicitNullValueConferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceId"); else _explicitNullProperties?.Remove("conferenceId"); } }
+        public string? ConferenceId { get => _explicitNullValueConferenceId; set { _explicitNullValueConferenceId = value; AdditionalData?.Remove("conferenceId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceId"); else _explicitNullProperties?.Remove("conferenceId"); } }
         private string? _explicitNullValueConferenceId = default!;
 #nullable restore
 #else
-        public string ConferenceId { get => _explicitNullValueConferenceId; set { _explicitNullValueConferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceId"); else _explicitNullProperties?.Remove("conferenceId"); } }
+        public string ConferenceId { get => _explicitNullValueConferenceId; set { _explicitNullValueConferenceId = value; AdditionalData?.Remove("conferenceId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceId"); else _explicitNullProperties?.Remove("conferenceId"); } }
         private string _explicitNullValueConferenceId = default!;
 #endif
         /// <summary>The dialinUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DialinUrl { get => _explicitNullValueDialinUrl; set { _explicitNullValueDialinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialinUrl"); else _explicitNullProperties?.Remove("dialinUrl"); } }
+        public string? DialinUrl { get => _explicitNullValueDialinUrl; set { _explicitNullValueDialinUrl = value; AdditionalData?.Remove("dialinUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialinUrl"); else _explicitNullProperties?.Remove("dialinUrl"); } }
         private string? _explicitNullValueDialinUrl = default!;
 #nullable restore
 #else
-        public string DialinUrl { get => _explicitNullValueDialinUrl; set { _explicitNullValueDialinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialinUrl"); else _explicitNullProperties?.Remove("dialinUrl"); } }
+        public string DialinUrl { get => _explicitNullValueDialinUrl; set { _explicitNullValueDialinUrl = value; AdditionalData?.Remove("dialinUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialinUrl"); else _explicitNullProperties?.Remove("dialinUrl"); } }
         private string _explicitNullValueDialinUrl = default!;
 #endif
         /// <summary>The tollNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TollNumber { get => _explicitNullValueTollNumber; set { _explicitNullValueTollNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollNumber"); else _explicitNullProperties?.Remove("tollNumber"); } }
+        public string? TollNumber { get => _explicitNullValueTollNumber; set { _explicitNullValueTollNumber = value; AdditionalData?.Remove("tollNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollNumber"); else _explicitNullProperties?.Remove("tollNumber"); } }
         private string? _explicitNullValueTollNumber = default!;
 #nullable restore
 #else
-        public string TollNumber { get => _explicitNullValueTollNumber; set { _explicitNullValueTollNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollNumber"); else _explicitNullProperties?.Remove("tollNumber"); } }
+        public string TollNumber { get => _explicitNullValueTollNumber; set { _explicitNullValueTollNumber = value; AdditionalData?.Remove("tollNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollNumber"); else _explicitNullProperties?.Remove("tollNumber"); } }
         private string _explicitNullValueTollNumber = default!;
 #endif
         /// <summary>

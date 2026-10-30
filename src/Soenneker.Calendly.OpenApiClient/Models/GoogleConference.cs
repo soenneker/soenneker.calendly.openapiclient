@@ -18,9 +18,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("join_url") is { } nullNodeJoinUrl && nullNodeJoinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JoinUrl = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("join_url") is null) { _explicitNullValueJoinUrl = default!; _explicitNullProperties?.Remove("join_url"); }
+            else if (parseNode.GetChildNode("join_url") is { } nullNodeJoinUrl && nullNodeJoinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JoinUrl = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,18 +31,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Google conference meeting url</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JoinUrl { get => _explicitNullValueJoinUrl; set { _explicitNullValueJoinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_url"); else _explicitNullProperties?.Remove("join_url"); } }
+        public string? JoinUrl { get => _explicitNullValueJoinUrl; set { _explicitNullValueJoinUrl = value; AdditionalData?.Remove("join_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_url"); else _explicitNullProperties?.Remove("join_url"); } }
         private string? _explicitNullValueJoinUrl = default!;
 #nullable restore
 #else
-        public string JoinUrl { get => _explicitNullValueJoinUrl; set { _explicitNullValueJoinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_url"); else _explicitNullProperties?.Remove("join_url"); } }
+        public string JoinUrl { get => _explicitNullValueJoinUrl; set { _explicitNullValueJoinUrl = value; AdditionalData?.Remove("join_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_url"); else _explicitNullProperties?.Remove("join_url"); } }
         private string _explicitNullValueJoinUrl = default!;
 #endif
         /// <summary>Indicates the current status of the Google conference&lt;br/&gt;&amp;nbsp; * Expect only `pushed` status to have a non-`null` value for the `join_url` field.&lt;br/&gt;&amp;nbsp; - `processing` Location details generation pending&lt;br/&gt;&amp;nbsp; - `initiated` Requesting location details from Google&lt;br/&gt;&amp;nbsp; - `pushed` Location details are available&lt;br/&gt;&amp;nbsp; - `failed` Error occurred or event has been canceled&lt;br/&gt;&amp;nbsp; - `null` Location details are no longer available</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? _explicitNullValueStatus = default!;
         /// <summary>The event location is a Google Meet or Hangouts conference</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GoogleConference"/> and sets the default values.
@@ -67,8 +70,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "join_url", n => { JoinUrl = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

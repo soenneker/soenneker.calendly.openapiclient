@@ -17,13 +17,20 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("event_guests") is { } nullNodeEventGuests && nullNodeEventGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventGuests = null;
-            if (parseNode.GetChildNode("event_type") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
-            if (parseNode.GetChildNode("invitee") is { } nullNodeInvitee && nullNodeInvitee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invitee = null;
-            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
-            if (parseNode.GetChildNode("questions_and_answers") is { } nullNodeQuestionsAndAnswers && nullNodeQuestionsAndAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuestionsAndAnswers = null;
-            if (parseNode.GetChildNode("start_time") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
-            if (parseNode.GetChildNode("tracking") is { } nullNodeTracking && nullNodeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracking = null;
+            if (parseNode.GetChildNode("event_guests") is null) { _explicitNullValueEventGuests = default!; _explicitNullProperties?.Remove("event_guests"); }
+            else if (parseNode.GetChildNode("event_guests") is { } nullNodeEventGuests && nullNodeEventGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventGuests = null;
+            if (parseNode.GetChildNode("event_type") is null) { _explicitNullValueEventType = default!; _explicitNullProperties?.Remove("event_type"); }
+            else if (parseNode.GetChildNode("event_type") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
+            if (parseNode.GetChildNode("invitee") is null) { _explicitNullValueInvitee = default!; _explicitNullProperties?.Remove("invitee"); }
+            else if (parseNode.GetChildNode("invitee") is { } nullNodeInvitee && nullNodeInvitee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Invitee = null;
+            if (parseNode.GetChildNode("location") is null) { _explicitNullValueLocation = default!; _explicitNullProperties?.Remove("location"); }
+            else if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("questions_and_answers") is null) { _explicitNullValueQuestionsAndAnswers = default!; _explicitNullProperties?.Remove("questions_and_answers"); }
+            else if (parseNode.GetChildNode("questions_and_answers") is { } nullNodeQuestionsAndAnswers && nullNodeQuestionsAndAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuestionsAndAnswers = null;
+            if (parseNode.GetChildNode("start_time") is null) { _explicitNullValueStartTime = default!; _explicitNullProperties?.Remove("start_time"); }
+            else if (parseNode.GetChildNode("start_time") is { } nullNodeStartTime && nullNodeStartTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTime = null;
+            if (parseNode.GetChildNode("tracking") is null) { _explicitNullValueTracking = default!; _explicitNullProperties?.Remove("tracking"); }
+            else if (parseNode.GetChildNode("tracking") is { } nullNodeTracking && nullNodeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracking = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,64 +38,64 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Emails of invitee guests. Max 10.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EventGuests { get => _explicitNullValueEventGuests; set { _explicitNullValueEventGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_guests"); else _explicitNullProperties?.Remove("event_guests"); } }
+        public List<string>? EventGuests { get => _explicitNullValueEventGuests; set { _explicitNullValueEventGuests = value; AdditionalData?.Remove("event_guests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_guests"); else _explicitNullProperties?.Remove("event_guests"); } }
         private List<string>? _explicitNullValueEventGuests = default!;
 #nullable restore
 #else
-        public List<string> EventGuests { get => _explicitNullValueEventGuests; set { _explicitNullValueEventGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_guests"); else _explicitNullProperties?.Remove("event_guests"); } }
+        public List<string> EventGuests { get => _explicitNullValueEventGuests; set { _explicitNullValueEventGuests = value; AdditionalData?.Remove("event_guests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_guests"); else _explicitNullProperties?.Remove("event_guests"); } }
         private List<string> _explicitNullValueEventGuests = default!;
 #endif
         /// <summary>Canonical reference (unique identifier) for the event type being scheduled </summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
+        public string? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; AdditionalData?.Remove("event_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
         private string? _explicitNullValueEventType = default!;
 #nullable restore
 #else
-        public string EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
+        public string EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; AdditionalData?.Remove("event_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
         private string _explicitNullValueEventType = default!;
 #endif
         /// <summary>The invitee property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.PostInviteeRequestInvitee? Invitee { get => _explicitNullValueInvitee; set { _explicitNullValueInvitee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitee"); else _explicitNullProperties?.Remove("invitee"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.PostInviteeRequestInvitee? Invitee { get => _explicitNullValueInvitee; set { _explicitNullValueInvitee = value; AdditionalData?.Remove("invitee"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitee"); else _explicitNullProperties?.Remove("invitee"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.PostInviteeRequestInvitee? _explicitNullValueInvitee = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.PostInviteeRequestInvitee Invitee { get => _explicitNullValueInvitee; set { _explicitNullValueInvitee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitee"); else _explicitNullProperties?.Remove("invitee"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.PostInviteeRequestInvitee Invitee { get => _explicitNullValueInvitee; set { _explicitNullValueInvitee = value; AdditionalData?.Remove("invitee"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invitee"); else _explicitNullProperties?.Remove("invitee"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.PostInviteeRequestInvitee _explicitNullValueInvitee = default!;
 #endif
         /// <summary>The polymorphic base type for an event location that Calendly supports.  Note: - Location.kind must be supplied if location is defined.- Location must match location specified on the EventType.- Do not pass the location object for an EventType with a round_robin pooling_type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation _explicitNullValueLocation = default!;
 #endif
         /// <summary>The questions_and_answers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer>? QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer>? QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; AdditionalData?.Remove("questions_and_answers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer>? _explicitNullValueQuestionsAndAnswers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer> QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer> QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; AdditionalData?.Remove("questions_and_answers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.InviteeQuestionAndAnswer> _explicitNullValueQuestionsAndAnswers = default!;
 #endif
         /// <summary>The start time in UTC of the scheduled event</summary>
-        public DateTimeOffset? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_time"); else _explicitNullProperties?.Remove("start_time"); } }
+        public DateTimeOffset? StartTime { get => _explicitNullValueStartTime; set { _explicitNullValueStartTime = value; AdditionalData?.Remove("start_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_time"); else _explicitNullProperties?.Remove("start_time"); } }
         private DateTimeOffset? _explicitNullValueStartTime = default!;
         /// <summary>The UTM and Salesforce tracking parameters associated with an Invitee</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking? Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking? Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; AdditionalData?.Remove("tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking? _explicitNullValueTracking = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; AdditionalData?.Remove("tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking _explicitNullValueTracking = default!;
 #endif
         /// <summary>

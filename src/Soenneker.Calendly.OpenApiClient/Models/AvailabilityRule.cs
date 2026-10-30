@@ -18,10 +18,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
-            if (parseNode.GetChildNode("intervals") is { } nullNodeIntervals && nullNodeIntervals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Intervals = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("wday") is { } nullNodeWday && nullNodeWday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Wday = null;
+            if (parseNode.GetChildNode("date") is null) { _explicitNullValueDate = default!; _explicitNullProperties?.Remove("date"); }
+            else if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("intervals") is null) { _explicitNullValueIntervals = default!; _explicitNullProperties?.Remove("intervals"); }
+            else if (parseNode.GetChildNode("intervals") is { } nullNodeIntervals && nullNodeIntervals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Intervals = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("wday") is null) { _explicitNullValueWday = default!; _explicitNullProperties?.Remove("wday"); }
+            else if (parseNode.GetChildNode("wday") is { } nullNodeWday && nullNodeWday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Wday = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,28 +33,28 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>A specific date that this should be applied to (i.e. &quot;2030-12-31&quot;). Required when type is &quot;date&quot;. Format `YYYY-MM-DD`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        public string? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
         private string? _explicitNullValueDate = default!;
 #nullable restore
 #else
-        public string Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        public string Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
         private string _explicitNullValueDate = default!;
 #endif
         /// <summary>The intervals to be applied to this Rule. Each interval represents when booking a meeting is allowed. If the interval array is empty, then there is no booking availability for that day. Time is in 24h format (i.e. &quot;17:30&quot;) and local to the timezone in the Availability Schedule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem>? Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem>? Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; AdditionalData?.Remove("intervals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem>? _explicitNullValueIntervals = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem> Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem> Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; AdditionalData?.Remove("intervals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem> _explicitNullValueIntervals = default!;
 #endif
         /// <summary>The type of this Availability Rule; can be &quot;wday&quot; or a specific &quot;date&quot;.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType? _explicitNullValueType = default!;
         /// <summary>The day of the week for which this Rule should be applied to. Required when type is &quot;wday&quot;.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday? Wday { get => _explicitNullValueWday; set { _explicitNullValueWday = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wday"); else _explicitNullProperties?.Remove("wday"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday? Wday { get => _explicitNullValueWday; set { _explicitNullValueWday = value; AdditionalData?.Remove("wday"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wday"); else _explicitNullProperties?.Remove("wday"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday? _explicitNullValueWday = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule"/> and sets the default values.
@@ -79,8 +83,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "date", n => { Date = n.GetStringValue(); } },
                 { "intervals", n => { Intervals = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem>(global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleIntervalsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType>(); } },
-                { "wday", n => { Wday = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
+                { "wday", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRuleWday>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueWday = default; _explicitNullProperties?.Remove("wday"); AdditionalData["wday"] = unknown; } else { Wday = parsed; AdditionalData.Remove("wday"); } } },
             };
         }
         /// <summary>

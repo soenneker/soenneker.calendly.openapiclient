@@ -18,86 +18,95 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("questions_and_answers") is { } nullNodeQuestionsAndAnswers && nullNodeQuestionsAndAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuestionsAndAnswers = null;
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
-            if (parseNode.GetChildNode("routing_form") is { } nullNodeRoutingForm && nullNodeRoutingForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingForm = null;
-            if (parseNode.GetChildNode("submitter") is { } nullNodeSubmitter && nullNodeSubmitter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Submitter = null;
-            if (parseNode.GetChildNode("submitter_type") is { } nullNodeSubmitterType && nullNodeSubmitterType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmitterType = null;
-            if (parseNode.GetChildNode("tracking") is { } nullNodeTracking && nullNodeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracking = null;
-            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
-            if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("questions_and_answers") is null) { _explicitNullValueQuestionsAndAnswers = default!; _explicitNullProperties?.Remove("questions_and_answers"); }
+            else if (parseNode.GetChildNode("questions_and_answers") is { } nullNodeQuestionsAndAnswers && nullNodeQuestionsAndAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuestionsAndAnswers = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("routing_form") is null) { _explicitNullValueRoutingForm = default!; _explicitNullProperties?.Remove("routing_form"); }
+            else if (parseNode.GetChildNode("routing_form") is { } nullNodeRoutingForm && nullNodeRoutingForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingForm = null;
+            if (parseNode.GetChildNode("submitter") is null) { _explicitNullValueSubmitter = default!; _explicitNullProperties?.Remove("submitter"); }
+            else if (parseNode.GetChildNode("submitter") is { } nullNodeSubmitter && nullNodeSubmitter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Submitter = null;
+            if (parseNode.GetChildNode("submitter_type") is null) { _explicitNullValueSubmitterType = default!; _explicitNullProperties?.Remove("submitter_type"); }
+            else if (parseNode.GetChildNode("submitter_type") is { } nullNodeSubmitterType && nullNodeSubmitterType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmitterType = null;
+            if (parseNode.GetChildNode("tracking") is null) { _explicitNullValueTracking = default!; _explicitNullProperties?.Remove("tracking"); }
+            else if (parseNode.GetChildNode("tracking") is { } nullNodeTracking && nullNodeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracking = null;
+            if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
+            else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("uri") is null) { _explicitNullValueUri = default!; _explicitNullProperties?.Remove("uri"); }
+            else if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The moment the routing form was submitted.</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>All Routing Form Submission questions with answers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>? QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>? QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; AdditionalData?.Remove("questions_and_answers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>? _explicitNullValueQuestionsAndAnswers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer> QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer> QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; AdditionalData?.Remove("questions_and_answers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer> _explicitNullValueQuestionsAndAnswers = default!;
 #endif
         /// <summary>The polymorphic base type for a Routing Form Submission result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult _explicitNullValueResult = default!;
 #endif
         /// <summary>The URI of the routing form that&apos;s associated with the submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutingForm { get => _explicitNullValueRoutingForm; set { _explicitNullValueRoutingForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_form"); else _explicitNullProperties?.Remove("routing_form"); } }
+        public string? RoutingForm { get => _explicitNullValueRoutingForm; set { _explicitNullValueRoutingForm = value; AdditionalData?.Remove("routing_form"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_form"); else _explicitNullProperties?.Remove("routing_form"); } }
         private string? _explicitNullValueRoutingForm = default!;
 #nullable restore
 #else
-        public string RoutingForm { get => _explicitNullValueRoutingForm; set { _explicitNullValueRoutingForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_form"); else _explicitNullProperties?.Remove("routing_form"); } }
+        public string RoutingForm { get => _explicitNullValueRoutingForm; set { _explicitNullValueRoutingForm = value; AdditionalData?.Remove("routing_form"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_form"); else _explicitNullProperties?.Remove("routing_form"); } }
         private string _explicitNullValueRoutingForm = default!;
 #endif
         /// <summary>The reference to the Invitee resource when routing form submission results in a scheduled meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Submitter { get => _explicitNullValueSubmitter; set { _explicitNullValueSubmitter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter"); else _explicitNullProperties?.Remove("submitter"); } }
+        public string? Submitter { get => _explicitNullValueSubmitter; set { _explicitNullValueSubmitter = value; AdditionalData?.Remove("submitter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter"); else _explicitNullProperties?.Remove("submitter"); } }
         private string? _explicitNullValueSubmitter = default!;
 #nullable restore
 #else
-        public string Submitter { get => _explicitNullValueSubmitter; set { _explicitNullValueSubmitter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter"); else _explicitNullProperties?.Remove("submitter"); } }
+        public string Submitter { get => _explicitNullValueSubmitter; set { _explicitNullValueSubmitter = value; AdditionalData?.Remove("submitter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter"); else _explicitNullProperties?.Remove("submitter"); } }
         private string _explicitNullValueSubmitter = default!;
 #endif
         /// <summary>Type of the respondent resource that submitted the form and scheduled a meeting.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType? SubmitterType { get => _explicitNullValueSubmitterType; set { _explicitNullValueSubmitterType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter_type"); else _explicitNullProperties?.Remove("submitter_type"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType? SubmitterType { get => _explicitNullValueSubmitterType; set { _explicitNullValueSubmitterType = value; AdditionalData?.Remove("submitter_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter_type"); else _explicitNullProperties?.Remove("submitter_type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType? _explicitNullValueSubmitterType = default!;
         /// <summary>The UTM and Salesforce tracking parameters associated with a Routing Form Submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking? Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking? Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; AdditionalData?.Remove("tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking? _explicitNullValueTracking = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; AdditionalData?.Remove("tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking _explicitNullValueTracking = default!;
 #endif
         /// <summary>The moment when the routing form submission was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Canonical reference (unique identifier) for the routing form submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; AdditionalData?.Remove("uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
         private string? _explicitNullValueUri = default!;
 #nullable restore
 #else
-        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; AdditionalData?.Remove("uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
         private string _explicitNullValueUri = default!;
 #endif
         /// <summary>
@@ -130,7 +139,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult.CreateFromDiscriminatorValue); } },
                 { "routing_form", n => { RoutingForm = n.GetStringValue(); } },
                 { "submitter", n => { Submitter = n.GetStringValue(); } },
-                { "submitter_type", n => { SubmitterType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType>(); } },
+                { "submitter_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSubmitterType = default; _explicitNullProperties?.Remove("submitter_type"); AdditionalData["submitter_type"] = unknown; } else { SubmitterType = parsed; AdditionalData.Remove("submitter_type"); } } },
                 { "tracking", n => { Tracking = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking>(global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking.CreateFromDiscriminatorValue); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },

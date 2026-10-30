@@ -17,9 +17,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("callInNumber") is { } nullNodeCallInNumber && nullNodeCallInNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallInNumber = null;
-            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
-            if (parseNode.GetChildNode("tollType") is { } nullNodeTollType && nullNodeTollType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TollType = null;
+            if (parseNode.GetChildNode("callInNumber") is null) { _explicitNullValueCallInNumber = default!; _explicitNullProperties?.Remove("callInNumber"); }
+            else if (parseNode.GetChildNode("callInNumber") is { } nullNodeCallInNumber && nullNodeCallInNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallInNumber = null;
+            if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
+            else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("tollType") is null) { _explicitNullValueTollType = default!; _explicitNullProperties?.Remove("tollType"); }
+            else if (parseNode.GetChildNode("tollType") is { } nullNodeTollType && nullNodeTollType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TollType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The callInNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallInNumber { get => _explicitNullValueCallInNumber; set { _explicitNullValueCallInNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumber"); else _explicitNullProperties?.Remove("callInNumber"); } }
+        public string? CallInNumber { get => _explicitNullValueCallInNumber; set { _explicitNullValueCallInNumber = value; AdditionalData?.Remove("callInNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumber"); else _explicitNullProperties?.Remove("callInNumber"); } }
         private string? _explicitNullValueCallInNumber = default!;
 #nullable restore
 #else
-        public string CallInNumber { get => _explicitNullValueCallInNumber; set { _explicitNullValueCallInNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumber"); else _explicitNullProperties?.Remove("callInNumber"); } }
+        public string CallInNumber { get => _explicitNullValueCallInNumber; set { _explicitNullValueCallInNumber = value; AdditionalData?.Remove("callInNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumber"); else _explicitNullProperties?.Remove("callInNumber"); } }
         private string _explicitNullValueCallInNumber = default!;
 #endif
         /// <summary>The label property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; AdditionalData?.Remove("label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
         private string? _explicitNullValueLabel = default!;
 #nullable restore
 #else
-        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; AdditionalData?.Remove("label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
         private string _explicitNullValueLabel = default!;
 #endif
         /// <summary>The tollType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TollType { get => _explicitNullValueTollType; set { _explicitNullValueTollType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollType"); else _explicitNullProperties?.Remove("tollType"); } }
+        public string? TollType { get => _explicitNullValueTollType; set { _explicitNullValueTollType = value; AdditionalData?.Remove("tollType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollType"); else _explicitNullProperties?.Remove("tollType"); } }
         private string? _explicitNullValueTollType = default!;
 #nullable restore
 #else
-        public string TollType { get => _explicitNullValueTollType; set { _explicitNullValueTollType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollType"); else _explicitNullProperties?.Remove("tollType"); } }
+        public string TollType { get => _explicitNullValueTollType; set { _explicitNullValueTollType = value; AdditionalData?.Remove("tollType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollType"); else _explicitNullProperties?.Remove("tollType"); } }
         private string _explicitNullValueTollType = default!;
 #endif
         /// <summary>

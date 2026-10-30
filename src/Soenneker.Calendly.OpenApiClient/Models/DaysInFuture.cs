@@ -18,21 +18,24 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("days") is { } nullNodeDays && nullNodeDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Days = null;
-            if (parseNode.GetChildNode("only_weekdays") is { } nullNodeOnlyWeekdays && nullNodeOnlyWeekdays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnlyWeekdays = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("days") is null) { _explicitNullValueDays = default!; _explicitNullProperties?.Remove("days"); }
+            else if (parseNode.GetChildNode("days") is { } nullNodeDays && nullNodeDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Days = null;
+            if (parseNode.GetChildNode("only_weekdays") is null) { _explicitNullValueOnlyWeekdays = default!; _explicitNullProperties?.Remove("only_weekdays"); }
+            else if (parseNode.GetChildNode("only_weekdays") is { } nullNodeOnlyWeekdays && nullNodeOnlyWeekdays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnlyWeekdays = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The days property</summary>
-        public int? Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
+        public int? Days { get => _explicitNullValueDays; set { _explicitNullValueDays = value; AdditionalData?.Remove("days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("days"); else _explicitNullProperties?.Remove("days"); } }
         private int? _explicitNullValueDays = default!;
         /// <summary>Excludes weekends and only counts Monday - Friday</summary>
-        public bool? OnlyWeekdays { get => _explicitNullValueOnlyWeekdays; set { _explicitNullValueOnlyWeekdays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("only_weekdays"); else _explicitNullProperties?.Remove("only_weekdays"); } }
+        public bool? OnlyWeekdays { get => _explicitNullValueOnlyWeekdays; set { _explicitNullValueOnlyWeekdays = value; AdditionalData?.Remove("only_weekdays"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("only_weekdays"); else _explicitNullProperties?.Remove("only_weekdays"); } }
         private bool? _explicitNullValueOnlyWeekdays = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.DaysInFutureType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.DaysInFutureType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.DaysInFutureType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.DaysInFuture"/> and sets the default values.
@@ -61,7 +64,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "days", n => { Days = n.GetIntValue(); } },
                 { "only_weekdays", n => { OnlyWeekdays = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.DaysInFutureType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.DaysInFutureType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

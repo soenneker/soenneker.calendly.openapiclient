@@ -60,6 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactsAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
@@ -77,6 +78,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             {
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.ContactsAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
@@ -94,6 +96,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactsAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.AlreadyExistsResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
@@ -113,6 +116,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             {
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.ContactsAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Calendly.OpenApiClient.Models.AlreadyExistsResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
@@ -136,7 +140,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder.ContactsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.calendly.com", "/contacts", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -157,7 +161,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.calendly.com", "/contacts", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

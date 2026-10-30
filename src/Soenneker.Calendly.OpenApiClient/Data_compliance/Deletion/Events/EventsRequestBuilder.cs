@@ -42,6 +42,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.DataComplianceAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,6 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
             {
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.DataComplianceAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -82,7 +84,7 @@ namespace Soenneker.Calendly.OpenApiClient.Data_compliance.Deletion.Events
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.calendly.com", "/data_compliance/deletion/events", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

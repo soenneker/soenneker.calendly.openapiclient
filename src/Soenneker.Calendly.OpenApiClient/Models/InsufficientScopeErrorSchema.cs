@@ -19,9 +19,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("message") is { } nullNodeMessageEscaped && nullNodeMessageEscaped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageEscaped = null;
-            if (parseNode.GetChildNode("required_scopes") is { } nullNodeRequiredScopes && nullNodeRequiredScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredScopes = null;
-            if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
+            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessageEscaped = default!; _explicitNullProperties?.Remove("message"); }
+            else if (parseNode.GetChildNode("message") is { } nullNodeMessageEscaped && nullNodeMessageEscaped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageEscaped = null;
+            if (parseNode.GetChildNode("required_scopes") is null) { _explicitNullValueRequiredScopes = default!; _explicitNullProperties?.Remove("required_scopes"); }
+            else if (parseNode.GetChildNode("required_scopes") is { } nullNodeRequiredScopes && nullNodeRequiredScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredScopes = null;
+            if (parseNode.GetChildNode("title") is null) { _explicitNullValueTitle = default!; _explicitNullProperties?.Remove("title"); }
+            else if (parseNode.GetChildNode("title") is { } nullNodeTitle && nullNodeTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Title = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,20 +32,20 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
         /// <summary>The message property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage? MessageEscaped { get => _explicitNullValueMessageEscaped; set { _explicitNullValueMessageEscaped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage? MessageEscaped { get => _explicitNullValueMessageEscaped; set { _explicitNullValueMessageEscaped = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage? _explicitNullValueMessageEscaped = default!;
         /// <summary>The required_scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RequiredScopes { get => _explicitNullValueRequiredScopes; set { _explicitNullValueRequiredScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_scopes"); else _explicitNullProperties?.Remove("required_scopes"); } }
+        public List<string>? RequiredScopes { get => _explicitNullValueRequiredScopes; set { _explicitNullValueRequiredScopes = value; AdditionalData?.Remove("required_scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_scopes"); else _explicitNullProperties?.Remove("required_scopes"); } }
         private List<string>? _explicitNullValueRequiredScopes = default!;
 #nullable restore
 #else
-        public List<string> RequiredScopes { get => _explicitNullValueRequiredScopes; set { _explicitNullValueRequiredScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_scopes"); else _explicitNullProperties?.Remove("required_scopes"); } }
+        public List<string> RequiredScopes { get => _explicitNullValueRequiredScopes; set { _explicitNullValueRequiredScopes = value; AdditionalData?.Remove("required_scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_scopes"); else _explicitNullProperties?.Remove("required_scopes"); } }
         private List<string> _explicitNullValueRequiredScopes = default!;
 #endif
         /// <summary>The title property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeTitle? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeTitle? Title { get => _explicitNullValueTitle; set { _explicitNullValueTitle = value; AdditionalData?.Remove("title"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("title"); else _explicitNullProperties?.Remove("title"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeTitle? _explicitNullValueTitle = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeErrorSchema"/> and sets the default values.
@@ -69,9 +72,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "message", n => { MessageEscaped = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage>(); } },
+                { "message", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDotMessage>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMessageEscaped = default; _explicitNullProperties?.Remove("message"); AdditionalData["message"] = unknown; } else { MessageEscaped = parsed; AdditionalData.Remove("message"); } } },
                 { "required_scopes", n => { RequiredScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "title", n => { Title = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeTitle>(); } },
+                { "title", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InsufficientScopeTitle>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTitle = default; _explicitNullProperties?.Remove("title"); AdditionalData["title"] = unknown; } else { Title = parsed; AdditionalData.Remove("title"); } } },
             };
         }
         /// <summary>

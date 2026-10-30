@@ -17,7 +17,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("holidays") is { } nullNodeHolidays && nullNodeHolidays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Holidays = null;
+            if (parseNode.GetChildNode("holidays") is null) { _explicitNullValueHolidays = default!; _explicitNullProperties?.Remove("holidays"); }
+            else if (parseNode.GetChildNode("holidays") is { } nullNodeHolidays && nullNodeHolidays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Holidays = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>An array of holiday objects which contain the key of the holiday and whether or not it is enabled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem>? Holidays { get => _explicitNullValueHolidays; set { _explicitNullValueHolidays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("holidays"); else _explicitNullProperties?.Remove("holidays"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem>? Holidays { get => _explicitNullValueHolidays; set { _explicitNullValueHolidays = value; AdditionalData?.Remove("holidays"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("holidays"); else _explicitNullProperties?.Remove("holidays"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem>? _explicitNullValueHolidays = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem> Holidays { get => _explicitNullValueHolidays; set { _explicitNullValueHolidays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("holidays"); else _explicitNullProperties?.Remove("holidays"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem> Holidays { get => _explicitNullValueHolidays; set { _explicitNullValueHolidays = value; AdditionalData?.Remove("holidays"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("holidays"); else _explicitNullProperties?.Remove("holidays"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem> _explicitNullValueHolidays = default!;
 #endif
         /// <summary>

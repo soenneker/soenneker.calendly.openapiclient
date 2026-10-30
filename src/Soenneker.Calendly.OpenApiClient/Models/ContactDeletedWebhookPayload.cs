@@ -18,8 +18,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("contact") is { } nullNodeContact && nullNodeContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contact = null;
-            if (parseNode.GetChildNode("user_uuid") is { } nullNodeUserUuid && nullNodeUserUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUuid = null;
+            if (parseNode.GetChildNode("contact") is null) { _explicitNullValueContact = default!; _explicitNullProperties?.Remove("contact"); }
+            else if (parseNode.GetChildNode("contact") is { } nullNodeContact && nullNodeContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contact = null;
+            if (parseNode.GetChildNode("user_uuid") is null) { _explicitNullValueUserUuid = default!; _explicitNullProperties?.Remove("user_uuid"); }
+            else if (parseNode.GetChildNode("user_uuid") is { } nullNodeUserUuid && nullNodeUserUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Deleted contact snapshot</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayloadContact? Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayloadContact? Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; AdditionalData?.Remove("contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayloadContact? _explicitNullValueContact = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayloadContact Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayloadContact Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; AdditionalData?.Remove("contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayloadContact _explicitNullValueContact = default!;
 #endif
         /// <summary>User unique identifier</summary>
-        public Guid? UserUuid { get => _explicitNullValueUserUuid; set { _explicitNullValueUserUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_uuid"); else _explicitNullProperties?.Remove("user_uuid"); } }
+        public Guid? UserUuid { get => _explicitNullValueUserUuid; set { _explicitNullValueUserUuid = value; AdditionalData?.Remove("user_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_uuid"); else _explicitNullProperties?.Remove("user_uuid"); } }
         private Guid? _explicitNullValueUserUuid = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactDeletedWebhookPayload"/> and sets the default values.

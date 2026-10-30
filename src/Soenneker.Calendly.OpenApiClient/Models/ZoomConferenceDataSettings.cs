@@ -17,7 +17,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("global_dial_in_numbers") is { } nullNodeGlobalDialInNumbers && nullNodeGlobalDialInNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalDialInNumbers = null;
+            if (parseNode.GetChildNode("global_dial_in_numbers") is null) { _explicitNullValueGlobalDialInNumbers = default!; _explicitNullProperties?.Remove("global_dial_in_numbers"); }
+            else if (parseNode.GetChildNode("global_dial_in_numbers") is { } nullNodeGlobalDialInNumbers && nullNodeGlobalDialInNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalDialInNumbers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The global_dial_in_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ZoomConferenceDataSettingsGlobalDialInNumbersItem>? GlobalDialInNumbers { get => _explicitNullValueGlobalDialInNumbers; set { _explicitNullValueGlobalDialInNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_dial_in_numbers"); else _explicitNullProperties?.Remove("global_dial_in_numbers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ZoomConferenceDataSettingsGlobalDialInNumbersItem>? GlobalDialInNumbers { get => _explicitNullValueGlobalDialInNumbers; set { _explicitNullValueGlobalDialInNumbers = value; AdditionalData?.Remove("global_dial_in_numbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_dial_in_numbers"); else _explicitNullProperties?.Remove("global_dial_in_numbers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.ZoomConferenceDataSettingsGlobalDialInNumbersItem>? _explicitNullValueGlobalDialInNumbers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ZoomConferenceDataSettingsGlobalDialInNumbersItem> GlobalDialInNumbers { get => _explicitNullValueGlobalDialInNumbers; set { _explicitNullValueGlobalDialInNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_dial_in_numbers"); else _explicitNullProperties?.Remove("global_dial_in_numbers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ZoomConferenceDataSettingsGlobalDialInNumbersItem> GlobalDialInNumbers { get => _explicitNullValueGlobalDialInNumbers; set { _explicitNullValueGlobalDialInNumbers = value; AdditionalData?.Remove("global_dial_in_numbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_dial_in_numbers"); else _explicitNullProperties?.Remove("global_dial_in_numbers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.ZoomConferenceDataSettingsGlobalDialInNumbersItem> _explicitNullValueGlobalDialInNumbers = default!;
 #endif
         /// <summary>

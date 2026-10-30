@@ -277,7 +277,49 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/GET_INVITEES_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInviteesAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller is not the event owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller is not an organization owner/admin": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller is not team manager of a team event": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller is not a member of the team": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "activity_log:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -464,7 +506,55 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/GET_SCHEDULED_EVENTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetScheduledEventsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller is not part of organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller requests alternate user within organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please also specify organization when requesting events for a user within your organization."
+                    }
+                  },
+                  "Caller requests alternate group w within organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please also specify organization when requesting events for a group within your organization."
+                    }
+                  },
+                  "Requested user is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller does not have access to user\u0027s events": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "scheduled_events:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -693,7 +783,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/EVENT_TYPES_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventTypesAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller\u0027s Role is not Admin/Owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission"
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "event_types:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -746,7 +872,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -821,7 +984,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -884,7 +1084,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1104,7 +1341,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/GET_INVITEE_AND_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to view event or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInviteeAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Unauthorized": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to view this event"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "scheduled_events:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1188,7 +1449,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/POST_INVITEES_AND_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostInviteesAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "scheduled_events:write"
+                      ]
+                    }
+                  },
+                  "Caller does not have a paid Calendly plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature."
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1279,7 +1564,49 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/GET_INVITEES_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInviteesAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller is not the event owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller is not an organization owner/admin": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller is not team manager of a team event": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller is not a member of the team": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to view this event"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "activity_log:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1441,7 +1768,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1494,7 +1858,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1610,7 +2011,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1755,7 +2193,37 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/ORGANIZATION_INVITATION_CREATE_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationInvitationCreateAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Quantity Overflow": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You already sent all the invitations you\u0027re allotted based upon the number of seats purchased with your account. Please purchase more seats to send more invitations."
+                    }
+                  },
+                  "Trial Quantity Overflow": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You already sent all the invitations allotted to you with a trial account."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1820,7 +2288,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/ORGANIZATION_INVITATION_DELETE_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationInvitationDeleteAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "When org has SCIM enabled": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You cannot perform this action for an organization with SCIM enabled."
+                    }
+                  },
+                  "When invitation does not belong to organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission"
+                    }
+                  },
+                  "When user is not an admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1879,7 +2383,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -1972,7 +2513,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/USER_NOT_IN_ORG_GENERIC_and_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNotInOrgGenericAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "User belongs to another organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2008,7 +2573,49 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/ORG_MEMBERSHIP_DELETE_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgMembershipDeleteAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller\u0027s Role is User": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to perform this action"
+                    }
+                  },
+                  "Member is Owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Member is the caller\u0027s account": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You can not remove yourself from organization"
+                    }
+                  },
+                  "Member belongs to another Organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You cannot modify members from another organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2146,7 +2753,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/USER_NOT_IN_ORG_GENERIC_and_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNotInOrgGenericAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "User belongs to another organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2361,7 +2992,49 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/POST_WEBHOOK_SUBS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostWebhookSubsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller\u0027s account is basic tier": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade your Calendly account to Standard"
+                    }
+                  },
+                  "Caller\u0027s account is essentials tier": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade your Calendly account to Standard"
+                    }
+                  },
+                  "Caller is not the user of the account": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission"
+                    }
+                  },
+                  "Requested user does not belong to organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2521,7 +3194,49 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/GET_WEBHOOK_SUBS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetWebhookSubsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller is not part of organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission"
+                    }
+                  },
+                  "Caller is not an admin/owner of the organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not the user of the account": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Unauthorized"
+                    }
+                  },
+                  "Requested user account does not belong to organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Unauthorized"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "webhooks:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2582,7 +3297,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2612,7 +3364,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2699,7 +3488,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2769,7 +3595,37 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/DATA_COMPLIANCE_AND_SCOPES_FORBIDDEN"
+            "description": "Forbidden or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataComplianceAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Missing Billing Permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade your Calendly account to Enterprise."
+                    }
+                  },
+                  "Invalid Data Request Permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You must be an admin/owner with the data requests permission enabled to use this resource. Contact Calendly support and ask them to grant you data requests permission."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "data_compliance:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2825,7 +3681,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2855,7 +3748,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -2939,7 +3869,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3006,7 +3973,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3177,7 +4181,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
@@ -3287,7 +4328,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3332,7 +4410,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3418,7 +4533,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/DELETE_SCHEDULED_EVENT_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteScheduledEventAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller is not the event owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You are not allowed to cancel this event"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "scheduled_events:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3546,7 +4685,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3625,7 +4801,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3751,7 +4964,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -3829,7 +5079,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -4148,7 +5435,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -4359,7 +5683,44 @@
             "$ref": "#/components/responses/INVALID_ARGUMENT"
           },
           "403": {
-            "$ref": "#/components/responses/ENTERPRISE_OWNER_ADMIN_FEATURE_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseOwnerAdminFeatureAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller holds non-enterprise account": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade your Calendly account to Enterprise."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "activity_log:read",
+                        "outgoing_communications:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -4709,7 +6070,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -5047,7 +6445,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/USER_NOT_IN_ORGANIZATION_and_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNotInOrganizationAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller and user are not in same organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -5212,7 +6634,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/USER_NOT_IN_ORGANIZATION_and_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNotInOrganizationAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller and user are not in same organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -5337,7 +6783,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/USER_NOT_IN_ORGANIZATION_and_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNotInOrganizationAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller and user are not in same organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
@@ -5406,7 +6876,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/USER_NOT_IN_ORGANIZATION_and_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNotInOrganizationAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller and user are not in same organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -5706,7 +7200,37 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/DATA_COMPLIANCE_AND_SCOPES_FORBIDDEN"
+            "description": "Forbidden or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataComplianceAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Missing Billing Permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade your Calendly account to Enterprise."
+                    }
+                  },
+                  "Invalid Data Request Permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You must be an admin/owner with the data requests permission enabled to use this resource. Contact Calendly support and ask them to grant you data requests permission."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "data_compliance:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -5858,7 +7382,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -6272,7 +7833,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/ONE_OFF_EVENTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OneOffEventsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "event_types:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -6570,7 +8155,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -6664,7 +8286,44 @@
             "$ref": "#/components/responses/INVALID_ARGUMENT"
           },
           "403": {
-            "$ref": "#/components/responses/ENTERPRISE_OWNER_ADMIN_FEATURE_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterpriseOwnerAdminFeatureAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller holds non-enterprise account": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade your Calendly account to Enterprise."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "activity_log:read",
+                        "outgoing_communications:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -6728,7 +8387,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -6827,7 +8523,31 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/LOCATIONS_AND_SCOPES_FORBIDDEN"
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "locations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -6923,7 +8643,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7283,7 +9040,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/PERMISSION_DENIED_AND_SCOPES_FORBIDDEN"
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7444,7 +9238,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingRecapsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account"
+                    }
+                  },
+                  "Caller does not have access to this recap": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource"
+                    }
+                  },
+                  "Required features are not enabled": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Meeting recap access is not available. Required features are not enabled for your account"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "meeting_recaps:read",
+                        "meeting_recaps:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7489,7 +9320,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingRecapsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account"
+                    }
+                  },
+                  "Caller does not have access to this recap": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource"
+                    }
+                  },
+                  "Required features are not enabled": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Meeting recap access is not available. Required features are not enabled for your account"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "meeting_recaps:read",
+                        "meeting_recaps:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7584,7 +9452,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingRecapsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account"
+                    }
+                  },
+                  "Caller does not have access to this recap": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource"
+                    }
+                  },
+                  "Required features are not enabled": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Meeting recap access is not available. Required features are not enabled for your account"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "meeting_recaps:read",
+                        "meeting_recaps:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7684,7 +9589,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingRecapsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account"
+                    }
+                  },
+                  "Caller does not have access to this recap": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource"
+                    }
+                  },
+                  "Required features are not enabled": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Meeting recap access is not available. Required features are not enabled for your account"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "meeting_recaps:read",
+                        "meeting_recaps:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7720,7 +9662,44 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/MEETING_RECAPS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingRecapsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account"
+                    }
+                  },
+                  "Caller does not have access to this recap": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource"
+                    }
+                  },
+                  "Required features are not enabled": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Meeting recap access is not available. Required features are not enabled for your account"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "meeting_recaps:read",
+                        "meeting_recaps:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7883,7 +9862,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -7939,7 +9954,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -8103,7 +10154,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -8250,7 +10337,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -8319,7 +10442,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -8375,7 +10534,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -8417,7 +10612,43 @@
             "$ref": "#/components/responses/UNAUTHENTICATED"
           },
           "403": {
-            "$ref": "#/components/responses/CONTACTS_AND_SCOPES_FORBIDDEN"
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -19243,7 +21474,7 @@
             "example": "CCCCCCCCCCCCCCCC"
           },
           "value": {
-            "$ref": "#/components/schemas/CreateContactRequestCustomFieldsItemValue"
+            "$ref": "#/components/schemas/ContactCustomFieldValue"
           }
         }
       },
@@ -19260,7 +21491,7 @@
             "example": "CCCCCCCCCCCCCCCC"
           },
           "value": {
-            "$ref": "#/components/schemas/PatchContactsUuidRequestCustomFieldsItemValue"
+            "$ref": "#/components/schemas/ContactCustomFieldValue"
           }
         }
       },
@@ -24078,6 +26309,1304 @@
               "name": "Unavailable"
             }
           ]
+        }
+      },
+      "GetInviteesAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You are not allowed to view this event",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You are not allowed to view this event",
+                  "name": "YouAreNotAllowedToViewThisEvent"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/GetInviteesAndScopesForbiddenResponse"
+        }
+      },
+      "GetScheduledEventsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You do not have permission to access this resource.",
+              "Please also specify organization when requesting events for a user within your organization.",
+              "Please also specify organization when requesting events for a group within your organization.",
+              "This user is not in your organization",
+              "You do not have permission",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "Please also specify organization when requesting events for a user within your organization.",
+                  "name": "PleaseAlsoSpecifyOrganizationWhenRequestingEventsForAUserWithinYourOrganization"
+                },
+                {
+                  "value": "Please also specify organization when requesting events for a group within your organization.",
+                  "name": "PleaseAlsoSpecifyOrganizationWhenRequestingEventsForAGroupWithinYourOrganization"
+                },
+                {
+                  "value": "This user is not in your organization",
+                  "name": "ThisUserIsNotInYourOrganization"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/GetScheduledEventsAndScopesForbiddenResponse"
+        }
+      },
+      "PermissionDeniedAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You do not have permission to access this resource.",
+              "You do not have permission",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponse"
+        }
+      },
+      "EventTypesAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This user is not in your organization",
+              "You do not have permission",
+              "You do not have permission to access this resource.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "This user is not in your organization",
+                  "name": "ThisUserIsNotInYourOrganization"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/EventTypesAndScopesForbiddenResponse"
+        }
+      },
+      "GetInviteeAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/GetInviteeAndScopesForbiddenResponse"
+        }
+      },
+      "PostInviteesAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You do not have permission to access this resource.",
+              "You do not have permission",
+              "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature.",
+                  "name": "TheSchedulingApiIsOnlyAvailableOnPaidCalendlyPlansUpgradeYourPlanToAccessThisFeature"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/PostInviteesAndScopesForbiddenResponse"
+        }
+      },
+      "OrganizationInvitationCreateAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You already sent all the invitations you\u0027re allotted based upon the number of seats purchased with your account. Please purchase more seats to send more invitations.",
+              "You already sent all the invitations allotted to you with a trial account.",
+              "You do not have permission",
+              "You cannot perform this action for an organization with SCIM enabled.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You already sent all the invitations you\u0027re allotted based upon the number of seats purchased with your account. Please purchase more seats to send more invitations.",
+                  "name": "Value12735BECB5CFE475"
+                },
+                {
+                  "value": "You already sent all the invitations allotted to you with a trial account.",
+                  "name": "YouAlreadySentAllTheInvitationsAllottedToYouWithATrialAccount"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "You cannot perform this action for an organization with SCIM enabled.",
+                  "name": "YouCannotPerformThisActionForAnOrganizationWithScimEnabled"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/OrganizationInvitationCreateAndScopesForbiddenResponse"
+        }
+      },
+      "OrganizationInvitationDeleteAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You cannot perform this action for an organization with SCIM enabled.",
+              "You do not have permission",
+              "You do not have permission to access this resource.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You cannot perform this action for an organization with SCIM enabled.",
+                  "name": "YouCannotPerformThisActionForAnOrganizationWithScimEnabled"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/OrganizationInvitationDeleteAndScopesForbiddenResponse"
+        }
+      },
+      "OrgMembershipDeleteAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/OrgMembershipDeleteAndScopesForbiddenResponse"
+        }
+      },
+      "UserNotInOrgGenericAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/UserNotInOrgGenericAndScopesForbiddenResponse"
+        }
+      },
+      "GetWebhookSubsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You do not have permission",
+              "You do not have permission to access this resource.",
+              "You do not have permission to perform this action",
+              "Unauthorized",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "You do not have permission to perform this action",
+                  "name": "YouDoNotHavePermissionToPerformThisAction"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/GetWebhookSubsAndScopesForbiddenResponse"
+        }
+      },
+      "PostWebhookSubsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade your Calendly account to Standard",
+              "You do not have permission to access this resource.",
+              "You do not have permission",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade your Calendly account to Standard",
+                  "name": "PleaseUpgradeYourCalendlyAccountToStandard"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/PostWebhookSubsAndScopesForbiddenResponse"
+        }
+      },
+      "DataComplianceAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/DataComplianceAndScopesForbiddenResponse"
+        }
+      },
+      "DeleteScheduledEventAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You are not allowed to cancel this event",
+              "Event in the past",
+              "Event is already canceled",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You are not allowed to cancel this event",
+                  "name": "YouAreNotAllowedToCancelThisEvent"
+                },
+                {
+                  "value": "Event in the past",
+                  "name": "EventInThePast"
+                },
+                {
+                  "value": "Event is already canceled",
+                  "name": "EventIsAlreadyCanceled"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/DeleteScheduledEventAndScopesForbiddenResponse"
+        }
+      },
+      "EnterpriseOwnerAdminFeatureAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade your Calendly account to Enterprise.",
+              "You do not have permission to access this resource.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade your Calendly account to Enterprise.",
+                  "name": "PleaseUpgradeYourCalendlyAccountToEnterprise"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/EnterpriseOwnerAdminFeatureAndScopesForbiddenResponse"
+        }
+      },
+      "UserNotInOrganizationAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This user is not in your organization",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "This user is not in your organization",
+                  "name": "ThisUserIsNotInYourOrganization"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/UserNotInOrganizationAndScopesForbiddenResponse"
+        }
+      },
+      "OneOffEventsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This user is not in your organization",
+              "You do not have permission",
+              "You do not have permission to access this resource.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "This user is not in your organization",
+                  "name": "ThisUserIsNotInYourOrganization"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OneOffEventsErrorDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/OneOffEventsAndScopesForbiddenResponse"
+        }
+      },
+      "LocationsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You do not have permission to access this resource.",
+              "You do not have permission",
+              "This user is not in your organization",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "You do not have permission",
+                  "name": "YouDoNotHavePermission"
+                },
+                {
+                  "value": "This user is not in your organization",
+                  "name": "ThisUserIsNotInYourOrganization"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/LocationsAndScopesForbiddenResponse"
+        }
+      },
+      "MeetingRecapsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade to a paid Calendly account",
+              "You do not have permission to access this resource",
+              "Meeting recap access is not available. Required features are not enabled for your account",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade to a paid Calendly account",
+                  "name": "PleaseUpgradeToAPaidCalendlyAccount"
+                },
+                {
+                  "value": "You do not have permission to access this resource",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "Meeting recap access is not available. Required features are not enabled for your account",
+                  "name": "MeetingRecapAccessIsNotAvailableRequiredFeaturesAreNotEnabledForYourAccount"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/MeetingRecapsAndScopesForbiddenResponse"
+        }
+      },
+      "ContactsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade to a paid Calendly account.",
+              "You do not have permission to access this resource.",
+              "Contact creation is not available. Required features are not enabled for your account.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade to a paid Calendly account.",
+                  "name": "PleaseUpgradeToAPaidCalendlyAccount"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "Contact creation is not available. Required features are not enabled for your account.",
+                  "name": "ContactCreationIsNotAvailableRequiredFeaturesAreNotEnabledForYourAccount"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponse"
         }
       }
     },

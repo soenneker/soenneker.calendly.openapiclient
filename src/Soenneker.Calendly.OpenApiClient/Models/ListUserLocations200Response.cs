@@ -18,7 +18,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("collection") is { } nullNodeCollection && nullNodeCollection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collection = null;
+            if (parseNode.GetChildNode("collection") is null) { _explicitNullValueCollection = default!; _explicitNullProperties?.Remove("collection"); }
+            else if (parseNode.GetChildNode("collection") is { } nullNodeCollection && nullNodeCollection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collection = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The collection of user meeting locations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation>? Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation>? Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; AdditionalData?.Remove("collection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation>? _explicitNullValueCollection = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation> Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation> Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; AdditionalData?.Remove("collection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.MeetingLocation> _explicitNullValueCollection = default!;
 #endif
         /// <summary>

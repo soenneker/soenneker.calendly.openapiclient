@@ -17,9 +17,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("booking_url") is { } nullNodeBookingUrl && nullNodeBookingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUrl = null;
-            if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
-            if (parseNode.GetChildNode("owner_type") is { } nullNodeOwnerType && nullNodeOwnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerType = null;
+            if (parseNode.GetChildNode("booking_url") is null) { _explicitNullValueBookingUrl = default!; _explicitNullProperties?.Remove("booking_url"); }
+            else if (parseNode.GetChildNode("booking_url") is { } nullNodeBookingUrl && nullNodeBookingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingUrl = null;
+            if (parseNode.GetChildNode("owner") is null) { _explicitNullValueOwner = default!; _explicitNullProperties?.Remove("owner"); }
+            else if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
+            if (parseNode.GetChildNode("owner_type") is null) { _explicitNullValueOwnerType = default!; _explicitNullProperties?.Remove("owner_type"); }
+            else if (parseNode.GetChildNode("owner_type") is { } nullNodeOwnerType && nullNodeOwnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Scheduling link url</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("booking_url"); else _explicitNullProperties?.Remove("booking_url"); } }
+        public string? BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; AdditionalData?.Remove("booking_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("booking_url"); else _explicitNullProperties?.Remove("booking_url"); } }
         private string? _explicitNullValueBookingUrl = default!;
 #nullable restore
 #else
-        public string BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("booking_url"); else _explicitNullProperties?.Remove("booking_url"); } }
+        public string BookingUrl { get => _explicitNullValueBookingUrl; set { _explicitNullValueBookingUrl = value; AdditionalData?.Remove("booking_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("booking_url"); else _explicitNullProperties?.Remove("booking_url"); } }
         private string _explicitNullValueBookingUrl = default!;
 #endif
         /// <summary>A link to the resource that owns this Scheduling Link (currently, this is always an Event Type)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        public string? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; AdditionalData?.Remove("owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
         private string? _explicitNullValueOwner = default!;
 #nullable restore
 #else
-        public string Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        public string Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; AdditionalData?.Remove("owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
         private string _explicitNullValueOwner = default!;
 #endif
         /// <summary>Resource type (currently, this is always EventType)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType? OwnerType { get => _explicitNullValueOwnerType; set { _explicitNullValueOwnerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_type"); else _explicitNullProperties?.Remove("owner_type"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType? OwnerType { get => _explicitNullValueOwnerType; set { _explicitNullValueOwnerType = value; AdditionalData?.Remove("owner_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_type"); else _explicitNullProperties?.Remove("owner_type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType? _explicitNullValueOwnerType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ShareSchedulingLinksItem"/> and sets the default values.
@@ -74,7 +77,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "booking_url", n => { BookingUrl = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
-                { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType>(); } },
+                { "owner_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOwnerType = default; _explicitNullProperties?.Remove("owner_type"); AdditionalData["owner_type"] = unknown; } else { OwnerType = parsed; AdditionalData.Remove("owner_type"); } } },
             };
         }
         /// <summary>

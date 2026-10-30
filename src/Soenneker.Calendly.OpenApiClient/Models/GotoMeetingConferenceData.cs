@@ -18,8 +18,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("conferenceCallInfo") is { } nullNodeConferenceCallInfo && nullNodeConferenceCallInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceCallInfo = null;
-            if (parseNode.GetChildNode("uniqueMeetingId") is { } nullNodeUniqueMeetingId && nullNodeUniqueMeetingId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueMeetingId = null;
+            if (parseNode.GetChildNode("conferenceCallInfo") is null) { _explicitNullValueConferenceCallInfo = default!; _explicitNullProperties?.Remove("conferenceCallInfo"); }
+            else if (parseNode.GetChildNode("conferenceCallInfo") is { } nullNodeConferenceCallInfo && nullNodeConferenceCallInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceCallInfo = null;
+            if (parseNode.GetChildNode("uniqueMeetingId") is null) { _explicitNullValueUniqueMeetingId = default!; _explicitNullProperties?.Remove("uniqueMeetingId"); }
+            else if (parseNode.GetChildNode("uniqueMeetingId") is { } nullNodeUniqueMeetingId && nullNodeUniqueMeetingId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueMeetingId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,15 +29,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The conferenceCallInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceCallInfo { get => _explicitNullValueConferenceCallInfo; set { _explicitNullValueConferenceCallInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceCallInfo"); else _explicitNullProperties?.Remove("conferenceCallInfo"); } }
+        public string? ConferenceCallInfo { get => _explicitNullValueConferenceCallInfo; set { _explicitNullValueConferenceCallInfo = value; AdditionalData?.Remove("conferenceCallInfo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceCallInfo"); else _explicitNullProperties?.Remove("conferenceCallInfo"); } }
         private string? _explicitNullValueConferenceCallInfo = default!;
 #nullable restore
 #else
-        public string ConferenceCallInfo { get => _explicitNullValueConferenceCallInfo; set { _explicitNullValueConferenceCallInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceCallInfo"); else _explicitNullProperties?.Remove("conferenceCallInfo"); } }
+        public string ConferenceCallInfo { get => _explicitNullValueConferenceCallInfo; set { _explicitNullValueConferenceCallInfo = value; AdditionalData?.Remove("conferenceCallInfo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceCallInfo"); else _explicitNullProperties?.Remove("conferenceCallInfo"); } }
         private string _explicitNullValueConferenceCallInfo = default!;
 #endif
         /// <summary>Canonical reference (unique identifier) for the GoToMeeting conference</summary>
-        public double? UniqueMeetingId { get => _explicitNullValueUniqueMeetingId; set { _explicitNullValueUniqueMeetingId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uniqueMeetingId"); else _explicitNullProperties?.Remove("uniqueMeetingId"); } }
+        public double? UniqueMeetingId { get => _explicitNullValueUniqueMeetingId; set { _explicitNullValueUniqueMeetingId = value; AdditionalData?.Remove("uniqueMeetingId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uniqueMeetingId"); else _explicitNullProperties?.Remove("uniqueMeetingId"); } }
         private double? _explicitNullValueUniqueMeetingId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GotoMeetingConferenceData"/> and sets the default values.

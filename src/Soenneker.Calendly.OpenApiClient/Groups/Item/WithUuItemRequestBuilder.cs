@@ -40,6 +40,7 @@ namespace Soenneker.Calendly.OpenApiClient.Groups.Item
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.PermissionDeniedAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,6 +56,7 @@ namespace Soenneker.Calendly.OpenApiClient.Groups.Item
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.PermissionDeniedAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -76,7 +78,7 @@ namespace Soenneker.Calendly.OpenApiClient.Groups.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.calendly.com", "/groups/{uuid}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

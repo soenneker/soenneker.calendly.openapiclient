@@ -18,10 +18,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("canceled_by") is { } nullNodeCanceledBy && nullNodeCanceledBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanceledBy = null;
-            if (parseNode.GetChildNode("canceler_type") is { } nullNodeCancelerType && nullNodeCancelerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelerType = null;
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("canceled_by") is null) { _explicitNullValueCanceledBy = default!; _explicitNullProperties?.Remove("canceled_by"); }
+            else if (parseNode.GetChildNode("canceled_by") is { } nullNodeCanceledBy && nullNodeCanceledBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanceledBy = null;
+            if (parseNode.GetChildNode("canceler_type") is null) { _explicitNullValueCancelerType = default!; _explicitNullProperties?.Remove("canceler_type"); }
+            else if (parseNode.GetChildNode("canceler_type") is { } nullNodeCancelerType && nullNodeCancelerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancelerType = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
+            else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,27 +33,27 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Name of the person whom canceled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CanceledBy { get => _explicitNullValueCanceledBy; set { _explicitNullValueCanceledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("canceled_by"); else _explicitNullProperties?.Remove("canceled_by"); } }
+        public string? CanceledBy { get => _explicitNullValueCanceledBy; set { _explicitNullValueCanceledBy = value; AdditionalData?.Remove("canceled_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("canceled_by"); else _explicitNullProperties?.Remove("canceled_by"); } }
         private string? _explicitNullValueCanceledBy = default!;
 #nullable restore
 #else
-        public string CanceledBy { get => _explicitNullValueCanceledBy; set { _explicitNullValueCanceledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("canceled_by"); else _explicitNullProperties?.Remove("canceled_by"); } }
+        public string CanceledBy { get => _explicitNullValueCanceledBy; set { _explicitNullValueCanceledBy = value; AdditionalData?.Remove("canceled_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("canceled_by"); else _explicitNullProperties?.Remove("canceled_by"); } }
         private string _explicitNullValueCanceledBy = default!;
 #endif
         /// <summary>The canceler_type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType? CancelerType { get => _explicitNullValueCancelerType; set { _explicitNullValueCancelerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("canceler_type"); else _explicitNullProperties?.Remove("canceler_type"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType? CancelerType { get => _explicitNullValueCancelerType; set { _explicitNullValueCancelerType = value; AdditionalData?.Remove("canceler_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("canceler_type"); else _explicitNullProperties?.Remove("canceler_type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType? _explicitNullValueCancelerType = default!;
         /// <summary>The moment when the cancellation was created</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Reason that the cancellation occurred</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; AdditionalData?.Remove("reason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
         private string _explicitNullValueReason = default!;
 #endif
         /// <summary>
@@ -78,7 +82,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "canceled_by", n => { CanceledBy = n.GetStringValue(); } },
-                { "canceler_type", n => { CancelerType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType>(); } },
+                { "canceler_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCancelerType = default; _explicitNullProperties?.Remove("canceler_type"); AdditionalData["canceler_type"] = unknown; } else { CancelerType = parsed; AdditionalData.Remove("canceler_type"); } } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
             };

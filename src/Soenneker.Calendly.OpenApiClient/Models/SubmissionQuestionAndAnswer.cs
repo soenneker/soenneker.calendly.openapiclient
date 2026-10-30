@@ -18,9 +18,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("answer") is { } nullNodeAnswer && nullNodeAnswer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Answer = null;
-            if (parseNode.GetChildNode("question") is { } nullNodeQuestion && nullNodeQuestion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Question = null;
-            if (parseNode.GetChildNode("question_uuid") is { } nullNodeQuestionUuid && nullNodeQuestionUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuestionUuid = null;
+            if (parseNode.GetChildNode("answer") is null) { _explicitNullValueAnswer = default!; _explicitNullProperties?.Remove("answer"); }
+            else if (parseNode.GetChildNode("answer") is { } nullNodeAnswer && nullNodeAnswer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Answer = null;
+            if (parseNode.GetChildNode("question") is null) { _explicitNullValueQuestion = default!; _explicitNullProperties?.Remove("question"); }
+            else if (parseNode.GetChildNode("question") is { } nullNodeQuestion && nullNodeQuestion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Question = null;
+            if (parseNode.GetChildNode("question_uuid") is null) { _explicitNullValueQuestionUuid = default!; _explicitNullProperties?.Remove("question_uuid"); }
+            else if (parseNode.GetChildNode("question_uuid") is { } nullNodeQuestionUuid && nullNodeQuestionUuid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuestionUuid = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,25 +31,25 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Answer provided by the respondent when the form was submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Answer { get => _explicitNullValueAnswer; set { _explicitNullValueAnswer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answer"); else _explicitNullProperties?.Remove("answer"); } }
+        public string? Answer { get => _explicitNullValueAnswer; set { _explicitNullValueAnswer = value; AdditionalData?.Remove("answer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answer"); else _explicitNullProperties?.Remove("answer"); } }
         private string? _explicitNullValueAnswer = default!;
 #nullable restore
 #else
-        public string Answer { get => _explicitNullValueAnswer; set { _explicitNullValueAnswer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answer"); else _explicitNullProperties?.Remove("answer"); } }
+        public string Answer { get => _explicitNullValueAnswer; set { _explicitNullValueAnswer = value; AdditionalData?.Remove("answer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("answer"); else _explicitNullProperties?.Remove("answer"); } }
         private string _explicitNullValueAnswer = default!;
 #endif
         /// <summary>Question name (in human-readable format).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Question { get => _explicitNullValueQuestion; set { _explicitNullValueQuestion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("question"); else _explicitNullProperties?.Remove("question"); } }
+        public string? Question { get => _explicitNullValueQuestion; set { _explicitNullValueQuestion = value; AdditionalData?.Remove("question"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("question"); else _explicitNullProperties?.Remove("question"); } }
         private string? _explicitNullValueQuestion = default!;
 #nullable restore
 #else
-        public string Question { get => _explicitNullValueQuestion; set { _explicitNullValueQuestion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("question"); else _explicitNullProperties?.Remove("question"); } }
+        public string Question { get => _explicitNullValueQuestion; set { _explicitNullValueQuestion = value; AdditionalData?.Remove("question"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("question"); else _explicitNullProperties?.Remove("question"); } }
         private string _explicitNullValueQuestion = default!;
 #endif
         /// <summary>Unique identifier for the routing form question.</summary>
-        public Guid? QuestionUuid { get => _explicitNullValueQuestionUuid; set { _explicitNullValueQuestionUuid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("question_uuid"); else _explicitNullProperties?.Remove("question_uuid"); } }
+        public Guid? QuestionUuid { get => _explicitNullValueQuestionUuid; set { _explicitNullValueQuestionUuid = value; AdditionalData?.Remove("question_uuid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("question_uuid"); else _explicitNullProperties?.Remove("question_uuid"); } }
         private Guid? _explicitNullValueQuestionUuid = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer"/> and sets the default values.

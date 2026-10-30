@@ -17,8 +17,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("availability_rule") is { } nullNodeAvailabilityRule && nullNodeAvailabilityRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailabilityRule = null;
-            if (parseNode.GetChildNode("availability_setting") is { } nullNodeAvailabilitySetting && nullNodeAvailabilitySetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailabilitySetting = null;
+            if (parseNode.GetChildNode("availability_rule") is null) { _explicitNullValueAvailabilityRule = default!; _explicitNullProperties?.Remove("availability_rule"); }
+            else if (parseNode.GetChildNode("availability_rule") is { } nullNodeAvailabilityRule && nullNodeAvailabilityRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailabilityRule = null;
+            if (parseNode.GetChildNode("availability_setting") is null) { _explicitNullValueAvailabilitySetting = default!; _explicitNullProperties?.Remove("availability_setting"); }
+            else if (parseNode.GetChildNode("availability_setting") is { } nullNodeAvailabilitySetting && nullNodeAvailabilitySetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailabilitySetting = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The availability_rule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule? AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule? AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; AdditionalData?.Remove("availability_rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule? _explicitNullValueAvailabilityRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; AdditionalData?.Remove("availability_rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule _explicitNullValueAvailabilityRule = default!;
 #endif
         /// <summary>The setting for event type availability specifies if all hosts follow the same schedule or if each host has their own unique schedule on the event type.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting? AvailabilitySetting { get => _explicitNullValueAvailabilitySetting; set { _explicitNullValueAvailabilitySetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_setting"); else _explicitNullProperties?.Remove("availability_setting"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting? AvailabilitySetting { get => _explicitNullValueAvailabilitySetting; set { _explicitNullValueAvailabilitySetting = value; AdditionalData?.Remove("availability_setting"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_setting"); else _explicitNullProperties?.Remove("availability_setting"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting? _explicitNullValueAvailabilitySetting = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequest"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "availability_rule", n => { AvailabilityRule = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule>(global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule.CreateFromDiscriminatorValue); } },
-                { "availability_setting", n => { AvailabilitySetting = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting>(); } },
+                { "availability_setting", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAvailabilitySetting = default; _explicitNullProperties?.Remove("availability_setting"); AdditionalData["availability_setting"] = unknown; } else { AvailabilitySetting = parsed; AdditionalData.Remove("availability_setting"); } } },
             };
         }
         /// <summary>

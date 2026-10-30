@@ -17,7 +17,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("intl_numbers_url") is { } nullNodeIntlNumbersUrl && nullNodeIntlNumbersUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntlNumbersUrl = null;
+            if (parseNode.GetChildNode("intl_numbers_url") is null) { _explicitNullValueIntlNumbersUrl = default!; _explicitNullProperties?.Remove("intl_numbers_url"); }
+            else if (parseNode.GetChildNode("intl_numbers_url") is { } nullNodeIntlNumbersUrl && nullNodeIntlNumbersUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntlNumbersUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Zoom International Dial-in Numbers URL</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IntlNumbersUrl { get => _explicitNullValueIntlNumbersUrl; set { _explicitNullValueIntlNumbersUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intl_numbers_url"); else _explicitNullProperties?.Remove("intl_numbers_url"); } }
+        public string? IntlNumbersUrl { get => _explicitNullValueIntlNumbersUrl; set { _explicitNullValueIntlNumbersUrl = value; AdditionalData?.Remove("intl_numbers_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intl_numbers_url"); else _explicitNullProperties?.Remove("intl_numbers_url"); } }
         private string? _explicitNullValueIntlNumbersUrl = default!;
 #nullable restore
 #else
-        public string IntlNumbersUrl { get => _explicitNullValueIntlNumbersUrl; set { _explicitNullValueIntlNumbersUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intl_numbers_url"); else _explicitNullProperties?.Remove("intl_numbers_url"); } }
+        public string IntlNumbersUrl { get => _explicitNullValueIntlNumbersUrl; set { _explicitNullValueIntlNumbersUrl = value; AdditionalData?.Remove("intl_numbers_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intl_numbers_url"); else _explicitNullProperties?.Remove("intl_numbers_url"); } }
         private string _explicitNullValueIntlNumbersUrl = default!;
 #endif
         /// <summary>

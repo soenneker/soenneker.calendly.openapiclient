@@ -41,6 +41,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UserNotInOrganizationAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse">When receiving a 424 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
@@ -58,6 +59,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
             {
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.UserNotInOrganizationAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "424", global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
@@ -80,7 +82,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_busy_times
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.User_busy_times.User_busy_timesRequestBuilder.User_busy_timesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.calendly.com", "/user_busy_times", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

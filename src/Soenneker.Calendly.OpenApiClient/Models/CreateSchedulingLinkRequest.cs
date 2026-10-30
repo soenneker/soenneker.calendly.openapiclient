@@ -17,28 +17,31 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("max_event_count") is { } nullNodeMaxEventCount && nullNodeMaxEventCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxEventCount = null;
-            if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
-            if (parseNode.GetChildNode("owner_type") is { } nullNodeOwnerType && nullNodeOwnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerType = null;
+            if (parseNode.GetChildNode("max_event_count") is null) { _explicitNullValueMaxEventCount = default!; _explicitNullProperties?.Remove("max_event_count"); }
+            else if (parseNode.GetChildNode("max_event_count") is { } nullNodeMaxEventCount && nullNodeMaxEventCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxEventCount = null;
+            if (parseNode.GetChildNode("owner") is null) { _explicitNullValueOwner = default!; _explicitNullProperties?.Remove("owner"); }
+            else if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
+            if (parseNode.GetChildNode("owner_type") is null) { _explicitNullValueOwnerType = default!; _explicitNullProperties?.Remove("owner_type"); }
+            else if (parseNode.GetChildNode("owner_type") is { } nullNodeOwnerType && nullNodeOwnerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OwnerType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The max number of events that can be scheduled using this scheduling link.</summary>
-        public double? MaxEventCount { get => _explicitNullValueMaxEventCount; set { _explicitNullValueMaxEventCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_event_count"); else _explicitNullProperties?.Remove("max_event_count"); } }
+        public double? MaxEventCount { get => _explicitNullValueMaxEventCount; set { _explicitNullValueMaxEventCount = value; AdditionalData?.Remove("max_event_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_event_count"); else _explicitNullProperties?.Remove("max_event_count"); } }
         private double? _explicitNullValueMaxEventCount = default!;
         /// <summary>A link to the resource that owns this Scheduling Link (currently, this is always an Event Type)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        public string? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; AdditionalData?.Remove("owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
         private string? _explicitNullValueOwner = default!;
 #nullable restore
 #else
-        public string Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        public string Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; AdditionalData?.Remove("owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
         private string _explicitNullValueOwner = default!;
 #endif
         /// <summary>Resource type (currently, this is always EventType)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType? OwnerType { get => _explicitNullValueOwnerType; set { _explicitNullValueOwnerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_type"); else _explicitNullProperties?.Remove("owner_type"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType? OwnerType { get => _explicitNullValueOwnerType; set { _explicitNullValueOwnerType = value; AdditionalData?.Remove("owner_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner_type"); else _explicitNullProperties?.Remove("owner_type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType? _explicitNullValueOwnerType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateSchedulingLinkRequest"/> and sets the default values.
@@ -67,7 +70,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "max_event_count", n => { MaxEventCount = n.GetDoubleValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
-                { "owner_type", n => { OwnerType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType>(); } },
+                { "owner_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeOwnerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOwnerType = default; _explicitNullProperties?.Remove("owner_type"); AdditionalData["owner_type"] = unknown; } else { OwnerType = parsed; AdditionalData.Remove("owner_type"); } } },
             };
         }
         /// <summary>

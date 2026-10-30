@@ -17,19 +17,22 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("action_items_md") is { } nullNodeActionItemsMd && nullNodeActionItemsMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionItemsMd = null;
-            if (parseNode.GetChildNode("discussion_md") is { } nullNodeDiscussionMd && nullNodeDiscussionMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionMd = null;
-            if (parseNode.GetChildNode("summary_md") is { } nullNodeSummaryMd && nullNodeSummaryMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SummaryMd = null;
+            if (parseNode.GetChildNode("action_items_md") is null) { _explicitNullValueActionItemsMd = default!; _explicitNullProperties?.Remove("action_items_md"); }
+            else if (parseNode.GetChildNode("action_items_md") is { } nullNodeActionItemsMd && nullNodeActionItemsMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionItemsMd = null;
+            if (parseNode.GetChildNode("discussion_md") is null) { _explicitNullValueDiscussionMd = default!; _explicitNullProperties?.Remove("discussion_md"); }
+            else if (parseNode.GetChildNode("discussion_md") is { } nullNodeDiscussionMd && nullNodeDiscussionMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionMd = null;
+            if (parseNode.GetChildNode("summary_md") is null) { _explicitNullValueSummaryMd = default!; _explicitNullProperties?.Remove("summary_md"); }
+            else if (parseNode.GetChildNode("summary_md") is { } nullNodeSummaryMd && nullNodeSummaryMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SummaryMd = null;
         }
 
         /// <summary>Action items in Markdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
+        public string? ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; AdditionalData?.Remove("action_items_md"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
         private string? _explicitNullValueActionItemsMd = default!;
 #nullable restore
 #else
-        public string ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
+        public string ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; AdditionalData?.Remove("action_items_md"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
         private string _explicitNullValueActionItemsMd = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -37,21 +40,21 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Discussion notes in Markdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
+        public string? DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; AdditionalData?.Remove("discussion_md"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
         private string? _explicitNullValueDiscussionMd = default!;
 #nullable restore
 #else
-        public string DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
+        public string DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; AdditionalData?.Remove("discussion_md"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
         private string _explicitNullValueDiscussionMd = default!;
 #endif
         /// <summary>Summary in Markdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
+        public string? SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; AdditionalData?.Remove("summary_md"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
         private string? _explicitNullValueSummaryMd = default!;
 #nullable restore
 #else
-        public string SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
+        public string SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; AdditionalData?.Remove("summary_md"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
         private string _explicitNullValueSummaryMd = default!;
 #endif
         /// <summary>

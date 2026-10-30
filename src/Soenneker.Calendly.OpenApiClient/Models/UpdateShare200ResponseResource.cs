@@ -17,10 +17,14 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("contact") is { } nullNodeContact && nullNodeContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contact = null;
-            if (parseNode.GetChildNode("scheduling_links") is { } nullNodeSchedulingLinks && nullNodeSchedulingLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchedulingLinks = null;
-            if (parseNode.GetChildNode("share_override") is { } nullNodeShareOverride && nullNodeShareOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShareOverride = null;
-            if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
+            if (parseNode.GetChildNode("contact") is null) { _explicitNullValueContact = default!; _explicitNullProperties?.Remove("contact"); }
+            else if (parseNode.GetChildNode("contact") is { } nullNodeContact && nullNodeContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Contact = null;
+            if (parseNode.GetChildNode("scheduling_links") is null) { _explicitNullValueSchedulingLinks = default!; _explicitNullProperties?.Remove("scheduling_links"); }
+            else if (parseNode.GetChildNode("scheduling_links") is { } nullNodeSchedulingLinks && nullNodeSchedulingLinks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchedulingLinks = null;
+            if (parseNode.GetChildNode("share_override") is null) { _explicitNullValueShareOverride = default!; _explicitNullProperties?.Remove("share_override"); }
+            else if (parseNode.GetChildNode("share_override") is { } nullNodeShareOverride && nullNodeShareOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShareOverride = null;
+            if (parseNode.GetChildNode("uri") is null) { _explicitNullValueUri = default!; _explicitNullProperties?.Remove("uri"); }
+            else if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Contact associated with the share</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
+        public string? Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; AdditionalData?.Remove("contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
         private string? _explicitNullValueContact = default!;
 #nullable restore
 #else
-        public string Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
+        public string Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; AdditionalData?.Remove("contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }
         private string _explicitNullValueContact = default!;
 #endif
         /// <summary>The scheduling_links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceSchedulingLinksItem>? SchedulingLinks { get => _explicitNullValueSchedulingLinks; set { _explicitNullValueSchedulingLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_links"); else _explicitNullProperties?.Remove("scheduling_links"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceSchedulingLinksItem>? SchedulingLinks { get => _explicitNullValueSchedulingLinks; set { _explicitNullValueSchedulingLinks = value; AdditionalData?.Remove("scheduling_links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_links"); else _explicitNullProperties?.Remove("scheduling_links"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceSchedulingLinksItem>? _explicitNullValueSchedulingLinks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceSchedulingLinksItem> SchedulingLinks { get => _explicitNullValueSchedulingLinks; set { _explicitNullValueSchedulingLinks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_links"); else _explicitNullProperties?.Remove("scheduling_links"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceSchedulingLinksItem> SchedulingLinks { get => _explicitNullValueSchedulingLinks; set { _explicitNullValueSchedulingLinks = value; AdditionalData?.Remove("scheduling_links"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_links"); else _explicitNullProperties?.Remove("scheduling_links"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceSchedulingLinksItem> _explicitNullValueSchedulingLinks = default!;
 #endif
         /// <summary>The share_override property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceShareOverride? ShareOverride { get => _explicitNullValueShareOverride; set { _explicitNullValueShareOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_override"); else _explicitNullProperties?.Remove("share_override"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceShareOverride? ShareOverride { get => _explicitNullValueShareOverride; set { _explicitNullValueShareOverride = value; AdditionalData?.Remove("share_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_override"); else _explicitNullProperties?.Remove("share_override"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceShareOverride? _explicitNullValueShareOverride = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceShareOverride ShareOverride { get => _explicitNullValueShareOverride; set { _explicitNullValueShareOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_override"); else _explicitNullProperties?.Remove("share_override"); } }
+        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceShareOverride ShareOverride { get => _explicitNullValueShareOverride; set { _explicitNullValueShareOverride = value; AdditionalData?.Remove("share_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_override"); else _explicitNullProperties?.Remove("share_override"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResourceShareOverride _explicitNullValueShareOverride = default!;
 #endif
         /// <summary>Canonical reference to the share resource</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; AdditionalData?.Remove("uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
         private string? _explicitNullValueUri = default!;
 #nullable restore
 #else
-        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; AdditionalData?.Remove("uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
         private string _explicitNullValueUri = default!;
 #endif
         /// <summary>

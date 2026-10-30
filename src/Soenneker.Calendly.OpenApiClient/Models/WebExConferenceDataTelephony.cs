@@ -17,7 +17,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("callInNumbers") is { } nullNodeCallInNumbers && nullNodeCallInNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallInNumbers = null;
+            if (parseNode.GetChildNode("callInNumbers") is null) { _explicitNullValueCallInNumbers = default!; _explicitNullProperties?.Remove("callInNumbers"); }
+            else if (parseNode.GetChildNode("callInNumbers") is { } nullNodeCallInNumbers && nullNodeCallInNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallInNumbers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The callInNumbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceDataTelephonyCallInNumbersItem>? CallInNumbers { get => _explicitNullValueCallInNumbers; set { _explicitNullValueCallInNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumbers"); else _explicitNullProperties?.Remove("callInNumbers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceDataTelephonyCallInNumbersItem>? CallInNumbers { get => _explicitNullValueCallInNumbers; set { _explicitNullValueCallInNumbers = value; AdditionalData?.Remove("callInNumbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumbers"); else _explicitNullProperties?.Remove("callInNumbers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceDataTelephonyCallInNumbersItem>? _explicitNullValueCallInNumbers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceDataTelephonyCallInNumbersItem> CallInNumbers { get => _explicitNullValueCallInNumbers; set { _explicitNullValueCallInNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumbers"); else _explicitNullProperties?.Remove("callInNumbers"); } }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceDataTelephonyCallInNumbersItem> CallInNumbers { get => _explicitNullValueCallInNumbers; set { _explicitNullValueCallInNumbers = value; AdditionalData?.Remove("callInNumbers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("callInNumbers"); else _explicitNullProperties?.Remove("callInNumbers"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.WebExConferenceDataTelephonyCallInNumbersItem> _explicitNullValueCallInNumbers = default!;
 #endif
         /// <summary>
