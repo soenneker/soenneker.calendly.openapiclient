@@ -11,16 +11,26 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateHolidaySetRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("holidays") is { } nullNodeHolidays && nullNodeHolidays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Holidays = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An array of holiday objects which contain the key of the holiday and whether or not it is enabled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem>? Holidays { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem>? Holidays { get => _explicitNullValueHolidays; set { _explicitNullValueHolidays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("holidays"); else _explicitNullProperties?.Remove("holidays"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem>? _explicitNullValueHolidays = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem> Holidays { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem> Holidays { get => _explicitNullValueHolidays; set { _explicitNullValueHolidays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("holidays"); else _explicitNullProperties?.Remove("holidays"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem> _explicitNullValueHolidays = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequest"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +68,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.CreateHolidaySetRequestHolidaysItem>("holidays", Holidays);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

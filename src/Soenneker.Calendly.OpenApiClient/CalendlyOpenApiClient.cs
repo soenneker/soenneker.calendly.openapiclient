@@ -37,6 +37,7 @@ using Soenneker.Calendly.OpenApiClient.Scheduling_links;
 using Soenneker.Calendly.OpenApiClient.Shares;
 using Soenneker.Calendly.OpenApiClient.Subscriptions;
 using Soenneker.Calendly.OpenApiClient.Super_admin_roles;
+using Soenneker.Calendly.OpenApiClient.Teams;
 using Soenneker.Calendly.OpenApiClient.Trials;
 using Soenneker.Calendly.OpenApiClient.User_availability_schedules;
 using Soenneker.Calendly.OpenApiClient.User_busy_times;
@@ -209,6 +210,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.Super_admin_roles.Super_admin_rolesRequestBuilder Super_admin_roles
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Super_admin_roles.Super_admin_rolesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The teams property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Teams.TeamsRequestBuilder Teams
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The trials property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Trials.TrialsRequestBuilder Trials

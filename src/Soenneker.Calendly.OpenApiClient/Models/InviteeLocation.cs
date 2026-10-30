@@ -12,7 +12,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InviteeLocation : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.InviteeCustomLocation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,45 +110,68 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeLocation();
             if("custom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeCustomLocation = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeCustomLocation();
+                
             }
             else if("google_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeGoogleConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeGoogleConference();
+                
             }
             else if("gotomeeting_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeGotoMeetingConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeGotoMeetingConference();
+                
             }
             else if("physical".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeInPersonMeeting = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInPersonMeeting();
+                
             }
             else if("inbound_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeInboundCall = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInboundCall();
+                
             }
             else if("ask_invitee".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeInviteeSpecifiedLocation = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInviteeSpecifiedLocation();
+                
             }
             else if("microsoft_teams_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeMicrosoftTeamsConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeMicrosoftTeamsConference();
+                
             }
             else if("outbound_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeOutboundCall = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeOutboundCall();
+                
             }
             else if("webex_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeWebExConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeWebExConference();
+                
             }
             else if("zoom_conference".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InviteeZoomConference = new global::Soenneker.Calendly.OpenApiClient.Models.InviteeZoomConference();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("physical".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("location") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("inbound_call".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("outbound_call".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("location") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("zoom_conference".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("google_conference".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("gotomeeting_conference".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("microsoft_teams_conference".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch7 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("webex_conference".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch8 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("ask_invitee".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("location") != null))();
+            bool matchesUnionBranch9 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("kind") != null && (parseNode.GetChildNode("kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("custom".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("location") != null))();
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeInPersonMeeting = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInPersonMeeting(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeInboundCall = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInboundCall(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeOutboundCall = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeOutboundCall(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeZoomConference = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeZoomConference(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeGoogleConference = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeGoogleConference(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeGotoMeetingConference = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeGotoMeetingConference(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeMicrosoftTeamsConference = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeMicrosoftTeamsConference(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch7 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch8 && !matchesUnionBranch9) result.InviteeWebExConference = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeWebExConference(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch8 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch9) result.InviteeInviteeSpecifiedLocation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeInviteeSpecifiedLocation(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null && matchesUnionBranch9 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8) result.InviteeCustomLocation = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.InviteeCustomLocation(), parseNode);
+            if (result.InviteeCustomLocation == null && result.InviteeGoogleConference == null && result.InviteeGotoMeetingConference == null && result.InviteeInboundCall == null && result.InviteeInPersonMeeting == null && result.InviteeInviteeSpecifiedLocation == null && result.InviteeMicrosoftTeamsConference == null && result.InviteeOutboundCall == null && result.InviteeWebExConference == null && result.InviteeZoomConference == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -199,45 +227,68 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (InviteeCustomLocation != null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeCustomLocation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeCustomLocation); return; }
+            if (InviteeGoogleConference != null && InviteeCustomLocation == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeGoogleConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeGoogleConference); return; }
+            if (InviteeGotoMeetingConference != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeGotoMeetingConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeGotoMeetingConference); return; }
+            if (InviteeInPersonMeeting != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeInPersonMeeting is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeInPersonMeeting); return; }
+            if (InviteeInboundCall != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeInboundCall is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeInboundCall); return; }
+            if (InviteeInviteeSpecifiedLocation != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeInviteeSpecifiedLocation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeInviteeSpecifiedLocation); return; }
+            if (InviteeMicrosoftTeamsConference != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeOutboundCall == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeMicrosoftTeamsConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeMicrosoftTeamsConference); return; }
+            if (InviteeOutboundCall != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeWebExConference == null && InviteeZoomConference == null) { if (InviteeOutboundCall is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeOutboundCall); return; }
+            if (InviteeWebExConference != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeZoomConference == null) { if (InviteeWebExConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeWebExConference); return; }
+            if (InviteeZoomConference != null && InviteeCustomLocation == null && InviteeGoogleConference == null && InviteeGotoMeetingConference == null && InviteeInboundCall == null && InviteeInPersonMeeting == null && InviteeInviteeSpecifiedLocation == null && InviteeMicrosoftTeamsConference == null && InviteeOutboundCall == null && InviteeWebExConference == null) { if (InviteeZoomConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InviteeZoomConference); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(InviteeCustomLocation != null)
             {
+                if (InviteeCustomLocation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeCustomLocation>(null, InviteeCustomLocation);
             }
             else if(InviteeGoogleConference != null)
             {
+                if (InviteeGoogleConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeGoogleConference>(null, InviteeGoogleConference);
             }
             else if(InviteeGotoMeetingConference != null)
             {
+                if (InviteeGotoMeetingConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeGotoMeetingConference>(null, InviteeGotoMeetingConference);
             }
             else if(InviteeInboundCall != null)
             {
+                if (InviteeInboundCall is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeInboundCall>(null, InviteeInboundCall);
             }
             else if(InviteeInPersonMeeting != null)
             {
+                if (InviteeInPersonMeeting is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeInPersonMeeting>(null, InviteeInPersonMeeting);
             }
             else if(InviteeInviteeSpecifiedLocation != null)
             {
+                if (InviteeInviteeSpecifiedLocation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeInviteeSpecifiedLocation>(null, InviteeInviteeSpecifiedLocation);
             }
             else if(InviteeMicrosoftTeamsConference != null)
             {
+                if (InviteeMicrosoftTeamsConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeMicrosoftTeamsConference>(null, InviteeMicrosoftTeamsConference);
             }
             else if(InviteeOutboundCall != null)
             {
+                if (InviteeOutboundCall is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeOutboundCall>(null, InviteeOutboundCall);
             }
             else if(InviteeWebExConference != null)
             {
+                if (InviteeWebExConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeWebExConference>(null, InviteeWebExConference);
             }
             else if(InviteeZoomConference != null)
             {
+                if (InviteeZoomConference is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeZoomConference>(null, InviteeZoomConference);
             }
         }

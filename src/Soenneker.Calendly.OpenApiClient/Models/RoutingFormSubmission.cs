@@ -12,62 +12,93 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RoutingFormSubmission : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("questions_and_answers") is { } nullNodeQuestionsAndAnswers && nullNodeQuestionsAndAnswers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuestionsAndAnswers = null;
+            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("routing_form") is { } nullNodeRoutingForm && nullNodeRoutingForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingForm = null;
+            if (parseNode.GetChildNode("submitter") is { } nullNodeSubmitter && nullNodeSubmitter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Submitter = null;
+            if (parseNode.GetChildNode("submitter_type") is { } nullNodeSubmitterType && nullNodeSubmitterType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmitterType = null;
+            if (parseNode.GetChildNode("tracking") is { } nullNodeTracking && nullNodeTracking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tracking = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The moment the routing form was submitted.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>All Routing Form Submission questions with answers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>? QuestionsAndAnswers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>? QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer>? _explicitNullValueQuestionsAndAnswers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer> QuestionsAndAnswers { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer> QuestionsAndAnswers { get => _explicitNullValueQuestionsAndAnswers; set { _explicitNullValueQuestionsAndAnswers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("questions_and_answers"); else _explicitNullProperties?.Remove("questions_and_answers"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionQuestionAndAnswer> _explicitNullValueQuestionsAndAnswers = default!;
 #endif
         /// <summary>The polymorphic base type for a Routing Form Submission result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult? Result { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult Result { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult _explicitNullValueResult = default!;
 #endif
         /// <summary>The URI of the routing form that&apos;s associated with the submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutingForm { get; set; }
+        public string? RoutingForm { get => _explicitNullValueRoutingForm; set { _explicitNullValueRoutingForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_form"); else _explicitNullProperties?.Remove("routing_form"); } }
+        private string? _explicitNullValueRoutingForm = default!;
 #nullable restore
 #else
-        public string RoutingForm { get; set; }
+        public string RoutingForm { get => _explicitNullValueRoutingForm; set { _explicitNullValueRoutingForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_form"); else _explicitNullProperties?.Remove("routing_form"); } }
+        private string _explicitNullValueRoutingForm = default!;
 #endif
         /// <summary>The reference to the Invitee resource when routing form submission results in a scheduled meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Submitter { get; set; }
+        public string? Submitter { get => _explicitNullValueSubmitter; set { _explicitNullValueSubmitter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter"); else _explicitNullProperties?.Remove("submitter"); } }
+        private string? _explicitNullValueSubmitter = default!;
 #nullable restore
 #else
-        public string Submitter { get; set; }
+        public string Submitter { get => _explicitNullValueSubmitter; set { _explicitNullValueSubmitter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter"); else _explicitNullProperties?.Remove("submitter"); } }
+        private string _explicitNullValueSubmitter = default!;
 #endif
         /// <summary>Type of the respondent resource that submitted the form and scheduled a meeting.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType? SubmitterType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType? SubmitterType { get => _explicitNullValueSubmitterType; set { _explicitNullValueSubmitterType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitter_type"); else _explicitNullProperties?.Remove("submitter_type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.InviteeSubmitterType? _explicitNullValueSubmitterType = default!;
         /// <summary>The UTM and Salesforce tracking parameters associated with a Routing Form Submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking? Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking? Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking? _explicitNullValueTracking = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking Tracking { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking _explicitNullValueTracking = default!;
 #endif
         /// <summary>The moment when the routing form submission was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Canonical reference (unique identifier) for the routing form submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uri { get; set; }
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string? _explicitNullValueUri = default!;
 #nullable restore
 #else
-        public string Uri { get; set; }
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string _explicitNullValueUri = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission"/> and sets the default values.
@@ -84,7 +115,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.RoutingFormSubmission(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,6 +152,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionTracking>("tracking", Tracking);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

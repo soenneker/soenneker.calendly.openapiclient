@@ -12,132 +12,203 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventType : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("admin_managed") is { } nullNodeAdminManaged && nullNodeAdminManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdminManaged = null;
+            if (parseNode.GetChildNode("booking_method") is { } nullNodeBookingMethod && nullNodeBookingMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingMethod = null;
+            if (parseNode.GetChildNode("color") is { } nullNodeColor && nullNodeColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Color = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("custom_questions") is { } nullNodeCustomQuestions && nullNodeCustomQuestions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomQuestions = null;
+            if (parseNode.GetChildNode("deleted_at") is { } nullNodeDeletedAt && nullNodeDeletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletedAt = null;
+            if (parseNode.GetChildNode("description_html") is { } nullNodeDescriptionHtml && nullNodeDescriptionHtml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DescriptionHtml = null;
+            if (parseNode.GetChildNode("description_plain") is { } nullNodeDescriptionPlain && nullNodeDescriptionPlain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DescriptionPlain = null;
+            if (parseNode.GetChildNode("duration") is { } nullNodeDuration && nullNodeDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Duration = null;
+            if (parseNode.GetChildNode("duration_options") is { } nullNodeDurationOptions && nullNodeDurationOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DurationOptions = null;
+            if (parseNode.GetChildNode("internal_note") is { } nullNodeInternalNote && nullNodeInternalNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InternalNote = null;
+            if (parseNode.GetChildNode("is_paid") is { } nullNodeIsPaid && nullNodeIsPaid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsPaid = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("locale") is { } nullNodeLocale && nullNodeLocale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locale = null;
+            if (parseNode.GetChildNode("locations") is { } nullNodeLocations && nullNodeLocations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locations = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("pooling_type") is { } nullNodePoolingType && nullNodePoolingType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PoolingType = null;
+            if (parseNode.GetChildNode("position") is { } nullNodePosition && nullNodePosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Position = null;
+            if (parseNode.GetChildNode("profile") is { } nullNodeProfile && nullNodeProfile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Profile = null;
+            if (parseNode.GetChildNode("scheduling_url") is { } nullNodeSchedulingUrl && nullNodeSchedulingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchedulingUrl = null;
+            if (parseNode.GetChildNode("secret") is { } nullNodeSecret && nullNodeSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secret = null;
+            if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
+        }
+
         /// <summary>Indicates if the event is active or not.</summary>
-        public bool? Active { get; set; }
+        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        private bool? _explicitNullValueActive = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates if this event type is managed by an organization admin</summary>
-        public bool? AdminManaged { get; set; }
+        public bool? AdminManaged { get => _explicitNullValueAdminManaged; set { _explicitNullValueAdminManaged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admin_managed"); else _explicitNullProperties?.Remove("admin_managed"); } }
+        private bool? _explicitNullValueAdminManaged = default!;
         /// <summary>Indicates if the event type is for a poll or an instant booking</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod? BookingMethod { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod? BookingMethod { get => _explicitNullValueBookingMethod; set { _explicitNullValueBookingMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("booking_method"); else _explicitNullProperties?.Remove("booking_method"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod? _explicitNullValueBookingMethod = default!;
         /// <summary>The hexadecimal color value of the event type&apos;s scheduling page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Color { get; set; }
+        public string? Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
+        private string? _explicitNullValueColor = default!;
 #nullable restore
 #else
-        public string Color { get; set; }
+        public string Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
+        private string _explicitNullValueColor = default!;
 #endif
         /// <summary>The moment the event type was created (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The custom_questions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion>? CustomQuestions { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion>? CustomQuestions { get => _explicitNullValueCustomQuestions; set { _explicitNullValueCustomQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_questions"); else _explicitNullProperties?.Remove("custom_questions"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion>? _explicitNullValueCustomQuestions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion> CustomQuestions { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion> CustomQuestions { get => _explicitNullValueCustomQuestions; set { _explicitNullValueCustomQuestions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_questions"); else _explicitNullProperties?.Remove("custom_questions"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeCustomQuestion> _explicitNullValueCustomQuestions = default!;
 #endif
         /// <summary>The moment the event type was deleted (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;). Since event types can be deleted but their scheduled events remain it&apos;s useful to fetch a deleted event type when you still require event type data for a scheduled event.</summary>
-        public DateTimeOffset? DeletedAt { get; set; }
+        public DateTimeOffset? DeletedAt { get => _explicitNullValueDeletedAt; set { _explicitNullValueDeletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted_at"); else _explicitNullProperties?.Remove("deleted_at"); } }
+        private DateTimeOffset? _explicitNullValueDeletedAt = default!;
         /// <summary>The event type&apos;s description (formatted with HTML)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DescriptionHtml { get; set; }
+        public string? DescriptionHtml { get => _explicitNullValueDescriptionHtml; set { _explicitNullValueDescriptionHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description_html"); else _explicitNullProperties?.Remove("description_html"); } }
+        private string? _explicitNullValueDescriptionHtml = default!;
 #nullable restore
 #else
-        public string DescriptionHtml { get; set; }
+        public string DescriptionHtml { get => _explicitNullValueDescriptionHtml; set { _explicitNullValueDescriptionHtml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description_html"); else _explicitNullProperties?.Remove("description_html"); } }
+        private string _explicitNullValueDescriptionHtml = default!;
 #endif
         /// <summary>The event type&apos;s description (in non formatted text)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DescriptionPlain { get; set; }
+        public string? DescriptionPlain { get => _explicitNullValueDescriptionPlain; set { _explicitNullValueDescriptionPlain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description_plain"); else _explicitNullProperties?.Remove("description_plain"); } }
+        private string? _explicitNullValueDescriptionPlain = default!;
 #nullable restore
 #else
-        public string DescriptionPlain { get; set; }
+        public string DescriptionPlain { get => _explicitNullValueDescriptionPlain; set { _explicitNullValueDescriptionPlain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description_plain"); else _explicitNullProperties?.Remove("description_plain"); } }
+        private string _explicitNullValueDescriptionPlain = default!;
 #endif
         /// <summary>The length of sessions booked with this event type</summary>
-        public double? Duration { get; set; }
+        public double? Duration { get => _explicitNullValueDuration; set { _explicitNullValueDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration"); else _explicitNullProperties?.Remove("duration"); } }
+        private double? _explicitNullValueDuration = default!;
         /// <summary>Array of duration options. Always null for adhoc event types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? DurationOptions { get; set; }
+        public List<int?>? DurationOptions { get => _explicitNullValueDurationOptions; set { _explicitNullValueDurationOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_options"); else _explicitNullProperties?.Remove("duration_options"); } }
+        private List<int?>? _explicitNullValueDurationOptions = default!;
 #nullable restore
 #else
-        public List<int?> DurationOptions { get; set; }
+        public List<int?> DurationOptions { get => _explicitNullValueDurationOptions; set { _explicitNullValueDurationOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_options"); else _explicitNullProperties?.Remove("duration_options"); } }
+        private List<int?> _explicitNullValueDurationOptions = default!;
 #endif
         /// <summary>Contents of a note that may be associated with the event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InternalNote { get; set; }
+        public string? InternalNote { get => _explicitNullValueInternalNote; set { _explicitNullValueInternalNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("internal_note"); else _explicitNullProperties?.Remove("internal_note"); } }
+        private string? _explicitNullValueInternalNote = default!;
 #nullable restore
 #else
-        public string InternalNote { get; set; }
+        public string InternalNote { get => _explicitNullValueInternalNote; set { _explicitNullValueInternalNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("internal_note"); else _explicitNullProperties?.Remove("internal_note"); } }
+        private string _explicitNullValueInternalNote = default!;
 #endif
         /// <summary>The is_paid property</summary>
-        public bool? IsPaid { get; set; }
+        public bool? IsPaid { get => _explicitNullValueIsPaid; set { _explicitNullValueIsPaid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_paid"); else _explicitNullProperties?.Remove("is_paid"); } }
+        private bool? _explicitNullValueIsPaid = default!;
         /// <summary>Indicates if the event type is &quot;solo&quot; (belongs to an individual user) or &quot;group&quot;</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeKind? Kind { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeKind? _explicitNullValueKind = default!;
         /// <summary>The locale on the event type, used to determine the language of the event type&apos;s scheduling page</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale? Locale { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale? Locale { get => _explicitNullValueLocale; set { _explicitNullValueLocale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locale"); else _explicitNullProperties?.Remove("locale"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale? _explicitNullValueLocale = default!;
         /// <summary>Configuration information for each possible location for this Event Type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>? Locations { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>? Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>? _explicitNullValueLocations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration> Locations { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration> Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration> _explicitNullValueLocations = default!;
 #endif
         /// <summary>The event type name (in human-readable format)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Indicates if the event type is &quot;round robin&quot; (alternates between hosts) or &quot;collective&quot; (invitees pick a time when all participants are available) or “multi-pool” (considers availability delineated by pools of participants) or &quot;null&quot; (the event type doesn’t consider the availability of a group participants)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType? PoolingType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType? PoolingType { get => _explicitNullValuePoolingType; set { _explicitNullValuePoolingType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pooling_type"); else _explicitNullProperties?.Remove("pooling_type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType? _explicitNullValuePoolingType = default!;
         /// <summary>Position order of Event Type, starting with 0 (for display purposes)</summary>
-        public int? Position { get; set; }
+        public int? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
+        private int? _explicitNullValuePosition = default!;
         /// <summary>The publicly visible profile of a User or a Team that&apos;s associated with the Event Type (note: some Event Types don&apos;t have profiles)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Profile? Profile { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.Profile? Profile { get => _explicitNullValueProfile; set { _explicitNullValueProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile"); else _explicitNullProperties?.Remove("profile"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.Profile? _explicitNullValueProfile = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Profile Profile { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.Profile Profile { get => _explicitNullValueProfile; set { _explicitNullValueProfile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("profile"); else _explicitNullProperties?.Remove("profile"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.Profile _explicitNullValueProfile = default!;
 #endif
         /// <summary>The URL of the user’s scheduling site where invitees book this event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SchedulingUrl { get; set; }
+        public string? SchedulingUrl { get => _explicitNullValueSchedulingUrl; set { _explicitNullValueSchedulingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_url"); else _explicitNullProperties?.Remove("scheduling_url"); } }
+        private string? _explicitNullValueSchedulingUrl = default!;
 #nullable restore
 #else
-        public string SchedulingUrl { get; set; }
+        public string SchedulingUrl { get => _explicitNullValueSchedulingUrl; set { _explicitNullValueSchedulingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_url"); else _explicitNullProperties?.Remove("scheduling_url"); } }
+        private string _explicitNullValueSchedulingUrl = default!;
 #endif
         /// <summary>Indicates if the event type is hidden on the owner&apos;s main scheduling page</summary>
-        public bool? Secret { get; set; }
+        public bool? Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        private bool? _explicitNullValueSecret = default!;
         /// <summary>The portion of the event type&apos;s URL that identifies a specific web page (in a human-readable format)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Slug { get; set; }
+        public string? Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string? _explicitNullValueSlug = default!;
 #nullable restore
 #else
-        public string Slug { get; set; }
+        public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
+        private string _explicitNullValueSlug = default!;
 #endif
         /// <summary>Indicates if the event type is &quot;AdhocEventType&quot; (ad hoc event) or &quot;StandardEventType&quot; (standard event type)</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType? _explicitNullValueType = default!;
         /// <summary>The moment the event type was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Canonical reference (unique identifier) for the event type</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uri { get; set; }
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string? _explicitNullValueUri = default!;
 #nullable restore
 #else
-        public string Uri { get; set; }
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string _explicitNullValueUri = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.EventType"/> and sets the default values.
@@ -154,7 +225,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.EventType CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.EventType();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.EventType(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -225,6 +296,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

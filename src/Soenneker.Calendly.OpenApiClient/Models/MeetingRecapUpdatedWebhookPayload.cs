@@ -12,22 +12,35 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MeetingRecapUpdatedWebhookPayload : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("event") is { } nullNodeEvent && nullNodeEvent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Event = null;
+            if (parseNode.GetChildNode("recap") is { } nullNodeRecap && nullNodeRecap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recap = null;
+        }
+
         /// <summary>Snapshot of the related scheduled event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadEvent? Event { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadEvent? Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadEvent? _explicitNullValueEvent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadEvent Event { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadEvent Event { get => _explicitNullValueEvent; set { _explicitNullValueEvent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event"); else _explicitNullProperties?.Remove("event"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadEvent _explicitNullValueEvent = default!;
 #endif
         /// <summary>Updated meeting recap resource</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap? Recap { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap? Recap { get => _explicitNullValueRecap; set { _explicitNullValueRecap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recap"); else _explicitNullProperties?.Remove("recap"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap? _explicitNullValueRecap = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap Recap { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap Recap { get => _explicitNullValueRecap; set { _explicitNullValueRecap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recap"); else _explicitNullProperties?.Remove("recap"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap _explicitNullValueRecap = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +72,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadEvent>("event", Event);
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap>("recap", Recap);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapUpdatedWebhookPayloadRecap>("recap", Recap);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

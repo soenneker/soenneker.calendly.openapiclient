@@ -12,23 +12,39 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateShareRequestAvailabilityRuleRulesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("intervals") is { } nullNodeIntervals && nullNodeIntervals.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Intervals = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("wday") is { } nullNodeWday && nullNodeWday.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Wday = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>is required when `type` is &apos;date&apos;Format: `YYYY-MM-DD`</summary>
-        public Date? Date { get; set; }
+        public Date? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        private Date? _explicitNullValueDate = default!;
         /// <summary>The intervals property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemIntervalsItem>? Intervals { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemIntervalsItem>? Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemIntervalsItem>? _explicitNullValueIntervals = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemIntervalsItem> Intervals { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemIntervalsItem> Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemIntervalsItem> _explicitNullValueIntervals = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemType? _explicitNullValueType = default!;
         /// <summary>is required when `type` is &apos;wday&apos;</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemWday? Wday { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemWday? Wday { get => _explicitNullValueWday; set { _explicitNullValueWday = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wday"); else _explicitNullProperties?.Remove("wday"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemWday? _explicitNullValueWday = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItem"/> and sets the default values.
         /// </summary>
@@ -44,7 +60,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +87,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemIntervalsItem>("intervals", Intervals);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateShareRequestAvailabilityRuleRulesItemWday>("wday", Wday);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

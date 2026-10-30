@@ -12,26 +12,41 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventTypeAvailabilitySchedule : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("availability_rule") is { } nullNodeAvailabilityRule && nullNodeAvailabilityRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailabilityRule = null;
+            if (parseNode.GetChildNode("availability_setting") is { } nullNodeAvailabilitySetting && nullNodeAvailabilitySetting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailabilitySetting = null;
+            if (parseNode.GetChildNode("event_type") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The availability_rule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilityScheduleAvailabilityRule? AvailabilityRule { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilityScheduleAvailabilityRule? AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilityScheduleAvailabilityRule? _explicitNullValueAvailabilityRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilityScheduleAvailabilityRule AvailabilityRule { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilityScheduleAvailabilityRule AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilityScheduleAvailabilityRule _explicitNullValueAvailabilityRule = default!;
 #endif
         /// <summary>The setting for event type availability specifies if all hosts follow the same schedule or if each host has their own unique schedule on the event type.</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting? AvailabilitySetting { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting? AvailabilitySetting { get => _explicitNullValueAvailabilitySetting; set { _explicitNullValueAvailabilitySetting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_setting"); else _explicitNullProperties?.Remove("availability_setting"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting? _explicitNullValueAvailabilitySetting = default!;
         /// <summary>The URI of the event type associated with the Event Type Availability Schedule</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventType { get; set; }
+        public string? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
+        private string? _explicitNullValueEventType = default!;
 #nullable restore
 #else
-        public string EventType { get; set; }
+        public string EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
+        private string _explicitNullValueEventType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilitySchedule"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilitySchedule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilitySchedule();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilitySchedule(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeAvailabilityScheduleAvailabilityRule>("availability_rule", AvailabilityRule);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.HostAvailabilitySetting>("availability_setting", AvailabilitySetting);
             writer.WriteStringValue("event_type", EventType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

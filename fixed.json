@@ -6340,6 +6340,164 @@
         "x-fern-ignore": true
       }
     },
+    "/teams": {
+      "get": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "List Teams",
+        "description": "Returns a paginated list of Teams matching the requested user.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060",
+        "operationId": "ListTeams",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "description": "Filter results to Teams associated with a specific user",
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/PageToken"
+          },
+          {
+            "$ref": "#/components/parameters/Count"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTeams200Response"
+                },
+                "examples": {
+                  "Teams": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/teams/AAAAAAAAAAAAAAAA",
+                          "name": "Sales",
+                          "organization": "https://api.calendly.com/organizations/BBBBBBBBBBBBBBBB",
+                          "scheduling_url": "https://calendly.com/acme-sales"
+                        }
+                      ],
+                      "pagination": {
+                        "count": 1,
+                        "next_page": null,
+                        "previous_page": null,
+                        "next_page_token": null,
+                        "previous_page_token": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/PERMISSION_DENIED"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      }
+    },
+    "/teams/{teamUuid}": {
+      "get": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Get Team",
+        "description": "Returns a single Team.\n\n\u003C!-- theme: info --\u003E\n  \u003E #### Required scopes: \u0060organizations:read\u0060",
+        "operationId": "GetTeam",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTeam200Response"
+                },
+                "examples": {
+                  "Team": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/teams/AAAAAAAAAAAAAAAA",
+                        "name": "Sales",
+                        "organization": "https://api.calendly.com/organizations/BBBBBBBBBBBBBBBB",
+                        "scheduling_url": "https://calendly.com/acme-sales"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "$ref": "#/components/responses/PERMISSION_DENIED"
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "teamUuid",
+          "in": "path",
+          "description": "Team UUID",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
+          }
+        }
+      ]
+    },
     "/sample_webhook_data": {
       "get": {
         "tags": [
@@ -7150,7 +7308,7 @@
           "Notetaker"
         ],
         "summary": "List Recaps",
-        "description": "Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the \u0060status\u0060 query parameter to retrieve \u0060processing\u0060 or \u0060unavailable\u0060 recaps. Supports additional filtering by scheduled event, attendee, or date range.\n\nReturns both Calendly-scheduled and external event recaps in a single collection. The \u0060event\u0060 field is null for external events where no Calendly scheduled event exists.\n\n**Note:**\nRequires paid plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:read\u0060\n\u003C/Info\u003E",
+        "description": "Returns a paginated list of meeting recaps accessible to the authenticated user. By default, returns **Available** recaps only. Use the \u0060status\u0060 query parameter to retrieve \u0060processing\u0060 or \u0060unavailable\u0060 recaps. Supports additional filtering by scheduled event, attendee, or date range.\n\nReturns both Calendly-scheduled and external event recaps in a single collection. The \u0060event\u0060 field is null for external events where no Calendly scheduled event exists.\n\n**Note:**\nRequires Notetaker on your plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:read\u0060\n\u003C/Info\u003E",
         "operationId": "ListMeetingRecaps",
         "parameters": [
           {
@@ -7311,7 +7469,7 @@
           "Notetaker"
         ],
         "summary": "Get Transcript",
-        "description": "Returns the transcript associated with a meeting recap if it is available.\n\n**Note:**\nRequires paid plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:read\u0060\n\u003C/Info\u003E",
+        "description": "Returns the transcript associated with a meeting recap if it is available.\n\n**Note:**\nRequires Notetaker on your plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:read\u0060\n\u003C/Info\u003E",
         "operationId": "GetTranscriptMeetingRecaps",
         "responses": {
           "200": {
@@ -7368,7 +7526,7 @@
           "Notetaker"
         ],
         "summary": "Get Recap",
-        "description": "Returns the recap associated with a meeting if it is available.\n\n**Note:**\nRequires paid plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:read\u0060\n\u003C/Info\u003E",
+        "description": "Returns the recap associated with a meeting if it is available.\n\n**Note:**\nRequires Notetaker on your plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:read\u0060\n\u003C/Info\u003E",
         "operationId": "GetMeetingRecapsUuidRecap",
         "responses": {
           "200": {
@@ -7449,7 +7607,7 @@
           "Notetaker"
         ],
         "summary": "Update Recap",
-        "description": "Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.\n\n**Note:**\nRequires paid plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:write\u0060\n\u003C/Info\u003E",
+        "description": "Update an existing Recap. You may send any combination of the optional body fields; omitted fields are left unchanged. Unknown top-level properties are rejected.\n\n**Note:**\nRequires Notetaker on your plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:write\u0060\n\u003C/Info\u003E",
         "operationId": "UpdateMeetingRecapsUuid",
         "requestBody": {
           "description": "Optional markdown fields to update.",
@@ -7549,7 +7707,7 @@
           "Notetaker"
         ],
         "summary": "Delete Recap",
-        "description": "Delete an existing Recap\n\n**Note:**\nRequires paid plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:write\u0060\n\u003C/Info\u003E",
+        "description": "Delete an existing Recap\n\n**Note:**\nRequires Notetaker on your plan\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060meeting_recaps:write\u0060\n\u003C/Info\u003E",
         "operationId": "DeleteMeetingRecapsUuid",
         "responses": {
           "204": {
@@ -10758,6 +10916,53 @@
           "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
           "created_at": "2019-01-02T03:04:05.678123Z",
           "updated_at": "2019-08-07T06:05:04.321123Z"
+        }
+      },
+      "Team": {
+        "title": "Team",
+        "required": [
+          "uri",
+          "name",
+          "organization",
+          "scheduling_url"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical Team identifier",
+            "format": "uri",
+            "example": "https://api.calendly.com/teams/AAAAAAAAAAAAAAAA"
+          },
+          "name": {
+            "type": "string",
+            "description": "Team name",
+            "example": "Sales"
+          },
+          "organization": {
+            "type": "string",
+            "description": "URI of the Organization the Team belongs to",
+            "format": "uri",
+            "example": "https://api.calendly.com/organizations/BBBBBBBBBBBBBBBB"
+          },
+          "scheduling_url": {
+            "type": "string",
+            "description": "Canonical public scheduling page for the Team",
+            "format": "uri",
+            "example": "https://calendly.com/acme-sales"
+          }
+        },
+        "description": "A Team is a group of users within a Calendly organization who collaborate on scheduling.\nTeams can have shared Event Types and a team scheduling URL for booking with available members.",
+        "x-tags": [
+          "Organizations"
+        ],
+        "x-examples": {
+          "sample-team": {
+            "uri": "https://api.calendly.com/teams/AAAAAAAAAAAAAAAA",
+            "name": "Sales",
+            "organization": "https://api.calendly.com/organizations/BBBBBBBBBBBBBBBB",
+            "scheduling_url": "https://calendly.com/acme-sales"
+          }
         }
       },
       "OrganizationMembershipOwner": {
@@ -17469,6 +17674,24 @@
           }
         }
       },
+      "ListTeams200Response": {
+        "required": [
+          "collection",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Team"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
       "GetGroups200Response": {
         "required": [
           "collection",
@@ -18112,6 +18335,17 @@
             "items": {
               "$ref": "#/components/schemas/Holiday"
             }
+          }
+        }
+      },
+      "GetTeam200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/Team"
           }
         }
       },

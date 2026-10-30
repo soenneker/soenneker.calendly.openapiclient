@@ -12,7 +12,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SubmissionResult : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResult"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +54,26 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             var result = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionResult();
             if("custom_message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SubmissionCustomMessageResult = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResult();
+                
             }
             else if("event_type".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SubmissionEventTypeResult = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionEventTypeResult();
+                
             }
             else if("external_url".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SubmissionExternalUrlResult = new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionExternalUrlResult();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("event_type".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("external_url".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("custom_message".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("value") != null))();
+            if (result.SubmissionCustomMessageResult == null && result.SubmissionEventTypeResult == null && result.SubmissionExternalUrlResult == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.SubmissionEventTypeResult = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionEventTypeResult(), parseNode);
+            if (result.SubmissionCustomMessageResult == null && result.SubmissionEventTypeResult == null && result.SubmissionExternalUrlResult == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.SubmissionExternalUrlResult = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionExternalUrlResult(), parseNode);
+            if (result.SubmissionCustomMessageResult == null && result.SubmissionEventTypeResult == null && result.SubmissionExternalUrlResult == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.SubmissionCustomMessageResult = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResult(), parseNode);
+            if (result.SubmissionCustomMessageResult == null && result.SubmissionEventTypeResult == null && result.SubmissionExternalUrlResult == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (SubmissionCustomMessageResult == null && SubmissionEventTypeResult == null && SubmissionExternalUrlResult == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (SubmissionCustomMessageResult != null && SubmissionEventTypeResult == null && SubmissionExternalUrlResult == null) { if (SubmissionCustomMessageResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SubmissionCustomMessageResult); return; }
+            if (SubmissionEventTypeResult != null && SubmissionCustomMessageResult == null && SubmissionExternalUrlResult == null) { if (SubmissionEventTypeResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SubmissionEventTypeResult); return; }
+            if (SubmissionExternalUrlResult != null && SubmissionCustomMessageResult == null && SubmissionEventTypeResult == null) { if (SubmissionExternalUrlResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SubmissionExternalUrlResult); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(SubmissionCustomMessageResult != null)
             {
+                if (SubmissionCustomMessageResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionCustomMessageResult>(null, SubmissionCustomMessageResult);
             }
             else if(SubmissionEventTypeResult != null)
             {
+                if (SubmissionEventTypeResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionEventTypeResult>(null, SubmissionEventTypeResult);
             }
             else if(SubmissionExternalUrlResult != null)
             {
+                if (SubmissionExternalUrlResult is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.SubmissionExternalUrlResult>(null, SubmissionExternalUrlResult);
             }
         }

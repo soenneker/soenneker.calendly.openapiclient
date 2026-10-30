@@ -72,6 +72,8 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListUserAvailabilitySchedules200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -101,6 +103,8 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -61,6 +61,8 @@ namespace Soenneker.Calendly.OpenApiClient.Scheduled_events.Item.Cancellation
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateScheduledEventCancellation201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

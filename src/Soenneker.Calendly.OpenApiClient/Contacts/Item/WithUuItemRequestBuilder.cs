@@ -60,6 +60,8 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -91,6 +93,8 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetContact200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -126,6 +130,8 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
                 { "409", global::Soenneker.Calendly.OpenApiClient.Models.AlreadyExistsResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

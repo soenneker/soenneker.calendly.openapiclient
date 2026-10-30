@@ -11,32 +11,48 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UpdateMeetingRecapsUuidRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action_items_md") is { } nullNodeActionItemsMd && nullNodeActionItemsMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionItemsMd = null;
+            if (parseNode.GetChildNode("discussion_md") is { } nullNodeDiscussionMd && nullNodeDiscussionMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionMd = null;
+            if (parseNode.GetChildNode("summary_md") is { } nullNodeSummaryMd && nullNodeSummaryMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SummaryMd = null;
+        }
+
         /// <summary>Action items in Markdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActionItemsMd { get; set; }
+        public string? ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
+        private string? _explicitNullValueActionItemsMd = default!;
 #nullable restore
 #else
-        public string ActionItemsMd { get; set; }
+        public string ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
+        private string _explicitNullValueActionItemsMd = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Discussion notes in Markdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiscussionMd { get; set; }
+        public string? DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
+        private string? _explicitNullValueDiscussionMd = default!;
 #nullable restore
 #else
-        public string DiscussionMd { get; set; }
+        public string DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
+        private string _explicitNullValueDiscussionMd = default!;
 #endif
         /// <summary>Summary in Markdown.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SummaryMd { get; set; }
+        public string? SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
+        private string? _explicitNullValueSummaryMd = default!;
 #nullable restore
 #else
-        public string SummaryMd { get; set; }
+        public string SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
+        private string _explicitNullValueSummaryMd = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateMeetingRecapsUuidRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.UpdateMeetingRecapsUuidRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.UpdateMeetingRecapsUuidRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.UpdateMeetingRecapsUuidRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("action_items_md", ActionItemsMd);
             writer.WriteStringValue("discussion_md", DiscussionMd);
             writer.WriteStringValue("summary_md", SummaryMd);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

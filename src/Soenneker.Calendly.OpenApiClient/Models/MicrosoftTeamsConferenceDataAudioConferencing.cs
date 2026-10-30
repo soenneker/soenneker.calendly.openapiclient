@@ -11,32 +11,48 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MicrosoftTeamsConferenceDataAudioConferencing : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("conferenceId") is { } nullNodeConferenceId && nullNodeConferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConferenceId = null;
+            if (parseNode.GetChildNode("dialinUrl") is { } nullNodeDialinUrl && nullNodeDialinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DialinUrl = null;
+            if (parseNode.GetChildNode("tollNumber") is { } nullNodeTollNumber && nullNodeTollNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TollNumber = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The conferenceId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConferenceId { get; set; }
+        public string? ConferenceId { get => _explicitNullValueConferenceId; set { _explicitNullValueConferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceId"); else _explicitNullProperties?.Remove("conferenceId"); } }
+        private string? _explicitNullValueConferenceId = default!;
 #nullable restore
 #else
-        public string ConferenceId { get; set; }
+        public string ConferenceId { get => _explicitNullValueConferenceId; set { _explicitNullValueConferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conferenceId"); else _explicitNullProperties?.Remove("conferenceId"); } }
+        private string _explicitNullValueConferenceId = default!;
 #endif
         /// <summary>The dialinUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DialinUrl { get; set; }
+        public string? DialinUrl { get => _explicitNullValueDialinUrl; set { _explicitNullValueDialinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialinUrl"); else _explicitNullProperties?.Remove("dialinUrl"); } }
+        private string? _explicitNullValueDialinUrl = default!;
 #nullable restore
 #else
-        public string DialinUrl { get; set; }
+        public string DialinUrl { get => _explicitNullValueDialinUrl; set { _explicitNullValueDialinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dialinUrl"); else _explicitNullProperties?.Remove("dialinUrl"); } }
+        private string _explicitNullValueDialinUrl = default!;
 #endif
         /// <summary>The tollNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TollNumber { get; set; }
+        public string? TollNumber { get => _explicitNullValueTollNumber; set { _explicitNullValueTollNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollNumber"); else _explicitNullProperties?.Remove("tollNumber"); } }
+        private string? _explicitNullValueTollNumber = default!;
 #nullable restore
 #else
-        public string TollNumber { get; set; }
+        public string TollNumber { get => _explicitNullValueTollNumber; set { _explicitNullValueTollNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tollNumber"); else _explicitNullProperties?.Remove("tollNumber"); } }
+        private string _explicitNullValueTollNumber = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.MicrosoftTeamsConferenceDataAudioConferencing"/> and sets the default values.
@@ -53,7 +69,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.MicrosoftTeamsConferenceDataAudioConferencing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.MicrosoftTeamsConferenceDataAudioConferencing();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.MicrosoftTeamsConferenceDataAudioConferencing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +96,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("conferenceId", ConferenceId);
             writer.WriteStringValue("dialinUrl", DialinUrl);
             writer.WriteStringValue("tollNumber", TollNumber);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

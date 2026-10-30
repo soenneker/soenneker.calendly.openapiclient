@@ -12,29 +12,48 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListActivityLogEntries200Response : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("collection") is { } nullNodeCollection && nullNodeCollection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collection = null;
+            if (parseNode.GetChildNode("exceeds_max_total_count") is { } nullNodeExceedsMaxTotalCount && nullNodeExceedsMaxTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExceedsMaxTotalCount = null;
+            if (parseNode.GetChildNode("last_event_time") is { } nullNodeLastEventTime && nullNodeLastEventTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastEventTime = null;
+            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+            if (parseNode.GetChildNode("total_count") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+        }
+
         /// <summary>The set of activity log entries matching the criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Entry>? Collection { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Entry>? Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.Entry>? _explicitNullValueCollection = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.Entry> Collection { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Entry> Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.Entry> _explicitNullValueCollection = default!;
 #endif
         /// <summary>If there are more search results than the total_count field indicates, pagination will continue to return results past the total_count field value.</summary>
-        public bool? ExceedsMaxTotalCount { get; set; }
+        public bool? ExceedsMaxTotalCount { get => _explicitNullValueExceedsMaxTotalCount; set { _explicitNullValueExceedsMaxTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exceeds_max_total_count"); else _explicitNullProperties?.Remove("exceeds_max_total_count"); } }
+        private bool? _explicitNullValueExceedsMaxTotalCount = default!;
         /// <summary>The date and time of the newest entry (format: &quot;2020-01-02T03:04:05.678Z&quot;) in the collection array.</summary>
-        public DateTimeOffset? LastEventTime { get; set; }
+        public DateTimeOffset? LastEventTime { get => _explicitNullValueLastEventTime; set { _explicitNullValueLastEventTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_event_time"); else _explicitNullProperties?.Remove("last_event_time"); } }
+        private DateTimeOffset? _explicitNullValueLastEventTime = default!;
         /// <summary>The pagination property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.Pagination? Pagination { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.Pagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.Pagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.Pagination Pagination { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.Pagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.Pagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>Total number of records based on search criteria</summary>
-        public int? TotalCount { get; set; }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_count"); else _explicitNullProperties?.Remove("total_count"); } }
+        private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -43,7 +62,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,7 +90,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteBoolValue("exceeds_max_total_count", ExceedsMaxTotalCount);
             writer.WriteDateTimeOffsetValue("last_event_time", LastEventTime);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Pagination>("pagination", Pagination);
-            writer.WriteIntValue("total_count", TotalCount);
+            writer.WriteIntValue("total_count", TotalCount);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

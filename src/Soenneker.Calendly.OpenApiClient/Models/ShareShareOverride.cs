@@ -12,53 +12,84 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ShareShareOverride : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("availability_rule") is { } nullNodeAvailabilityRule && nullNodeAvailabilityRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailabilityRule = null;
+            if (parseNode.GetChildNode("duration") is { } nullNodeDuration && nullNodeDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Duration = null;
+            if (parseNode.GetChildNode("duration_options") is { } nullNodeDurationOptions && nullNodeDurationOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DurationOptions = null;
+            if (parseNode.GetChildNode("end_date") is { } nullNodeEndDate && nullNodeEndDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndDate = null;
+            if (parseNode.GetChildNode("hide_location") is { } nullNodeHideLocation && nullNodeHideLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HideLocation = null;
+            if (parseNode.GetChildNode("location_configurations") is { } nullNodeLocationConfigurations && nullNodeLocationConfigurations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationConfigurations = null;
+            if (parseNode.GetChildNode("max_booking_time") is { } nullNodeMaxBookingTime && nullNodeMaxBookingTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBookingTime = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("period_type") is { } nullNodePeriodType && nullNodePeriodType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PeriodType = null;
+            if (parseNode.GetChildNode("start_date") is { } nullNodeStartDate && nullNodeStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDate = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The availability_rule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule? AvailabilityRule { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule? AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule? _explicitNullValueAvailabilityRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule AvailabilityRule { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule _explicitNullValueAvailabilityRule = default!;
 #endif
         /// <summary>The duration property</summary>
-        public int? Duration { get; set; }
+        public int? Duration { get => _explicitNullValueDuration; set { _explicitNullValueDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration"); else _explicitNullProperties?.Remove("duration"); } }
+        private int? _explicitNullValueDuration = default!;
         /// <summary>The duration_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<int?>? DurationOptions { get; set; }
+        public List<int?>? DurationOptions { get => _explicitNullValueDurationOptions; set { _explicitNullValueDurationOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_options"); else _explicitNullProperties?.Remove("duration_options"); } }
+        private List<int?>? _explicitNullValueDurationOptions = default!;
 #nullable restore
 #else
-        public List<int?> DurationOptions { get; set; }
+        public List<int?> DurationOptions { get => _explicitNullValueDurationOptions; set { _explicitNullValueDurationOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_options"); else _explicitNullProperties?.Remove("duration_options"); } }
+        private List<int?> _explicitNullValueDurationOptions = default!;
 #endif
         /// <summary>Format: `YYYY-MM-DD`</summary>
-        public Date? EndDate { get; set; }
+        public Date? EndDate { get => _explicitNullValueEndDate; set { _explicitNullValueEndDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_date"); else _explicitNullProperties?.Remove("end_date"); } }
+        private Date? _explicitNullValueEndDate = default!;
         /// <summary>The hide_location property</summary>
-        public bool? HideLocation { get; set; }
+        public bool? HideLocation { get => _explicitNullValueHideLocation; set { _explicitNullValueHideLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hide_location"); else _explicitNullProperties?.Remove("hide_location"); } }
+        private bool? _explicitNullValueHideLocation = default!;
         /// <summary>The location_configurations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>? LocationConfigurations { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>? LocationConfigurations { get => _explicitNullValueLocationConfigurations; set { _explicitNullValueLocationConfigurations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_configurations"); else _explicitNullProperties?.Remove("location_configurations"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>? _explicitNullValueLocationConfigurations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem> LocationConfigurations { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem> LocationConfigurations { get => _explicitNullValueLocationConfigurations; set { _explicitNullValueLocationConfigurations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_configurations"); else _explicitNullProperties?.Remove("location_configurations"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem> _explicitNullValueLocationConfigurations = default!;
 #endif
         /// <summary>The max_booking_time property</summary>
-        public int? MaxBookingTime { get; set; }
+        public int? MaxBookingTime { get => _explicitNullValueMaxBookingTime; set { _explicitNullValueMaxBookingTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_booking_time"); else _explicitNullProperties?.Remove("max_booking_time"); } }
+        private int? _explicitNullValueMaxBookingTime = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The period_type property</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType? PeriodType { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType? PeriodType { get => _explicitNullValuePeriodType; set { _explicitNullValuePeriodType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_type"); else _explicitNullProperties?.Remove("period_type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType? _explicitNullValuePeriodType = default!;
         /// <summary>Format: `YYYY-MM-DD`</summary>
-        public Date? StartDate { get; set; }
+        public Date? StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_date"); else _explicitNullProperties?.Remove("start_date"); } }
+        private Date? _explicitNullValueStartDate = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride"/> and sets the default values.
         /// </summary>
@@ -74,7 +105,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverride(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +144,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType>("period_type", PeriodType);
             writer.WriteDateValue("start_date", StartDate);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

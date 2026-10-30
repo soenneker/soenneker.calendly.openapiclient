@@ -12,58 +12,87 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MeetingRecapCreatedWebhookPayloadRecap : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action_items_md") is { } nullNodeActionItemsMd && nullNodeActionItemsMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionItemsMd = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("discussion_md") is { } nullNodeDiscussionMd && nullNodeDiscussionMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiscussionMd = null;
+            if (parseNode.GetChildNode("share_link") is { } nullNodeShareLink && nullNodeShareLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShareLink = null;
+            if (parseNode.GetChildNode("summary_md") is { } nullNodeSummaryMd && nullNodeSummaryMd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SummaryMd = null;
+            if (parseNode.GetChildNode("transcript") is { } nullNodeTranscript && nullNodeTranscript.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transcript = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
+        }
+
         /// <summary>Markdown action items from the meeting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ActionItemsMd { get; set; }
+        public string? ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
+        private string? _explicitNullValueActionItemsMd = default!;
 #nullable restore
 #else
-        public string ActionItemsMd { get; set; }
+        public string ActionItemsMd { get => _explicitNullValueActionItemsMd; set { _explicitNullValueActionItemsMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action_items_md"); else _explicitNullProperties?.Remove("action_items_md"); } }
+        private string _explicitNullValueActionItemsMd = default!;
 #endif
         /// <summary>When the meeting recap was created</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Markdown discussion points</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DiscussionMd { get; set; }
+        public string? DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
+        private string? _explicitNullValueDiscussionMd = default!;
 #nullable restore
 #else
-        public string DiscussionMd { get; set; }
+        public string DiscussionMd { get => _explicitNullValueDiscussionMd; set { _explicitNullValueDiscussionMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("discussion_md"); else _explicitNullProperties?.Remove("discussion_md"); } }
+        private string _explicitNullValueDiscussionMd = default!;
 #endif
         /// <summary>URL for sharing this meeting recap with others. Access is determined by the recap’s sharing settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ShareLink { get; set; }
+        public string? ShareLink { get => _explicitNullValueShareLink; set { _explicitNullValueShareLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_link"); else _explicitNullProperties?.Remove("share_link"); } }
+        private string? _explicitNullValueShareLink = default!;
 #nullable restore
 #else
-        public string ShareLink { get; set; }
+        public string ShareLink { get => _explicitNullValueShareLink; set { _explicitNullValueShareLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share_link"); else _explicitNullProperties?.Remove("share_link"); } }
+        private string _explicitNullValueShareLink = default!;
 #endif
         /// <summary>Markdown summary of the meeting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SummaryMd { get; set; }
+        public string? SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
+        private string? _explicitNullValueSummaryMd = default!;
 #nullable restore
 #else
-        public string SummaryMd { get; set; }
+        public string SummaryMd { get => _explicitNullValueSummaryMd; set { _explicitNullValueSummaryMd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary_md"); else _explicitNullProperties?.Remove("summary_md"); } }
+        private string _explicitNullValueSummaryMd = default!;
 #endif
         /// <summary>Transcript resource URI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Transcript { get; set; }
+        public string? Transcript { get => _explicitNullValueTranscript; set { _explicitNullValueTranscript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcript"); else _explicitNullProperties?.Remove("transcript"); } }
+        private string? _explicitNullValueTranscript = default!;
 #nullable restore
 #else
-        public string Transcript { get; set; }
+        public string Transcript { get => _explicitNullValueTranscript; set { _explicitNullValueTranscript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transcript"); else _explicitNullProperties?.Remove("transcript"); } }
+        private string _explicitNullValueTranscript = default!;
 #endif
         /// <summary>When the meeting recap was last updated</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Meeting recap resource URI</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Uri { get; set; }
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string? _explicitNullValueUri = default!;
 #nullable restore
 #else
-        public string Uri { get; set; }
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string _explicitNullValueUri = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -73,7 +102,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayloadRecap CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayloadRecap();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.MeetingRecapCreatedWebhookPayloadRecap(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,7 +136,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("summary_md", SummaryMd);
             writer.WriteStringValue("transcript", Transcript);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
-            writer.WriteStringValue("uri", Uri);
+            writer.WriteStringValue("uri", Uri);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

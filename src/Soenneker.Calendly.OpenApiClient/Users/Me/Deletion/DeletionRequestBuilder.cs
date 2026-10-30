@@ -60,6 +60,8 @@ namespace Soenneker.Calendly.OpenApiClient.Users.Me.Deletion
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Calendly.OpenApiClient.Models.PermissionDeniedResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -57,6 +57,8 @@ namespace Soenneker.Calendly.OpenApiClient.Activity_log_entries
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListActivityLogEntries200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

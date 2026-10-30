@@ -12,21 +12,35 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GoogleConference : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("join_url") is { } nullNodeJoinUrl && nullNodeJoinUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JoinUrl = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Google conference meeting url</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JoinUrl { get; set; }
+        public string? JoinUrl { get => _explicitNullValueJoinUrl; set { _explicitNullValueJoinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_url"); else _explicitNullProperties?.Remove("join_url"); } }
+        private string? _explicitNullValueJoinUrl = default!;
 #nullable restore
 #else
-        public string JoinUrl { get; set; }
+        public string JoinUrl { get => _explicitNullValueJoinUrl; set { _explicitNullValueJoinUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("join_url"); else _explicitNullProperties?.Remove("join_url"); } }
+        private string _explicitNullValueJoinUrl = default!;
 #endif
         /// <summary>Indicates the current status of the Google conference&lt;br/&gt;&amp;nbsp; * Expect only `pushed` status to have a non-`null` value for the `join_url` field.&lt;br/&gt;&amp;nbsp; - `processing` Location details generation pending&lt;br/&gt;&amp;nbsp; - `initiated` Requesting location details from Google&lt;br/&gt;&amp;nbsp; - `pushed` Location details are available&lt;br/&gt;&amp;nbsp; - `failed` Error occurred or event has been canceled&lt;br/&gt;&amp;nbsp; - `null` Location details are no longer available</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? Status { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? _explicitNullValueStatus = default!;
         /// <summary>The event location is a Google Meet or Hangouts conference</summary>
-        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? Type { get; set; }
+        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GoogleConference"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.GoogleConference CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Calendly.OpenApiClient.Models.GoogleConference();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.GoogleConference(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("join_url", JoinUrl);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
