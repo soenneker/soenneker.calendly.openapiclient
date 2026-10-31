@@ -916,6 +916,17 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateEventType201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -1480,6 +1491,17 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostInvitee201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -2230,6 +2252,32 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOrganizationInvitation201Response"
+                },
+                "examples": {
+                  "Invite user request": {
+                    "value": {
+                      "resource": {
+                        "created_at": "2020-01-01T20:30:00.000000Z",
+                        "email": "alice@example.com",
+                        "last_sent_at": "2020-01-01T20:30:00.123456Z",
+                        "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
+                        "status": "pending",
+                        "updated_at": "2020-01-01T20:30:00.000000Z",
+                        "uri": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA/invitations/BBBBBBBBBBBBBBBB"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -3071,6 +3119,111 @@
           },
           "503": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "schema": {
+                  "type": "string",
+                  "description": "Canonical reference (unique identifier) for the webhook",
+                  "format": "uri",
+                  "example": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Createwebhooks201Response"
+                },
+                "examples": {
+                  "User Scope Webhook": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
+                        "callback_url": "https://blah.foo/bar",
+                        "created_at": "2019-08-24T14:15:22.123456Z",
+                        "updated_at": "2019-08-24T14:15:22.123456Z",
+                        "retry_started_at": "2019-08-24T14:15:22.123456Z",
+                        "state": "active",
+                        "events": [
+                          "invitee.created",
+                          "invitee.canceled",
+                          "invitee_no_show.created",
+                          "invitee_no_show.deleted",
+                          "meeting_recap.created",
+                          "meeting_recap.updated",
+                          "meeting_recap.deleted",
+                          "contact.created",
+                          "contact.updated",
+                          "contact.deleted"
+                        ],
+                        "scope": "user",
+                        "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
+                        "user": "https://api.calendly.com/users/BBBBBBBBBBBBBBBB",
+                        "group": null,
+                        "creator": "https://api.calendly.com/users/BBBBBBBBBBBBBBBB"
+                      }
+                    }
+                  },
+                  "Organization Scope Webhook": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
+                        "callback_url": "https://blah.foo/bar",
+                        "created_at": "2019-08-24T14:15:22.123456Z",
+                        "updated_at": "2019-08-24T14:15:22.123456Z",
+                        "retry_started_at": "2019-08-24T14:15:22.123456Z",
+                        "state": "active",
+                        "events": [
+                          "invitee.created",
+                          "invitee.canceled",
+                          "invitee_no_show.created",
+                          "invitee_no_show.deleted",
+                          "routing_form_submission.created",
+                          "contact.created",
+                          "contact.updated",
+                          "contact.deleted"
+                        ],
+                        "scope": "organization",
+                        "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
+                        "user": null,
+                        "group": null,
+                        "creator": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                      }
+                    }
+                  },
+                  "Group Scope Webhook": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/webhook_subscriptions/AAAAAAAAAAAAAAAA",
+                        "callback_url": "https://blah.foo/bar",
+                        "created_at": "2019-08-24T14:15:22.123456Z",
+                        "updated_at": "2019-08-24T14:15:22.123456Z",
+                        "retry_started_at": "2019-08-24T14:15:22.123456Z",
+                        "state": "active",
+                        "events": [
+                          "invitee.created",
+                          "invitee.canceled",
+                          "invitee_no_show.created",
+                          "invitee_no_show.deleted",
+                          "contact.created",
+                          "contact.updated",
+                          "contact.deleted"
+                        ],
+                        "scope": "group",
+                        "organization": "https://api.calendly.com/organizations/AAAAAAAAAAAAAAAA",
+                        "user": null,
+                        "group": "https://api.calendly.com/groups/BBBBBBBBBBBBBBBB",
+                        "creator": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -3532,6 +3685,28 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSchedulingLink201Response"
+                },
+                "examples": {
+                  "Create Single Use Link": {
+                    "value": {
+                      "resource": {
+                        "booking_url": "https://calendly.com/d/abcd-brv8/15-minute-meeting",
+                        "owner": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "owner_type": "EventType"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -3632,6 +3807,22 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteInviteeData202ResponseSchema"
+                },
+                "examples": {
+                  "Delete invitee data request": {
+                    "value": {}
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -3913,6 +4104,28 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateInviteeNoShow201Response"
+                },
+                "examples": {
+                  "Create invitee no show request": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/invitee_no_shows/AAAAAAAAAAAAAAAA",
+                        "invitee": "https://api.calendly.com/scheduled_events/AAAAAAAAAAAAAAAA/invitees/AAAAAAAAAAAAAAAA",
+                        "created_at": "2019-01-02T03:04:05.678123Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -4564,6 +4777,29 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScheduledEventCancellation201Response"
+                },
+                "examples": {
+                  "Cancel event request": {
+                    "value": {
+                      "resource": {
+                        "canceled_by": "John Smith",
+                        "reason": "Something came up.",
+                        "canceler_type": "host",
+                        "created_at": "2019-01-02T03:04:05.678123Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -6114,6 +6350,71 @@
           },
           "500": {
             "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateShare201Response"
+                },
+                "examples": {
+                  "Create share request": {
+                    "value": {
+                      "resource": {
+                        "scheduling_links": [
+                          {
+                            "booking_url": "https://calendly.com/d/abcd-brv8/15-minute-meeting",
+                            "owner": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                            "owner_type": "EventType"
+                          }
+                        ],
+                        "share_override": {
+                          "name": "15 Minute Meeting",
+                          "duration": 15,
+                          "duration_options": [
+                            1,
+                            13,
+                            15,
+                            720
+                          ],
+                          "period_type": "fixed",
+                          "start_date": "2019-01-02",
+                          "end_date": "2019-01-03",
+                          "max_booking_time": 300,
+                          "hide_location": true,
+                          "location_configurations": [
+                            {
+                              "location": "123 Abc St.",
+                              "additional_info": "Example additional info",
+                              "phone_number": "\u002B1 888-888-8888",
+                              "position": 0,
+                              "kind": "physical"
+                            }
+                          ],
+                          "availability_rule": {
+                            "rules": [
+                              {
+                                "type": "wday",
+                                "wday": "friday",
+                                "intervals": [
+                                  {
+                                    "from": "07:00",
+                                    "to": "11:00"
+                                  }
+                                ]
+                              }
+                            ],
+                            "timezone": "America/New_York"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -6811,6 +7112,17 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserAvailabilitySchedule201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -7237,6 +7549,22 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteScheduledEventData202ResponseSchema"
+                },
+                "examples": {
+                  "Delete scheduled event data request": {
+                    "value": {}
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         },
         "security": [
@@ -7594,6 +7922,17 @@
           },
           "500": {
             "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateHolidaySet201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-fern-ignore": true
@@ -7864,6 +8203,144 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOneOffEventType201Response"
+                },
+                "examples": {
+                  "Date range": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "name": "My Meeting",
+                        "active": true,
+                        "booking_method": "instant",
+                        "slug": "acmesales",
+                        "scheduling_url": "https://calendly.com/acmesales",
+                        "duration": 30,
+                        "duration_options": null,
+                        "kind": "solo",
+                        "pooling_type": "collective",
+                        "type": "AdhocEventType",
+                        "color": "#fff200",
+                        "created_at": "2019-01-02T03:04:05.678123Z",
+                        "updated_at": "2019-08-07T06:05:04.321123Z",
+                        "internal_note": "Event type note",
+                        "is_paid": false,
+                        "description_plain": "Event type description",
+                        "description_html": "\u003Cp\u003EEvent type description\u003C/p\u003E",
+                        "profile": {
+                          "type": "User",
+                          "name": "Tamara Jones",
+                          "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                        },
+                        "secret": true,
+                        "deleted_at": null,
+                        "admin_managed": false,
+                        "locations": [
+                          {
+                            "kind": "physical",
+                            "location": "Main Office",
+                            "additional_info": "Please check in at the front desk."
+                          }
+                        ],
+                        "position": 0,
+                        "custom_questions": [],
+                        "locale": "en"
+                      }
+                    }
+                  },
+                  "Days in future": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "name": "My Meeting",
+                        "active": true,
+                        "booking_method": "instant",
+                        "slug": "acmesales",
+                        "scheduling_url": "https://calendly.com/acmesales",
+                        "duration": 30,
+                        "duration_options": null,
+                        "kind": "solo",
+                        "pooling_type": "collective",
+                        "type": "AdhocEventType",
+                        "color": "#fff200",
+                        "created_at": "2019-01-02T03:04:05.678123Z",
+                        "updated_at": "2019-08-07T06:05:04.321123Z",
+                        "internal_note": "Event type note",
+                        "is_paid": false,
+                        "description_plain": "Event type description",
+                        "description_html": "\u003Cp\u003EEvent type description\u003C/p\u003E",
+                        "profile": {
+                          "type": "User",
+                          "name": "Tamara Jones",
+                          "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                        },
+                        "secret": true,
+                        "deleted_at": null,
+                        "admin_managed": false,
+                        "locations": [
+                          {
+                            "kind": "physical",
+                            "location": "Main Office",
+                            "additional_info": "Please check in at the front desk."
+                          }
+                        ],
+                        "position": 0,
+                        "custom_questions": [],
+                        "locale": "en"
+                      }
+                    }
+                  },
+                  "Spots": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "name": "My Meeting",
+                        "active": true,
+                        "booking_method": "instant",
+                        "slug": "acmesales",
+                        "scheduling_url": "https://calendly.com/acmesales",
+                        "duration": 720,
+                        "duration_options": null,
+                        "kind": "solo",
+                        "pooling_type": "collective",
+                        "type": "AdhocEventType",
+                        "color": "#fff200",
+                        "created_at": "2019-01-02T03:04:05.678123Z",
+                        "updated_at": "2019-08-07T06:05:04.321123Z",
+                        "internal_note": "Event type note",
+                        "is_paid": false,
+                        "description_plain": "Event type description",
+                        "description_html": "\u003Cp\u003EEvent type description\u003C/p\u003E",
+                        "profile": {
+                          "type": "User",
+                          "name": "Tamara Jones",
+                          "owner": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA"
+                        },
+                        "secret": true,
+                        "deleted_at": null,
+                        "admin_managed": false,
+                        "locations": [
+                          {
+                            "kind": "custom",
+                            "location": "Details will be provided upon booking."
+                          }
+                        ],
+                        "position": 0,
+                        "custom_questions": [],
+                        "locale": "en"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10003,6 +10480,17 @@
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContact201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
