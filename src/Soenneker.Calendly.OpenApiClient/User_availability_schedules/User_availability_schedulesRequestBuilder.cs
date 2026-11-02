@@ -89,6 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule400Response">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UserNotInOrganizationAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
         /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,6 +107,7 @@ namespace Soenneker.Calendly.OpenApiClient.User_availability_schedules
                 { "400", global::Soenneker.Calendly.OpenApiClient.Models.CreateUserAvailabilitySchedule400Response.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Calendly.OpenApiClient.Models.UserNotInOrganizationAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

@@ -7066,6 +7066,76 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateUserAvailabilitySchedule201Response"
+                },
+                "examples": {
+                  "Office Hours with Date Override": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/user_availability_schedule/BBBBBBBBBBBBBBBB",
+                        "default": false,
+                        "name": "Office Hours",
+                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                        "timezone": "America/Los_Angeles",
+                        "rules": [
+                          {
+                            "type": "wday",
+                            "wday": "sunday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "monday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "tuesday",
+                            "intervals": [
+                              {
+                                "from": "14:00",
+                                "to": "16:00"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "wednesday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "thursday",
+                            "intervals": [
+                              {
+                                "from": "14:00",
+                                "to": "16:00"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "friday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "saturday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "date",
+                            "date": "2026-12-22",
+                            "intervals": [
+                              {
+                                "from": "09:00",
+                                "to": "12:00"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -7110,6 +7180,9 @@
               }
             }
           },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
           },
@@ -7119,6 +7192,76 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CreateUserAvailabilitySchedule201Response"
+                },
+                "examples": {
+                  "Office Hours with Date Override": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/user_availability_schedule/BBBBBBBBBBBBBBBB",
+                        "default": false,
+                        "name": "Office Hours",
+                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                        "timezone": "America/Los_Angeles",
+                        "rules": [
+                          {
+                            "type": "wday",
+                            "wday": "sunday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "monday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "tuesday",
+                            "intervals": [
+                              {
+                                "from": "14:00",
+                                "to": "16:00"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "wednesday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "thursday",
+                            "intervals": [
+                              {
+                                "from": "14:00",
+                                "to": "16:00"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "friday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "wday",
+                            "wday": "saturday",
+                            "intervals": []
+                          },
+                          {
+                            "type": "date",
+                            "date": "2026-12-22",
+                            "intervals": [
+                              {
+                                "from": "09:00",
+                                "to": "12:00"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -7229,6 +7372,310 @@
             "personal_access_token": []
           }
         ]
+      },
+      "patch": {
+        "tags": [
+          "Availability"
+        ],
+        "summary": "Update User Availability Schedule",
+        "description": "Renames a schedule, changes its timezone or rules, or makes it the default.\n\n**Behavior:**\n* Omitted fields are left unchanged. When rules is sent, it replaces the schedule\u0027s entire rule set.\n* To change part of the rules, such as one weekday or one date, read the schedule with GET /user_availability_schedules/{uuid}, edit it, and send all the rules back.\n* date rules dated before yesterday, in the schedule\u0027s timezone, return 400. Yesterday and later dates are allowed.\n* default: true makes this schedule the default and the previous default stops being one, in a single step. The user never has zero defaults.\n* default: false is not a supported target state and returns 400.\n* Changes apply to every Event Type that uses the schedule. Which Event Types use it does not change.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060availability:write\u0060\n\u003C/Info\u003E",
+        "operationId": "UpdateUserAvailabilitySchedule",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserAvailabilityScheduleRequest"
+              },
+              "examples": {
+                "Rename schedule": {
+                  "value": {
+                    "name": "Customer Meeting Hours"
+                  }
+                },
+                "Set as default": {
+                  "value": {
+                    "default": true
+                  }
+                },
+                "Replace rules": {
+                  "value": {
+                    "rules": [
+                      {
+                        "type": "wday",
+                        "intervals": [],
+                        "wday": "sunday"
+                      },
+                      {
+                        "type": "wday",
+                        "intervals": [
+                          {
+                            "from": "08:00",
+                            "to": "12:00"
+                          },
+                          {
+                            "from": "13:00",
+                            "to": "16:00"
+                          }
+                        ],
+                        "wday": "monday"
+                      },
+                      {
+                        "type": "wday",
+                        "intervals": [
+                          {
+                            "from": "09:00",
+                            "to": "17:00"
+                          }
+                        ],
+                        "wday": "tuesday"
+                      },
+                      {
+                        "type": "wday",
+                        "intervals": [
+                          {
+                            "from": "10:00",
+                            "to": "12:00"
+                          },
+                          {
+                            "from": "13:00",
+                            "to": "17:00"
+                          }
+                        ],
+                        "wday": "wednesday"
+                      },
+                      {
+                        "type": "wday",
+                        "intervals": [
+                          {
+                            "from": "10:00",
+                            "to": "12:00"
+                          },
+                          {
+                            "from": "13:00",
+                            "to": "16:00"
+                          }
+                        ],
+                        "wday": "thursday"
+                      },
+                      {
+                        "type": "wday",
+                        "intervals": [],
+                        "wday": "friday"
+                      },
+                      {
+                        "type": "wday",
+                        "intervals": [],
+                        "wday": "saturday"
+                      },
+                      {
+                        "type": "date",
+                        "intervals": [],
+                        "date": "2026-12-23"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserAvailabilitySchedule200Response"
+                },
+                "examples": {
+                  "Update schedule name": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/user_availability_schedule/AAAAAAAAAAAAAAAA",
+                        "default": false,
+                        "name": "Customer Meeting Hours",
+                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                        "timezone": "America/New_York",
+                        "rules": [
+                          {
+                            "type": "wday",
+                            "intervals": [
+                              {
+                                "from": "08:30",
+                                "to": "09:30"
+                              }
+                            ],
+                            "wday": "sunday"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Set as default schedule": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/user_availability_schedule/AAAAAAAAAAAAAAAA",
+                        "default": true,
+                        "name": "Working Hours",
+                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                        "timezone": "America/New_York",
+                        "rules": [
+                          {
+                            "type": "wday",
+                            "intervals": [
+                              {
+                                "from": "08:30",
+                                "to": "09:30"
+                              }
+                            ],
+                            "wday": "sunday"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Replace rules": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/user_availability_schedule/AAAAAAAAAAAAAAAA",
+                        "default": false,
+                        "name": "Office Hours",
+                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                        "timezone": "America/Los_Angeles",
+                        "rules": [
+                          {
+                            "type": "wday",
+                            "intervals": [],
+                            "wday": "sunday"
+                          },
+                          {
+                            "type": "wday",
+                            "intervals": [
+                              {
+                                "from": "08:00",
+                                "to": "12:00"
+                              },
+                              {
+                                "from": "13:00",
+                                "to": "16:00"
+                              }
+                            ],
+                            "wday": "monday"
+                          },
+                          {
+                            "type": "wday",
+                            "intervals": [
+                              {
+                                "from": "09:00",
+                                "to": "17:00"
+                              }
+                            ],
+                            "wday": "tuesday"
+                          },
+                          {
+                            "type": "wday",
+                            "intervals": [
+                              {
+                                "from": "10:00",
+                                "to": "12:00"
+                              },
+                              {
+                                "from": "13:00",
+                                "to": "17:00"
+                              }
+                            ],
+                            "wday": "wednesday"
+                          },
+                          {
+                            "type": "wday",
+                            "intervals": [
+                              {
+                                "from": "10:00",
+                                "to": "12:00"
+                              },
+                              {
+                                "from": "13:00",
+                                "to": "16:00"
+                              }
+                            ],
+                            "wday": "thursday"
+                          },
+                          {
+                            "type": "wday",
+                            "intervals": [],
+                            "wday": "friday"
+                          },
+                          {
+                            "type": "wday",
+                            "intervals": [],
+                            "wday": "saturday"
+                          },
+                          {
+                            "type": "date",
+                            "intervals": [],
+                            "date": "2026-12-23"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Caller not authorized to perform this action or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserNotInOrganizationAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller and user are not in same organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "This user is not in your organization"
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "organizations:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
       },
       "parameters": [
         {
@@ -19623,6 +20070,31 @@
           }
         }
       },
+      "UpdateUserAvailabilityScheduleRequest": {
+        "minProperties": 1,
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "New name for the availability schedule."
+          },
+          "timezone": {
+            "type": "string",
+            "description": "IANA time zone used to interpret the schedule\u0027s availability rules. Changing it is expected to keep each rule\u0027s local times, so their absolute times shift."
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AvailabilityRule"
+            },
+            "description": "Complete replacement set of availability rules for the schedule. Same structure and validation as rules in Create User Availability Schedule. Must include exactly one wday rule for each day of the week when provided. date rules are optional overrides on top of the weekly rules."
+          },
+          "default": {
+            "type": "boolean",
+            "description": "Sets the availability schedule as the user\u0027s default schedule when true. false is not a supported target state and returns 400."
+          }
+        }
+      },
       "ListCalendarEvents200Response": {
         "required": [
           "collection",
@@ -20325,6 +20797,17 @@
         }
       },
       "GetUserAvailabilitySchedule200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/AvailabilitySchedule"
+          }
+        }
+      },
+      "UpdateUserAvailabilitySchedule200Response": {
         "required": [
           "resource"
         ],
