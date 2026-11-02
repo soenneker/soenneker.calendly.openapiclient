@@ -39,8 +39,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         private string _explicitNullValueJoinUrl = default!;
 #endif
         /// <summary>Indicates the current status of the Google conference&lt;br/&gt;&amp;nbsp; * Expect only `pushed` status to have a non-`null` value for the `join_url` field.&lt;br/&gt;&amp;nbsp; - `processing` Location details generation pending&lt;br/&gt;&amp;nbsp; - `initiated` Requesting location details from Google&lt;br/&gt;&amp;nbsp; - `pushed` Location details are available&lt;br/&gt;&amp;nbsp; - `failed` Error occurred or event has been canceled&lt;br/&gt;&amp;nbsp; - `null` Location details are no longer available</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus? _explicitNullValueStatus = default!;
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus _explicitNullValueStatus = default!;
+#endif
         /// <summary>The event location is a Google Meet or Hangouts conference</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType? _explicitNullValueType = default!;
@@ -70,7 +77,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "join_url", n => { JoinUrl = n.GetStringValue(); } },
-                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
+                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus>(global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus.CreateFromDiscriminatorValue); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
@@ -82,7 +89,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("join_url", JoinUrl);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus>("status", Status);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceStatus>("status", Status);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.GoogleConferenceType>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

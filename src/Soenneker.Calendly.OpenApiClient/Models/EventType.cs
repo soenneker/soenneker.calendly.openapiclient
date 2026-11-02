@@ -182,8 +182,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Indicates if the event type is &quot;round robin&quot; (alternates between hosts) or &quot;collective&quot; (invitees pick a time when all participants are available) or “multi-pool” (considers availability delineated by pools of participants) or &quot;null&quot; (the event type doesn’t consider the availability of a group participants)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType? PoolingType { get => _explicitNullValuePoolingType; set { _explicitNullValuePoolingType = value; AdditionalData?.Remove("pooling_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pooling_type"); else _explicitNullProperties?.Remove("pooling_type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType? _explicitNullValuePoolingType = default!;
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType PoolingType { get => _explicitNullValuePoolingType; set { _explicitNullValuePoolingType = value; AdditionalData?.Remove("pooling_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pooling_type"); else _explicitNullProperties?.Remove("pooling_type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType _explicitNullValuePoolingType = default!;
+#endif
         /// <summary>Position order of Event Type, starting with 0 (for display purposes)</summary>
         public int? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; AdditionalData?.Remove("position"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
         private int? _explicitNullValuePosition = default!;
@@ -278,7 +285,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "locale", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLocale = default; _explicitNullProperties?.Remove("locale"); AdditionalData["locale"] = unknown; } else { Locale = parsed; AdditionalData.Remove("locale"); } } },
                 { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>(global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "pooling_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePoolingType = default; _explicitNullProperties?.Remove("pooling_type"); AdditionalData["pooling_type"] = unknown; } else { PoolingType = parsed; AdditionalData.Remove("pooling_type"); } } },
+                { "pooling_type", n => { PoolingType = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType>(global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType.CreateFromDiscriminatorValue); } },
                 { "position", n => { Position = n.GetIntValue(); } },
                 { "profile", n => { Profile = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Profile>(global::Soenneker.Calendly.OpenApiClient.Models.Profile.CreateFromDiscriminatorValue); } },
                 { "scheduling_url", n => { SchedulingUrl = n.GetStringValue(); } },
@@ -313,7 +320,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeLocale>("locale", Locale);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>("locations", Locations);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType>("pooling_type", PoolingType);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypePoolingType>("pooling_type", PoolingType);
             writer.WriteIntValue("position", Position);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Profile>("profile", Profile);
             writer.WriteStringValue("scheduling_url", SchedulingUrl);

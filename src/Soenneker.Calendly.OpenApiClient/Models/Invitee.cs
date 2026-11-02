@@ -239,8 +239,15 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         private string _explicitNullValueRoutingFormSubmission = default!;
 #endif
         /// <summary>The method used to schedule the event</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod? SchedulingMethod { get => _explicitNullValueSchedulingMethod; set { _explicitNullValueSchedulingMethod = value; AdditionalData?.Remove("scheduling_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_method"); else _explicitNullProperties?.Remove("scheduling_method"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod? _explicitNullValueSchedulingMethod = default!;
+#nullable restore
+#else
+        public global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod SchedulingMethod { get => _explicitNullValueSchedulingMethod; set { _explicitNullValueSchedulingMethod = value; AdditionalData?.Remove("scheduling_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheduling_method"); else _explicitNullProperties?.Remove("scheduling_method"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod _explicitNullValueSchedulingMethod = default!;
+#endif
         /// <summary>Indicates if the invitee is &quot;active&quot; or &quot;canceled&quot;</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.InviteeStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeStatus? _explicitNullValueStatus = default!;
@@ -330,7 +337,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "reschedule_url", n => { RescheduleUrl = n.GetStringValue(); } },
                 { "rescheduled", n => { Rescheduled = n.GetBoolValue(); } },
                 { "routing_form_submission", n => { RoutingFormSubmission = n.GetStringValue(); } },
-                { "scheduling_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSchedulingMethod = default; _explicitNullProperties?.Remove("scheduling_method"); AdditionalData["scheduling_method"] = unknown; } else { SchedulingMethod = parsed; AdditionalData.Remove("scheduling_method"); } } },
+                { "scheduling_method", n => { SchedulingMethod = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod>(global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod.CreateFromDiscriminatorValue); } },
                 { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "text_reminder_number", n => { TextReminderNumber = n.GetStringValue(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
@@ -364,7 +371,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteBoolValue("rescheduled", Rescheduled);
             writer.WriteStringValue("reschedule_url", RescheduleUrl);
             writer.WriteStringValue("routing_form_submission", RoutingFormSubmission);
-            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod>("scheduling_method", SchedulingMethod);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeSchedulingMethod>("scheduling_method", SchedulingMethod);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteeStatus>("status", Status);
             writer.WriteStringValue("text_reminder_number", TextReminderNumber);
             writer.WriteStringValue("timezone", Timezone);
