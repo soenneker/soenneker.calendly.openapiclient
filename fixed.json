@@ -1423,7 +1423,7 @@
           "Scheduled Events"
         ],
         "summary": "Create Event Invitee (Scheduling API)",
-        "description": "Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.\n\nStandard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.\n\n**NOTE:**\n* Access to this endpoint is limited to Calendly users on paid plans (Standard and above). Users on the Free plan will receive a 403 Forbidden response.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060scheduled_events:write\u0060\n\u003C/Info\u003E",
+        "description": "Creates a new booking for an event invitee. Use this endpoint to book an invitee directly from your app without redirects, iframes, or Calendly-hosted UI.\n\nStandard notifications, calendar invites, reschedules, and workflows run as if booked via the Calendly UI.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060scheduled_events:write\u0060\n\u003C/Info\u003E",
         "operationId": "PostInvitee",
         "requestBody": {
           "content": {
@@ -1474,12 +1474,6 @@
                       "required_scopes": [
                         "scheduled_events:write"
                       ]
-                    }
-                  },
-                  "Caller does not have a paid Calendly plan": {
-                    "value": {
-                      "title": "Permission Denied",
-                      "message": "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature."
                     }
                   }
                 }
@@ -22213,8 +22207,7 @@
       "InviteesErrorMessage": {
         "enum": [
           "You do not have permission to access this resource.",
-          "You do not have permission",
-          "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature."
+          "You do not have permission"
         ],
         "type": "string",
         "x-ms-enum": {
@@ -22228,10 +22221,6 @@
             {
               "value": "You do not have permission",
               "name": "YouDoNotHavePermission"
-            },
-            {
-              "value": "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature.",
-              "name": "TheSchedulingApiIsOnlyAvailableOnPaidCalendlyPlansUpgradeYourPlanToAccessThisFeature"
             }
           ]
         }
@@ -26950,7 +26939,6 @@
             "enum": [
               "You do not have permission to access this resource.",
               "You do not have permission",
-              "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature.",
               "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
             ],
             "x-ms-enum": {
@@ -26964,10 +26952,6 @@
                 {
                   "value": "You do not have permission",
                   "name": "YouDoNotHavePermission"
-                },
-                {
-                  "value": "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature.",
-                  "name": "TheSchedulingApiIsOnlyAvailableOnPaidCalendlyPlansUpgradeYourPlanToAccessThisFeature"
                 },
                 {
                   "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
@@ -28770,12 +28754,6 @@
                   "required_scopes": [
                     "scheduled_events:write"
                   ]
-                }
-              },
-              "Caller does not have a paid Calendly plan": {
-                "value": {
-                  "title": "Permission Denied",
-                  "message": "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature."
                 }
               }
             }

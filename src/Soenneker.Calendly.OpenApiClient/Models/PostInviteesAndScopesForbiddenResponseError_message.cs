@@ -16,10 +16,6 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         #pragma warning disable CS1591
         YouDoNotHavePermission,
         #pragma warning restore CS1591
-        [EnumMember(Value = "The Scheduling API is only available on paid Calendly plans. Upgrade your plan to access this feature.")]
-        #pragma warning disable CS1591
-        TheSchedulingApiIsOnlyAvailableOnPaidCalendlyPlansUpgradeYourPlanToAccessThisFeature,
-        #pragma warning restore CS1591
         [EnumMember(Value = "This operation requires the scopes listed in the 'required_scopes' array.")]
         #pragma warning disable CS1591
         ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot,
