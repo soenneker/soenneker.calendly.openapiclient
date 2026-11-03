@@ -2,7 +2,7 @@
   "descriptionHash": "6D5B66DFCECCD69A6BA9FF1CE0397CE07D940C34A1C29B18AF6120401476ADF86E12805D25E7908D1404805391020BD91777E9A0D9D9C5E379F669D5C3F221ED",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.37.0",
+  "kiotaVersion": "1.38.0",
   "clientClassName": "CalendlyOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Calendly.OpenApiClient",
