@@ -6167,6 +6167,204 @@
       ]
     },
     "/shares": {
+      "get": {
+        "tags": [
+          "Shares"
+        ],
+        "summary": "List Shares",
+        "description": "Returns the user\u0027s Shares, newest first. Use it to find a Share created in an earlier session, for example to update or delete it.\n\nThe list matches the user\u0027s Single-use links tab in the My Calendly view: user-managed Shares on Event Types the user owns or hosts, including one-off meetings. Like the tab, it leaves out disabled Shares, Shares created from meeting polls, and links booked through instant booking.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060shares:read\u0060\n\u003C/Info\u003E",
+        "operationId": "ListShares",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "description": "The URI of the user whose Shares should be returned. Must be the authenticated user. Another user returns 403.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+              "x-client-original-format": "uri"
+            }
+          },
+          {
+            "name": "min_created_at",
+            "in": "query",
+            "description": "Only Shares created at or after this time. ISO 8601, UTC.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2019-01-02T03:04:05.678123Z"
+            }
+          },
+          {
+            "name": "max_created_at",
+            "in": "query",
+            "description": "Only Shares created before this time. ISO 8601, UTC.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2019-08-07T06:05:04.321123Z"
+            }
+          },
+          {
+            "name": "event_type",
+            "in": "query",
+            "description": "The URI of the Event Type. Return only Shares created from this Event Type. If the Event Type does not exist, the collection is empty.",
+            "schema": {
+              "type": "string",
+              "example": "https://api.calendly.com/event_types/BBBBBBBBBBBBBBBB",
+              "x-client-original-format": "uri"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Order results by creation time. Supported values: \u0060created_at:desc\u0060 (default), \u0060created_at:asc\u0060.",
+            "schema": {
+              "$ref": "#/components/schemas/ListSharesSortParameter"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/Count"
+          },
+          {
+            "$ref": "#/components/parameters/PageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListShares200Response"
+                },
+                "examples": {
+                  "Shares": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/shares/AAAAAAAAAAAAAAAA",
+                          "contact": "https://api.calendly.com/contacts/CCCCCCCCCCCCCCCC",
+                          "created_at": "2019-01-02T03:04:05.678123Z",
+                          "status": "active",
+                          "scheduling_links": [
+                            {
+                              "booking_url": "https://calendly.com/d/abcd-brv8/30-minute-meeting",
+                              "owner": "https://api.calendly.com/event_types/BBBBBBBBBBBBBBBB",
+                              "owner_type": "EventType"
+                            }
+                          ],
+                          "share_override": {
+                            "name": "30 Minute Meeting",
+                            "duration": 30,
+                            "duration_options": [
+                              30
+                            ],
+                            "period_type": "fixed",
+                            "start_date": "2026-10-08",
+                            "end_date": "2026-10-08",
+                            "max_booking_time": null,
+                            "min_booking_time": null,
+                            "hide_location": false,
+                            "location_configurations": [],
+                            "availability_rule": {
+                              "rules": [
+                                {
+                                  "type": "wday",
+                                  "wday": "thursday",
+                                  "intervals": [
+                                    {
+                                      "from": "19:00",
+                                      "to": "20:00"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "timezone": "America/Los_Angeles"
+                            }
+                          }
+                        }
+                      ],
+                      "pagination": {
+                        "count": 1,
+                        "next_page": null,
+                        "previous_page": null,
+                        "next_page_token": null,
+                        "previous_page_token": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
       "post": {
         "tags": [
           "Shares"
@@ -14755,6 +14953,105 @@
           }
         }
       },
+      "ShareListItem": {
+        "title": "Share List Item",
+        "required": [
+          "uri",
+          "contact",
+          "created_at",
+          "status",
+          "scheduling_links",
+          "share_override"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference to the share resource",
+            "example": "https://api.calendly.com/shares/AAAAAAAAAAAAAAAA",
+            "x-client-original-format": "uri"
+          },
+          "contact": {
+            "type": "string",
+            "description": "Contact associated with the share. The value is null when the share has no contact.",
+            "nullable": true,
+            "example": "https://api.calendly.com/contacts/CCCCCCCCCCCCCCCC",
+            "x-client-original-format": "uri"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the Share was created",
+            "format": "date-time",
+            "example": "2019-01-02T03:04:05.678123Z"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ShareListItemStatus"
+          },
+          "scheduling_links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareListItemSchedulingLinksItem"
+            },
+            "description": "The scheduling links for the share. The array is empty when the share has no scheduling link."
+          },
+          "share_override": {
+            "$ref": "#/components/schemas/ShareListItemShareOverride"
+          }
+        },
+        "description": "A Share as returned by List Shares.",
+        "example": {
+          "uri": "https://api.calendly.com/shares/AAAAAAAAAAAAAAAA",
+          "contact": "https://api.calendly.com/contacts/CCCCCCCCCCCCCCCC",
+          "created_at": "2019-01-02T03:04:05.678123Z",
+          "status": "active",
+          "scheduling_links": [
+            {
+              "booking_url": "https://calendly.com/d/abcd-brv8/15-minute-meeting",
+              "owner": "https://api.calendly.com/event_types/BBBBBBBBBBBBBBBB",
+              "owner_type": "EventType"
+            }
+          ],
+          "share_override": {
+            "name": "15 Minute Meeting",
+            "duration": 15,
+            "duration_options": [
+              1,
+              13,
+              15,
+              720
+            ],
+            "period_type": "available_moving",
+            "start_date": null,
+            "end_date": null,
+            "max_booking_time": 10080,
+            "min_booking_time": 14400,
+            "hide_location": true,
+            "location_configurations": [
+              {
+                "location": "123 Abc St.",
+                "additional_info": "Example additional info",
+                "kind": "physical"
+              }
+            ],
+            "availability_rule": {
+              "rules": [
+                {
+                  "type": "wday",
+                  "wday": "sunday",
+                  "intervals": [
+                    {
+                      "from": "07:00",
+                      "to": "11:00"
+                    }
+                  ]
+                }
+              ],
+              "timezone": "America/New_York"
+            }
+          }
+        },
+        "x-fern-ignore": true
+      },
       "UserBusyTime": {
         "title": "User Busy Time",
         "required": [
@@ -17923,6 +18220,116 @@
           }
         }
       },
+      "ShareListItemSchedulingLinksItem": {
+        "required": [
+          "booking_url",
+          "owner",
+          "owner_type"
+        ],
+        "type": "object",
+        "properties": {
+          "booking_url": {
+            "type": "string",
+            "description": "Scheduling link url",
+            "example": "https://calendly.com/d/abcd-brv8/15-minute-meeting",
+            "x-client-original-format": "uri"
+          },
+          "owner": {
+            "type": "string",
+            "description": "A link to the resource that owns this Scheduling Link (currently, this is always an Event Type)",
+            "example": "https://api.calendly.com/event_types/BBBBBBBBBBBBBBBB",
+            "x-client-original-format": "uri"
+          },
+          "owner_type": {
+            "$ref": "#/components/schemas/EventTypeOwnerType"
+          }
+        }
+      },
+      "ShareListItemShareOverride": {
+        "required": [
+          "name",
+          "duration",
+          "duration_options",
+          "period_type",
+          "start_date",
+          "end_date",
+          "max_booking_time",
+          "min_booking_time",
+          "hide_location",
+          "location_configurations",
+          "availability_rule"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 55,
+            "type": "string",
+            "description": "The event name that invitees see.",
+            "nullable": true,
+            "example": "15 Minute Meeting"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "The default event duration, in minutes.",
+            "nullable": true,
+            "example": 15
+          },
+          "duration_options": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "The event durations, in minutes, that invitees can select.",
+            "nullable": true
+          },
+          "period_type": {
+            "$ref": "#/components/schemas/ShareListItemShareOverridePeriodType"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "The first date that invitees can book when \u0060period_type\u0060 is \u0060fixed\u0060.\nFormat: \u0060YYYY-MM-DD\u0060",
+            "format": "date",
+            "nullable": true,
+            "example": "2019-01-02"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "The last date that invitees can book when \u0060period_type\u0060 is \u0060fixed\u0060.\nFormat: \u0060YYYY-MM-DD\u0060",
+            "format": "date",
+            "nullable": true,
+            "example": "2019-01-03"
+          },
+          "max_booking_time": {
+            "type": "integer",
+            "description": "How far in the future invitees can book, in minutes. Applies when \u0060period_type\u0060 is \u0060moving\u0060 or \u0060available_moving\u0060.",
+            "nullable": true,
+            "example": 300
+          },
+          "min_booking_time": {
+            "type": "integer",
+            "description": "The minimum notice that invitees must give before the start of an event, in seconds.",
+            "nullable": true,
+            "example": 300
+          },
+          "hide_location": {
+            "type": "boolean",
+            "description": "Whether the location is hidden until the invitee books. This setting applies only when the share has one custom location.",
+            "nullable": true
+          },
+          "location_configurations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareListItemShareOverrideLocationConfigurationsItem"
+            },
+            "description": "The meeting locations for the share. The array is empty when the share does not override locations."
+          },
+          "availability_rule": {
+            "$ref": "#/components/schemas/ShareListItemShareOverrideAvailabilityRule"
+          }
+        },
+        "description": "The settings that the share overrides on its Event Type. The value is null when the share has no overrides. In this object, a null field means that the share uses the Event Type value.",
+        "nullable": true
+      },
       "UserBusyTimeEvent": {
         "required": [
           "uri"
@@ -18762,6 +19169,59 @@
           }
         }
       },
+      "ShareListItemShareOverrideLocationConfigurationsItem": {
+        "required": [
+          "kind"
+        ],
+        "type": "object",
+        "properties": {
+          "location": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "The location value. Returned for \u0060physical\u0060, \u0060custom\u0060, and \u0060ask_invitee\u0060 locations when a value is set.",
+            "nullable": true,
+            "example": "123 Abc St."
+          },
+          "additional_info": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "More information about the location. Returned for \u0060physical\u0060 and \u0060inbound_call\u0060 locations when a value is set.",
+            "nullable": true,
+            "example": "Example additional info"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "The phone number that invitees call. Returned for \u0060inbound_call\u0060 locations.",
+            "nullable": true,
+            "example": "\u002B1 888-888-8888"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ShareListItemShareOverrideLocationConfigurationsItemKind"
+          }
+        }
+      },
+      "ShareListItemShareOverrideAvailabilityRule": {
+        "required": [
+          "rules",
+          "timezone"
+        ],
+        "type": "object",
+        "properties": {
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareListItemShareOverrideAvailabilityRuleRulesItem"
+            },
+            "description": "The availability rules."
+          },
+          "timezone": {
+            "type": "string",
+            "description": "The time zone of the availability rules.",
+            "example": "America/New_York"
+          }
+        },
+        "description": "The availability rules for the share. When the share has no rules of its own, this object contains the Event Type rules."
+      },
       "MeetingRecapCreatedWebhookPayloadEventAttendeesItem": {
         "required": [
           "host",
@@ -18879,6 +19339,34 @@
           }
         }
       },
+      "ShareListItemShareOverrideAvailabilityRuleRulesItem": {
+        "required": [
+          "type",
+          "intervals"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ShareListItemShareOverrideAvailabilityRuleRulesItemType"
+          },
+          "wday": {
+            "$ref": "#/components/schemas/ShareListItemShareOverrideAvailabilityRuleRulesItemWday"
+          },
+          "date": {
+            "type": "string",
+            "description": "The date. Returned for \u0060date\u0060 rules.\nFormat: \u0060YYYY-MM-DD\u0060",
+            "format": "date",
+            "example": "2019-01-02"
+          },
+          "intervals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareListItemShareOverrideAvailabilityRuleRulesItemIntervalsItem"
+            },
+            "description": "The time ranges when invitees can book. An empty array means that no times are available."
+          }
+        }
+      },
       "ZoomConferenceDataSettingsGlobalDialInNumbersItem": {
         "type": "object",
         "properties": {
@@ -18936,6 +19424,27 @@
             "pattern": "(\\d\\d):(\\d\\d)",
             "type": "string",
             "description": "Format: \u0060\u0022hh:mm\u0022\u0060",
+            "example": "11:00"
+          }
+        }
+      },
+      "ShareListItemShareOverrideAvailabilityRuleRulesItemIntervalsItem": {
+        "required": [
+          "from",
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "pattern": "(\\d\\d):(\\d\\d)",
+            "type": "string",
+            "description": "The start of the time range. Format: \u0060\u0022hh:mm\u0022\u0060",
+            "example": "07:00"
+          },
+          "to": {
+            "pattern": "(\\d\\d):(\\d\\d)",
+            "type": "string",
+            "description": "The end of the time range. Format: \u0060\u0022hh:mm\u0022\u0060",
             "example": "11:00"
           }
         }
@@ -19640,6 +20149,25 @@
         "properties": {
           "resource": {
             "$ref": "#/components/schemas/GetPollInvitee200ResponseResource"
+          }
+        }
+      },
+      "ListShares200Response": {
+        "required": [
+          "collection",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareListItem"
+            },
+            "description": "The set of shares matching the criteria"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
           }
         }
       },
@@ -23727,6 +24255,34 @@
           ]
         }
       },
+      "ShareListItemStatus": {
+        "enum": [
+          "active",
+          "booked",
+          "expired"
+        ],
+        "type": "string",
+        "description": "Whether the Share can still be booked, has been booked, or has expired without a booking",
+        "example": "active",
+        "x-ms-enum": {
+          "name": "ShareListItemStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "booked",
+              "name": "Booked"
+            },
+            {
+              "value": "expired",
+              "name": "Expired"
+            }
+          ]
+        }
+      },
       "UserBusyTimeType": {
         "enum": [
           "calendly",
@@ -25198,6 +25754,48 @@
           ]
         }
       },
+      "ShareListItemShareOverridePeriodType": {
+        "description": "How the date range for bookings is calculated.",
+        "example": "fixed",
+        "anyOf": [
+          {
+            "enum": [
+              "available_moving",
+              "moving",
+              "fixed",
+              "unlimited"
+            ],
+            "type": "string",
+            "description": "How the date range for bookings is calculated.",
+            "example": "fixed",
+            "x-ms-enum": {
+              "name": "ShareListItemShareOverridePeriodType",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "available_moving",
+                  "name": "AvailableMoving"
+                },
+                {
+                  "value": "moving",
+                  "name": "Moving"
+                },
+                {
+                  "value": "fixed",
+                  "name": "FixedValue"
+                },
+                {
+                  "value": "unlimited",
+                  "name": "Unlimited"
+                }
+              ]
+            }
+          },
+          {
+            "$ref": "#/components/schemas/OpenApiNullValue"
+          }
+        ]
+      },
       "ShareShareOverrideLocationConfigurationsItemKind": {
         "enum": [
           "physical",
@@ -25214,6 +25812,64 @@
         "example": "physical",
         "x-ms-enum": {
           "name": "ShareShareOverrideLocationConfigurationsItemKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "physical",
+              "name": "Physical"
+            },
+            {
+              "value": "ask_invitee",
+              "name": "AskInvitee"
+            },
+            {
+              "value": "custom",
+              "name": "Custom"
+            },
+            {
+              "value": "outbound_call",
+              "name": "OutboundCall"
+            },
+            {
+              "value": "inbound_call",
+              "name": "InboundCall"
+            },
+            {
+              "value": "google_conference",
+              "name": "GoogleConference"
+            },
+            {
+              "value": "gotomeeting_conference",
+              "name": "GotomeetingConference"
+            },
+            {
+              "value": "microsoft_teams_conference",
+              "name": "MicrosoftTeamsConference"
+            },
+            {
+              "value": "zoom_conference",
+              "name": "ZoomConference"
+            }
+          ]
+        }
+      },
+      "ShareListItemShareOverrideLocationConfigurationsItemKind": {
+        "enum": [
+          "physical",
+          "ask_invitee",
+          "custom",
+          "outbound_call",
+          "inbound_call",
+          "google_conference",
+          "gotomeeting_conference",
+          "microsoft_teams_conference",
+          "zoom_conference"
+        ],
+        "type": "string",
+        "description": "The type of location.",
+        "example": "physical",
+        "x-ms-enum": {
+          "name": "ShareListItemShareOverrideLocationConfigurationsItemKind",
           "modelAsString": false,
           "values": [
             {
@@ -25291,6 +25947,77 @@
         "example": "friday",
         "x-ms-enum": {
           "name": "ShareShareOverrideAvailabilityRuleRulesItemWday",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "sunday",
+              "name": "Sunday"
+            },
+            {
+              "value": "monday",
+              "name": "Monday"
+            },
+            {
+              "value": "tuesday",
+              "name": "Tuesday"
+            },
+            {
+              "value": "wednesday",
+              "name": "Wednesday"
+            },
+            {
+              "value": "thursday",
+              "name": "Thursday"
+            },
+            {
+              "value": "friday",
+              "name": "Friday"
+            },
+            {
+              "value": "saturday",
+              "name": "Saturday"
+            }
+          ]
+        }
+      },
+      "ShareListItemShareOverrideAvailabilityRuleRulesItemType": {
+        "enum": [
+          "wday",
+          "date"
+        ],
+        "type": "string",
+        "description": "The rule type. A \u0060wday\u0060 rule applies to a day of the week. A \u0060date\u0060 rule applies to one date.",
+        "example": "wday",
+        "x-ms-enum": {
+          "name": "ShareListItemShareOverrideAvailabilityRuleRulesItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "wday",
+              "name": "Wday"
+            },
+            {
+              "value": "date",
+              "name": "Date"
+            }
+          ]
+        }
+      },
+      "ShareListItemShareOverrideAvailabilityRuleRulesItemWday": {
+        "enum": [
+          "sunday",
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday"
+        ],
+        "type": "string",
+        "description": "The day of the week. Returned for \u0060wday\u0060 rules.",
+        "example": "friday",
+        "x-ms-enum": {
+          "name": "ShareListItemShareOverrideAvailabilityRuleRulesItemWday",
           "modelAsString": false,
           "values": [
             {
@@ -26414,6 +27141,28 @@
             {
               "value": "occurred_at:desc",
               "name": "OccurredAtColonDesc"
+            }
+          ]
+        }
+      },
+      "ListSharesSortParameter": {
+        "enum": [
+          "created_at:desc",
+          "created_at:asc"
+        ],
+        "type": "string",
+        "example": "created_at:desc",
+        "x-ms-enum": {
+          "name": "ListSharesSortParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "created_at:desc",
+              "name": "CreatedAtColonDesc"
+            },
+            {
+              "value": "created_at:asc",
+              "name": "CreatedAtColonAsc"
             }
           ]
         }

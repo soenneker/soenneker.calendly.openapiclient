@@ -35,7 +35,7 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SharesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares", pathParameters)
+        public SharesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares{?count*,event_type*,max_created_at*,min_created_at*,page_token*,sort*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,8 +43,43 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SharesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares", rawUrl)
+        public SharesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/shares{?count*,event_type*,max_created_at*,min_created_at*,page_token*,sort*}", rawUrl)
         {
+        }
+        /// <summary>
+        /// Returns the user&apos;s Shares, newest first. Use it to find a Share created in an earlier session, for example to update or delete it.The list matches the user&apos;s Single-use links tab in the My Calendly view: user-managed Shares on Event Types the user owns or hosts, including one-off meetings. Like the tab, it leaves out disabled Shares, Shares created from meeting polls, and links booked through instant booking.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:read`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListShares200Response"/></returns>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.PermissionDeniedAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListShares200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder.SharesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.ListShares200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder.SharesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            var requestInfo = ToGetRequestInformation(requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.PermissionDeniedAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Calendly.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListShares200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListShares200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:write`&lt;/Info&gt;
@@ -80,6 +115,25 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateShare201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateShare201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Returns the user&apos;s Shares, newest first. Use it to find a Share created in an earlier session, for example to update or delete it.The list matches the user&apos;s Single-use links tab in the My Calendly view: user-managed Shares on Event Types the user owns or hosts, including one-off meetings. Like the tab, it leaves out disabled Shares, Shares created from meeting polls, and links booked through instant booking.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:read`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder.SharesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder.SharesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/shares?user={user}{&count*,event_type*,max_created_at*,min_created_at*,page_token*,sort*}", PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
         /// Endpoint for our [Customize Once and Share](https://calendly.com/help/how-to-create-a-single-use-link) feature. This allows you to customize events for a specific invitee without needing to make an entirely new event type.***This feature is only available for one-on-one event types.*****Note: Any parameter which is not provided in the request body will be copied from the target event type.**&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -109,6 +163,55 @@ namespace Soenneker.Calendly.OpenApiClient.Shares
         public global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Calendly.OpenApiClient.Shares.SharesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Returns the user&apos;s Shares, newest first. Use it to find a Share created in an earlier session, for example to update or delete it.The list matches the user&apos;s Single-use links tab in the My Calendly view: user-managed Shares on Event Types the user owns or hosts, including one-off meetings. Like the tab, it leaves out disabled Shares, Shares created from meeting polls, and links booked through instant booking.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `shares:read`&lt;/Info&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class SharesRequestBuilderGetQueryParameters 
+        {
+            /// <summary>The number of rows to return</summary>
+            [QueryParameter("count")]
+            public int? Count { get; set; }
+            /// <summary>The URI of the Event Type. Return only Shares created from this Event Type. If the Event Type does not exist, the collection is empty.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("event_type")]
+            public string? EventType { get; set; }
+#nullable restore
+#else
+            [QueryParameter("event_type")]
+            public string EventType { get; set; }
+#endif
+            /// <summary>Only Shares created before this time. ISO 8601, UTC.</summary>
+            [QueryParameter("max_created_at")]
+            public DateTimeOffset? MaxCreatedAt { get; set; }
+            /// <summary>Only Shares created at or after this time. ISO 8601, UTC.</summary>
+            [QueryParameter("min_created_at")]
+            public DateTimeOffset? MinCreatedAt { get; set; }
+            /// <summary>The token to pass to get the next or previous portion of the collection</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("page_token")]
+            public string? PageToken { get; set; }
+#nullable restore
+#else
+            [QueryParameter("page_token")]
+            public string PageToken { get; set; }
+#endif
+            /// <summary>Order results by creation time. Supported values: `created_at:desc` (default), `created_at:asc`.</summary>
+            [QueryParameter("sort")]
+            public global::Soenneker.Calendly.OpenApiClient.Models.ListSharesSortParameter? Sort { get; set; }
+            /// <summary>The URI of the user whose Shares should be returned. Must be the authenticated user. Another user returns 403.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user")]
+            public string? User { get; set; }
+#nullable restore
+#else
+            [QueryParameter("user")]
+            public string User { get; set; }
+#endif
         }
     }
 }
