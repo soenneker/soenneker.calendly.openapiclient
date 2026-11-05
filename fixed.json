@@ -2844,7 +2844,7 @@
           "Webhooks"
         ],
         "summary": "Create Webhook Subscription",
-        "description": "Create a Webhook Subscription for an Organization, User, or Group.\n\n* The \u0060organization\u0060 subscription scope triggers the webhook for all subscribed events within the organization.\n* The \u0060user\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specific user.\n* The \u0060group\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specfic group.\n\n| Event | Allowed Subscription Scopes | Required Auth Scope |\n| ----- | ----- | ----- |\n| invitee.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee.canceled | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| event_type.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| meeting_recap.created | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.updated | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.deleted | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| routing_form_submission.created | \u0060organization\u0060 \u003Cbr /\u003E \u003Csmall\u003ECreate separate Webhook Subscriptions for events with different subscription scopes.\u003C/small\u003E | \u0060routing_forms:read\u0060 |\n| contact.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060webhooks:write\u0060\n\u003C/Info\u003E",
+        "description": "Create a Webhook Subscription for an Organization, User, or Group.\n\n* The \u0060organization\u0060 subscription scope triggers the webhook for all subscribed events within the organization.\n* The \u0060user\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specific user.\n* The \u0060group\u0060 subscription scope only triggers the webhook for subscribed events that belong to the specfic group.\n\n| Event | Allowed Subscription Scopes | Required Auth Scope |\n| ----- | ----- | ----- |\n| invitee.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee.canceled | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| invitee_no_show.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060scheduled_events:read\u0060 |\n| event_type.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| event_type.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060event_types:read\u0060 |\n| meeting_recap.created | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.updated | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| meeting_recap.deleted | \u0060user\u0060 | \u0060meeting_recaps:read\u0060 |\n| routing_form_submission.created | \u0060organization\u0060 \u003Cbr /\u003E \u003Csmall\u003ECreate separate Webhook Subscriptions for events with different subscription scopes.\u003C/small\u003E | \u0060routing_forms:read\u0060 |\n| contact.created | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.updated | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n| contact.deleted | \u0060organization\u0060 \u0060user\u0060 \u0060group\u0060 | \u0060contacts:read\u0060 |\n\nSome events need a plan that includes the matching feature:\n\n* \u0060routing_form_submission.created\u0060\n* \u0060meeting_recap.created\u0060, \u0060meeting_recap.updated\u0060, \u0060meeting_recap.deleted\u0060\n* \u0060contact.created\u0060, \u0060contact.updated\u0060, \u0060contact.deleted\u0060\n\nThe plan of the organization owner decides if the events are allowed. If the plan does not include the feature, the request returns \u0060403 Permission Denied\u0060 with the message \u0060Please upgrade to a paid Calendly account.\u0060. All other events are available on all Calendly plans, including Free.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060webhooks:write\u0060\n\u003C/Info\u003E",
         "operationId": "Createwebhooks",
         "requestBody": {
           "description": "",
@@ -3041,16 +3041,10 @@
                   "$ref": "#/components/schemas/PostWebhookSubsAndScopesForbiddenResponseError"
                 },
                 "examples": {
-                  "Caller\u0027s account is basic tier": {
+                  "Caller\u0027s plan does not include a subscribed event": {
                     "value": {
                       "title": "Permission Denied",
-                      "message": "Please upgrade your Calendly account to Standard"
-                    }
-                  },
-                  "Caller\u0027s account is essentials tier": {
-                    "value": {
-                      "title": "Permission Denied",
-                      "message": "Please upgrade your Calendly account to Standard"
+                      "message": "Please upgrade to a paid Calendly account."
                     }
                   },
                   "Caller is not the user of the account": {
@@ -22838,7 +22832,7 @@
       },
       "PostWebhookSubscriptionsErrorMessage": {
         "enum": [
-          "Please upgrade your Calendly account to Standard",
+          "Please upgrade to a paid Calendly account.",
           "You do not have permission to access this resource.",
           "You do not have permission"
         ],
@@ -22848,8 +22842,8 @@
           "modelAsString": false,
           "values": [
             {
-              "value": "Please upgrade your Calendly account to Standard",
-              "name": "PleaseUpgradeYourCalendlyAccountToStandard"
+              "value": "Please upgrade to a paid Calendly account.",
+              "name": "PleaseUpgradeToAPaidCalendlyAccount"
             },
             {
               "value": "You do not have permission to access this resource.",
@@ -28063,7 +28057,7 @@
           "message": {
             "type": "string",
             "enum": [
-              "Please upgrade your Calendly account to Standard",
+              "Please upgrade to a paid Calendly account.",
               "You do not have permission to access this resource.",
               "You do not have permission",
               "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
@@ -28073,8 +28067,8 @@
               "modelAsString": false,
               "values": [
                 {
-                  "value": "Please upgrade your Calendly account to Standard",
-                  "name": "PleaseUpgradeYourCalendlyAccountToStandard"
+                  "value": "Please upgrade to a paid Calendly account.",
+                  "name": "PleaseUpgradeToAPaidCalendlyAccount"
                 },
                 {
                   "value": "You do not have permission to access this resource.",
@@ -29727,16 +29721,10 @@
               "$ref": "#/components/schemas/PostWebhookSubsAndScopesForbiddenResponse"
             },
             "examples": {
-              "Caller\u0027s account is basic tier": {
+              "Caller\u0027s plan does not include a subscribed event": {
                 "value": {
                   "title": "Permission Denied",
-                  "message": "Please upgrade your Calendly account to Standard"
-                }
-              },
-              "Caller\u0027s account is essentials tier": {
-                "value": {
-                  "title": "Permission Denied",
-                  "message": "Please upgrade your Calendly account to Standard"
+                  "message": "Please upgrade to a paid Calendly account."
                 }
               },
               "Caller is not the user of the account": {
