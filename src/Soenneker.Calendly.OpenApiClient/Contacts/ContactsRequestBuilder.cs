@@ -41,7 +41,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,name*,page_token*,phone_number*,sort*,state*,timezone*}", pathParameters)
+        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,max_last_meeting_date*,max_next_meeting_date*,min_last_meeting_date*,min_next_meeting_date*,name*,page_token*,phone_number*,sort*,state*,timezone*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,11 +49,11 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,name*,page_token*,phone_number*,sort*,state*,timezone*}", rawUrl)
+        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,max_last_meeting_date*,max_next_meeting_date*,min_last_meeting_date*,min_next_meeting_date*,name*,page_token*,phone_number*,sort*,state*,timezone*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns a collection of Contacts&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.Bounds are compared by UTC date; the time part is ignored.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -127,7 +127,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a collection of Contacts&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.Bounds are compared by UTC date; the time part is ignored.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -177,7 +177,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return new global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a collection of Contacts&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.Bounds are compared by UTC date; the time part is ignored.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ContactsRequestBuilderGetQueryParameters 
@@ -245,6 +245,18 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             [QueryParameter("job_title")]
             public string JobTitle { get; set; }
 #endif
+            /// <summary>Only contacts whose last recorded meeting date is before this bound. ISO 8601, UTC.Bounds after the UTC date 30 days from today use that exclusive cap instead.</summary>
+            [QueryParameter("max_last_meeting_date")]
+            public DateTimeOffset? MaxLastMeetingDate { get; set; }
+            /// <summary>Only contacts whose next recorded meeting date is before this bound. ISO 8601, UTC.Bounds after the UTC date 30 days from today use that exclusive cap instead.</summary>
+            [QueryParameter("max_next_meeting_date")]
+            public DateTimeOffset? MaxNextMeetingDate { get; set; }
+            /// <summary>Only contacts whose last recorded meeting date is on or after this bound. ISO 8601, UTC.</summary>
+            [QueryParameter("min_last_meeting_date")]
+            public DateTimeOffset? MinLastMeetingDate { get; set; }
+            /// <summary>Only contacts whose next recorded meeting date is on or after this bound. ISO 8601, UTC.</summary>
+            [QueryParameter("min_next_meeting_date")]
+            public DateTimeOffset? MinNextMeetingDate { get; set; }
             /// <summary>Filter results by partial match on name(s). Accepts a comma-separated list-- each segment is matched independently (commas in the query string separate values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

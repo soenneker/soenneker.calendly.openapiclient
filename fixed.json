@@ -10845,7 +10845,7 @@
           "Contacts"
         ],
         "summary": "List Contacts",
-        "description": "Returns a collection of Contacts\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
+        "description": "Returns a collection of Contacts.\n\nMeeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.\nBounds are compared by UTC date; the time part is ignored.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
         "operationId": "ListContacts",
         "parameters": [
           {
@@ -10882,6 +10882,46 @@
             "schema": {
               "type": "string",
               "example": "America/Los_Angeles, America/New_York"
+            }
+          },
+          {
+            "name": "min_last_meeting_date",
+            "in": "query",
+            "description": "Only contacts whose last recorded meeting date is on or after this bound. ISO 8601, UTC.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2026-11-02T00:00:00Z"
+            }
+          },
+          {
+            "name": "max_last_meeting_date",
+            "in": "query",
+            "description": "Only contacts whose last recorded meeting date is before this bound. ISO 8601, UTC.\nBounds after the UTC date 30 days from today use that exclusive cap instead.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2026-11-03T00:00:00Z"
+            }
+          },
+          {
+            "name": "min_next_meeting_date",
+            "in": "query",
+            "description": "Only contacts whose next recorded meeting date is on or after this bound. ISO 8601, UTC.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2026-11-02T00:00:00Z"
+            }
+          },
+          {
+            "name": "max_next_meeting_date",
+            "in": "query",
+            "description": "Only contacts whose next recorded meeting date is before this bound. ISO 8601, UTC.\nBounds after the UTC date 30 days from today use that exclusive cap instead.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2026-11-03T00:00:00Z"
             }
           },
           {
@@ -11026,6 +11066,43 @@
           },
           {
             "personal_access_token": []
+          }
+        ],
+        "x-fern-examples": [
+          {
+            "name": "Contacts matching a meeting date range",
+            "query-parameters": {
+              "count": 1,
+              "min_last_meeting_date": "2026-11-02T00:00:00Z",
+              "max_last_meeting_date": "2026-11-03T00:00:00Z"
+            },
+            "response": {
+              "body": {
+                "collection": [
+                  {
+                    "uri": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                    "app_url": "https://calendly.com/app/contacts/AAAAAAAAAAAAAAAA",
+                    "emails": [
+                      {
+                        "email": "jane.doe@example.com",
+                        "is_primary": true
+                      }
+                    ],
+                    "name": "Jane Doe",
+                    "created_at": "2026-01-15T18:01:09Z",
+                    "updated_at": "2026-11-02T14:15:22.123456Z",
+                    "last_meeting_date": "2026-11-02T14:15:22.123456Z"
+                  }
+                ],
+                "pagination": {
+                  "count": 1,
+                  "next_page": null,
+                  "previous_page": null,
+                  "next_page_token": null,
+                  "previous_page_token": null
+                }
+              }
+            }
           }
         ]
       },
