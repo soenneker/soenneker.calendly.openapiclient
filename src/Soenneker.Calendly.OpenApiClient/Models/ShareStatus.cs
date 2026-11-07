@@ -3,22 +3,21 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>The status of the share:- `active`: invitees can book with the share.- `booked`: an invitee booked with the share.- `expired`: the share expired without a booking.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum UpdateShare401ResponseMessage
-    #pragma warning restore CS1591
+    public enum ShareStatus
     {
-        [EnumMember(Value = "The access token is invalid")]
+        [EnumMember(Value = "active")]
         #pragma warning disable CS1591
-        TheAccessTokenIsInvalid,
+        Active,
         #pragma warning restore CS1591
-        [EnumMember(Value = "The access token expired")]
+        [EnumMember(Value = "booked")]
         #pragma warning disable CS1591
-        TheAccessTokenExpired,
+        Booked,
         #pragma warning restore CS1591
-        [EnumMember(Value = "The access token was revoked")]
+        [EnumMember(Value = "expired")]
         #pragma warning disable CS1591
-        TheAccessTokenWasRevoked,
+        Expired,
         #pragma warning restore CS1591
     }
 }

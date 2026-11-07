@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>The rule type. A `wday` rule applies to a day of the week. A `date` rule applies to one date.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum ShareShareOverrideAvailabilityRuleRulesItemType
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "wday")]
         #pragma warning disable CS1591

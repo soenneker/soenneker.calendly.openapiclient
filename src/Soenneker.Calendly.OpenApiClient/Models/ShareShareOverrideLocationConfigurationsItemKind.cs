@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>The type of location:- `physical`: an in-person location.- `ask_invitee`: the invitee provides the location.- `custom`: a custom location label.- `outbound_call`: the host calls the invitee.- `inbound_call`: the invitee calls the host.- `google_conference`: Google Meet.- `gotomeeting_conference`: GoTo Meeting.- `microsoft_teams_conference`: Microsoft Teams.- `zoom_conference`: Zoom.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum ShareShareOverrideLocationConfigurationsItemKind
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "physical")]
         #pragma warning disable CS1591

@@ -31,7 +31,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The additional_info property</summary>
+        /// <summary>More information about the location. Returned for `physical` and `inbound_call` locations when a value is set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AdditionalInfo { get => _explicitNullValueAdditionalInfo; set { _explicitNullValueAdditionalInfo = value; AdditionalData?.Remove("additional_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_info"); else _explicitNullProperties?.Remove("additional_info"); } }
@@ -41,10 +41,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string AdditionalInfo { get => _explicitNullValueAdditionalInfo; set { _explicitNullValueAdditionalInfo = value; AdditionalData?.Remove("additional_info"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("additional_info"); else _explicitNullProperties?.Remove("additional_info"); } }
         private string _explicitNullValueAdditionalInfo = default!;
 #endif
-        /// <summary>The kind property</summary>
+        /// <summary>The type of location:- `physical`: an in-person location.- `ask_invitee`: the invitee provides the location.- `custom`: a custom location label.- `outbound_call`: the host calls the invitee.- `inbound_call`: the invitee calls the host.- `google_conference`: Google Meet.- `gotomeeting_conference`: GoTo Meeting.- `microsoft_teams_conference`: Microsoft Teams.- `zoom_conference`: Zoom.</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItemKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItemKind? _explicitNullValueKind = default!;
-        /// <summary>The location property</summary>
+        /// <summary>The location value. Returned for `physical`, `custom`, and `ask_invitee` locations when a value is set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
@@ -54,7 +54,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; AdditionalData?.Remove("location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
         private string _explicitNullValueLocation = default!;
 #endif
-        /// <summary>The phone_number property</summary>
+        /// <summary>The phone number that invitees call. Returned for `inbound_call` locations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
@@ -64,7 +64,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
         private string _explicitNullValuePhoneNumber = default!;
 #endif
-        /// <summary>The position property</summary>
+        /// <summary>The sort order of this location in the list.</summary>
         public int? Position { get => _explicitNullValuePosition; set { _explicitNullValuePosition = value; AdditionalData?.Remove("position"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("position"); else _explicitNullProperties?.Remove("position"); } }
         private int? _explicitNullValuePosition = default!;
         /// <summary>

@@ -28,12 +28,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The set of shares matching the criteria</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareListItem>? Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; AdditionalData?.Remove("collection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
-        private List<global::Soenneker.Calendly.OpenApiClient.Models.ShareListItem>? _explicitNullValueCollection = default!;
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Share>? Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; AdditionalData?.Remove("collection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.Share>? _explicitNullValueCollection = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareListItem> Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; AdditionalData?.Remove("collection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
-        private List<global::Soenneker.Calendly.OpenApiClient.Models.ShareListItem> _explicitNullValueCollection = default!;
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.Share> Collection { get => _explicitNullValueCollection; set { _explicitNullValueCollection = value; AdditionalData?.Remove("collection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collection"); else _explicitNullProperties?.Remove("collection"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.Share> _explicitNullValueCollection = default!;
 #endif
         /// <summary>The pagination property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,7 +70,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "collection", n => { Collection = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareListItem>(global::Soenneker.Calendly.OpenApiClient.Models.ShareListItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "collection", n => { Collection = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Share>(global::Soenneker.Calendly.OpenApiClient.Models.Share.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "pagination", n => { Pagination = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Pagination>(global::Soenneker.Calendly.OpenApiClient.Models.Pagination.CreateFromDiscriminatorValue); } },
             };
         }
@@ -81,7 +81,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareListItem>("collection", Collection);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Share>("collection", Collection);
             writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Pagination>("pagination", Pagination);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

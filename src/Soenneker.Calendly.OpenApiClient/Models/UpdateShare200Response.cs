@@ -26,12 +26,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>The resource property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResource? Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; AdditionalData?.Remove("resource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
-        private global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResource? _explicitNullValueResource = default!;
+        public global::Soenneker.Calendly.OpenApiClient.Models.Share? Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; AdditionalData?.Remove("resource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.Share? _explicitNullValueResource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResource Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; AdditionalData?.Remove("resource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
-        private global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResource _explicitNullValueResource = default!;
+        public global::Soenneker.Calendly.OpenApiClient.Models.Share Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; AdditionalData?.Remove("resource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.Share _explicitNullValueResource = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200Response"/> and sets the default values.
@@ -58,7 +58,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResource>(global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResource.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Share>(global::Soenneker.Calendly.OpenApiClient.Models.Share.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.UpdateShare200ResponseResource>("resource", Resource);
+            writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Share>("resource", Resource);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

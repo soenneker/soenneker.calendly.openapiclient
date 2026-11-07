@@ -8,10 +8,11 @@ using System.IO;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>
+    /// The effective scheduling settings for bookings with this share. Each field is the value that applies when an invitee books. When the share does not override a setting, the value is the parent Event Type value.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ShareShareOverride : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -32,6 +33,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             else if (parseNode.GetChildNode("location_configurations") is { } nullNodeLocationConfigurations && nullNodeLocationConfigurations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocationConfigurations = null;
             if (parseNode.GetChildNode("max_booking_time") is null) { _explicitNullValueMaxBookingTime = default!; _explicitNullProperties?.Remove("max_booking_time"); }
             else if (parseNode.GetChildNode("max_booking_time") is { } nullNodeMaxBookingTime && nullNodeMaxBookingTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxBookingTime = null;
+            if (parseNode.GetChildNode("min_booking_time") is null) { _explicitNullValueMinBookingTime = default!; _explicitNullProperties?.Remove("min_booking_time"); }
+            else if (parseNode.GetChildNode("min_booking_time") is { } nullNodeMinBookingTime && nullNodeMinBookingTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinBookingTime = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("period_type") is null) { _explicitNullValuePeriodType = default!; _explicitNullProperties?.Remove("period_type"); }
@@ -42,7 +45,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The availability_rule property</summary>
+        /// <summary>The effective availability rules for the share, including rules from the parent Event Type when the share does not define its own.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule? AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; AdditionalData?.Remove("availability_rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
@@ -52,10 +55,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; AdditionalData?.Remove("availability_rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRule _explicitNullValueAvailabilityRule = default!;
 #endif
-        /// <summary>The duration property</summary>
+        /// <summary>The default event duration, in minutes.</summary>
         public int? Duration { get => _explicitNullValueDuration; set { _explicitNullValueDuration = value; AdditionalData?.Remove("duration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration"); else _explicitNullProperties?.Remove("duration"); } }
         private int? _explicitNullValueDuration = default!;
-        /// <summary>The duration_options property</summary>
+        /// <summary>The event durations, in minutes, that invitees can select. The array is empty when the share does not offer multiple durations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<int?>? DurationOptions { get => _explicitNullValueDurationOptions; set { _explicitNullValueDurationOptions = value; AdditionalData?.Remove("duration_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_options"); else _explicitNullProperties?.Remove("duration_options"); } }
@@ -65,13 +68,13 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public List<int?> DurationOptions { get => _explicitNullValueDurationOptions; set { _explicitNullValueDurationOptions = value; AdditionalData?.Remove("duration_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("duration_options"); else _explicitNullProperties?.Remove("duration_options"); } }
         private List<int?> _explicitNullValueDurationOptions = default!;
 #endif
-        /// <summary>Format: `YYYY-MM-DD`</summary>
+        /// <summary>The last date that invitees can book when `period_type` is `fixed`.Format: `YYYY-MM-DD``null` when `period_type` is not `fixed`.</summary>
         public Date? EndDate { get => _explicitNullValueEndDate; set { _explicitNullValueEndDate = value; AdditionalData?.Remove("end_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("end_date"); else _explicitNullProperties?.Remove("end_date"); } }
         private Date? _explicitNullValueEndDate = default!;
-        /// <summary>The hide_location property</summary>
+        /// <summary>Whether the location is hidden until the invitee books. This setting applies only when the share has one custom location. When the share does not override this setting, the value is the Event Type value.</summary>
         public bool? HideLocation { get => _explicitNullValueHideLocation; set { _explicitNullValueHideLocation = value; AdditionalData?.Remove("hide_location"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hide_location"); else _explicitNullProperties?.Remove("hide_location"); } }
         private bool? _explicitNullValueHideLocation = default!;
-        /// <summary>The location_configurations property</summary>
+        /// <summary>The meeting locations for the share. The array is empty when no custom locations apply to the share.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>? LocationConfigurations { get => _explicitNullValueLocationConfigurations; set { _explicitNullValueLocationConfigurations = value; AdditionalData?.Remove("location_configurations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_configurations"); else _explicitNullProperties?.Remove("location_configurations"); } }
@@ -81,10 +84,13 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem> LocationConfigurations { get => _explicitNullValueLocationConfigurations; set { _explicitNullValueLocationConfigurations = value; AdditionalData?.Remove("location_configurations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location_configurations"); else _explicitNullProperties?.Remove("location_configurations"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem> _explicitNullValueLocationConfigurations = default!;
 #endif
-        /// <summary>The max_booking_time property</summary>
+        /// <summary>How far in the future invitees can book, in minutes. Applies when `period_type` is `moving` or `available_moving`. `null` when the effective booking window has no rolling limit.</summary>
         public int? MaxBookingTime { get => _explicitNullValueMaxBookingTime; set { _explicitNullValueMaxBookingTime = value; AdditionalData?.Remove("max_booking_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_booking_time"); else _explicitNullProperties?.Remove("max_booking_time"); } }
         private int? _explicitNullValueMaxBookingTime = default!;
-        /// <summary>The name property</summary>
+        /// <summary>The minimum notice that invitees must give before the start of an event, in seconds. `null` when no minimum notice is configured.</summary>
+        public int? MinBookingTime { get => _explicitNullValueMinBookingTime; set { _explicitNullValueMinBookingTime = value; AdditionalData?.Remove("min_booking_time"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("min_booking_time"); else _explicitNullProperties?.Remove("min_booking_time"); } }
+        private int? _explicitNullValueMinBookingTime = default!;
+        /// <summary>The event name that invitees see.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
@@ -94,10 +100,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
-        /// <summary>The period_type property</summary>
+        /// <summary>How the date range for bookings is calculated:- `fixed`: invitees can book only between `start_date` and `end_date`.- `moving`: invitees can book within a rolling window. Use `max_booking_time` to set the length of the window in minutes. Every calendar day counts toward the window.- `available_moving`: invitees can book within a rolling window. Use `max_booking_time` to set the length of the window in minutes. Only Monday through Friday count toward the window; weekends are excluded.- `unlimited`: invitees can book with no date range limit.</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType? PeriodType { get => _explicitNullValuePeriodType; set { _explicitNullValuePeriodType = value; AdditionalData?.Remove("period_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("period_type"); else _explicitNullProperties?.Remove("period_type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType? _explicitNullValuePeriodType = default!;
-        /// <summary>Format: `YYYY-MM-DD`</summary>
+        /// <summary>The first date that invitees can book when `period_type` is `fixed`.Format: `YYYY-MM-DD``null` when `period_type` is not `fixed`.</summary>
         public Date? StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; AdditionalData?.Remove("start_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_date"); else _explicitNullProperties?.Remove("start_date"); } }
         private Date? _explicitNullValueStartDate = default!;
         /// <summary>
@@ -132,6 +138,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "hide_location", n => { HideLocation = n.GetBoolValue(); } },
                 { "location_configurations", n => { LocationConfigurations = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>(global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "max_booking_time", n => { MaxBookingTime = n.GetIntValue(); } },
+                { "min_booking_time", n => { MinBookingTime = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "period_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePeriodType = default; _explicitNullProperties?.Remove("period_type"); AdditionalData["period_type"] = unknown; } else { PeriodType = parsed; AdditionalData.Remove("period_type"); } } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
@@ -151,6 +158,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteBoolValue("hide_location", HideLocation);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideLocationConfigurationsItem>("location_configurations", LocationConfigurations);
             writer.WriteIntValue("max_booking_time", MaxBookingTime);
+            writer.WriteIntValue("min_booking_time", MinBookingTime);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverridePeriodType>("period_type", PeriodType);
             writer.WriteDateValue("start_date", StartDate);

@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>How the date range for bookings is calculated:- `fixed`: invitees can book only between `start_date` and `end_date`.- `moving`: invitees can book within a rolling window. Use `max_booking_time` to set the length of the window in minutes. Every calendar day counts toward the window.- `available_moving`: invitees can book within a rolling window. Use `max_booking_time` to set the length of the window in minutes. Only Monday through Friday count toward the window; weekends are excluded.- `unlimited`: invitees can book with no date range limit.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum ShareShareOverridePeriodType
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "available_moving")]
         #pragma warning disable CS1591

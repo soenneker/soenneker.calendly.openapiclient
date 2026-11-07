@@ -30,10 +30,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Format: `YYYY-MM-DD`</summary>
+        /// <summary>The date. Returned for `date` rules.Format: `YYYY-MM-DD`</summary>
         public Date? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; AdditionalData?.Remove("date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
         private Date? _explicitNullValueDate = default!;
-        /// <summary>The intervals property</summary>
+        /// <summary>The time ranges when invitees can book. An empty array means that no times are available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItemIntervalsItem>? Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; AdditionalData?.Remove("intervals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
@@ -43,10 +43,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItemIntervalsItem> Intervals { get => _explicitNullValueIntervals; set { _explicitNullValueIntervals = value; AdditionalData?.Remove("intervals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("intervals"); else _explicitNullProperties?.Remove("intervals"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItemIntervalsItem> _explicitNullValueIntervals = default!;
 #endif
-        /// <summary>The type property</summary>
+        /// <summary>The rule type. A `wday` rule applies to a day of the week. A `date` rule applies to one date.</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItemType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItemType? _explicitNullValueType = default!;
-        /// <summary>The wday property</summary>
+        /// <summary>The day of the week. Returned for `wday` rules.</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItemWday? Wday { get => _explicitNullValueWday; set { _explicitNullValueWday = value; AdditionalData?.Remove("wday"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("wday"); else _explicitNullProperties?.Remove("wday"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.ShareShareOverrideAvailabilityRuleRulesItemWday? _explicitNullValueWday = default!;
         /// <summary>
