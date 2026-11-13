@@ -11063,7 +11063,7 @@
           {
             "name": "city",
             "in": "query",
-            "description": "Filter results by partial match on city(ies). Accepts a comma-separated list-- each segment is matched independently (commas in the query string separate values).",
+            "description": "Filter results by exact match on city(ies). Accepts a comma-separated list of values.",
             "schema": {
               "type": "string",
               "example": "San Francisco, Buffalo"

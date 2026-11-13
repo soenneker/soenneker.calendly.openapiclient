@@ -182,7 +182,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ContactsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Filter results by partial match on city(ies). Accepts a comma-separated list-- each segment is matched independently (commas in the query string separate values).</summary>
+            /// <summary>Filter results by exact match on city(ies). Accepts a comma-separated list of values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("city")]
