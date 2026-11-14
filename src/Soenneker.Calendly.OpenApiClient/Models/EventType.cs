@@ -22,6 +22,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             else if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
             if (parseNode.GetChildNode("admin_managed") is null) { _explicitNullValueAdminManaged = default!; _explicitNullProperties?.Remove("admin_managed"); }
             else if (parseNode.GetChildNode("admin_managed") is { } nullNodeAdminManaged && nullNodeAdminManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdminManaged = null;
+            if (parseNode.GetChildNode("after_buffer") is null) { _explicitNullValueAfterBuffer = default!; _explicitNullProperties?.Remove("after_buffer"); }
+            else if (parseNode.GetChildNode("after_buffer") is { } nullNodeAfterBuffer && nullNodeAfterBuffer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AfterBuffer = null;
+            if (parseNode.GetChildNode("before_buffer") is null) { _explicitNullValueBeforeBuffer = default!; _explicitNullProperties?.Remove("before_buffer"); }
+            else if (parseNode.GetChildNode("before_buffer") is { } nullNodeBeforeBuffer && nullNodeBeforeBuffer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeforeBuffer = null;
             if (parseNode.GetChildNode("booking_method") is null) { _explicitNullValueBookingMethod = default!; _explicitNullProperties?.Remove("booking_method"); }
             else if (parseNode.GetChildNode("booking_method") is { } nullNodeBookingMethod && nullNodeBookingMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BookingMethod = null;
             if (parseNode.GetChildNode("color") is null) { _explicitNullValueColor = default!; _explicitNullProperties?.Remove("color"); }
@@ -64,6 +68,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             else if (parseNode.GetChildNode("secret") is { } nullNodeSecret && nullNodeSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secret = null;
             if (parseNode.GetChildNode("slug") is null) { _explicitNullValueSlug = default!; _explicitNullProperties?.Remove("slug"); }
             else if (parseNode.GetChildNode("slug") is { } nullNodeSlug && nullNodeSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slug = null;
+            if (parseNode.GetChildNode("start_time_increment") is null) { _explicitNullValueStartTimeIncrement = default!; _explicitNullProperties?.Remove("start_time_increment"); }
+            else if (parseNode.GetChildNode("start_time_increment") is { } nullNodeStartTimeIncrement && nullNodeStartTimeIncrement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTimeIncrement = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
             if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
@@ -80,6 +86,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>Indicates if this event type is managed by an organization admin</summary>
         public bool? AdminManaged { get => _explicitNullValueAdminManaged; set { _explicitNullValueAdminManaged = value; AdditionalData?.Remove("admin_managed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admin_managed"); else _explicitNullProperties?.Remove("admin_managed"); } }
         private bool? _explicitNullValueAdminManaged = default!;
+        /// <summary>Minutes blocked after each meeting. 0 means no buffer.</summary>
+        public int? AfterBuffer { get => _explicitNullValueAfterBuffer; set { _explicitNullValueAfterBuffer = value; AdditionalData?.Remove("after_buffer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("after_buffer"); else _explicitNullProperties?.Remove("after_buffer"); } }
+        private int? _explicitNullValueAfterBuffer = default!;
+        /// <summary>Minutes blocked before each meeting so nothing is booked right up against it. 0 means no buffer.</summary>
+        public int? BeforeBuffer { get => _explicitNullValueBeforeBuffer; set { _explicitNullValueBeforeBuffer = value; AdditionalData?.Remove("before_buffer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("before_buffer"); else _explicitNullProperties?.Remove("before_buffer"); } }
+        private int? _explicitNullValueBeforeBuffer = default!;
         /// <summary>Indicates if the event type is for a poll or an instant booking</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod? BookingMethod { get => _explicitNullValueBookingMethod; set { _explicitNullValueBookingMethod = value; AdditionalData?.Remove("booking_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("booking_method"); else _explicitNullProperties?.Remove("booking_method"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod? _explicitNullValueBookingMethod = default!;
@@ -227,6 +239,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Slug { get => _explicitNullValueSlug; set { _explicitNullValueSlug = value; AdditionalData?.Remove("slug"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slug"); else _explicitNullProperties?.Remove("slug"); } }
         private string _explicitNullValueSlug = default!;
 #endif
+        /// <summary>How often available start times are offered, in minutes. For example, 15 offers 9:00, 9:15, 9:30. The value is `null` for one-off Event Types (`type` is `AdhocEventType`).</summary>
+        public int? StartTimeIncrement { get => _explicitNullValueStartTimeIncrement; set { _explicitNullValueStartTimeIncrement = value; AdditionalData?.Remove("start_time_increment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_time_increment"); else _explicitNullProperties?.Remove("start_time_increment"); } }
+        private int? _explicitNullValueStartTimeIncrement = default!;
         /// <summary>Indicates if the event type is &quot;AdhocEventType&quot; (ad hoc event) or &quot;StandardEventType&quot; (standard event type)</summary>
         public global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType? _explicitNullValueType = default!;
@@ -270,6 +285,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "admin_managed", n => { AdminManaged = n.GetBoolValue(); } },
+                { "after_buffer", n => { AfterBuffer = n.GetIntValue(); } },
+                { "before_buffer", n => { BeforeBuffer = n.GetIntValue(); } },
                 { "booking_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBookingMethod = default; _explicitNullProperties?.Remove("booking_method"); AdditionalData["booking_method"] = unknown; } else { BookingMethod = parsed; AdditionalData.Remove("booking_method"); } } },
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -291,6 +308,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "scheduling_url", n => { SchedulingUrl = n.GetStringValue(); } },
                 { "secret", n => { Secret = n.GetBoolValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "start_time_increment", n => { StartTimeIncrement = n.GetIntValue(); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "uri", n => { Uri = n.GetStringValue(); } },
@@ -305,6 +323,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteBoolValue("admin_managed", AdminManaged);
+            writer.WriteIntValue("after_buffer", AfterBuffer);
+            writer.WriteIntValue("before_buffer", BeforeBuffer);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeBookingMethod>("booking_method", BookingMethod);
             writer.WriteStringValue("color", Color);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
@@ -326,6 +346,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteStringValue("scheduling_url", SchedulingUrl);
             writer.WriteBoolValue("secret", Secret);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteIntValue("start_time_increment", StartTimeIncrement);
             writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.EventTypeType>("type", Type);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("uri", Uri);

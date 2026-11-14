@@ -677,6 +677,9 @@
                             15,
                             720
                           ],
+                          "start_time_increment": 15,
+                          "before_buffer": 0,
+                          "after_buffer": 15,
                           "kind": "solo",
                           "pooling_type": "round_robin",
                           "type": "StandardEventType",
@@ -913,6 +916,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
@@ -1686,6 +1692,9 @@
                           15,
                           720
                         ],
+                        "start_time_increment": 15,
+                        "before_buffer": 0,
+                        "after_buffer": 15,
                         "kind": "solo",
                         "pooling_type": "round_robin",
                         "type": "StandardEventType",
@@ -1915,6 +1924,9 @@
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
           },
           "500": {
             "$ref": "#/components/responses/UNKNOWN"
@@ -8355,6 +8367,9 @@
                               15,
                               720
                             ],
+                            "start_time_increment": 15,
+                            "before_buffer": 0,
+                            "after_buffer": 15,
                             "kind": "solo",
                             "pooling_type": "round_robin",
                             "type": "StandardEventType",
@@ -8771,6 +8786,9 @@
                         "scheduling_url": "https://calendly.com/acmesales",
                         "duration": 30,
                         "duration_options": null,
+                        "start_time_increment": null,
+                        "before_buffer": 0,
+                        "after_buffer": 0,
                         "kind": "solo",
                         "pooling_type": "collective",
                         "type": "AdhocEventType",
@@ -8813,6 +8831,9 @@
                         "scheduling_url": "https://calendly.com/acmesales",
                         "duration": 30,
                         "duration_options": null,
+                        "start_time_increment": null,
+                        "before_buffer": 0,
+                        "after_buffer": 0,
                         "kind": "solo",
                         "pooling_type": "collective",
                         "type": "AdhocEventType",
@@ -8855,6 +8876,9 @@
                         "scheduling_url": "https://calendly.com/acmesales",
                         "duration": 720,
                         "duration_options": null,
+                        "start_time_increment": null,
+                        "before_buffer": 0,
+                        "after_buffer": 0,
                         "kind": "solo",
                         "pooling_type": "collective",
                         "type": "AdhocEventType",
@@ -8947,6 +8971,9 @@
                         "scheduling_url": "https://calendly.com/acmesales",
                         "duration": 30,
                         "duration_options": null,
+                        "start_time_increment": null,
+                        "before_buffer": 0,
+                        "after_buffer": 0,
                         "kind": "solo",
                         "pooling_type": "collective",
                         "type": "AdhocEventType",
@@ -8989,6 +9016,9 @@
                         "scheduling_url": "https://calendly.com/acmesales",
                         "duration": 30,
                         "duration_options": null,
+                        "start_time_increment": null,
+                        "before_buffer": 0,
+                        "after_buffer": 0,
                         "kind": "solo",
                         "pooling_type": "collective",
                         "type": "AdhocEventType",
@@ -9031,6 +9061,9 @@
                         "scheduling_url": "https://calendly.com/acmesales",
                         "duration": 720,
                         "duration_options": null,
+                        "start_time_increment": null,
+                        "before_buffer": 0,
+                        "after_buffer": 0,
                         "kind": "solo",
                         "pooling_type": "collective",
                         "type": "AdhocEventType",
@@ -12596,6 +12629,9 @@
           "description_plain",
           "duration",
           "duration_options",
+          "start_time_increment",
+          "before_buffer",
+          "after_buffer",
           "internal_note",
           "is_paid",
           "kind",
@@ -12674,6 +12710,22 @@
             },
             "description": "Array of duration options. Always null for adhoc event types.",
             "nullable": true
+          },
+          "start_time_increment": {
+            "type": "integer",
+            "description": "How often available start times are offered, in minutes. For example, 15 offers 9:00, 9:15, 9:30. The value is \u0060null\u0060 for one-off Event Types (\u0060type\u0060 is \u0060AdhocEventType\u0060).",
+            "nullable": true,
+            "example": 15
+          },
+          "before_buffer": {
+            "type": "integer",
+            "description": "Minutes blocked before each meeting so nothing is booked right up against it. 0 means no buffer.",
+            "example": 0
+          },
+          "after_buffer": {
+            "type": "integer",
+            "description": "Minutes blocked after each meeting. 0 means no buffer.",
+            "example": 15
           },
           "internal_note": {
             "type": "string",
@@ -12761,6 +12813,9 @@
             15,
             720
           ],
+          "start_time_increment": 15,
+          "before_buffer": 0,
+          "after_buffer": 15,
           "kind": "solo",
           "pooling_type": "round_robin",
           "type": "StandardEventType",
@@ -19500,6 +19555,19 @@
               720
             ]
           },
+          "start_time_increment": {
+            "maximum": 720,
+            "minimum": 5,
+            "type": "integer",
+            "description": "How often available start times are offered, in minutes. A whole number from 5 to 720. Defaults to 30 when omitted.",
+            "example": 15
+          },
+          "before_buffer": {
+            "$ref": "#/components/schemas/CreateEventTypeRequestBeforeBuffer"
+          },
+          "after_buffer": {
+            "$ref": "#/components/schemas/CreateEventTypeRequestAfterBuffer"
+          },
           "locations": {
             "type": "array",
             "items": {
@@ -19628,6 +19696,19 @@
               15,
               720
             ]
+          },
+          "start_time_increment": {
+            "maximum": 720,
+            "minimum": 5,
+            "type": "integer",
+            "description": "How often available start times are offered, in minutes. A whole number from 5 to 720. When omitted, the current value is kept.",
+            "example": 15
+          },
+          "before_buffer": {
+            "$ref": "#/components/schemas/UpdateEventTypeRequestBeforeBuffer"
+          },
+          "after_buffer": {
+            "$ref": "#/components/schemas/UpdateEventTypeRequestAfterBuffer"
           },
           "locale": {
             "$ref": "#/components/schemas/UpdateEventTypeRequestLocale"
@@ -25385,6 +25466,42 @@
           ]
         }
       },
+      "CreateEventTypeRequestBeforeBuffer": {
+        "enum": [
+          0,
+          5,
+          10,
+          15,
+          30,
+          45,
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "type": "integer",
+        "description": "Minutes blocked before each meeting. One of 0, 5, 10, 15, 30, 45, 60, 90, 120, 150, or 180. Defaults to 0 when omitted.",
+        "example": 0
+      },
+      "CreateEventTypeRequestAfterBuffer": {
+        "enum": [
+          0,
+          5,
+          10,
+          15,
+          30,
+          45,
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "type": "integer",
+        "description": "Minutes blocked after each meeting. One of 0, 5, 10, 15, 30, 45, 60, 90, 120, 150, or 180. Defaults to 0 when omitted.",
+        "example": 15
+      },
       "CreateEventTypeRequestLocale": {
         "enum": [
           "de",
@@ -25485,6 +25602,42 @@
             }
           ]
         }
+      },
+      "UpdateEventTypeRequestBeforeBuffer": {
+        "enum": [
+          0,
+          5,
+          10,
+          15,
+          30,
+          45,
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "type": "integer",
+        "description": "Minutes blocked before each meeting. One of 0, 5, 10, 15, 30, 45, 60, 90, 120, 150, or 180. When omitted, the current value is kept.",
+        "example": 0
+      },
+      "UpdateEventTypeRequestAfterBuffer": {
+        "enum": [
+          0,
+          5,
+          10,
+          15,
+          30,
+          45,
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "type": "integer",
+        "description": "Minutes blocked after each meeting. One of 0, 5, 10, 15, 30, 45, 60, 90, 120, 150, or 180. When omitted, the current value is kept.",
+        "example": 15
       },
       "UpdateEventTypeRequestLocale": {
         "enum": [

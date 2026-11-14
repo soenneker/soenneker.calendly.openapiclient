@@ -19,6 +19,10 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("active") is null) { _explicitNullValueActive = default!; _explicitNullProperties?.Remove("active"); }
             else if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("after_buffer") is null) { _explicitNullValueAfterBuffer = default!; _explicitNullProperties?.Remove("after_buffer"); }
+            else if (parseNode.GetChildNode("after_buffer") is { } nullNodeAfterBuffer && nullNodeAfterBuffer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AfterBuffer = null;
+            if (parseNode.GetChildNode("before_buffer") is null) { _explicitNullValueBeforeBuffer = default!; _explicitNullProperties?.Remove("before_buffer"); }
+            else if (parseNode.GetChildNode("before_buffer") is { } nullNodeBeforeBuffer && nullNodeBeforeBuffer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeforeBuffer = null;
             if (parseNode.GetChildNode("color") is null) { _explicitNullValueColor = default!; _explicitNullProperties?.Remove("color"); }
             else if (parseNode.GetChildNode("color") is { } nullNodeColor && nullNodeColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Color = null;
             if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
@@ -35,6 +39,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("owner") is null) { _explicitNullValueOwner = default!; _explicitNullProperties?.Remove("owner"); }
             else if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
+            if (parseNode.GetChildNode("start_time_increment") is null) { _explicitNullValueStartTimeIncrement = default!; _explicitNullProperties?.Remove("start_time_increment"); }
+            else if (parseNode.GetChildNode("start_time_increment") is { } nullNodeStartTimeIncrement && nullNodeStartTimeIncrement.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartTimeIncrement = null;
         }
 
         /// <summary>Indicates if the event type is active or not</summary>
@@ -42,6 +48,12 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         private bool? _explicitNullValueActive = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Minutes blocked after each meeting. One of 0, 5, 10, 15, 30, 45, 60, 90, 120, 150, or 180. Defaults to 0 when omitted.</summary>
+        public int? AfterBuffer { get => _explicitNullValueAfterBuffer; set { _explicitNullValueAfterBuffer = value; AdditionalData?.Remove("after_buffer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("after_buffer"); else _explicitNullProperties?.Remove("after_buffer"); } }
+        private int? _explicitNullValueAfterBuffer = default!;
+        /// <summary>Minutes blocked before each meeting. One of 0, 5, 10, 15, 30, 45, 60, 90, 120, 150, or 180. Defaults to 0 when omitted.</summary>
+        public int? BeforeBuffer { get => _explicitNullValueBeforeBuffer; set { _explicitNullValueBeforeBuffer = value; AdditionalData?.Remove("before_buffer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("before_buffer"); else _explicitNullProperties?.Remove("before_buffer"); } }
+        private int? _explicitNullValueBeforeBuffer = default!;
         /// <summary>The hexadecimal color value of the event type&apos;s scheduling page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -108,6 +120,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; AdditionalData?.Remove("owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
         private string _explicitNullValueOwner = default!;
 #endif
+        /// <summary>How often available start times are offered, in minutes. A whole number from 5 to 720. Defaults to 30 when omitted.</summary>
+        public int? StartTimeIncrement { get => _explicitNullValueStartTimeIncrement; set { _explicitNullValueStartTimeIncrement = value; AdditionalData?.Remove("start_time_increment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_time_increment"); else _explicitNullProperties?.Remove("start_time_increment"); } }
+        private int? _explicitNullValueStartTimeIncrement = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateEventTypeRequest"/> and sets the default values.
         /// </summary>
@@ -135,6 +150,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
+                { "after_buffer", n => { AfterBuffer = n.GetIntValue(); } },
+                { "before_buffer", n => { BeforeBuffer = n.GetIntValue(); } },
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "duration", n => { Duration = n.GetIntValue(); } },
@@ -143,6 +160,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
                 { "locations", n => { Locations = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>(global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
+                { "start_time_increment", n => { StartTimeIncrement = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -153,6 +171,8 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
+            writer.WriteIntValue("after_buffer", AfterBuffer);
+            writer.WriteIntValue("before_buffer", BeforeBuffer);
             writer.WriteStringValue("color", Color);
             writer.WriteStringValue("description", Description);
             writer.WriteIntValue("duration", Duration);
@@ -161,6 +181,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.LocationConfiguration>("locations", Locations);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("owner", Owner);
+            writer.WriteIntValue("start_time_increment", StartTimeIncrement);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
