@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
-    /// <summary>Field type. Supported values:- `text`: A text value.- `number`: A numeric value.- `currency`: A monetary amount in the specified currency.- `tags`: A list of text labels.- `date`: A calendar date.- `single_select`: One value from the field&apos;s configured options.System-generated `invitee_question` fields cannot be created.</summary>
+    /// <summary>Field type. Supported values:- `text`: A text value.- `number`: A numeric value.- `currency`: A monetary amount in the specified currency. Send `currency` with this value.- `tags`: A list of text labels.- `date`: A calendar date.- `single_select`: One value from the field&apos;s configured options. Send `options` with this value.System-generated `invitee_question` fields cannot be created.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateContactCustomFieldDefinitionRequestFieldType
     {

@@ -8,39 +8,58 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf1Branch"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf2Branch"/>, <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf3Branch"/>
+    /// Fields to create a contact custom field definition. Other fields are rejected.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateContactCustomFieldDefinitionRequest : IComposedTypeWrapper, IParsable
-    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
-        // Preserve ambiguous union payloads without inventing a discriminator.
-        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+    public partial class CreateContactCustomFieldDefinitionRequest : IParsable
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
 
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf1Branch"/></summary>
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("currency") is null) { _explicitNullValueCurrency = default!; _explicitNullProperties?.Remove("currency"); }
+            else if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("field_type") is null) { _explicitNullValueFieldType = default!; _explicitNullProperties?.Remove("field_type"); }
+            else if (parseNode.GetChildNode("field_type") is { } nullNodeFieldType && nullNodeFieldType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldType = null;
+            if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
+            else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("options") is null) { _explicitNullValueOptions = default!; _explicitNullProperties?.Remove("options"); }
+            else if (parseNode.GetChildNode("options") is { } nullNodeOptions && nullNodeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Options = null;
+        }
+
+        /// <summary>Required only for `currency` fields. Supported codes are `USD`, `EUR`, `GBP`, `JPY`, `CHF`, `CAD`, `AUD`, `CNY`, `SGD`, `INR`, and `KRW`. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf1Branch? CreateContactCustomFieldDefinitionRequestOneOf1Branch { get; set; }
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf1Branch CreateContactCustomFieldDefinitionRequestOneOf1Branch { get; set; }
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private string _explicitNullValueCurrency = default!;
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf2Branch"/></summary>
+        /// <summary>Field type. Supported values:- `text`: A text value.- `number`: A numeric value.- `currency`: A monetary amount in the specified currency. Send `currency` with this value.- `tags`: A list of text labels.- `date`: A calendar date.- `single_select`: One value from the field&apos;s configured options. Send `options` with this value.System-generated `invitee_question` fields cannot be created.</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestFieldType? FieldType { get => _explicitNullValueFieldType; set { _explicitNullValueFieldType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field_type"); else _explicitNullProperties?.Remove("field_type"); } }
+        private global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestFieldType? _explicitNullValueFieldType = default!;
+        /// <summary>Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf2Branch? CreateContactCustomFieldDefinitionRequestOneOf2Branch { get; set; }
+        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        private string? _explicitNullValueLabel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf2Branch CreateContactCustomFieldDefinitionRequestOneOf2Branch { get; set; }
+        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        private string _explicitNullValueLabel = default!;
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf3Branch"/></summary>
+        /// <summary>Required only for `single_select` fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf3Branch? CreateContactCustomFieldDefinitionRequestOneOf3Branch { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOptionsItem>? Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOptionsItem>? _explicitNullValueOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf3Branch CreateContactCustomFieldDefinitionRequestOneOf3Branch { get; set; }
+        public List<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOptionsItem> Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOptionsItem> _explicitNullValueOptions = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,36 +69,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public static global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequest();
-            if("CreateContactCustomFieldDefinitionRequestOneOf1Branch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("CreateContactCustomFieldDefinitionRequestOneOf2Branch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            else if("CreateContactCustomFieldDefinitionRequestOneOf3Branch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            
-            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            var unionBranchMatches = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? new bool?[] { global::Soenneker.OpenApi.Generated.OpenApiUnionMatchers.MatchSchema400(unionPayload), global::Soenneker.OpenApi.Generated.OpenApiUnionMatchers.MatchSchema419(unionPayload), global::Soenneker.OpenApi.Generated.OpenApiUnionMatchers.MatchSchema430(unionPayload) } : null;
-            bool? matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![0] : (bool?)false;
-            bool? matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![1] : (bool?)false;
-            bool? matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? unionBranchMatches![2] : (bool?)false;
-            int matchingUnionBranches = 0;
-            if (matchesUnionBranch0 != false) matchingUnionBranches++;
-            if (matchesUnionBranch1 != false) matchingUnionBranches++;
-            if (matchesUnionBranch2 != false) matchingUnionBranches++;
-            bool noSelectedUnionBranch = result.CreateContactCustomFieldDefinitionRequestOneOf1Branch == null && result.CreateContactCustomFieldDefinitionRequestOneOf2Branch == null && result.CreateContactCustomFieldDefinitionRequestOneOf3Branch == null;
-            if (noSelectedUnionBranch && matchesUnionBranch0 == true && matchingUnionBranches == 1) result.CreateContactCustomFieldDefinitionRequestOneOf1Branch = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf1Branch(), parseNode);
-            if (noSelectedUnionBranch && matchesUnionBranch1 == true && matchingUnionBranches == 1) result.CreateContactCustomFieldDefinitionRequestOneOf2Branch = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf2Branch(), parseNode);
-            if (noSelectedUnionBranch && matchesUnionBranch2 == true && matchingUnionBranches == 1) result.CreateContactCustomFieldDefinitionRequestOneOf3Branch = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf3Branch(), parseNode);
-            if (result.CreateContactCustomFieldDefinitionRequestOneOf1Branch == null && result.CreateContactCustomFieldDefinitionRequestOneOf2Branch == null && result.CreateContactCustomFieldDefinitionRequestOneOf3Branch == null) result.UnrecognizedValue = unionPayload;
-return result;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,21 +77,13 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
-
-            if(CreateContactCustomFieldDefinitionRequestOneOf1Branch != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return CreateContactCustomFieldDefinitionRequestOneOf1Branch.GetFieldDeserializers();
-            }
-            else if(CreateContactCustomFieldDefinitionRequestOneOf2Branch != null)
-            {
-                return CreateContactCustomFieldDefinitionRequestOneOf2Branch.GetFieldDeserializers();
-            }
-            else if(CreateContactCustomFieldDefinitionRequestOneOf3Branch != null)
-            {
-                return CreateContactCustomFieldDefinitionRequestOneOf3Branch.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "currency", n => { Currency = n.GetStringValue(); } },
+                { "field_type", n => { FieldType = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestFieldType>(); } },
+                { "label", n => { Label = n.GetStringValue(); } },
+                { "options", n => { Options = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOptionsItem>(global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOptionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -109,32 +91,12 @@ return result;
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (CreateContactCustomFieldDefinitionRequestOneOf1Branch == null && CreateContactCustomFieldDefinitionRequestOneOf2Branch == null && CreateContactCustomFieldDefinitionRequestOneOf3Branch == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            int selectedUnionBranches = 0;
-            if (CreateContactCustomFieldDefinitionRequestOneOf1Branch != null) selectedUnionBranches++;
-            if (CreateContactCustomFieldDefinitionRequestOneOf2Branch != null) selectedUnionBranches++;
-            if (CreateContactCustomFieldDefinitionRequestOneOf3Branch != null) selectedUnionBranches++;
-            if (CreateContactCustomFieldDefinitionRequestOneOf1Branch != null && selectedUnionBranches == 1) { if (CreateContactCustomFieldDefinitionRequestOneOf1Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateContactCustomFieldDefinitionRequestOneOf1Branch); return; }
-            if (CreateContactCustomFieldDefinitionRequestOneOf2Branch != null && selectedUnionBranches == 1) { if (CreateContactCustomFieldDefinitionRequestOneOf2Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateContactCustomFieldDefinitionRequestOneOf2Branch); return; }
-            if (CreateContactCustomFieldDefinitionRequestOneOf3Branch != null && selectedUnionBranches == 1) { if (CreateContactCustomFieldDefinitionRequestOneOf3Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateContactCustomFieldDefinitionRequestOneOf3Branch); return; }
-
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateContactCustomFieldDefinitionRequestOneOf1Branch != null)
-            {
-                if (CreateContactCustomFieldDefinitionRequestOneOf1Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf1Branch>(null, CreateContactCustomFieldDefinitionRequestOneOf1Branch);
-            }
-            else if(CreateContactCustomFieldDefinitionRequestOneOf2Branch != null)
-            {
-                if (CreateContactCustomFieldDefinitionRequestOneOf2Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf2Branch>(null, CreateContactCustomFieldDefinitionRequestOneOf2Branch);
-            }
-            else if(CreateContactCustomFieldDefinitionRequestOneOf3Branch != null)
-            {
-                if (CreateContactCustomFieldDefinitionRequestOneOf3Branch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOneOf3Branch>(null, CreateContactCustomFieldDefinitionRequestOneOf3Branch);
-            }
+            writer.WriteStringValue("currency", Currency);
+            writer.WriteEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestFieldType>("field_type", FieldType);
+            writer.WriteStringValue("label", Label);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequestOptionsItem>("options", Options);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

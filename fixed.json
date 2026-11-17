@@ -7563,8 +7563,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       }
     },
     "/user_availability_schedules/{uuid}": {
@@ -7962,8 +7961,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "parameters": [
         {
@@ -11876,8 +11874,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       }
     },
     "/contacts/custom_field_definitions/{uuid}": {
@@ -12464,8 +12461,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "post": {
         "tags": [
@@ -12582,8 +12578,7 @@
                   }
                 }
               }
-            },
-            "x-fern-ignore": true
+            }
           },
           "409": {
             "$ref": "#/components/responses/CONTACT_LIST_CREATE_CONFLICT"
@@ -12647,8 +12642,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       }
     },
     "/contact_lists/{uuid}": {
@@ -12744,8 +12738,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "patch": {
         "tags": [
@@ -12831,8 +12824,7 @@
                   }
                 }
               }
-            },
-            "x-fern-ignore": true
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -12854,8 +12846,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "parameters": [
         {
@@ -12962,8 +12953,7 @@
                   }
                 }
               }
-            },
-            "x-fern-ignore": true
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -12985,8 +12975,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "parameters": [
         {
@@ -13092,8 +13081,7 @@
                   }
                 }
               }
-            },
-            "x-fern-ignore": true
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -13115,8 +13103,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "parameters": [
         {
@@ -13244,8 +13231,7 @@
                   }
                 }
               }
-            },
-            "x-fern-ignore": true
+            }
           },
           "429": {
             "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
@@ -13261,8 +13247,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "post": {
         "tags": [
@@ -13373,8 +13358,7 @@
                   }
                 }
               }
-            },
-            "x-fern-ignore": true
+            }
           },
           "429": {
             "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
@@ -13417,8 +13401,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       }
     },
     "/notes/{uuid}": {
@@ -13493,8 +13476,7 @@
                   }
                 }
               }
-            },
-            "x-fern-ignore": true
+            }
           },
           "404": {
             "$ref": "#/components/responses/NOT_FOUND"
@@ -13513,8 +13495,7 @@
           {
             "personal_access_token": []
           }
-        ],
-        "x-fern-ignore": true
+        ]
       },
       "parameters": [
         {
@@ -17359,19 +17340,39 @@
       },
       "CreateContactCustomFieldDefinitionRequest": {
         "title": "Create Contact Custom Field Definition Request",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf1Branch"
-          },
-          {
-            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf2Branch"
-          },
-          {
-            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf3Branch"
-          }
+        "required": [
+          "label",
+          "field_type"
         ],
-        "description": "Fields to create a contact custom field definition. Other fields are rejected.",
-        "x-fern-ignore": true
+        "type": "object",
+        "properties": {
+          "label": {
+            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
+            "type": "string",
+            "description": "Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.",
+            "example": "Lead source"
+          },
+          "field_type": {
+            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestFieldType"
+          },
+          "currency": {
+            "pattern": "^([Uu][Ss][Dd]|[Ee][Uu][Rr]|[Gg][Bb][Pp]|[Jj][Pp][Yy]|[Cc][Hh][Ff]|[Cc][Aa][Dd]|[Aa][Uu][Dd]|[Cc][Nn][Yy]|[Ss][Gg][Dd]|[Ii][Nn][Rr]|[Kk][Rr][Ww])$",
+            "type": "string",
+            "description": "Required only for \u0060currency\u0060 fields. Supported codes are \u0060USD\u0060, \u0060EUR\u0060, \u0060GBP\u0060, \u0060JPY\u0060, \u0060CHF\u0060, \u0060CAD\u0060, \u0060AUD\u0060, \u0060CNY\u0060, \u0060SGD\u0060, \u0060INR\u0060, and \u0060KRW\u0060. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.",
+            "example": "usd"
+          },
+          "options": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOptionsItem"
+            },
+            "description": "Required only for \u0060single_select\u0060 fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields to create a contact custom field definition. Other fields are rejected."
       },
       "ContactCustomFieldDefinition": {
         "title": "Contact Custom Field Definition",
@@ -17494,8 +17495,7 @@
             "example": 42
           }
         },
-        "description": "A saved grouping of contacts. A \u0060static_list\u0060 (a List in Calendly) contains the contacts that a user adds and removes. A \u0060dynamic_view\u0060 (a View in Calendly) is defined by saved filters, so its contacts change automatically.",
-        "x-fern-ignore": true
+        "description": "A saved grouping of contacts. A \u0060static_list\u0060 (a List in Calendly) contains the contacts that a user adds and removes. A \u0060dynamic_view\u0060 (a View in Calendly) is defined by saved filters, so its contacts change automatically."
       },
       "ContactListCreated": {
         "title": "Created Contact List",
@@ -17532,8 +17532,7 @@
             "$ref": "#/components/schemas/ContactListMembershipAddResult"
           }
         },
-        "description": "The created \u0060static_list\u0060, with the result of adding the initial contacts.",
-        "x-fern-ignore": true
+        "description": "The created \u0060static_list\u0060, with the result of adding the initial contacts."
       },
       "ContactListMembershipAddResult": {
         "title": "Contact List Membership Add Result",
@@ -17596,8 +17595,7 @@
             "description": "The URIs of the contacts whose write failed. Send them again to retry."
           }
         },
-        "description": "The result of adding contacts to a List. This is a result payload, not an addressable resource. URIs are listed only for contacts that were not added.",
-        "x-fern-ignore": true
+        "description": "The result of adding contacts to a List. This is a result payload, not an addressable resource. URIs are listed only for contacts that were not added."
       },
       "ContactListMembershipRemoveResult": {
         "title": "Contact List Membership Remove Result",
@@ -17660,8 +17658,7 @@
             "description": "The URIs of the contacts whose write failed. Send them again to retry."
           }
         },
-        "description": "The result of removing contacts from a List. This is a result payload, not an addressable resource. URIs are listed only for contacts that were not removed.",
-        "x-fern-ignore": true
+        "description": "The result of removing contacts from a List. This is a result payload, not an addressable resource. URIs are listed only for contacts that were not removed."
       },
       "CreateContactListRequest": {
         "title": "Create Contact List Request",
@@ -17688,8 +17685,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Fields to create a List. Other fields are rejected.",
-        "x-fern-ignore": true
+        "description": "Fields to create a List. Other fields are rejected."
       },
       "UpdateContactListRequest": {
         "title": "Update Contact List Request",
@@ -17706,8 +17702,7 @@
             "example": "Priority VIP Contacts"
           }
         },
-        "description": "Fields to rename a List or View. Other fields are rejected.",
-        "x-fern-ignore": true
+        "description": "Fields to rename a List or View. Other fields are rejected."
       },
       "ContactListMembershipsRequest": {
         "title": "Contact List Memberships Request",
@@ -17728,8 +17723,7 @@
             "description": "Contact URIs. Minimum 1, maximum 500. A contact that appears more than once is processed once."
           }
         },
-        "description": "The contacts to add to or remove from a List. Other fields are rejected.",
-        "x-fern-ignore": true
+        "description": "The contacts to add to or remove from a List. Other fields are rejected."
       },
       "ContactListsError": {
         "title": "ContactListsError",
@@ -17746,8 +17740,7 @@
             "$ref": "#/components/schemas/ContactListsErrorMessage"
           }
         },
-        "description": "Permission Denied",
-        "x-fern-ignore": true
+        "description": "Permission Denied"
       },
       "Note": {
         "title": "Note",
@@ -17815,8 +17808,7 @@
             "example": "2026-09-28T16:31:00.000Z"
           }
         },
-        "description": "A note that a user wrote about a contact. Only the user who owns a note can see it.",
-        "x-fern-ignore": true
+        "description": "A note that a user wrote about a contact. Only the user who owns a note can see it."
       },
       "CreateNoteRequest": {
         "title": "Create Note Request",
@@ -17852,8 +17844,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Fields to create a note. Other fields are rejected. Send a \u0060title\u0060, a \u0060body\u0060, or both. At least one of them must contain a character that is not whitespace, or the request returns 400.",
-        "x-fern-ignore": true
+        "description": "Fields to create a note. Other fields are rejected. Send a \u0060title\u0060, a \u0060body\u0060, or both. At least one of them must contain a character that is not whitespace, or the request returns 400."
       },
       "ListNotesError": {
         "title": "ListNotesError",
@@ -17870,8 +17861,7 @@
             "$ref": "#/components/schemas/ListNotesErrorMessage"
           }
         },
-        "description": "Permission Denied",
-        "x-fern-ignore": true
+        "description": "Permission Denied"
       },
       "CreateNoteError": {
         "title": "CreateNoteError",
@@ -17888,8 +17878,7 @@
             "$ref": "#/components/schemas/CreateNoteErrorMessage"
           }
         },
-        "description": "Permission Denied",
-        "x-fern-ignore": true
+        "description": "Permission Denied"
       },
       "GetNoteError": {
         "title": "GetNoteError",
@@ -17906,8 +17895,7 @@
             "$ref": "#/components/schemas/GetNoteErrorMessage"
           }
         },
-        "description": "Permission Denied",
-        "x-fern-ignore": true
+        "description": "Permission Denied"
       },
       "Pagination": {
         "title": "Pagination",
@@ -26313,7 +26301,7 @@
           "single_select"
         ],
         "type": "string",
-        "description": "Field type. Supported values:\n- \u0060text\u0060: A text value.\n- \u0060number\u0060: A numeric value.\n- \u0060currency\u0060: A monetary amount in the specified currency.\n- \u0060tags\u0060: A list of text labels.\n- \u0060date\u0060: A calendar date.\n- \u0060single_select\u0060: One value from the field\u0027s configured options.\n\nSystem-generated \u0060invitee_question\u0060 fields cannot be created.",
+        "description": "Field type. Supported values:\n- \u0060text\u0060: A text value.\n- \u0060number\u0060: A numeric value.\n- \u0060currency\u0060: A monetary amount in the specified currency. Send \u0060currency\u0060 with this value.\n- \u0060tags\u0060: A list of text labels.\n- \u0060date\u0060: A calendar date.\n- \u0060single_select\u0060: One value from the field\u0027s configured options. Send \u0060options\u0060 with this value.\n\nSystem-generated \u0060invitee_question\u0060 fields cannot be created.",
         "x-ms-enum": {
           "name": "CreateContactCustomFieldDefinitionRequestFieldType",
           "modelAsString": false,
@@ -27647,69 +27635,6 @@
             {
               "value": "You can add or remove people only on a List. This is a View, so its people come from its saved filters.",
               "name": "YouCanAddOrRemovePeopleOnlyOnAListThisIsAViewCommaSoItsPeopleComeFromItsSavedFiltersDot"
-            }
-          ]
-        }
-      },
-      "CreateContactCustomFieldDefinitionRequestOneOf1FieldType": {
-        "enum": [
-          "text",
-          "number",
-          "date",
-          "tags"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "CreateContactCustomFieldDefinitionRequestOneOf1FieldType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "text",
-              "name": "Text"
-            },
-            {
-              "value": "number",
-              "name": "Number"
-            },
-            {
-              "value": "date",
-              "name": "Date"
-            },
-            {
-              "value": "tags",
-              "name": "Tags"
-            }
-          ]
-        }
-      },
-      "CurrencyFieldType": {
-        "enum": [
-          "currency"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "CurrencyFieldType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "currency",
-              "name": "Currency"
-            }
-          ]
-        }
-      },
-      "SingleSelectFieldType": {
-        "enum": [
-          "single_select"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "SingleSelectFieldType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "single_select",
-              "name": "SingleSelect"
             }
           ]
         }
@@ -29263,168 +29188,6 @@
             }
           ]
         }
-      },
-      "CreateContactCustomFieldDefinitionRequestOneOf1Branch": {
-        "allOf": [
-          {
-            "type": "object",
-            "not": {
-              "anyOf": [
-                {
-                  "required": [
-                    "currency"
-                  ]
-                },
-                {
-                  "required": [
-                    "options"
-                  ]
-                }
-              ]
-            },
-            "properties": {
-              "field_type": {
-                "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf1FieldType"
-              }
-            }
-          }
-        ],
-        "type": "object",
-        "properties": {
-          "label": {
-            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
-            "type": "string",
-            "description": "Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.",
-            "example": "Lead source"
-          },
-          "field_type": {
-            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestFieldType"
-          },
-          "currency": {
-            "pattern": "^([Uu][Ss][Dd]|[Ee][Uu][Rr]|[Gg][Bb][Pp]|[Jj][Pp][Yy]|[Cc][Hh][Ff]|[Cc][Aa][Dd]|[Aa][Uu][Dd]|[Cc][Nn][Yy]|[Ss][Gg][Dd]|[Ii][Nn][Rr]|[Kk][Rr][Ww])$",
-            "type": "string",
-            "description": "Required only for \u0060currency\u0060 fields. Supported codes are \u0060USD\u0060, \u0060EUR\u0060, \u0060GBP\u0060, \u0060JPY\u0060, \u0060CHF\u0060, \u0060CAD\u0060, \u0060AUD\u0060, \u0060CNY\u0060, \u0060SGD\u0060, \u0060INR\u0060, and \u0060KRW\u0060. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.",
-            "example": "usd"
-          },
-          "options": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOptionsItem"
-            },
-            "description": "Required only for \u0060single_select\u0060 fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field."
-          }
-        },
-        "required": [
-          "label",
-          "field_type"
-        ],
-        "additionalProperties": false
-      },
-      "CreateContactCustomFieldDefinitionRequestOneOf2Branch": {
-        "allOf": [
-          {
-            "required": [
-              "currency"
-            ],
-            "type": "object",
-            "not": {
-              "required": [
-                "options"
-              ]
-            },
-            "properties": {
-              "field_type": {
-                "$ref": "#/components/schemas/CurrencyFieldType"
-              }
-            }
-          }
-        ],
-        "type": "object",
-        "properties": {
-          "label": {
-            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
-            "type": "string",
-            "description": "Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.",
-            "example": "Lead source"
-          },
-          "field_type": {
-            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestFieldType"
-          },
-          "currency": {
-            "pattern": "^([Uu][Ss][Dd]|[Ee][Uu][Rr]|[Gg][Bb][Pp]|[Jj][Pp][Yy]|[Cc][Hh][Ff]|[Cc][Aa][Dd]|[Aa][Uu][Dd]|[Cc][Nn][Yy]|[Ss][Gg][Dd]|[Ii][Nn][Rr]|[Kk][Rr][Ww])$",
-            "type": "string",
-            "description": "Required only for \u0060currency\u0060 fields. Supported codes are \u0060USD\u0060, \u0060EUR\u0060, \u0060GBP\u0060, \u0060JPY\u0060, \u0060CHF\u0060, \u0060CAD\u0060, \u0060AUD\u0060, \u0060CNY\u0060, \u0060SGD\u0060, \u0060INR\u0060, and \u0060KRW\u0060. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.",
-            "example": "usd"
-          },
-          "options": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOptionsItem"
-            },
-            "description": "Required only for \u0060single_select\u0060 fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field."
-          }
-        },
-        "required": [
-          "label",
-          "field_type"
-        ],
-        "additionalProperties": false
-      },
-      "CreateContactCustomFieldDefinitionRequestOneOf3Branch": {
-        "allOf": [
-          {
-            "required": [
-              "options"
-            ],
-            "type": "object",
-            "not": {
-              "required": [
-                "currency"
-              ]
-            },
-            "properties": {
-              "field_type": {
-                "$ref": "#/components/schemas/SingleSelectFieldType"
-              }
-            }
-          }
-        ],
-        "type": "object",
-        "properties": {
-          "label": {
-            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
-            "type": "string",
-            "description": "Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.",
-            "example": "Lead source"
-          },
-          "field_type": {
-            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestFieldType"
-          },
-          "currency": {
-            "pattern": "^([Uu][Ss][Dd]|[Ee][Uu][Rr]|[Gg][Bb][Pp]|[Jj][Pp][Yy]|[Cc][Hh][Ff]|[Cc][Aa][Dd]|[Aa][Uu][Dd]|[Cc][Nn][Yy]|[Ss][Gg][Dd]|[Ii][Nn][Rr]|[Kk][Rr][Ww])$",
-            "type": "string",
-            "description": "Required only for \u0060currency\u0060 fields. Supported codes are \u0060USD\u0060, \u0060EUR\u0060, \u0060GBP\u0060, \u0060JPY\u0060, \u0060CHF\u0060, \u0060CAD\u0060, \u0060AUD\u0060, \u0060CNY\u0060, \u0060SGD\u0060, \u0060INR\u0060, and \u0060KRW\u0060. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.",
-            "example": "usd"
-          },
-          "options": {
-            "maxItems": 10,
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOptionsItem"
-            },
-            "description": "Required only for \u0060single_select\u0060 fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field."
-          }
-        },
-        "required": [
-          "label",
-          "field_type"
-        ],
-        "additionalProperties": false
       },
       "GetInviteesAndScopesForbiddenResponseError": {
         "type": "object",
@@ -32531,8 +32294,7 @@
               }
             }
           }
-        },
-        "x-fern-ignore": true
+        }
       },
       "CONTACT_LIST_CREATE_CONFLICT": {
         "description": "The List name is taken, or the user has reached the limit of 25 Lists and Views",
@@ -32569,8 +32331,7 @@
               }
             }
           }
-        },
-        "x-fern-ignore": true
+        }
       },
       "CONTACT_LIST_UPDATE_CONFLICT": {
         "description": "The List name is taken, or the View cannot be renamed",
@@ -32607,8 +32368,7 @@
               }
             }
           }
-        },
-        "x-fern-ignore": true
+        }
       },
       "CONTACT_LIST_MEMBERSHIP_CONFLICT": {
         "description": "The contact list is a View, so its contacts cannot be changed",
@@ -32632,8 +32392,7 @@
               }
             }
           }
-        },
-        "x-fern-ignore": true
+        }
       },
       "NOTES_LIST_AND_SCOPES_FORBIDDEN": {
         "description": "Permission Denied or insufficient scope",
@@ -32672,8 +32431,7 @@
               }
             }
           }
-        },
-        "x-fern-ignore": true
+        }
       },
       "NOTES_GET_AND_SCOPES_FORBIDDEN": {
         "description": "Permission Denied or insufficient scope",
@@ -32706,8 +32464,7 @@
               }
             }
           }
-        },
-        "x-fern-ignore": true
+        }
       },
       "NOTES_CREATE_AND_SCOPES_FORBIDDEN": {
         "description": "Permission Denied or insufficient scope",
@@ -32752,8 +32509,7 @@
               }
             }
           }
-        },
-        "x-fern-ignore": true
+        }
       }
     },
     "parameters": {
@@ -33449,60 +33205,6 @@
       "properties": {
         "type": {
           "$ref": "#/components/schemas/OrganizationInvitationType"
-        }
-      }
-    },
-    "CreateContactCustomFieldDefinitionRequestOneOf1": {
-      "type": "object",
-      "not": {
-        "anyOf": [
-          {
-            "required": [
-              "currency"
-            ]
-          },
-          {
-            "required": [
-              "options"
-            ]
-          }
-        ]
-      },
-      "properties": {
-        "field_type": {
-          "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf1FieldType"
-        }
-      }
-    },
-    "CreateContactCustomFieldDefinitionRequestOneOf2": {
-      "required": [
-        "currency"
-      ],
-      "type": "object",
-      "not": {
-        "required": [
-          "options"
-        ]
-      },
-      "properties": {
-        "field_type": {
-          "$ref": "#/components/schemas/CurrencyFieldType"
-        }
-      }
-    },
-    "CreateContactCustomFieldDefinitionRequestOneOf3": {
-      "required": [
-        "options"
-      ],
-      "type": "object",
-      "not": {
-        "required": [
-          "currency"
-        ]
-      },
-      "properties": {
-        "field_type": {
-          "$ref": "#/components/schemas/SingleSelectFieldType"
         }
       }
     },
