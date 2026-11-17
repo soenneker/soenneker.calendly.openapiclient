@@ -41,7 +41,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,max_last_meeting_date*,max_next_meeting_date*,min_last_meeting_date*,min_next_meeting_date*,name*,page_token*,phone_number*,sort*,state*,timezone*}", pathParameters)
+        public ContactsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,contact_list*,count*,country*,email*,exclude*,job_title*,max_last_meeting_date*,max_next_meeting_date*,min_last_meeting_date*,min_next_meeting_date*,name*,page_token*,phone_number*,sort*,state*,timezone*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,11 +49,11 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,count*,country*,email*,exclude*,job_title*,max_last_meeting_date*,max_next_meeting_date*,min_last_meeting_date*,min_next_meeting_date*,name*,page_token*,phone_number*,sort*,state*,timezone*}", rawUrl)
+        public ContactsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/contacts{?city*,company*,contact_list*,count*,country*,email*,exclude*,job_title*,max_last_meeting_date*,max_next_meeting_date*,min_last_meeting_date*,min_next_meeting_date*,name*,page_token*,phone_number*,sort*,state*,timezone*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.Bounds are compared by UTC date; the time part is ignored.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListContacts200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -127,7 +127,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateContact201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.Bounds are compared by UTC date; the time part is ignored.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -177,7 +177,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             return new global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.Bounds are compared by UTC date; the time part is ignored.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns a collection of Contacts.Meeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ContactsRequestBuilderGetQueryParameters 
@@ -201,6 +201,16 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
 #else
             [QueryParameter("company")]
             public string Company { get; set; }
+#endif
+            /// <summary>Return only the contacts in this List or View (a contact list URI). For a `dynamic_view`, Calendly applies the View&apos;s saved filters in the user&apos;s time zone, as in the Calendly web app. If a View&apos;s saved filters change after a `page_token` is issued, that `page_token` returns 400. Request the first page again. An unknown or hidden contact list returns 404.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("contact_list")]
+            public string? ContactList { get; set; }
+#nullable restore
+#else
+            [QueryParameter("contact_list")]
+            public string ContactList { get; set; }
 #endif
             /// <summary>The number of rows to return</summary>
             [QueryParameter("count")]
@@ -245,16 +255,16 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts
             [QueryParameter("job_title")]
             public string JobTitle { get; set; }
 #endif
-            /// <summary>Only contacts whose last recorded meeting date is before this bound. ISO 8601, UTC.Bounds after the UTC date 30 days from today use that exclusive cap instead.</summary>
+            /// <summary>Returns only contacts whose last recorded meeting date is before this date (exclusive). Use an ISO 8601 date-time in UTC.Calendly compares only the UTC date and ignores the time of day. For example, `2026-11-03T18:30:00Z` returns the same contacts as `2026-11-03T00:00:00Z`.If this date is after the UTC date 30 days from today, Calendly uses that date as the exclusive bound.</summary>
             [QueryParameter("max_last_meeting_date")]
             public DateTimeOffset? MaxLastMeetingDate { get; set; }
-            /// <summary>Only contacts whose next recorded meeting date is before this bound. ISO 8601, UTC.Bounds after the UTC date 30 days from today use that exclusive cap instead.</summary>
+            /// <summary>Returns only contacts whose next recorded meeting date is before this date (exclusive). Use an ISO 8601 date-time in UTC.Calendly compares only the UTC date and ignores the time of day. For example, `2026-11-03T18:30:00Z` returns the same contacts as `2026-11-03T00:00:00Z`.If this date is after the UTC date 30 days from today, Calendly uses that date as the exclusive bound.</summary>
             [QueryParameter("max_next_meeting_date")]
             public DateTimeOffset? MaxNextMeetingDate { get; set; }
-            /// <summary>Only contacts whose last recorded meeting date is on or after this bound. ISO 8601, UTC.</summary>
+            /// <summary>Returns only contacts whose last recorded meeting date is on or after this date (inclusive). Use an ISO 8601 date-time in UTC.Calendly compares only the UTC date and ignores the time of day. For example, `2026-11-02T18:30:00Z` returns the same contacts as `2026-11-02T00:00:00Z`.</summary>
             [QueryParameter("min_last_meeting_date")]
             public DateTimeOffset? MinLastMeetingDate { get; set; }
-            /// <summary>Only contacts whose next recorded meeting date is on or after this bound. ISO 8601, UTC.</summary>
+            /// <summary>Returns only contacts whose next recorded meeting date is on or after this date (inclusive). Use an ISO 8601 date-time in UTC.Calendly compares only the UTC date and ignores the time of day. For example, `2026-11-02T18:30:00Z` returns the same contacts as `2026-11-02T00:00:00Z`.</summary>
             [QueryParameter("min_next_meeting_date")]
             public DateTimeOffset? MinNextMeetingDate { get; set; }
             /// <summary>Filter results by partial match on name(s). Accepts a comma-separated list-- each segment is matched independently (commas in the query string separate values).</summary>

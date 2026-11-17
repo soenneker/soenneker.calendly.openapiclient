@@ -82,6 +82,43 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Custom_field_definitions
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListContactCustomFieldDefinitions200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListContactCustomFieldDefinitions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
+        /// Creates a contact custom field definition. The caller must have permission to create custom fields.Send `Content-Type: application/json`. Supply only `label`, `field_type`, and the fields required for that type. Do not supply IDs, URIs, timestamps, `source`, `question_uuid`, or `custom_field`. Option objects accept only `label`. Unknown fields are rejected.Leading and trailing whitespace is removed from the field label. The result must contain 1 to 255 characters. Currency codes are not case-sensitive and are converted to uppercase. Options keep their request order. Duplicate nonblank option labels are allowed. The server assigns option UUIDs. Each response option includes `color`, which is `null` when no color is set.Invalid fields return 400. A field label that already exists returns 409. Field-name checks ignore case. If `City` exists, creating `city` returns 409. The default rate limit applies.Example validation error:```json{&quot;title&quot;:&quot;Invalid Argument&quot;,&quot;message&quot;:&quot;The supplied parameters are invalid.&quot;,&quot;details&quot;:[{&quot;parameter&quot;:&quot;options&quot;,&quot;message&quot;:&quot;Supply 1 to 10 label-only options for a single_select field.&quot;}]}```Example duplicate-label error:```json{&quot;title&quot;:&quot;Already Exists&quot;,&quot;message&quot;:&quot;The resource already exists&quot;,&quot;details&quot;:[{&quot;parameter&quot;:&quot;label&quot;,&quot;message&quot;:&quot;A custom field with this label already exists.&quot;}]}```**Note:** Requires CRM on your plan.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinition201Response"/></returns>
+        /// <param name="body">Fields to create a contact custom field definition. Other fields are rejected.</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.ContactsAndScopesForbiddenResponseError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.AlreadyExistsResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse">When receiving a 500 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinition201Response?> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinition201Response> PostAsync(global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Calendly.OpenApiClient.Models.InvalidArgumentResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Calendly.OpenApiClient.Models.UnauthenticatedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Calendly.OpenApiClient.Models.ContactsAndScopesForbiddenResponseError.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Calendly.OpenApiClient.Models.AlreadyExistsResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Calendly.OpenApiClient.Models.RateLimitExceededResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Calendly.OpenApiClient.Models.UnknownResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinition201Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinition201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
         /// Returns all custom field definitions available to the authenticated user or organization.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -98,6 +135,28 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Custom_field_definitions
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
+        }
+        /// <summary>
+        /// Creates a contact custom field definition. The caller must have permission to create custom fields.Send `Content-Type: application/json`. Supply only `label`, `field_type`, and the fields required for that type. Do not supply IDs, URIs, timestamps, `source`, `question_uuid`, or `custom_field`. Option objects accept only `label`. Unknown fields are rejected.Leading and trailing whitespace is removed from the field label. The result must contain 1 to 255 characters. Currency codes are not case-sensitive and are converted to uppercase. Options keep their request order. Duplicate nonblank option labels are allowed. The server assigns option UUIDs. Each response option includes `color`, which is `null` when no color is set.Invalid fields return 400. A field label that already exists returns 409. Field-name checks ignore case. If `City` exists, creating `city` returns 409. The default rate limit applies.Example validation error:```json{&quot;title&quot;:&quot;Invalid Argument&quot;,&quot;message&quot;:&quot;The supplied parameters are invalid.&quot;,&quot;details&quot;:[{&quot;parameter&quot;:&quot;options&quot;,&quot;message&quot;:&quot;Supply 1 to 10 label-only options for a single_select field.&quot;}]}```Example duplicate-label error:```json{&quot;title&quot;:&quot;Already Exists&quot;,&quot;message&quot;:&quot;The resource already exists&quot;,&quot;details&quot;:[{&quot;parameter&quot;:&quot;label&quot;,&quot;message&quot;:&quot;A custom field with this label already exists.&quot;}]}```**Note:** Requires CRM on your plan.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">Fields to create a contact custom field definition. Other fields are rejected.</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Calendly.OpenApiClient.Models.CreateContactCustomFieldDefinitionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

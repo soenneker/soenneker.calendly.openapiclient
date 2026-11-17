@@ -6,8 +6,7 @@
     "termsOfService": "https://calendly.com/legal/developer-policy",
     "contact": {
       "name": "Calendly Developer Support",
-      "url": "https://developer.calendly.com/get-help",
-      "email": "support\u002Bdeveloper@calendly.com"
+      "url": "https://calendly.com/help/developer-support"
     },
     "version": "2.0.0"
   },
@@ -10969,7 +10968,7 @@
           "Contacts"
         ],
         "summary": "List Contacts",
-        "description": "Returns a collection of Contacts.\n\nMeeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.\nBounds are compared by UTC date; the time part is ignored.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
+        "description": "Returns a collection of Contacts.\n\nMeeting date filters use the meeting dates recorded on each contact. Contacts with no recorded date for that field are not included.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
         "operationId": "ListContacts",
         "parameters": [
           {
@@ -11011,7 +11010,7 @@
           {
             "name": "min_last_meeting_date",
             "in": "query",
-            "description": "Only contacts whose last recorded meeting date is on or after this bound. ISO 8601, UTC.",
+            "description": "Returns only contacts whose last recorded meeting date is on or after this date (inclusive). Use an ISO 8601 date-time in UTC.\nCalendly compares only the UTC date and ignores the time of day. For example, \u00602026-11-02T18:30:00Z\u0060 returns the same contacts as \u00602026-11-02T00:00:00Z\u0060.",
             "schema": {
               "type": "string",
               "format": "date-time",
@@ -11021,7 +11020,7 @@
           {
             "name": "max_last_meeting_date",
             "in": "query",
-            "description": "Only contacts whose last recorded meeting date is before this bound. ISO 8601, UTC.\nBounds after the UTC date 30 days from today use that exclusive cap instead.",
+            "description": "Returns only contacts whose last recorded meeting date is before this date (exclusive). Use an ISO 8601 date-time in UTC.\nCalendly compares only the UTC date and ignores the time of day. For example, \u00602026-11-03T18:30:00Z\u0060 returns the same contacts as \u00602026-11-03T00:00:00Z\u0060.\nIf this date is after the UTC date 30 days from today, Calendly uses that date as the exclusive bound.",
             "schema": {
               "type": "string",
               "format": "date-time",
@@ -11031,7 +11030,7 @@
           {
             "name": "min_next_meeting_date",
             "in": "query",
-            "description": "Only contacts whose next recorded meeting date is on or after this bound. ISO 8601, UTC.",
+            "description": "Returns only contacts whose next recorded meeting date is on or after this date (inclusive). Use an ISO 8601 date-time in UTC.\nCalendly compares only the UTC date and ignores the time of day. For example, \u00602026-11-02T18:30:00Z\u0060 returns the same contacts as \u00602026-11-02T00:00:00Z\u0060.",
             "schema": {
               "type": "string",
               "format": "date-time",
@@ -11041,7 +11040,7 @@
           {
             "name": "max_next_meeting_date",
             "in": "query",
-            "description": "Only contacts whose next recorded meeting date is before this bound. ISO 8601, UTC.\nBounds after the UTC date 30 days from today use that exclusive cap instead.",
+            "description": "Returns only contacts whose next recorded meeting date is before this date (exclusive). Use an ISO 8601 date-time in UTC.\nCalendly compares only the UTC date and ignores the time of day. For example, \u00602026-11-03T18:30:00Z\u0060 returns the same contacts as \u00602026-11-03T00:00:00Z\u0060.\nIf this date is after the UTC date 30 days from today, Calendly uses that date as the exclusive bound.",
             "schema": {
               "type": "string",
               "format": "date-time",
@@ -11100,6 +11099,16 @@
             "schema": {
               "type": "string",
               "example": "San Francisco, Buffalo"
+            }
+          },
+          {
+            "name": "contact_list",
+            "in": "query",
+            "description": "Return only the contacts in this List or View (a contact list URI). For a \u0060dynamic_view\u0060, Calendly applies the View\u0027s saved filters in the user\u0027s time zone, as in the Calendly web app. If a View\u0027s saved filters change after a \u0060page_token\u0060 is issued, that \u0060page_token\u0060 returns 400. Request the first page again. An unknown or hidden contact list returns 404.",
+            "schema": {
+              "type": "string",
+              "example": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+              "x-client-original-format": "uri"
             }
           },
           {
@@ -11532,6 +11541,343 @@
             "personal_access_token": []
           }
         ]
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Create Contact Custom Field Definition",
+        "description": "Creates a contact custom field definition. The caller must have permission to create custom fields.\n\nSend \u0060Content-Type: application/json\u0060. Supply only \u0060label\u0060, \u0060field_type\u0060, and the fields required for that type. Do not supply IDs, URIs, timestamps, \u0060source\u0060, \u0060question_uuid\u0060, or \u0060custom_field\u0060. Option objects accept only \u0060label\u0060. Unknown fields are rejected.\n\nLeading and trailing whitespace is removed from the field label. The result must contain 1 to 255 characters. Currency codes are not case-sensitive and are converted to uppercase. Options keep their request order. Duplicate nonblank option labels are allowed. The server assigns option UUIDs. Each response option includes \u0060color\u0060, which is \u0060null\u0060 when no color is set.\n\nInvalid fields return 400. A field label that already exists returns 409. Field-name checks ignore case. If \u0060City\u0060 exists, creating \u0060city\u0060 returns 409. The default rate limit applies.\n\nExample validation error:\n\u0060\u0060\u0060json\n{\u0022title\u0022:\u0022Invalid Argument\u0022,\u0022message\u0022:\u0022The supplied parameters are invalid.\u0022,\u0022details\u0022:[{\u0022parameter\u0022:\u0022options\u0022,\u0022message\u0022:\u0022Supply 1 to 10 label-only options for a single_select field.\u0022}]}\n\u0060\u0060\u0060\n\nExample duplicate-label error:\n\u0060\u0060\u0060json\n{\u0022title\u0022:\u0022Already Exists\u0022,\u0022message\u0022:\u0022The resource already exists\u0022,\u0022details\u0022:[{\u0022parameter\u0022:\u0022label\u0022,\u0022message\u0022:\u0022A custom field with this label already exists.\u0022}]}\n\u0060\u0060\u0060\n\n**Note:** Requires CRM on your plan.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
+        "operationId": "CreateContactCustomFieldDefinition",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequest"
+              },
+              "examples": {
+                "Text": {
+                  "value": {
+                    "label": "Notes",
+                    "field_type": "text"
+                  }
+                },
+                "Number": {
+                  "value": {
+                    "label": "Deal size",
+                    "field_type": "number"
+                  }
+                },
+                "Currency": {
+                  "value": {
+                    "label": "Budget",
+                    "field_type": "currency",
+                    "currency": "uSd"
+                  }
+                },
+                "Date": {
+                  "value": {
+                    "label": "Renewal date",
+                    "field_type": "date"
+                  }
+                },
+                "Single select": {
+                  "value": {
+                    "label": "Lead source",
+                    "field_type": "single_select",
+                    "options": [
+                      {
+                        "label": "Website"
+                      },
+                      {
+                        "label": "Referral"
+                      }
+                    ]
+                  }
+                },
+                "Tags": {
+                  "value": {
+                    "label": "Segments",
+                    "field_type": "tags"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "Canonical URI of the created custom field definition.",
+                "schema": {
+                  "type": "string",
+                  "example": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                  "x-client-original-format": "uri"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactCustomFieldDefinition201Response"
+                },
+                "examples": {
+                  "Text": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Notes",
+                        "field_type": "text",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Number": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Deal size",
+                        "field_type": "number",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Currency": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Budget",
+                        "field_type": "currency",
+                        "currency": "USD",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Date": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Renewal date",
+                        "field_type": "date",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Single select": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Lead source",
+                        "field_type": "single_select",
+                        "options": [
+                          {
+                            "uuid": "DDDDDDDDDDDDDDDD",
+                            "label": "Website",
+                            "is_active": true,
+                            "color": null
+                          },
+                          {
+                            "uuid": "EEEEEEEEEEEEEEEE",
+                            "label": "Referral",
+                            "is_active": true,
+                            "color": null
+                          }
+                        ],
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Tags": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Segments",
+                        "field_type": "tags",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/ALREADY_EXISTS"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "Canonical URI of the created custom field definition.",
+                "schema": {
+                  "type": "string",
+                  "example": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                  "x-client-original-format": "uri"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactCustomFieldDefinition201Response"
+                },
+                "examples": {
+                  "Text": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Notes",
+                        "field_type": "text",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Number": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Deal size",
+                        "field_type": "number",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Currency": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Budget",
+                        "field_type": "currency",
+                        "currency": "USD",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Date": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Renewal date",
+                        "field_type": "date",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Single select": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Lead source",
+                        "field_type": "single_select",
+                        "options": [
+                          {
+                            "uuid": "DDDDDDDDDDDDDDDD",
+                            "label": "Website",
+                            "is_active": true,
+                            "color": null
+                          },
+                          {
+                            "uuid": "EEEEEEEEEEEEEEEE",
+                            "label": "Referral",
+                            "is_active": true,
+                            "color": null
+                          }
+                        ],
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  },
+                  "Tags": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contacts/custom_field_definitions/CCCCCCCCCCCCCCCC",
+                        "label": "Segments",
+                        "field_type": "tags",
+                        "created_at": "2026-10-26T14:00:00Z",
+                        "updated_at": "2026-10-26T14:00:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
       }
     },
     "/contacts/custom_field_definitions/{uuid}": {
@@ -11995,6 +12341,1186 @@
         {
           "name": "uuid",
           "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": "AAAAAAAAAAAAAAAA"
+          }
+        }
+      ]
+    },
+    "/contact_lists": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "List Contact Lists",
+        "description": "Returns the user\u0027s saved contact groupings: Lists (\u0060static_list\u0060) and Views (\u0060dynamic_view\u0060). This endpoint returns contact lists, not contacts. To get the contacts in a List or View, use List Contacts with the \u0060contact_list\u0060 filter.\n\nAll of the user\u0027s Lists and Views come back in one response, without pages. A user can have at most 25 Lists and Views. \u0060pagination.count\u0060 is the number of Lists and Views returned, and the other \u0060pagination\u0060 fields are always \u0060null\u0060.\n\nThe order is the same as in the Calendly web app. Views that a CSV import creates are not returned, but they count toward the limit of 25 Lists and Views.\n\n\u0060contact_count\u0060 is set for every List. It is \u0060null\u0060 for every View.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
+        "operationId": "ListContactLists",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Return only Lists (\u0060static_list\u0060) or only Views (\u0060dynamic_view\u0060).",
+            "schema": {
+              "$ref": "#/components/schemas/ListContactListsTypeParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListContactLists200Response"
+                },
+                "examples": {
+                  "Lists and Views": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+                          "name": "VIP Contacts",
+                          "type": "static_list",
+                          "contact_count": 42
+                        },
+                        {
+                          "uri": "https://api.calendly.com/contact_lists/BBBBBBBBBBBBBBBB",
+                          "name": "Upcoming Meetings",
+                          "type": "dynamic_view",
+                          "contact_count": null
+                        }
+                      ],
+                      "pagination": {
+                        "count": 2,
+                        "next_page": null,
+                        "previous_page": null,
+                        "next_page_token": null,
+                        "previous_page_token": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Create Contact List",
+        "description": "Creates a List (\u0060static_list\u0060) and, optionally, adds contacts to it. You cannot create a View with this API.\n\nAdding the initial contacts is not atomic with creating the List. The List is created first. Then the contacts are added. \u0060membership_result\u0060 shows the result for the contacts: contacts that were invalid or whose write failed are listed by URI. To retry failed contacts, send them to Add Contacts to Static List. That operation is idempotent.\n\nA List name that is taken returns 409. The name match ignores case, accents, and leading and trailing spaces. The limit is 25 Lists and Views for each user, including Views that a CSV import creates.\n\nIf the request returns a 500 error or times out, the List may still exist. Before you retry, use List Contact Lists to check for the List. Then send any missing contacts to Add Contacts to Static List, which is safe to repeat. A retry of this request with the same name returns 409.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
+        "operationId": "CreateContactList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContactListRequest"
+              },
+              "examples": {
+                "Name only": {
+                  "value": {
+                    "name": "VIP Contacts"
+                  }
+                },
+                "With contacts": {
+                  "value": {
+                    "name": "VIP Contacts",
+                    "contacts": [
+                      "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                      "https://api.calendly.com/contacts/BBBBBBBBBBBBBBBB"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "Canonical URI of the created List.",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+                  "x-client-original-format": "uri"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactList201Response"
+                },
+                "examples": {
+                  "With contacts": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+                        "name": "VIP Contacts",
+                        "type": "static_list",
+                        "contact_count": 1,
+                        "membership_result": {
+                          "added": 1,
+                          "already_present": 0,
+                          "invalid": 1,
+                          "failed": 0,
+                          "already_present_contacts": [],
+                          "invalid_contacts": [
+                            "https://api.calendly.com/contacts/BBBBBBBBBBBBBBBB"
+                          ],
+                          "failed_contacts": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactListsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller does not have permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-fern-ignore": true
+          },
+          "409": {
+            "$ref": "#/components/responses/CONTACT_LIST_CREATE_CONFLICT"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "Canonical URI of the created List.",
+                "required": true,
+                "schema": {
+                  "type": "string",
+                  "example": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+                  "x-client-original-format": "uri"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContactList201Response"
+                },
+                "examples": {
+                  "With contacts": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+                        "name": "VIP Contacts",
+                        "type": "static_list",
+                        "contact_count": 1,
+                        "membership_result": {
+                          "added": 1,
+                          "already_present": 0,
+                          "invalid": 1,
+                          "failed": 0,
+                          "already_present_contacts": [],
+                          "invalid_contacts": [
+                            "https://api.calendly.com/contacts/BBBBBBBBBBBBBBBB"
+                          ],
+                          "failed_contacts": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      }
+    },
+    "/contact_lists/{uuid}": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get Contact List",
+        "description": "Returns one List or View. To get its contacts, use List Contacts with the \u0060contact_list\u0060 filter. Views that a CSV import creates return 404.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
+        "operationId": "GetContactList",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetContactList200Response"
+                },
+                "examples": {
+                  "View": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contact_lists/BBBBBBBBBBBBBBBB",
+                        "name": "Upcoming Meetings",
+                        "type": "dynamic_view",
+                        "contact_count": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller\u0027s Role is not admin/owner": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller is not in organization": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
+      "patch": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Update Contact List",
+        "description": "Renames a List or View. Only the name can change. You cannot change the filters of a View with this API.\n\nA List name that is taken returns 409. A View name can match another name. The default All Contacts View cannot be renamed and returns 409.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
+        "operationId": "UpdateContactList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateContactListRequest"
+              },
+              "examples": {
+                "Rename": {
+                  "value": {
+                    "name": "Priority VIP Contacts"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateContactList200Response"
+                },
+                "examples": {
+                  "Renamed List": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+                        "name": "Priority VIP Contacts",
+                        "type": "static_list",
+                        "contact_count": 42
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactListsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller does not have permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-fern-ignore": true
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "409": {
+            "$ref": "#/components/responses/CONTACT_LIST_UPDATE_CONFLICT"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "description": "The UUID of the contact list, from the end of its \u0060uri\u0060.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/contact_lists/{uuid}/memberships": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Add Contacts to Static List",
+        "description": "Adds contacts to a List. Maximum 500 contacts in each request. This operation is idempotent: a contact that is already on the List does not change, and you can safely retry failed contacts.\n\nContacts that do not exist or that the user cannot access are counted in \u0060invalid\u0060. The other contacts are still processed. URIs are listed only for contacts that were not added.\n\nA View returns 409, because the saved filters of a View decide its contacts.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
+        "operationId": "AddContactsToStaticList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactListMembershipsRequest"
+              },
+              "examples": {
+                "Two contacts": {
+                  "value": {
+                    "contacts": [
+                      "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                      "https://api.calendly.com/contacts/BBBBBBBBBBBBBBBB"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddContactsToStaticList200Response"
+                },
+                "examples": {
+                  "One added, one already on the List": {
+                    "value": {
+                      "resource": {
+                        "added": 1,
+                        "already_present": 1,
+                        "invalid": 0,
+                        "failed": 0,
+                        "already_present_contacts": [
+                          "https://api.calendly.com/contacts/BBBBBBBBBBBBBBBB"
+                        ],
+                        "invalid_contacts": [],
+                        "failed_contacts": []
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactListsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller does not have permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-fern-ignore": true
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "409": {
+            "$ref": "#/components/responses/CONTACT_LIST_MEMBERSHIP_CONFLICT"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "description": "The UUID of the contact list, from the end of its \u0060uri\u0060.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/contact_lists/{uuid}/memberships/removal": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Remove Contacts from Static List",
+        "description": "Removes contacts from a List. The contacts are not deleted. Maximum 500 contacts in each request. This operation uses POST because it has a request body. It is idempotent: a contact that is not on the List does not change, and you can safely retry failed contacts.\n\nContacts that do not exist or that the user cannot access are counted in \u0060invalid\u0060. The other contacts are still processed. URIs are listed only for contacts that were not removed.\n\nA View returns 409, because the saved filters of a View decide its contacts.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
+        "operationId": "RemoveContactsFromStaticList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactListMembershipsRequest"
+              },
+              "examples": {
+                "One contact": {
+                  "value": {
+                    "contacts": [
+                      "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoveContactsFromStaticList200Response"
+                },
+                "examples": {
+                  "One removed, one not on the List": {
+                    "value": {
+                      "resource": {
+                        "removed": 1,
+                        "not_present": 1,
+                        "invalid": 0,
+                        "failed": 0,
+                        "not_present_contacts": [
+                          "https://api.calendly.com/contacts/BBBBBBBBBBBBBBBB"
+                        ],
+                        "invalid_contacts": [],
+                        "failed_contacts": []
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactListsAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have a paid plan": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller does not have permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-fern-ignore": true
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "409": {
+            "$ref": "#/components/responses/CONTACT_LIST_MEMBERSHIP_CONFLICT"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "description": "The UUID of the contact list, from the end of its \u0060uri\u0060.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/notes": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "List Notes",
+        "description": "Returns a list of notes for one or more contacts. Notes are private. A user can see only the notes that they wrote. Notes that other users wrote about the same contacts are not returned.\n\nThe \u0060contact\u0060 parameter is required. A query parameter other than \u0060contact\u0060, \u0060count\u0060, or \u0060page_token\u0060 returns 400. The response is one list for all the contacts. Each note shows its contact in the \u0060contact\u0060 field.\n\nNotes are sorted by \u0060updated_at\u0060, most recently updated first. Notes with the same \u0060updated_at\u0060 are sorted by note ID, so the order is stable. A note that changes while you page moves to the first page, so later pages do not include it. To show reminders by due date, get all the pages, then sort them by \u0060remind_at\u0060.\n\n**Note:** Requires the Contacts API on your plan.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
+        "operationId": "ListNotes",
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "query",
+            "description": "Returns only notes about these contacts. Use 1 to 10 contact URIs, separated by commas. If the user cannot access one of the contacts, the request returns 403 and no notes.",
+            "required": true,
+            "explode": false,
+            "schema": {
+              "maxItems": 10,
+              "minItems": 1,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "x-client-original-format": "uri"
+              }
+            },
+            "example": [
+              "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA"
+            ]
+          },
+          {
+            "$ref": "#/components/parameters/Count"
+          },
+          {
+            "$ref": "#/components/parameters/PageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListNotes200Response"
+                },
+                "examples": {
+                  "Notes for a contact": {
+                    "value": {
+                      "collection": [
+                        {
+                          "uri": "https://api.calendly.com/notes/NNNNNNNNNNNNNNNN",
+                          "title": "Follow up",
+                          "body": "Send the revised proposal after Thursday\u0027s call.",
+                          "contact": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                          "remind_at": "2026-10-02T16:00:00.000Z",
+                          "completed_at": null,
+                          "created_at": "2026-09-25T18:00:00.000Z",
+                          "updated_at": "2026-09-28T16:32:00.000Z"
+                        }
+                      ],
+                      "pagination": {
+                        "count": 1,
+                        "next_page": null,
+                        "next_page_token": null,
+                        "previous_page": null,
+                        "previous_page_token": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesListAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Plan does not include the Contacts API": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller cannot access a contact": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "One or more contacts do not exist, or you cannot access them. A contact may have been merged or deleted. Search for the contacts again, then retry."
+                    }
+                  },
+                  "Caller does not have permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-fern-ignore": true
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Create Note",
+        "description": "Creates a note about one contact. The authenticated user owns the note. Send a \u0060title\u0060, a \u0060body\u0060, or both. First, leading and trailing whitespace is removed from \u0060title\u0060 and \u0060body\u0060. After that, at least one of them must contain a character, and the length limits apply. The maximum length of \u0060title\u0060 is 255 characters. Some emoji and other symbols count as 2. The maximum length of \u0060body\u0060 is 10,000 characters.\n\nTo add a reminder, send \u0060remind_at\u0060 as an RFC 3339 date-time with seconds, an uppercase \u0060T\u0060, and \u0060Z\u0060 or a \u0060\u00B1hh:mm\u0060 offset, such as \u00602026-11-01T13:00:00Z\u0060. The year must be from 1970 to 9999. The reminder is saved at that exact time. If reminders are not available on the account, the request returns 403 and no note is created.\n\nCreating a note is not idempotent: each call creates a new note. A request that fails or times out can still create the note. Before you retry, use List Notes with the contact to check.\n\n**Note:** Requires the Contacts API on your plan.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
+        "operationId": "CreateNote",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNoteRequest"
+              },
+              "examples": {
+                "Title and body": {
+                  "value": {
+                    "contact": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                    "title": "Follow up",
+                    "body": "Send the revised proposal after Thursday\u0027s call."
+                  }
+                },
+                "With a reminder": {
+                  "value": {
+                    "contact": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                    "title": "Follow up",
+                    "remind_at": "2026-10-02T16:00:00Z"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateNote201Response"
+                },
+                "examples": {
+                  "Created note": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/notes/NNNNNNNNNNNNNNNN",
+                        "title": "Follow up",
+                        "body": "Send the revised proposal after Thursday\u0027s call.",
+                        "contact": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                        "remind_at": "2026-10-02T16:00:00.000Z",
+                        "completed_at": null,
+                        "created_at": "2026-09-28T16:31:00.000Z",
+                        "updated_at": "2026-09-28T16:31:00.000Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesCreateAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Plan does not include the Contacts API": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller cannot access the contact": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "The contact does not exist, or you cannot access it. It may have been merged or deleted. Search for the contact again, then retry."
+                    }
+                  },
+                  "Reminders are not available on the account": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Reminders aren\u0027t available on your Calendly account yet. Send the note without remind_at."
+                    }
+                  },
+                  "Caller does not have permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-fern-ignore": true
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          },
+          "200": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateNote201Response"
+                },
+                "examples": {
+                  "Created note": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/notes/NNNNNNNNNNNNNNNN",
+                        "title": "Follow up",
+                        "body": "Send the revised proposal after Thursday\u0027s call.",
+                        "contact": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+                        "remind_at": "2026-10-02T16:00:00.000Z",
+                        "completed_at": null,
+                        "created_at": "2026-09-28T16:31:00.000Z",
+                        "updated_at": "2026-09-28T16:31:00.000Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      }
+    },
+    "/notes/{uuid}": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "summary": "Get Note",
+        "description": "Returns one note that the authenticated user owns. The note has the same fields as in List Notes and Create Note.\n\nIf the note does not exist, or another user owns it, the request returns 404. The response does not show if the note exists.\n\n**Note:** Requires the Contacts API on your plan.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:read\u0060\n\u003C/Info\u003E",
+        "operationId": "GetNote",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetNote200Response"
+                },
+                "examples": {
+                  "Note with a reminder": {
+                    "value": {
+                      "resource": {
+                        "uri": "https://api.calendly.com/notes/AAAAAAAAAAAAAAAA",
+                        "title": "Follow up",
+                        "body": "Send the revised proposal after Thursday\u0027s call.",
+                        "contact": "https://api.calendly.com/contacts/BBBBBBBBBBBBBBBB",
+                        "remind_at": "2026-10-02T16:00:00.000Z",
+                        "completed_at": null,
+                        "created_at": "2026-09-28T16:31:00.000Z",
+                        "updated_at": "2026-09-28T16:31:00.000Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission Denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotesGetAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Plan does not include the Contacts API": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "Please upgrade to a paid Calendly account."
+                    }
+                  },
+                  "Caller does not have permission": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "contacts:read"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "x-fern-ignore": true
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ],
+        "x-fern-ignore": true
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "description": "The UUID of the note, from the end of its \u0060uri\u0060.",
           "required": true,
           "schema": {
             "type": "string",
@@ -15777,7 +17303,8 @@
         "required": [
           "uuid",
           "label",
-          "is_active"
+          "is_active",
+          "color"
         ],
         "type": "object",
         "properties": {
@@ -15793,7 +17320,8 @@
           },
           "color": {
             "type": "string",
-            "description": "Display color for the option.",
+            "description": "Display color for the option. \u0060null\u0060 when no color is set.",
+            "nullable": true,
             "example": "blue-light"
           },
           "is_active": {
@@ -15828,6 +17356,22 @@
           }
         },
         "description": "A custom field value on a Contact. \u0060uri\u0060 is the custom field definition URI. \u0060label\u0060 is derived from the custom field definition\u0027s name."
+      },
+      "CreateContactCustomFieldDefinitionRequest": {
+        "title": "Create Contact Custom Field Definition Request",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf1Branch"
+          },
+          {
+            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf2Branch"
+          },
+          {
+            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf3Branch"
+          }
+        ],
+        "description": "Fields to create a contact custom field definition. Other fields are rejected.",
+        "x-fern-ignore": true
       },
       "ContactCustomFieldDefinition": {
         "title": "Contact Custom Field Definition",
@@ -15917,6 +17461,453 @@
           }
         },
         "description": "Permission Denied"
+      },
+      "ContactList": {
+        "title": "Contact List",
+        "required": [
+          "uri",
+          "name",
+          "type",
+          "contact_count"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the contact list.",
+            "example": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+            "x-client-original-format": "uri"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the List or View.",
+            "example": "VIP Contacts"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ContactListType"
+          },
+          "contact_count": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts on a \u0060static_list\u0060. Always set for a \u0060static_list\u0060. It is \u0060null\u0060 for a \u0060dynamic_view\u0060.",
+            "nullable": true,
+            "example": 42
+          }
+        },
+        "description": "A saved grouping of contacts. A \u0060static_list\u0060 (a List in Calendly) contains the contacts that a user adds and removes. A \u0060dynamic_view\u0060 (a View in Calendly) is defined by saved filters, so its contacts change automatically.",
+        "x-fern-ignore": true
+      },
+      "ContactListCreated": {
+        "title": "Created Contact List",
+        "required": [
+          "uri",
+          "name",
+          "type",
+          "contact_count",
+          "membership_result"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the contact list.",
+            "example": "https://api.calendly.com/contact_lists/AAAAAAAAAAAAAAAA",
+            "x-client-original-format": "uri"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the List.",
+            "example": "VIP Contacts"
+          },
+          "type": {
+            "$ref": "#/components/schemas/StaticListType"
+          },
+          "contact_count": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts on the List after the initial contacts are added.",
+            "example": 2
+          },
+          "membership_result": {
+            "$ref": "#/components/schemas/ContactListMembershipAddResult"
+          }
+        },
+        "description": "The created \u0060static_list\u0060, with the result of adding the initial contacts.",
+        "x-fern-ignore": true
+      },
+      "ContactListMembershipAddResult": {
+        "title": "Contact List Membership Add Result",
+        "required": [
+          "added",
+          "already_present",
+          "invalid",
+          "failed",
+          "already_present_contacts",
+          "invalid_contacts",
+          "failed_contacts"
+        ],
+        "type": "object",
+        "properties": {
+          "added": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts that were added. This includes contacts that were on the List before, were removed, and are now added again."
+          },
+          "already_present": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts that were already on the List. Nothing changed for them."
+          },
+          "invalid": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts that do not exist or that the user cannot access. The other contacts were still processed."
+          },
+          "failed": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts whose write failed. You can safely retry them."
+          },
+          "already_present_contacts": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-client-original-format": "uri"
+            },
+            "description": "The URIs of the contacts that were already on the List."
+          },
+          "invalid_contacts": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-client-original-format": "uri"
+            },
+            "description": "The URIs of the invalid contacts."
+          },
+          "failed_contacts": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-client-original-format": "uri"
+            },
+            "description": "The URIs of the contacts whose write failed. Send them again to retry."
+          }
+        },
+        "description": "The result of adding contacts to a List. This is a result payload, not an addressable resource. URIs are listed only for contacts that were not added.",
+        "x-fern-ignore": true
+      },
+      "ContactListMembershipRemoveResult": {
+        "title": "Contact List Membership Remove Result",
+        "required": [
+          "removed",
+          "not_present",
+          "invalid",
+          "failed",
+          "not_present_contacts",
+          "invalid_contacts",
+          "failed_contacts"
+        ],
+        "type": "object",
+        "properties": {
+          "removed": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts that were removed."
+          },
+          "not_present": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts that were not on the List. Nothing changed for them."
+          },
+          "invalid": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts that do not exist or that the user cannot access. The other contacts were still processed."
+          },
+          "failed": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The number of contacts whose write failed. You can safely retry them."
+          },
+          "not_present_contacts": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-client-original-format": "uri"
+            },
+            "description": "The URIs of the contacts that were not on the List."
+          },
+          "invalid_contacts": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-client-original-format": "uri"
+            },
+            "description": "The URIs of the invalid contacts."
+          },
+          "failed_contacts": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "x-client-original-format": "uri"
+            },
+            "description": "The URIs of the contacts whose write failed. Send them again to retry."
+          }
+        },
+        "description": "The result of removing contacts from a List. This is a result payload, not an addressable resource. URIs are listed only for contacts that were not removed.",
+        "x-fern-ignore": true
+      },
+      "CreateContactListRequest": {
+        "title": "Create Contact List Request",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
+            "type": "string",
+            "description": "The name of the List. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters. It must not match the name of another List. The match ignores case, accents, and leading and trailing spaces.",
+            "example": "VIP Contacts"
+          },
+          "contacts": {
+            "maxItems": 500,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+              "x-client-original-format": "uri"
+            },
+            "description": "Contacts to add to the new List, as contact URIs. Maximum 500. A contact that appears more than once is added once."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields to create a List. Other fields are rejected.",
+        "x-fern-ignore": true
+      },
+      "UpdateContactListRequest": {
+        "title": "Update Contact List Request",
+        "minProperties": 1,
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
+            "type": "string",
+            "description": "The new name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters. A List name must not match the name of another List. A View name can match another name.",
+            "example": "Priority VIP Contacts"
+          }
+        },
+        "description": "Fields to rename a List or View. Other fields are rejected.",
+        "x-fern-ignore": true
+      },
+      "ContactListMembershipsRequest": {
+        "title": "Contact List Memberships Request",
+        "required": [
+          "contacts"
+        ],
+        "type": "object",
+        "properties": {
+          "contacts": {
+            "maxItems": 500,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+              "x-client-original-format": "uri"
+            },
+            "description": "Contact URIs. Minimum 1, maximum 500. A contact that appears more than once is processed once."
+          }
+        },
+        "description": "The contacts to add to or remove from a List. Other fields are rejected.",
+        "x-fern-ignore": true
+      },
+      "ContactListsError": {
+        "title": "ContactListsError",
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/ContactListsErrorMessage"
+          }
+        },
+        "description": "Permission Denied",
+        "x-fern-ignore": true
+      },
+      "Note": {
+        "title": "Note",
+        "required": [
+          "uri",
+          "title",
+          "body",
+          "contact",
+          "remind_at",
+          "completed_at",
+          "created_at",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string",
+            "description": "Canonical reference (unique identifier) for the note.",
+            "example": "https://api.calendly.com/notes/NNNNNNNNNNNNNNNN",
+            "x-client-original-format": "uri"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the note. \u0060null\u0060 if the note has no title. Maximum 255 characters. Some emoji and other symbols count as 2.",
+            "nullable": true,
+            "example": "Follow up"
+          },
+          "body": {
+            "type": "string",
+            "description": "The plain-text content of the note. \u0060null\u0060 if the note has no body. Maximum 10,000 characters.",
+            "nullable": true,
+            "example": "Send the revised proposal after Thursday\u0027s call."
+          },
+          "contact": {
+            "type": "string",
+            "description": "The URI of the contact that the note is about. Never \u0060null\u0060 when you filter by \u0060contact\u0060. \u0060null\u0060 only for a note that has no contact.",
+            "nullable": true,
+            "example": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+            "x-client-original-format": "uri"
+          },
+          "remind_at": {
+            "type": "string",
+            "description": "When the reminder is due. \u0060null\u0060 if the note has no reminder.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2026-10-02T16:00:00.000Z"
+          },
+          "completed_at": {
+            "type": "string",
+            "description": "When the reminder was completed. \u0060null\u0060 if the reminder is not complete or the note has no reminder.",
+            "format": "date-time",
+            "nullable": true,
+            "example": null
+          },
+          "created_at": {
+            "type": "string",
+            "description": "When the note was created.",
+            "format": "date-time",
+            "example": "2026-09-28T16:31:00.000Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "When the note or its reminder was last changed.",
+            "format": "date-time",
+            "example": "2026-09-28T16:31:00.000Z"
+          }
+        },
+        "description": "A note that a user wrote about a contact. Only the user who owns a note can see it.",
+        "x-fern-ignore": true
+      },
+      "CreateNoteRequest": {
+        "title": "Create Note Request",
+        "required": [
+          "contact"
+        ],
+        "type": "object",
+        "properties": {
+          "contact": {
+            "type": "string",
+            "description": "The URI of the contact that the note is about.",
+            "example": "https://api.calendly.com/contacts/AAAAAAAAAAAAAAAA",
+            "x-client-original-format": "uri"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the note. Leading and trailing whitespace is removed. After that, the maximum length is 255 characters. Some emoji and other symbols count as 2. Omit it, send \u0060null\u0060, or send an empty string for no title.",
+            "nullable": true,
+            "example": "Follow up"
+          },
+          "body": {
+            "type": "string",
+            "description": "The plain-text content of the note. Leading and trailing whitespace is removed. After that, the maximum length is 10,000 characters. Omit it, send \u0060null\u0060, or send an empty string for no body.",
+            "nullable": true,
+            "example": "Send the revised proposal after Thursday\u0027s call."
+          },
+          "remind_at": {
+            "type": "string",
+            "description": "When the reminder is due, as an RFC 3339 date-time with seconds, an uppercase \u0060T\u0060, and \u0060Z\u0060 or a \u0060\u00B1hh:mm\u0060 offset, in the years 1970 to 9999. Omit it or send \u0060null\u0060 for no reminder.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2026-10-02T16:00:00Z"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields to create a note. Other fields are rejected. Send a \u0060title\u0060, a \u0060body\u0060, or both. At least one of them must contain a character that is not whitespace, or the request returns 400.",
+        "x-fern-ignore": true
+      },
+      "ListNotesError": {
+        "title": "ListNotesError",
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/ListNotesErrorMessage"
+          }
+        },
+        "description": "Permission Denied",
+        "x-fern-ignore": true
+      },
+      "CreateNoteError": {
+        "title": "CreateNoteError",
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/CreateNoteErrorMessage"
+          }
+        },
+        "description": "Permission Denied",
+        "x-fern-ignore": true
+      },
+      "GetNoteError": {
+        "title": "GetNoteError",
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/PermissionDeniedTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/GetNoteErrorMessage"
+          }
+        },
+        "description": "Permission Denied",
+        "x-fern-ignore": true
       },
       "Pagination": {
         "title": "Pagination",
@@ -17669,6 +19660,137 @@
           }
         }
       },
+      "ContactListsAndScopesForbiddenResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ContactListsError"
+          },
+          {
+            "$ref": "#/components/schemas/InsufficientScopeError"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/ContactListsError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
+          }
+        }
+      },
+      "ContactListCreateConflictResponse": {
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/ContactListCreateConflictResponseTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/ContactListCreateConflictResponseMessage"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          }
+        }
+      },
+      "ContactListUpdateConflictResponse": {
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/ContactListUpdateConflictResponseTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/ContactListUpdateConflictResponseMessage"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          }
+        }
+      },
+      "ContactListMembershipConflictResponse": {
+        "required": [
+          "title",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/ConflictTitle"
+          },
+          "message": {
+            "$ref": "#/components/schemas/YouCanAddOrRemovePeopleOnlyOnAListThisIsAViewCommaSoItsPeopleComeFromItsSavedFiltersDotMessage"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponseDetailsItem"
+            }
+          }
+        }
+      },
+      "NotesListAndScopesForbiddenResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ListNotesError"
+          },
+          {
+            "$ref": "#/components/schemas/InsufficientScopeError"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/ListNotesError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
+          }
+        }
+      },
+      "NotesGetAndScopesForbiddenResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GetNoteError"
+          },
+          {
+            "$ref": "#/components/schemas/InsufficientScopeError"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/GetNoteError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
+          }
+        }
+      },
+      "NotesCreateAndScopesForbiddenResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateNoteError"
+          },
+          {
+            "$ref": "#/components/schemas/InsufficientScopeError"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "title",
+          "mapping": {
+            "Permission Denied": "#/components/schemas/CreateNoteError",
+            "Insufficient scope": "#/components/schemas/InsufficientScopeError"
+          }
+        }
+      },
       "WebhookPayloadPayload": {
         "oneOf": [
           {
@@ -18973,6 +21095,21 @@
         },
         "additionalProperties": false,
         "description": "Deleted meeting recap resource reference"
+      },
+      "CreateContactCustomFieldDefinitionRequestOptionsItem": {
+        "required": [
+          "label"
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "pattern": "\\S",
+            "type": "string",
+            "description": "Option label. The value must contain a non-whitespace character. Duplicate labels are allowed.",
+            "example": "Website"
+          }
+        },
+        "additionalProperties": false
       },
       "ActorOrganization": {
         "type": "object",
@@ -20843,6 +22980,42 @@
           }
         }
       },
+      "ListContactLists200Response": {
+        "required": [
+          "collection",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactList"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "ListNotes200Response": {
+        "required": [
+          "collection",
+          "pagination"
+        ],
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Note"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
       "CreateEventType201Response": {
         "required": [
           "resource"
@@ -21410,6 +23583,17 @@
           }
         }
       },
+      "CreateContactCustomFieldDefinition201Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ContactCustomFieldDefinition"
+          }
+        }
+      },
       "GetContactCustomFieldDefinition200Response": {
         "required": [
           "resource"
@@ -21440,6 +23624,83 @@
         "properties": {
           "resource": {
             "$ref": "#/components/schemas/Contact"
+          }
+        }
+      },
+      "CreateContactList201Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ContactListCreated"
+          }
+        }
+      },
+      "GetContactList200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ContactList"
+          }
+        }
+      },
+      "UpdateContactList200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ContactList"
+          }
+        }
+      },
+      "AddContactsToStaticList200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ContactListMembershipAddResult"
+          }
+        }
+      },
+      "RemoveContactsFromStaticList200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ContactListMembershipRemoveResult"
+          }
+        }
+      },
+      "CreateNote201Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/Note"
+          }
+        }
+      },
+      "GetNote200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/Note"
           }
         }
       },
@@ -24042,6 +26303,48 @@
           ]
         }
       },
+      "CreateContactCustomFieldDefinitionRequestFieldType": {
+        "enum": [
+          "text",
+          "number",
+          "currency",
+          "tags",
+          "date",
+          "single_select"
+        ],
+        "type": "string",
+        "description": "Field type. Supported values:\n- \u0060text\u0060: A text value.\n- \u0060number\u0060: A numeric value.\n- \u0060currency\u0060: A monetary amount in the specified currency.\n- \u0060tags\u0060: A list of text labels.\n- \u0060date\u0060: A calendar date.\n- \u0060single_select\u0060: One value from the field\u0027s configured options.\n\nSystem-generated \u0060invitee_question\u0060 fields cannot be created.",
+        "x-ms-enum": {
+          "name": "CreateContactCustomFieldDefinitionRequestFieldType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "text",
+              "name": "Text"
+            },
+            {
+              "value": "number",
+              "name": "Number"
+            },
+            {
+              "value": "currency",
+              "name": "Currency"
+            },
+            {
+              "value": "tags",
+              "name": "Tags"
+            },
+            {
+              "value": "date",
+              "name": "Date"
+            },
+            {
+              "value": "single_select",
+              "name": "SingleSelect"
+            }
+          ]
+        }
+      },
       "ContactCustomFieldDefinitionFieldType": {
         "enum": [
           "text",
@@ -24138,6 +26441,145 @@
             {
               "value": "Meeting recap access is not available. Required features are not enabled for your account",
               "name": "MeetingRecapAccessIsNotAvailableRequiredFeaturesAreNotEnabledForYourAccount"
+            }
+          ]
+        }
+      },
+      "ContactListType": {
+        "enum": [
+          "static_list",
+          "dynamic_view"
+        ],
+        "type": "string",
+        "description": "\u0060static_list\u0060 for a List. \u0060dynamic_view\u0060 for a View.",
+        "example": "static_list",
+        "x-ms-enum": {
+          "name": "ContactListType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "static_list",
+              "name": "StaticList"
+            },
+            {
+              "value": "dynamic_view",
+              "name": "DynamicView"
+            }
+          ]
+        }
+      },
+      "StaticListType": {
+        "enum": [
+          "static_list"
+        ],
+        "type": "string",
+        "description": "Always \u0060static_list\u0060. You cannot create a View with this API.",
+        "x-ms-enum": {
+          "name": "StaticListType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "static_list",
+              "name": "StaticList"
+            }
+          ]
+        }
+      },
+      "ContactListsErrorMessage": {
+        "enum": [
+          "Please upgrade to a paid Calendly account.",
+          "You do not have permission to access this resource."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ContactListsErrorMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Please upgrade to a paid Calendly account.",
+              "name": "PleaseUpgradeToAPaidCalendlyAccount"
+            },
+            {
+              "value": "You do not have permission to access this resource.",
+              "name": "YouDoNotHavePermissionToAccessThisResource"
+            }
+          ]
+        }
+      },
+      "ListNotesErrorMessage": {
+        "enum": [
+          "Please upgrade to a paid Calendly account.",
+          "You do not have permission to access this resource.",
+          "One or more contacts do not exist, or you cannot access them. A contact may have been merged or deleted. Search for the contacts again, then retry."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ListNotesErrorMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Please upgrade to a paid Calendly account.",
+              "name": "PleaseUpgradeToAPaidCalendlyAccount"
+            },
+            {
+              "value": "You do not have permission to access this resource.",
+              "name": "YouDoNotHavePermissionToAccessThisResource"
+            },
+            {
+              "value": "One or more contacts do not exist, or you cannot access them. A contact may have been merged or deleted. Search for the contacts again, then retry.",
+              "name": "ValueD95B9F1B9939B0F9"
+            }
+          ]
+        }
+      },
+      "CreateNoteErrorMessage": {
+        "enum": [
+          "Please upgrade to a paid Calendly account.",
+          "You do not have permission to access this resource.",
+          "The contact does not exist, or you cannot access it. It may have been merged or deleted. Search for the contact again, then retry.",
+          "Reminders aren\u0027t available on your Calendly account yet. Send the note without remind_at."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CreateNoteErrorMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Please upgrade to a paid Calendly account.",
+              "name": "PleaseUpgradeToAPaidCalendlyAccount"
+            },
+            {
+              "value": "You do not have permission to access this resource.",
+              "name": "YouDoNotHavePermissionToAccessThisResource"
+            },
+            {
+              "value": "The contact does not exist, or you cannot access it. It may have been merged or deleted. Search for the contact again, then retry.",
+              "name": "Value75B4393BAE097AF2"
+            },
+            {
+              "value": "Reminders aren\u0027t available on your Calendly account yet. Send the note without remind_at.",
+              "name": "RemindersArenApostropheTAvailableOnYourCalendlyAccountYetSendTheNoteWithoutRemindAtDot"
+            }
+          ]
+        }
+      },
+      "GetNoteErrorMessage": {
+        "enum": [
+          "Please upgrade to a paid Calendly account.",
+          "You do not have permission to access this resource."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "GetNoteErrorMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Please upgrade to a paid Calendly account.",
+              "name": "PleaseUpgradeToAPaidCalendlyAccount"
+            },
+            {
+              "value": "You do not have permission to access this resource.",
+              "name": "YouDoNotHavePermissionToAccessThisResource"
             }
           ]
         }
@@ -25107,6 +27549,167 @@
             {
               "value": "The resource already exists",
               "name": "TheResourceAlreadyExists"
+            }
+          ]
+        }
+      },
+      "ContactListCreateConflictResponseTitle": {
+        "enum": [
+          "Already Exists",
+          "Conflict"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ContactListCreateConflictResponseTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Already Exists",
+              "name": "AlreadyExists"
+            }
+          ]
+        }
+      },
+      "ContactListCreateConflictResponseMessage": {
+        "enum": [
+          "The resource already exists",
+          "You have reached the limit of 25 Lists and Views. Views created by CSV imports count toward this limit. Delete a List or View in Calendly, then try again."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ContactListCreateConflictResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The resource already exists",
+              "name": "TheResourceAlreadyExists"
+            },
+            {
+              "value": "You have reached the limit of 25 Lists and Views. Views created by CSV imports count toward this limit. Delete a List or View in Calendly, then try again.",
+              "name": "Value1C0E870F74847390"
+            }
+          ]
+        }
+      },
+      "ContactListUpdateConflictResponseTitle": {
+        "enum": [
+          "Already Exists",
+          "Conflict"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ContactListUpdateConflictResponseTitle",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Already Exists",
+              "name": "AlreadyExists"
+            }
+          ]
+        }
+      },
+      "ContactListUpdateConflictResponseMessage": {
+        "enum": [
+          "The resource already exists",
+          "The All Contacts View can\u0027t be renamed."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ContactListUpdateConflictResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "The resource already exists",
+              "name": "TheResourceAlreadyExists"
+            },
+            {
+              "value": "The All Contacts View can\u0027t be renamed.",
+              "name": "TheAllContactsViewCanApostropheTBeRenamedDot"
+            }
+          ]
+        }
+      },
+      "ConflictTitle": {
+        "enum": [
+          "Conflict"
+        ],
+        "type": "string"
+      },
+      "YouCanAddOrRemovePeopleOnlyOnAListThisIsAViewCommaSoItsPeopleComeFromItsSavedFiltersDotMessage": {
+        "enum": [
+          "You can add or remove people only on a List. This is a View, so its people come from its saved filters."
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YouCanAddOrRemovePeopleOnlyOnAListThisIsAViewCommaSoItsPeopleComeFromItsSavedFiltersDotMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "You can add or remove people only on a List. This is a View, so its people come from its saved filters.",
+              "name": "YouCanAddOrRemovePeopleOnlyOnAListThisIsAViewCommaSoItsPeopleComeFromItsSavedFiltersDot"
+            }
+          ]
+        }
+      },
+      "CreateContactCustomFieldDefinitionRequestOneOf1FieldType": {
+        "enum": [
+          "text",
+          "number",
+          "date",
+          "tags"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CreateContactCustomFieldDefinitionRequestOneOf1FieldType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "text",
+              "name": "Text"
+            },
+            {
+              "value": "number",
+              "name": "Number"
+            },
+            {
+              "value": "date",
+              "name": "Date"
+            },
+            {
+              "value": "tags",
+              "name": "Tags"
+            }
+          ]
+        }
+      },
+      "CurrencyFieldType": {
+        "enum": [
+          "currency"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CurrencyFieldType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "currency",
+              "name": "Currency"
+            }
+          ]
+        }
+      },
+      "SingleSelectFieldType": {
+        "enum": [
+          "single_select"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "SingleSelectFieldType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "single_select",
+              "name": "SingleSelect"
             }
           ]
         }
@@ -26640,6 +29243,189 @@
           ]
         }
       },
+      "ListContactListsTypeParameter": {
+        "enum": [
+          "static_list",
+          "dynamic_view"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ListContactListsTypeParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "static_list",
+              "name": "StaticList"
+            },
+            {
+              "value": "dynamic_view",
+              "name": "DynamicView"
+            }
+          ]
+        }
+      },
+      "CreateContactCustomFieldDefinitionRequestOneOf1Branch": {
+        "allOf": [
+          {
+            "type": "object",
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "currency"
+                  ]
+                },
+                {
+                  "required": [
+                    "options"
+                  ]
+                }
+              ]
+            },
+            "properties": {
+              "field_type": {
+                "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf1FieldType"
+              }
+            }
+          }
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
+            "type": "string",
+            "description": "Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.",
+            "example": "Lead source"
+          },
+          "field_type": {
+            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestFieldType"
+          },
+          "currency": {
+            "pattern": "^([Uu][Ss][Dd]|[Ee][Uu][Rr]|[Gg][Bb][Pp]|[Jj][Pp][Yy]|[Cc][Hh][Ff]|[Cc][Aa][Dd]|[Aa][Uu][Dd]|[Cc][Nn][Yy]|[Ss][Gg][Dd]|[Ii][Nn][Rr]|[Kk][Rr][Ww])$",
+            "type": "string",
+            "description": "Required only for \u0060currency\u0060 fields. Supported codes are \u0060USD\u0060, \u0060EUR\u0060, \u0060GBP\u0060, \u0060JPY\u0060, \u0060CHF\u0060, \u0060CAD\u0060, \u0060AUD\u0060, \u0060CNY\u0060, \u0060SGD\u0060, \u0060INR\u0060, and \u0060KRW\u0060. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.",
+            "example": "usd"
+          },
+          "options": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOptionsItem"
+            },
+            "description": "Required only for \u0060single_select\u0060 fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field."
+          }
+        },
+        "required": [
+          "label",
+          "field_type"
+        ],
+        "additionalProperties": false
+      },
+      "CreateContactCustomFieldDefinitionRequestOneOf2Branch": {
+        "allOf": [
+          {
+            "required": [
+              "currency"
+            ],
+            "type": "object",
+            "not": {
+              "required": [
+                "options"
+              ]
+            },
+            "properties": {
+              "field_type": {
+                "$ref": "#/components/schemas/CurrencyFieldType"
+              }
+            }
+          }
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
+            "type": "string",
+            "description": "Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.",
+            "example": "Lead source"
+          },
+          "field_type": {
+            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestFieldType"
+          },
+          "currency": {
+            "pattern": "^([Uu][Ss][Dd]|[Ee][Uu][Rr]|[Gg][Bb][Pp]|[Jj][Pp][Yy]|[Cc][Hh][Ff]|[Cc][Aa][Dd]|[Aa][Uu][Dd]|[Cc][Nn][Yy]|[Ss][Gg][Dd]|[Ii][Nn][Rr]|[Kk][Rr][Ww])$",
+            "type": "string",
+            "description": "Required only for \u0060currency\u0060 fields. Supported codes are \u0060USD\u0060, \u0060EUR\u0060, \u0060GBP\u0060, \u0060JPY\u0060, \u0060CHF\u0060, \u0060CAD\u0060, \u0060AUD\u0060, \u0060CNY\u0060, \u0060SGD\u0060, \u0060INR\u0060, and \u0060KRW\u0060. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.",
+            "example": "usd"
+          },
+          "options": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOptionsItem"
+            },
+            "description": "Required only for \u0060single_select\u0060 fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field."
+          }
+        },
+        "required": [
+          "label",
+          "field_type"
+        ],
+        "additionalProperties": false
+      },
+      "CreateContactCustomFieldDefinitionRequestOneOf3Branch": {
+        "allOf": [
+          {
+            "required": [
+              "options"
+            ],
+            "type": "object",
+            "not": {
+              "required": [
+                "currency"
+              ]
+            },
+            "properties": {
+              "field_type": {
+                "$ref": "#/components/schemas/SingleSelectFieldType"
+              }
+            }
+          }
+        ],
+        "type": "object",
+        "properties": {
+          "label": {
+            "pattern": "^\\s*\\S(?:[\\s\\S]{0,253}\\S)?\\s*$",
+            "type": "string",
+            "description": "Display name. Leading and trailing whitespace is removed. The result must contain 1 to 255 characters.",
+            "example": "Lead source"
+          },
+          "field_type": {
+            "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestFieldType"
+          },
+          "currency": {
+            "pattern": "^([Uu][Ss][Dd]|[Ee][Uu][Rr]|[Gg][Bb][Pp]|[Jj][Pp][Yy]|[Cc][Hh][Ff]|[Cc][Aa][Dd]|[Aa][Uu][Dd]|[Cc][Nn][Yy]|[Ss][Gg][Dd]|[Ii][Nn][Rr]|[Kk][Rr][Ww])$",
+            "type": "string",
+            "description": "Required only for \u0060currency\u0060 fields. Supported codes are \u0060USD\u0060, \u0060EUR\u0060, \u0060GBP\u0060, \u0060JPY\u0060, \u0060CHF\u0060, \u0060CAD\u0060, \u0060AUD\u0060, \u0060CNY\u0060, \u0060SGD\u0060, \u0060INR\u0060, and \u0060KRW\u0060. Codes are not case-sensitive. The response uses uppercase. Other field types reject this field.",
+            "example": "usd"
+          },
+          "options": {
+            "maxItems": 10,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOptionsItem"
+            },
+            "description": "Required only for \u0060single_select\u0060 fields. Supply 1 to 10 label-only objects in display order. Duplicate labels are allowed. The server assigns option UUIDs. Other field types reject this field."
+          }
+        },
+        "required": [
+          "label",
+          "field_type"
+        ],
+        "additionalProperties": false
+      },
       "GetInviteesAndScopesForbiddenResponseError": {
         "type": "object",
         "properties": {
@@ -27931,6 +30717,285 @@
         ],
         "x-client-original-error-schema": {
           "$ref": "#/components/schemas/ContactsAndScopesForbiddenResponse"
+        }
+      },
+      "ContactListsAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade to a paid Calendly account.",
+              "You do not have permission to access this resource.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade to a paid Calendly account.",
+                  "name": "PleaseUpgradeToAPaidCalendlyAccount"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/ContactListsAndScopesForbiddenResponse"
+        }
+      },
+      "NotesCreateAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade to a paid Calendly account.",
+              "You do not have permission to access this resource.",
+              "The contact does not exist, or you cannot access it. It may have been merged or deleted. Search for the contact again, then retry.",
+              "Reminders aren\u0027t available on your Calendly account yet. Send the note without remind_at.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade to a paid Calendly account.",
+                  "name": "PleaseUpgradeToAPaidCalendlyAccount"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "The contact does not exist, or you cannot access it. It may have been merged or deleted. Search for the contact again, then retry.",
+                  "name": "Value75B4393BAE097AF2"
+                },
+                {
+                  "value": "Reminders aren\u0027t available on your Calendly account yet. Send the note without remind_at.",
+                  "name": "RemindersArenApostropheTAvailableOnYourCalendlyAccountYetSendTheNoteWithoutRemindAtDot"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/NotesCreateAndScopesForbiddenResponse"
+        }
+      },
+      "NotesListAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade to a paid Calendly account.",
+              "You do not have permission to access this resource.",
+              "One or more contacts do not exist, or you cannot access them. A contact may have been merged or deleted. Search for the contacts again, then retry.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade to a paid Calendly account.",
+                  "name": "PleaseUpgradeToAPaidCalendlyAccount"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "One or more contacts do not exist, or you cannot access them. A contact may have been merged or deleted. Search for the contacts again, then retry.",
+                  "name": "ValueD95B9F1B9939B0F9"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/NotesListAndScopesForbiddenResponse"
+        }
+      },
+      "NotesGetAndScopesForbiddenResponseError": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "Permission Denied",
+              "Insufficient scope"
+            ],
+            "x-ms-enum": {
+              "name": "Title",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Permission Denied",
+                  "name": "PermissionDenied"
+                },
+                {
+                  "value": "Insufficient scope",
+                  "name": "InsufficientScope"
+                }
+              ]
+            }
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Please upgrade to a paid Calendly account.",
+              "You do not have permission to access this resource.",
+              "This operation requires the scopes listed in the \u0027required_scopes\u0027 array."
+            ],
+            "x-ms-enum": {
+              "name": "Message",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "Please upgrade to a paid Calendly account.",
+                  "name": "PleaseUpgradeToAPaidCalendlyAccount"
+                },
+                {
+                  "value": "You do not have permission to access this resource.",
+                  "name": "YouDoNotHavePermissionToAccessThisResource"
+                },
+                {
+                  "value": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "name": "ThisOperationRequiresTheScopesListedInTheApostropheRequiredScopesApostropheArrayDot"
+                }
+              ]
+            }
+          },
+          "required_scopes": {
+            "type": "array",
+            "items": {
+              "pattern": "^[a-z_]\u002B:(read|write)$",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "title"
+        ],
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/NotesGetAndScopesForbiddenResponse"
         }
       },
       "OpenApiNullValue": {
@@ -29434,6 +32499,261 @@
             }
           }
         }
+      },
+      "CONTACT_LISTS_AND_SCOPES_FORBIDDEN": {
+        "description": "Permission Denied or insufficient scope",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ContactListsAndScopesForbiddenResponse"
+            },
+            "examples": {
+              "Caller does not have a paid plan": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "Please upgrade to a paid Calendly account."
+                }
+              },
+              "Caller does not have permission": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "You do not have permission to access this resource."
+                }
+              },
+              "Caller has insufficient scope": {
+                "value": {
+                  "title": "Insufficient scope",
+                  "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "required_scopes": [
+                    "contacts:write"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
+      },
+      "CONTACT_LIST_CREATE_CONFLICT": {
+        "description": "The List name is taken, or the user has reached the limit of 25 Lists and Views",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ContactListCreateConflictResponse"
+            },
+            "examples": {
+              "List name is taken": {
+                "value": {
+                  "title": "Already Exists",
+                  "message": "The resource already exists",
+                  "details": [
+                    {
+                      "parameter": "name",
+                      "message": "A List with this name already exists. Choose a different name.",
+                      "code": "CONTACT_LIST_NAME_ALREADY_EXISTS"
+                    }
+                  ]
+                }
+              },
+              "List limit reached": {
+                "value": {
+                  "title": "Conflict",
+                  "message": "You have reached the limit of 25 Lists and Views. Views created by CSV imports count toward this limit. Delete a List or View in Calendly, then try again.",
+                  "details": [
+                    {
+                      "message": "You have reached the limit of 25 Lists and Views. Views created by CSV imports count toward this limit. Delete a List or View in Calendly, then try again.",
+                      "code": "CONTACT_LIST_LIMIT_EXCEEDED"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
+      },
+      "CONTACT_LIST_UPDATE_CONFLICT": {
+        "description": "The List name is taken, or the View cannot be renamed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ContactListUpdateConflictResponse"
+            },
+            "examples": {
+              "List name is taken": {
+                "value": {
+                  "title": "Already Exists",
+                  "message": "The resource already exists",
+                  "details": [
+                    {
+                      "parameter": "name",
+                      "message": "A List with this name already exists. Choose a different name.",
+                      "code": "CONTACT_LIST_NAME_ALREADY_EXISTS"
+                    }
+                  ]
+                }
+              },
+              "All Contacts View": {
+                "value": {
+                  "title": "Conflict",
+                  "message": "The All Contacts View can\u0027t be renamed.",
+                  "details": [
+                    {
+                      "message": "The All Contacts View can\u0027t be renamed.",
+                      "code": "CONTACT_LIST_RENAME_NOT_ALLOWED"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
+      },
+      "CONTACT_LIST_MEMBERSHIP_CONFLICT": {
+        "description": "The contact list is a View, so its contacts cannot be changed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ContactListMembershipConflictResponse"
+            },
+            "examples": {
+              "Contact list is a View": {
+                "value": {
+                  "title": "Conflict",
+                  "message": "You can add or remove people only on a List. This is a View, so its people come from its saved filters.",
+                  "details": [
+                    {
+                      "message": "You can add or remove people only on a List. This is a View, so its people come from its saved filters.",
+                      "code": "CONTACT_LIST_MEMBERSHIP_INVALID_TARGET"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
+      },
+      "NOTES_LIST_AND_SCOPES_FORBIDDEN": {
+        "description": "Permission Denied or insufficient scope",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/NotesListAndScopesForbiddenResponse"
+            },
+            "examples": {
+              "Plan does not include the Contacts API": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "Please upgrade to a paid Calendly account."
+                }
+              },
+              "Caller cannot access a contact": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "One or more contacts do not exist, or you cannot access them. A contact may have been merged or deleted. Search for the contacts again, then retry."
+                }
+              },
+              "Caller does not have permission": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "You do not have permission to access this resource."
+                }
+              },
+              "Caller has insufficient scope": {
+                "value": {
+                  "title": "Insufficient scope",
+                  "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "required_scopes": [
+                    "contacts:read"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
+      },
+      "NOTES_GET_AND_SCOPES_FORBIDDEN": {
+        "description": "Permission Denied or insufficient scope",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/NotesGetAndScopesForbiddenResponse"
+            },
+            "examples": {
+              "Plan does not include the Contacts API": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "Please upgrade to a paid Calendly account."
+                }
+              },
+              "Caller does not have permission": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "You do not have permission to access this resource."
+                }
+              },
+              "Caller has insufficient scope": {
+                "value": {
+                  "title": "Insufficient scope",
+                  "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "required_scopes": [
+                    "contacts:read"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
+      },
+      "NOTES_CREATE_AND_SCOPES_FORBIDDEN": {
+        "description": "Permission Denied or insufficient scope",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/NotesCreateAndScopesForbiddenResponse"
+            },
+            "examples": {
+              "Plan does not include the Contacts API": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "Please upgrade to a paid Calendly account."
+                }
+              },
+              "Caller cannot access the contact": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "The contact does not exist, or you cannot access it. It may have been merged or deleted. Search for the contact again, then retry."
+                }
+              },
+              "Reminders are not available on the account": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "Reminders aren\u0027t available on your Calendly account yet. Send the note without remind_at."
+                }
+              },
+              "Caller does not have permission": {
+                "value": {
+                  "title": "Permission Denied",
+                  "message": "You do not have permission to access this resource."
+                }
+              },
+              "Caller has insufficient scope": {
+                "value": {
+                  "title": "Insufficient scope",
+                  "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                  "required_scopes": [
+                    "contacts:write"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-fern-ignore": true
       }
     },
     "parameters": {
@@ -30132,6 +33452,60 @@
         }
       }
     },
+    "CreateContactCustomFieldDefinitionRequestOneOf1": {
+      "type": "object",
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "currency"
+            ]
+          },
+          {
+            "required": [
+              "options"
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "field_type": {
+          "$ref": "#/components/schemas/CreateContactCustomFieldDefinitionRequestOneOf1FieldType"
+        }
+      }
+    },
+    "CreateContactCustomFieldDefinitionRequestOneOf2": {
+      "required": [
+        "currency"
+      ],
+      "type": "object",
+      "not": {
+        "required": [
+          "options"
+        ]
+      },
+      "properties": {
+        "field_type": {
+          "$ref": "#/components/schemas/CurrencyFieldType"
+        }
+      }
+    },
+    "CreateContactCustomFieldDefinitionRequestOneOf3": {
+      "required": [
+        "options"
+      ],
+      "type": "object",
+      "not": {
+        "required": [
+          "currency"
+        ]
+      },
+      "properties": {
+        "field_type": {
+          "$ref": "#/components/schemas/SingleSelectFieldType"
+        }
+      }
+    },
     "InvalidArgumentResponseAllOf2": {
       "type": "object",
       "properties": {
@@ -30217,6 +33591,39 @@
         },
         "message": {
           "$ref": "#/components/schemas/TheResourceAlreadyExistsMessage"
+        }
+      }
+    },
+    "ContactListCreateConflictResponseAllOf2": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/components/schemas/ContactListCreateConflictResponseAllOf2Title"
+        },
+        "message": {
+          "$ref": "#/components/schemas/ContactListCreateConflictResponseAllOf2Message"
+        }
+      }
+    },
+    "ContactListUpdateConflictResponseAllOf2": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/components/schemas/ContactListUpdateConflictResponseAllOf2Title"
+        },
+        "message": {
+          "$ref": "#/components/schemas/ContactListUpdateConflictResponseAllOf2Message"
+        }
+      }
+    },
+    "ContactListMembershipConflictResponseAllOf2": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/components/schemas/ConflictTitle"
+        },
+        "message": {
+          "$ref": "#/components/schemas/YouCanAddOrRemovePeopleOnlyOnAListThisIsAViewCommaSoItsPeopleComeFromItsSavedFiltersDotMessage"
         }
       }
     },
@@ -30386,6 +33793,82 @@
           {
             "value": "You do not have permission",
             "name": "YouDoNotHavePermission"
+          }
+        ]
+      }
+    },
+    "ContactListCreateConflictResponseAllOf2Title": {
+      "enum": [
+        "Already Exists",
+        "Conflict"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ContactListCreateConflictResponseAllOf2Title",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "Already Exists",
+            "name": "AlreadyExists"
+          }
+        ]
+      }
+    },
+    "ContactListCreateConflictResponseAllOf2Message": {
+      "enum": [
+        "The resource already exists",
+        "You have reached the limit of 25 Lists and Views. Views created by CSV imports count toward this limit. Delete a List or View in Calendly, then try again."
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ContactListCreateConflictResponseAllOf2Message",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "The resource already exists",
+            "name": "TheResourceAlreadyExists"
+          },
+          {
+            "value": "You have reached the limit of 25 Lists and Views. Views created by CSV imports count toward this limit. Delete a List or View in Calendly, then try again.",
+            "name": "Value1C0E870F74847390"
+          }
+        ]
+      }
+    },
+    "ContactListUpdateConflictResponseAllOf2Title": {
+      "enum": [
+        "Already Exists",
+        "Conflict"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ContactListUpdateConflictResponseAllOf2Title",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "Already Exists",
+            "name": "AlreadyExists"
+          }
+        ]
+      }
+    },
+    "ContactListUpdateConflictResponseAllOf2Message": {
+      "enum": [
+        "The resource already exists",
+        "The All Contacts View can\u0027t be renamed."
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ContactListUpdateConflictResponseAllOf2Message",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "The resource already exists",
+            "name": "TheResourceAlreadyExists"
+          },
+          {
+            "value": "The All Contacts View can\u0027t be renamed.",
+            "name": "TheAllContactsViewCanApostropheTBeRenamedDot"
           }
         ]
       }

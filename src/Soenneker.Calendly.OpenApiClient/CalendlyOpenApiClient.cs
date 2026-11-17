@@ -8,6 +8,7 @@ using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.Calendly.OpenApiClient.Activity_log_entries;
 using Soenneker.Calendly.OpenApiClient.Calendar_events;
+using Soenneker.Calendly.OpenApiClient.Contact_lists;
 using Soenneker.Calendly.OpenApiClient.Contacts;
 using Soenneker.Calendly.OpenApiClient.Data_compliance;
 using Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules;
@@ -21,6 +22,7 @@ using Soenneker.Calendly.OpenApiClient.Invitee_no_shows;
 using Soenneker.Calendly.OpenApiClient.Invitees;
 using Soenneker.Calendly.OpenApiClient.Locations;
 using Soenneker.Calendly.OpenApiClient.Meeting_recaps;
+using Soenneker.Calendly.OpenApiClient.Notes;
 using Soenneker.Calendly.OpenApiClient.One_off_event_types;
 using Soenneker.Calendly.OpenApiClient.Organization_memberships;
 using Soenneker.Calendly.OpenApiClient.Organizations;
@@ -65,6 +67,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.Calendar_events.Calendar_eventsRequestBuilder Calendar_events
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Calendar_events.Calendar_eventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The contact_lists property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Contact_lists.Contact_listsRequestBuilder Contact_lists
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Contact_lists.Contact_listsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The contacts property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Contacts.ContactsRequestBuilder Contacts
@@ -130,6 +137,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.Meeting_recaps.Meeting_recapsRequestBuilder Meeting_recaps
         {
             get => new global::Soenneker.Calendly.OpenApiClient.Meeting_recaps.Meeting_recapsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The notes property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.Notes.NotesRequestBuilder Notes
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.Notes.NotesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The one_off_event_types property</summary>
         public global::Soenneker.Calendly.OpenApiClient.One_off_event_types.One_off_event_typesRequestBuilder One_off_event_types
