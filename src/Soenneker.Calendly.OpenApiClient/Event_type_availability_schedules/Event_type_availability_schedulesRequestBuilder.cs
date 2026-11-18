@@ -67,7 +67,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetEventTypeAvailability200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
+        /// Update an event type availability schedule. Set **Custom hours** by sending `timezone` and optionally `rules`. Apply an existing **Named schedule** by sending `user_availability_schedule`.If the Event Type&apos;s `availability_setting` is `all`, Named schedule mode returns 400.In Named schedule mode, `availability_rule.name` and `availability_rule.uri` are the applied schedule&apos;s. In Custom hours mode, `name` is `null`, as today.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailability200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -121,7 +121,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
             return requestInfo;
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
+        /// Update an event type availability schedule. Set **Custom hours** by sending `timezone` and optionally `rules`. Apply an existing **Named schedule** by sending `user_availability_schedule`.If the Event Type&apos;s `availability_setting` is `all`, Named schedule mode returns 400.In Named schedule mode, `availability_rule.name` and `availability_rule.uri` are the applied schedule&apos;s. In Custom hours mode, `name` is `null`, as today.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -169,7 +169,7 @@ namespace Soenneker.Calendly.OpenApiClient.Event_type_availability_schedules
 #endif
         }
         /// <summary>
-        /// Update an event type availability schedule&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
+        /// Update an event type availability schedule. Set **Custom hours** by sending `timezone` and optionally `rules`. Apply an existing **Named schedule** by sending `user_availability_schedule`.If the Event Type&apos;s `availability_setting` is `all`, Named schedule mode returns 400.In Named schedule mode, `availability_rule.name` and `availability_rule.uri` are the applied schedule&apos;s. In Custom hours mode, `name` is `null`, as today.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `availability:write`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Event_type_availability_schedulesRequestBuilderPatchQueryParameters 

@@ -44,6 +44,7 @@ using Soenneker.Calendly.OpenApiClient.Trials;
 using Soenneker.Calendly.OpenApiClient.User_availability_schedules;
 using Soenneker.Calendly.OpenApiClient.User_busy_times;
 using Soenneker.Calendly.OpenApiClient.User_holiday_sets;
+using Soenneker.Calendly.OpenApiClient.User_meeting_limits;
 using Soenneker.Calendly.OpenApiClient.Users;
 using Soenneker.Calendly.OpenApiClient.Webhook_subscriptions;
 using System.Collections.Generic;
@@ -247,6 +248,11 @@ namespace Soenneker.Calendly.OpenApiClient
         public global::Soenneker.Calendly.OpenApiClient.User_holiday_sets.User_holiday_setsRequestBuilder User_holiday_sets
         {
             get => new global::Soenneker.Calendly.OpenApiClient.User_holiday_sets.User_holiday_setsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The user_meeting_limits property</summary>
+        public global::Soenneker.Calendly.OpenApiClient.User_meeting_limits.User_meeting_limitsRequestBuilder User_meeting_limits
+        {
+            get => new global::Soenneker.Calendly.OpenApiClient.User_meeting_limits.User_meeting_limitsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The users property</summary>
         public global::Soenneker.Calendly.OpenApiClient.Users.UsersRequestBuilder Users

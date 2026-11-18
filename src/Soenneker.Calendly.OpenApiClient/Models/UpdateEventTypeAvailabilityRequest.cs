@@ -25,7 +25,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The availability_rule property</summary>
+        /// <summary>Send exactly one mode. On the request, `availability_rule.uri` isdeprecated and ignored. Use `user_availability_schedule` in Namedschedule mode.**Named schedule mode** — Send `user_availability_schedule` andoptionally `user`. Do not send `timezone` or `rules`.**Custom hours mode** — Send `timezone` and optionally `rules`. Donot send `user_availability_schedule`.Send both modes or send neither mode. The API returns 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule? AvailabilityRule { get => _explicitNullValueAvailabilityRule; set { _explicitNullValueAvailabilityRule = value; AdditionalData?.Remove("availability_rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("availability_rule"); else _explicitNullProperties?.Remove("availability_rule"); } }

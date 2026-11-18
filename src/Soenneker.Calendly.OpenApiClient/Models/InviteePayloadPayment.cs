@@ -91,7 +91,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "amount", n => { Amount = n.GetFloatValue(); } },
                 { "currency", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.InviteePayloadPaymentCurrency>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCurrency = default; _explicitNullProperties?.Remove("currency"); AdditionalData["currency"] = unknown; } else { Currency = parsed; AdditionalData.Remove("currency"); } } },

@@ -190,7 +190,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "cancellation", n => { Cancellation = n.GetObjectValue<global::Soenneker.Calendly.OpenApiClient.Models.Cancellation>(global::Soenneker.Calendly.OpenApiClient.Models.Cancellation.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },

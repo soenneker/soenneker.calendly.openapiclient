@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
+    /// <summary>
+    /// Send exactly one mode. On the request, `availability_rule.uri` isdeprecated and ignored. Use `user_availability_schedule` in Namedschedule mode.**Named schedule mode** — Send `user_availability_schedule` andoptionally `user`. Do not send `timezone` or `rules`.**Custom hours mode** — Send `timezone` and optionally `rules`. Donot send `user_availability_schedule`.Send both modes or send neither mode. The API returns 400.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class UpdateEventTypeAvailabilityRequestAvailabilityRule : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -21,13 +22,17 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             else if (parseNode.GetChildNode("rules") is { } nullNodeRules && nullNodeRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rules = null;
             if (parseNode.GetChildNode("timezone") is null) { _explicitNullValueTimezone = default!; _explicitNullProperties?.Remove("timezone"); }
             else if (parseNode.GetChildNode("timezone") is { } nullNodeTimezone && nullNodeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timezone = null;
+            if (parseNode.GetChildNode("uri") is null) { _explicitNullValueUri = default!; _explicitNullProperties?.Remove("uri"); }
+            else if (parseNode.GetChildNode("uri") is { } nullNodeUri && nullNodeUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Uri = null;
             if (parseNode.GetChildNode("user") is null) { _explicitNullValueUser = default!; _explicitNullProperties?.Remove("user"); }
             else if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+            if (parseNode.GetChildNode("user_availability_schedule") is null) { _explicitNullValueUserAvailabilitySchedule = default!; _explicitNullProperties?.Remove("user_availability_schedule"); }
+            else if (parseNode.GetChildNode("user_availability_schedule") is { } nullNodeUserAvailabilitySchedule && nullNodeUserAvailabilitySchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAvailabilitySchedule = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The rules for an availability schedule.&lt;br&gt;  &lt;span style=&quot;color:red&quot;&gt;Warning: &lt;/span&gt;Updating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object.</summary>
+        /// <summary>The rules for an availability schedule. Use in Custom hours mode only. Do not send with `user_availability_schedule`.&lt;br&gt;  &lt;span style=&quot;color:red&quot;&gt;Warning: &lt;/span&gt;Updating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule>? Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; AdditionalData?.Remove("rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
@@ -37,7 +42,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule> Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; AdditionalData?.Remove("rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
         private List<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule> _explicitNullValueRules = default!;
 #endif
-        /// <summary>The timezone for which this Event Type Availability Schedule is originated in.</summary>
+        /// <summary>The timezone for which this Event Type Availability Schedule is originated in. Use this field in Custom hours mode. Do not send `user_availability_schedule` with this field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; AdditionalData?.Remove("timezone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
@@ -47,7 +52,18 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; AdditionalData?.Remove("timezone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
         private string _explicitNullValueTimezone = default!;
 #endif
-        /// <summary>Required when an admin or org owner is making the call to update a specific users availability schedule</summary>
+        /// <summary>Deprecated. Use `user_availability_schedule`. The API ignores this field on the request.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; AdditionalData?.Remove("uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string? _explicitNullValueUri = default!;
+#nullable restore
+#else
+        public string Uri { get => _explicitNullValueUri; set { _explicitNullValueUri = value; AdditionalData?.Remove("uri"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uri"); else _explicitNullProperties?.Remove("uri"); } }
+        private string _explicitNullValueUri = default!;
+#endif
+        /// <summary>Host whose availability is changed. Defaults to the authenticated user. An admin or org owner must send this field when they update a specific host. If you are not an admin or org owner and you send another user, the API returns 403. A user that does not exist returns 404. If an admin or org owner sends a user who is not a host on the Event Type, the API returns 400. If you omit this field and the authenticated user is not a host on the Event Type, the API returns 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
@@ -56,6 +72,16 @@ namespace Soenneker.Calendly.OpenApiClient.Models
 #else
         public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; AdditionalData?.Remove("user"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
         private string _explicitNullValueUser = default!;
+#endif
+        /// <summary>URI of an existing User Availability Schedule to apply to the selected host. Use this field in Named schedule mode only. Do not send `timezone` or `rules` with this field. The schedule is not copied or changed. The schedule must belong to the selected host; otherwise the API returns 404. If the host already uses that schedule, the API returns 200 OK with no change.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserAvailabilitySchedule { get => _explicitNullValueUserAvailabilitySchedule; set { _explicitNullValueUserAvailabilitySchedule = value; AdditionalData?.Remove("user_availability_schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_availability_schedule"); else _explicitNullProperties?.Remove("user_availability_schedule"); } }
+        private string? _explicitNullValueUserAvailabilitySchedule = default!;
+#nullable restore
+#else
+        public string UserAvailabilitySchedule { get => _explicitNullValueUserAvailabilitySchedule; set { _explicitNullValueUserAvailabilitySchedule = value; AdditionalData?.Remove("user_availability_schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_availability_schedule"); else _explicitNullProperties?.Remove("user_availability_schedule"); } }
+        private string _explicitNullValueUserAvailabilitySchedule = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Calendly.OpenApiClient.Models.UpdateEventTypeAvailabilityRequestAvailabilityRule"/> and sets the default values.
@@ -80,11 +106,13 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule>(global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timezone", n => { Timezone = n.GetStringValue(); } },
+                { "uri", n => { Uri = n.GetStringValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
+                { "user_availability_schedule", n => { UserAvailabilitySchedule = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -96,7 +124,9 @@ namespace Soenneker.Calendly.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.AvailabilityRule>("rules", Rules);
             writer.WriteStringValue("timezone", Timezone);
+            writer.WriteStringValue("uri", Uri);
             writer.WriteStringValue("user", User);
+            writer.WriteStringValue("user_availability_schedule", UserAvailabilitySchedule);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

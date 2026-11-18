@@ -75,7 +75,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "collection", n => { Collection = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.Entry>(global::Soenneker.Calendly.OpenApiClient.Models.Entry.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "exceeds_max_total_count", n => { ExceedsMaxTotalCount = n.GetBoolValue(); } },

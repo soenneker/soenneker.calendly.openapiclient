@@ -81,7 +81,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "details", n => { Details = n.GetCollectionOfObjectValues<global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseDetailsItem>(global::Soenneker.Calendly.OpenApiClient.Models.ErrorResponseDetailsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "message", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.PostInviteesAndScopesForbiddenResponseError_message>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMessageEscaped = default; _explicitNullProperties?.Remove("message"); AdditionalData["message"] = unknown; } else { MessageEscaped = parsed; AdditionalData.Remove("message"); } } },

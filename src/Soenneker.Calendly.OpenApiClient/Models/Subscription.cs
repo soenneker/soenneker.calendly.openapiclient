@@ -119,7 +119,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "billing_period", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.SubscriptionBillingPeriod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBillingPeriod = default; _explicitNullProperties?.Remove("billing_period"); AdditionalData["billing_period"] = unknown; } else { BillingPeriod = parsed; AdditionalData.Remove("billing_period"); } } },
                 { "canceled_at", n => { CanceledAt = n.GetDateTimeOffsetValue(); } },

@@ -79,7 +79,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "canceled_by", n => { CanceledBy = n.GetStringValue(); } },
                 { "canceler_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Calendly.OpenApiClient.Models.CancellationCancelerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCancelerType = default; _explicitNullProperties?.Remove("canceler_type"); AdditionalData["canceler_type"] = unknown; } else { CancelerType = parsed; AdditionalData.Remove("canceler_type"); } } },

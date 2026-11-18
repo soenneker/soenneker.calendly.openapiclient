@@ -9156,6 +9156,240 @@
         "x-fern-ignore": true
       }
     },
+    "/user_meeting_limits": {
+      "get": {
+        "tags": [
+          "Availability"
+        ],
+        "summary": "List User Meeting Limits",
+        "description": "Returns a user\u0027s host-level meeting limits (daily, weekly, and monthly caps across all Event Types).\n\nThe collection holds one item for the requested user and is not paginated. A user who has never set a limit gets an item with all three limit fields \u0060null\u0060, not an empty collection or a 404.\n\n\u0060user\u0060 must be the authenticated user. Any other user returns 403, including for an organization admin.\n\nA limit counts every scheduled meeting the user hosts that is not canceled, across all of their Event Types. A meeting counts once, however many invitees it has. Events on connected calendars do not count. Days are measured in the timezone of the Event Type being booked, weeks run Sunday through Saturday, and months are calendar months. Limits are not applied to bookings made on someone else\u0027s behalf, or on Event Types that allow double booking.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060availability:read\u0060\n\u003C/Info\u003E",
+        "operationId": "ListUserMeetingLimits",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/User"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListUserMeetingLimits200Response"
+                },
+                "examples": {
+                  "User meeting limits": {
+                    "value": {
+                      "collection": [
+                        {
+                          "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                          "daily_limit": 4,
+                          "weekly_limit": null,
+                          "monthly_limit": 60
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Availability"
+        ],
+        "summary": "Update User Meeting Limits",
+        "description": "Sets or removes the authenticated user\u0027s host-level meeting limits (daily, weekly, and monthly caps across all Event Types).\n\nSend at least one of \u0060daily_limit\u0060, \u0060weekly_limit\u0060, or \u0060monthly_limit\u0060; a body with none of the three returns 400. Unknown fields are ignored. Omitted fields are left unchanged, and \u0060null\u0060 removes a limit. Each value must be a whole number from 1 to 9999; anything else, including \u00600\u0060, returns 400. Each period is independent, so a weekly limit lower than the daily limit is allowed. Setting the current values succeeds and returns the current state. Event Type limits are not changed.\n\n\u0060user\u0060 must be the authenticated user. Any other user returns 403, including for an organization admin.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060availability:write\u0060\n\u003C/Info\u003E",
+        "operationId": "UpdateUserMeetingLimits",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "query",
+            "description": "URI of the authenticated user whose meeting limits should be changed.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+              "x-client-original-format": "uri"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserMeetingLimitsRequest"
+              },
+              "examples": {
+                "Set the daily limit": {
+                  "value": {
+                    "daily_limit": 4
+                  }
+                },
+                "Remove the weekly limit": {
+                  "value": {
+                    "weekly_limit": null
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserMeetingLimits200Response"
+                },
+                "examples": {
+                  "Set the daily limit": {
+                    "value": {
+                      "resource": {
+                        "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+                        "daily_limit": 4,
+                        "weekly_limit": null,
+                        "monthly_limit": 60
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/INVALID_ARGUMENT"
+          },
+          "401": {
+            "$ref": "#/components/responses/UNAUTHENTICATED"
+          },
+          "403": {
+            "description": "Permission denied or insufficient scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionDeniedAndScopesForbiddenResponseError"
+                },
+                "examples": {
+                  "Caller does not have access": {
+                    "value": {
+                      "title": "Permission Denied",
+                      "message": "You do not have permission to access this resource."
+                    }
+                  },
+                  "Caller has insufficient scope": {
+                    "value": {
+                      "title": "Insufficient scope",
+                      "message": "This operation requires the scopes listed in the \u0027required_scopes\u0027 array.",
+                      "required_scopes": [
+                        "availability:read",
+                        "availability:write",
+                        "event_guests:read",
+                        "event_types:write",
+                        "groups:read",
+                        "organizations:read",
+                        "routing_forms:read",
+                        "scheduled_events:read",
+                        "scheduled_events:write",
+                        "scheduling_links:write",
+                        "shares:write",
+                        "users:read",
+                        "webhooks:read",
+                        "webhooks:write"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NOT_FOUND"
+          },
+          "429": {
+            "$ref": "#/components/responses/RATE_LIMIT_EXCEEDED"
+          },
+          "500": {
+            "$ref": "#/components/responses/UNKNOWN"
+          }
+        },
+        "security": [
+          {
+            "oauth2": []
+          },
+          {
+            "personal_access_token": []
+          }
+        ]
+      }
+    },
     "/teams": {
       "get": {
         "tags": [
@@ -9934,7 +10168,7 @@
           "Availability"
         ],
         "summary": "Update Event Type Availability Schedules",
-        "description": "Update an event type availability schedule\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060availability:write\u0060\n\u003C/Info\u003E",
+        "description": "Update an event type availability schedule. Set **Custom hours** by sending \u0060timezone\u0060 and optionally \u0060rules\u0060. Apply an existing **Named schedule** by sending \u0060user_availability_schedule\u0060.\n\nIf the Event Type\u0027s \u0060availability_setting\u0060 is \u0060all\u0060, Named schedule mode returns 400.\n\nIn Named schedule mode, \u0060availability_rule.name\u0060 and \u0060availability_rule.uri\u0060 are the applied schedule\u0027s. In Custom hours mode, \u0060name\u0060 is \u0060null\u0060, as today.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060availability:write\u0060\n\u003C/Info\u003E",
         "operationId": "UpdateEventTypeAvailability",
         "parameters": [
           {
@@ -9956,6 +10190,14 @@
                 "$ref": "#/components/schemas/UpdateEventTypeAvailabilityRequest"
               },
               "examples": {
+                "Applying a Named schedule": {
+                  "value": {
+                    "availability_rule": {
+                      "user_availability_schedule": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+                      "user": "https://api.calendly.com/users/CCCCCCCCCCCCCCCC"
+                    }
+                  }
+                },
                 "Updating Timezone": {
                   "value": {
                     "availability_rule": {
@@ -10105,7 +10347,7 @@
                         "availability_setting": "host",
                         "availability_rule": {
                           "timezone": "America/Chicago",
-                          "name": "Working Hours",
+                          "name": null,
                           "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
                           "rules": [
                             {
@@ -10130,7 +10372,7 @@
                         "availability_setting": "host",
                         "availability_rule": {
                           "timezone": "America/New_York",
-                          "name": "Working Hours",
+                          "name": null,
                           "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
                           "rules": [
                             {
@@ -10155,7 +10397,7 @@
                         "availability_setting": "host",
                         "availability_rule": {
                           "timezone": "America/New_York",
-                          "name": "Working Hours",
+                          "name": null,
                           "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
                           "rules": [
                             {
@@ -10240,7 +10482,7 @@
                         "availability_setting": "host",
                         "availability_rule": {
                           "timezone": "America/New_York",
-                          "name": "Working Hours",
+                          "name": null,
                           "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
                           "user": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
                           "rules": [
@@ -10254,6 +10496,32 @@
                               ],
                               "wday": "sunday",
                               "date": "2022-12-31"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "Applying a Named schedule": {
+                    "value": {
+                      "resource": {
+                        "event_type": "https://api.calendly.com/event_types/AAAAAAAAAAAAAAAA",
+                        "availability_setting": "host",
+                        "availability_rule": {
+                          "timezone": "America/New_York",
+                          "name": "Working Hours",
+                          "uri": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+                          "user": "https://api.calendly.com/users/CCCCCCCCCCCCCCCC",
+                          "rules": [
+                            {
+                              "type": "wday",
+                              "intervals": [
+                                {
+                                  "from": "08:30",
+                                  "to": "17:00"
+                                }
+                              ],
+                              "wday": "monday"
                             }
                           ]
                         }
@@ -16917,6 +17185,43 @@
           "wday": "sunday"
         }
       },
+      "UserMeetingLimits": {
+        "title": "UserMeetingLimits",
+        "required": [
+          "user",
+          "daily_limit",
+          "weekly_limit",
+          "monthly_limit"
+        ],
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "URI of the user these limits belong to.",
+            "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
+            "x-client-original-format": "uri"
+          },
+          "daily_limit": {
+            "type": "integer",
+            "description": "Most meetings the user can be booked into in a day, across all of their Event Types. \u0060null\u0060 when no daily limit is set. A set value is a whole number from 1 to 9999.",
+            "nullable": true,
+            "example": 4
+          },
+          "weekly_limit": {
+            "type": "integer",
+            "description": "Most meetings the user can be booked into in a week, across all of their Event Types. \u0060null\u0060 when no weekly limit is set. A set value is a whole number from 1 to 9999.",
+            "nullable": true
+          },
+          "monthly_limit": {
+            "type": "integer",
+            "description": "Most meetings the user can be booked into in a month, across all of their Event Types. \u0060null\u0060 when no monthly limit is set. A set value is a whole number from 1 to 9999.",
+            "nullable": true,
+            "example": 60
+          }
+        },
+        "additionalProperties": false,
+        "description": "Host-level meeting limits for a user across all of their Event Types."
+      },
       "UserHolidaySet": {
         "title": "UserHolidaySet",
         "required": [
@@ -22730,6 +23035,33 @@
           }
         }
       },
+      "UpdateUserMeetingLimitsRequest": {
+        "minProperties": 1,
+        "type": "object",
+        "properties": {
+          "daily_limit": {
+            "maximum": 9999,
+            "minimum": 1,
+            "type": "integer",
+            "description": "New daily limit, a whole number from 1 to 9999. \u0060null\u0060 removes the daily limit. Omit to leave it unchanged.",
+            "nullable": true
+          },
+          "weekly_limit": {
+            "maximum": 9999,
+            "minimum": 1,
+            "type": "integer",
+            "description": "New weekly limit, a whole number from 1 to 9999. \u0060null\u0060 removes the weekly limit. Omit to leave it unchanged.",
+            "nullable": true
+          },
+          "monthly_limit": {
+            "maximum": 9999,
+            "minimum": 1,
+            "type": "integer",
+            "description": "New monthly limit, a whole number from 1 to 9999. \u0060null\u0060 removes the monthly limit. Omit to leave it unchanged.",
+            "nullable": true
+          }
+        }
+      },
       "ListTeams200Response": {
         "required": [
           "collection",
@@ -23445,6 +23777,31 @@
             "items": {
               "$ref": "#/components/schemas/Holiday"
             }
+          }
+        }
+      },
+      "ListUserMeetingLimits200Response": {
+        "required": [
+          "collection"
+        ],
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserMeetingLimits"
+            }
+          }
+        }
+      },
+      "UpdateUserMeetingLimits200Response": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/UserMeetingLimits"
           }
         }
       },
@@ -24271,29 +24628,40 @@
         }
       },
       "UpdateEventTypeAvailabilityRequestAvailabilityRule": {
-        "required": [
-          "timezone"
-        ],
         "type": "object",
         "properties": {
+          "user_availability_schedule": {
+            "type": "string",
+            "description": "URI of an existing User Availability Schedule to apply to the selected host. Use this field in Named schedule mode only. Do not send \u0060timezone\u0060 or \u0060rules\u0060 with this field. The schedule is not copied or changed. The schedule must belong to the selected host; otherwise the API returns 404. If the host already uses that schedule, the API returns 200 OK with no change.",
+            "example": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+            "x-client-original-format": "uri"
+          },
           "timezone": {
             "type": "string",
-            "description": "The timezone for which this Event Type Availability Schedule is originated in."
+            "description": "The timezone for which this Event Type Availability Schedule is originated in. Use this field in Custom hours mode. Do not send \u0060user_availability_schedule\u0060 with this field."
+          },
+          "uri": {
+            "type": "string",
+            "description": "Deprecated. Use \u0060user_availability_schedule\u0060. The API ignores this field on the request.",
+            "example": "https://api.calendly.com/user_availability_schedules/AAAAAAAAAAAAAAAA",
+            "deprecated": true,
+            "x-client-original-format": "uri"
           },
           "rules": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AvailabilityRule"
             },
-            "description": "The rules for an availability schedule.\u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object."
+            "description": "The rules for an availability schedule. Use in Custom hours mode only. Do not send with \u0060user_availability_schedule\u0060.\u003Cbr\u003E  \u003Cspan style=\u0022color:red\u0022\u003EWarning: \u003C/span\u003EUpdating rules will overwrite all existing rules for the event type. Use the GET endpoint to first retrieve the existing rules and then pass the modified rules to the rules object."
           },
           "user": {
             "type": "string",
-            "description": "Required when an admin or org owner is making the call to update a specific users availability schedule",
+            "description": "Host whose availability is changed. Defaults to the authenticated user. An admin or org owner must send this field when they update a specific host. If you are not an admin or org owner and you send another user, the API returns 403. A user that does not exist returns 404. If an admin or org owner sends a user who is not a host on the Event Type, the API returns 400. If you omit this field and the authenticated user is not a host on the Event Type, the API returns 400.",
             "example": "https://api.calendly.com/users/AAAAAAAAAAAAAAAA",
             "x-client-original-format": "uri"
           }
-        }
+        },
+        "description": "Send exactly one mode. On the request, \u0060availability_rule.uri\u0060 is\ndeprecated and ignored. Use \u0060user_availability_schedule\u0060 in Named\nschedule mode.\n\n**Named schedule mode** \u2014 Send \u0060user_availability_schedule\u0060 and\noptionally \u0060user\u0060. Do not send \u0060timezone\u0060 or \u0060rules\u0060.\n\n**Custom hours mode** \u2014 Send \u0060timezone\u0060 and optionally \u0060rules\u0060. Do\nnot send \u0060user_availability_schedule\u0060.\n\nSend both modes or send neither mode. The API returns 400."
       },
       "CreateContactRequestCustomFieldsItem": {
         "required": [
@@ -27333,6 +27701,7 @@
           "Invalid Argument"
         ],
         "type": "string",
+        "x-fern-type-name": "InvalidArgumentErrorTitle",
         "x-ms-enum": {
           "name": "InvalidArgumentTitle",
           "modelAsString": false,
@@ -27349,6 +27718,7 @@
           "The supplied parameters are invalid."
         ],
         "type": "string",
+        "x-fern-type-name": "InvalidArgumentErrorMessage",
         "x-ms-enum": {
           "name": "TheSuppliedParametersAreInvalidMessage",
           "modelAsString": false,
@@ -27364,7 +27734,8 @@
         "enum": [
           "Unauthenticated"
         ],
-        "type": "string"
+        "type": "string",
+        "x-fern-type-name": "UnauthenticatedErrorTitle"
       },
       "UnauthenticatedResponseMessage": {
         "enum": [
@@ -27373,6 +27744,7 @@
           "The access token was revoked"
         ],
         "type": "string",
+        "x-fern-type-name": "UnauthenticatedErrorMessage",
         "x-ms-enum": {
           "name": "UnauthenticatedResponseMessage",
           "modelAsString": false,
@@ -27398,6 +27770,7 @@
           "You do not have permission"
         ],
         "type": "string",
+        "x-fern-type-name": "PermissionDeniedErrorMessage",
         "x-ms-enum": {
           "name": "PermissionDeniedResponseMessage",
           "modelAsString": false,
@@ -27418,6 +27791,7 @@
           "Resource Not Found"
         ],
         "type": "string",
+        "x-fern-type-name": "ResourceNotFoundErrorTitle",
         "x-ms-enum": {
           "name": "ResourceNotFoundTitle",
           "modelAsString": false,
@@ -27434,6 +27808,7 @@
           "The server could not find the requested resource."
         ],
         "type": "string",
+        "x-fern-type-name": "ResourceNotFoundErrorMessage",
         "x-ms-enum": {
           "name": "TheServerCouldNotFindTheRequestedResourceMessage",
           "modelAsString": false,
@@ -27450,6 +27825,7 @@
           "Too Many Requests"
         ],
         "type": "string",
+        "x-fern-type-name": "RateLimitExceededErrorTitle",
         "x-ms-enum": {
           "name": "TooManyRequestsTitle",
           "modelAsString": false,
@@ -27466,6 +27842,7 @@
           "Rate limit exceeded. Please retry after some time."
         ],
         "type": "string",
+        "x-fern-type-name": "RateLimitExceededErrorMessage",
         "x-ms-enum": {
           "name": "RateLimitExceededPleaseRetryAfterSomeTimeMessage",
           "modelAsString": false,
@@ -27482,6 +27859,7 @@
           "Internal Server Error"
         ],
         "type": "string",
+        "x-fern-type-name": "UnknownErrorTitle",
         "x-ms-enum": {
           "name": "InternalServerErrorTitle",
           "modelAsString": false,
@@ -27498,6 +27876,7 @@
           "The server encountered an unexpected condition that prevented it from fulfilling the request."
         ],
         "type": "string",
+        "x-fern-type-name": "UnknownErrorMessage",
         "x-ms-enum": {
           "name": "TheServerEncounteredAnUnexpectedConditionThatPreventedItFromFulfillingTheRequestMessage",
           "modelAsString": false,
@@ -27514,6 +27893,7 @@
           "Already Exists"
         ],
         "type": "string",
+        "x-fern-type-name": "AlreadyExistsErrorTitle",
         "x-ms-enum": {
           "name": "AlreadyExistsTitle",
           "modelAsString": false,
@@ -27530,6 +27910,7 @@
           "The resource already exists"
         ],
         "type": "string",
+        "x-fern-type-name": "AlreadyExistsErrorMessage",
         "x-ms-enum": {
           "name": "TheResourceAlreadyExistsMessage",
           "modelAsString": false,
@@ -33438,6 +33819,7 @@
         "The access token was revoked"
       ],
       "type": "string",
+      "x-fern-type-name": "UnauthenticatedErrorMessage",
       "x-ms-enum": {
         "name": "UnauthenticatedResponseAllOf2Message",
         "modelAsString": false,
@@ -33463,6 +33845,7 @@
         "You do not have permission"
       ],
       "type": "string",
+      "x-fern-type-name": "PermissionDeniedErrorMessage",
       "x-ms-enum": {
         "name": "PermissionDeniedResponseAllOf2Message",
         "modelAsString": false,
