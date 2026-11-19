@@ -94,7 +94,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public string CancelUrl { get => _explicitNullValueCancelUrl; set { _explicitNullValueCancelUrl = value; AdditionalData?.Remove("cancel_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel_url"); else _explicitNullProperties?.Remove("cancel_url"); } }
         private string _explicitNullValueCancelUrl = default!;
 #endif
-        /// <summary>The moment when the event was created (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
+        /// <summary>The moment when the invitee was created (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The invitee’s email address</summary>
@@ -286,7 +286,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         public global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking Tracking { get => _explicitNullValueTracking; set { _explicitNullValueTracking = value; AdditionalData?.Remove("tracking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tracking"); else _explicitNullProperties?.Remove("tracking"); } }
         private global::Soenneker.Calendly.OpenApiClient.Models.InviteeTracking _explicitNullValueTracking = default!;
 #endif
-        /// <summary>The moment when the event was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
+        /// <summary>The moment when the invitee was last updated (e.g. &quot;2020-01-02T03:04:05.678123Z&quot;)</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>Canonical reference (unique identifier) for the invitee</summary>

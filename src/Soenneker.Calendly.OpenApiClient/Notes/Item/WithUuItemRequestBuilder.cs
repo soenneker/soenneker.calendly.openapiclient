@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Notes.Item
         {
         }
         /// <summary>
-        /// Returns one note that the authenticated user owns. The note has the same fields as in List Notes and Create Note.If the note does not exist, or another user owns it, the request returns 404. The response does not show if the note exists.**Note:** Requires the Contacts API on your plan.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns one note that the authenticated user owns. The note has the same fields as in List Notes and Create Note.If the note does not exist, or another user owns it, the request returns 404. The response does not show if the note exists.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetNote200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Calendly.OpenApiClient.Notes.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetNote200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetNote200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns one note that the authenticated user owns. The note has the same fields as in List Notes and Create Note.If the note does not exist, or another user owns it, the request returns 404. The response does not show if the note exists.**Note:** Requires the Contacts API on your plan.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
+        /// Returns one note that the authenticated user owns. The note has the same fields as in List Notes and Create Note.If the note does not exist, or another user owns it, the request returns 404. The response does not show if the note exists.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

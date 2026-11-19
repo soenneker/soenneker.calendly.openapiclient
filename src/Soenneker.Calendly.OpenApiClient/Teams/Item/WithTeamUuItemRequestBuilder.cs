@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Teams.Item
         {
         }
         /// <summary>
-        /// Returns a single Team.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// Returns a single Team.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.GetTeam200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace Soenneker.Calendly.OpenApiClient.Teams.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.GetTeam200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.GetTeam200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a single Team.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// Returns a single Team.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

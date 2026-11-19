@@ -47,7 +47,7 @@ namespace Soenneker.Calendly.OpenApiClient.Teams
         {
         }
         /// <summary>
-        /// Returns a paginated list of Teams matching the requested user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// Returns a paginated list of Teams matching the requested user.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Calendly.OpenApiClient.Models.ListTeams200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.Calendly.OpenApiClient.Teams
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.ListTeams200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.ListTeams200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of Teams matching the requested user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// Returns a paginated list of Teams matching the requested user.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Calendly.OpenApiClient.Teams
             return new global::Soenneker.Calendly.OpenApiClient.Teams.TeamsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a paginated list of Teams matching the requested user.&lt;!-- theme: info --&gt;  &gt; #### Required scopes: `organizations:read`
+        /// Returns a paginated list of Teams matching the requested user.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `organizations:read`&lt;/Info&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TeamsRequestBuilderGetQueryParameters 

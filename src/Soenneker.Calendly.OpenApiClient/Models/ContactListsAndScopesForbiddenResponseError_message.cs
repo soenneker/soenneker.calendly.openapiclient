@@ -8,10 +8,6 @@ namespace Soenneker.Calendly.OpenApiClient.Models
     public enum ContactListsAndScopesForbiddenResponseError_message
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "Please upgrade to a paid Calendly account.")]
-        #pragma warning disable CS1591
-        PleaseUpgradeToAPaidCalendlyAccount,
-        #pragma warning restore CS1591
         [EnumMember(Value = "You do not have permission to access this resource.")]
         #pragma warning disable CS1591
         YouDoNotHavePermissionToAccessThisResource,

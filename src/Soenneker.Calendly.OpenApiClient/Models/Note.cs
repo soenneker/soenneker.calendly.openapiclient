@@ -51,7 +51,7 @@ namespace Soenneker.Calendly.OpenApiClient.Models
         /// <summary>When the reminder was completed. `null` if the reminder is not complete or the note has no reminder.</summary>
         public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed_at"); else _explicitNullProperties?.Remove("completed_at"); } }
         private DateTimeOffset? _explicitNullValueCompletedAt = default!;
-        /// <summary>The URI of the contact that the note is about. Never `null` when you filter by `contact`. `null` only for a note that has no contact.</summary>
+        /// <summary>The URI of the contact that the note is about. `null` only for a note that has no contact. List Notes returns these notes only when you do not send `contact`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Contact { get => _explicitNullValueContact; set { _explicitNullValueContact = value; AdditionalData?.Remove("contact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contact"); else _explicitNullProperties?.Remove("contact"); } }

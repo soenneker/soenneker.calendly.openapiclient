@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Calendly.OpenApiClient.Models
 {
     /// <summary>
-    /// The conference metadata supplied by GoToMeeting
+    /// The conference metadata supplied by WebEx
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebExConferenceData : IAdditionalDataHolder, IParsable
