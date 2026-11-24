@@ -12490,7 +12490,7 @@
           "Contacts"
         ],
         "summary": "Delete Contact",
-        "description": "Delete an existing Contact\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
+        "description": "Deletes a Contact.\n\nA user can delete a maximum of 20 Contacts each minute. This limit counts all Contact deletes for the user, from the API and from the Calendly app. If you exceed the limit, the response is \u0060429\u0060. The response can include a \u0060Retry-After\u0060 header with the number of seconds to wait.\n\n\u003CInfo title=\u0022Required scopes\u0022\u003E\n\u003E \u0060contacts:write\u0060\n\u003C/Info\u003E",
         "operationId": "DeleteContactsUuid",
         "responses": {
           "204": {

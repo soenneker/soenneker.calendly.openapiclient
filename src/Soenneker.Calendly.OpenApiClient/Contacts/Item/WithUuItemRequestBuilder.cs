@@ -34,7 +34,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
         {
         }
         /// <summary>
-        /// Delete an existing Contact&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
+        /// Deletes a Contact.A user can delete a maximum of 20 Contacts each minute. This limit counts all Contact deletes for the user, from the API and from the Calendly app. If you exceed the limit, the response is `429`. The response can include a `Retry-After` header with the number of seconds to wait.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace Soenneker.Calendly.OpenApiClient.Contacts.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response>(requestInfo, global::Soenneker.Calendly.OpenApiClient.Models.PatchContactsUuid200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete an existing Contact&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
+        /// Deletes a Contact.A user can delete a maximum of 20 Contacts each minute. This limit counts all Contact deletes for the user, from the API and from the Calendly app. If you exceed the limit, the response is `429`. The response can include a `Retry-After` header with the number of seconds to wait.&lt;Info title=&quot;Required scopes&quot;&gt;&gt; `contacts:write`&lt;/Info&gt;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
